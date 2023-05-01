@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Cyclotomic Fields | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Cyclotomic Fields</h2>
+        
+        <section class="post-content">
+            <ul>
+<li><p>Fermat's Little Theorem</p></li>
+<li><p>Wilson's Theorem</p></li>
+<li><p>Fermat's theorem on sums of two squares</p></li>
+</ul>
+<h2 id="gaussian-integers">Gaussian integers</h2>
+<p>Let the ring of gaussian integers be</p>
+<p><span class="math display">\[\mathbb{Z}[i]=\left\{a+bi|\  a,b \in
+\mathbb{Z}\right\}, i= \sqrt{-1}.\]</span></p>
+<p>which is a <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unique_factorization_domain">UFD</a></p>
+<h2 id="theorem-1">Theorem 1</h2>
+<p>The prime elements <span class="math inline">\(\pi\)</span> of <span
+class="math inline">\(\mathbb{Z}[i]\)</span>, up to associated elements,
+are given as follows. 1. <span class="math inline">\(\pi = 1
++i\)</span>, 2. <span class="math inline">\(\pi=a+b i\)</span> with
+<span class="math inline">\(a^{2} + b^{2} = p, p \equiv 1 \pmod 4,
+a&gt;|b| &gt;0\)</span> 3. <span class="math inline">\(\pi =p\)</span>,
+<span class="math inline">\(p=3 \pmod 4\)</span>. Here, <span
+class="math inline">\(p\)</span> denotes a prime number of <span
+class="math inline">\(\mathbb{Z}\)</span></p>
+<h2 id="proof">Proof</h2>
+<ol type="1">
+<li><p>Numbers as in (1) or (2) are prime because a decomposition <span
+class="math inline">\(\pi = \alpha \cdot \beta\)</span> in <span
+class="math inline">\(\mathbb{Z}[i]\)</span> implies an equation <span
+class="math display">\[p = N(\pi) = N(\alpha) N(\beta)\]</span>, with
+some prime number <span class="math inline">\(p\)</span>. Hence either
+<span class="math inline">\(N(\alpha) = 1\)</span> or <span
+class="math inline">\(N(\beta) = 1\)</span>, so that either <span
+class="math inline">\(\alpha\)</span> or <span
+class="math inline">\(\beta\)</span> is a unit.</p></li>
+<li><p>Numbers <span class="math inline">\(\pi = p\)</span>, where <span
+class="math inline">\(p \equiv 3 \pmod 4\)</span>, are prime in <span
+class="math inline">\(\mathbb{Z} [i]\)</span>, because a decomposition
+<span class="math inline">\(p = \alpha \cdot \beta\)</span> into
+non-units <span class="math inline">\(\alpha\)</span>, <span
+class="math inline">\(\beta\)</span> would imply that <span
+class="math inline">\(p^{2} = N(\alpha) N(\beta)\)</span>, so that <span
+class="math inline">\(p = N(\alpha) = N(a + bi) = a^{2} +
+b^{2}\)</span>. By <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wilson%27s_theorem">Wilson's
+theorem</a>, for all prime numbers <span class="math inline">\(p \neq
+2\)</span>. <span class="math display">\[\begin{equation}
+p=a^{2}+b^{2} \quad (a,b \in \mathbb{Z}) \Longleftrightarrow p \equiv 1
+\pmod 4
+\end{equation}\]</span> which according to the above Fermat's theorem on
+sums of two squares would yield <span class="math inline">\(p = 1 \pmod
+4\)</span>.</p></li>
+<li><p>This being said, we have to check that an arbitrary prime element
+rr of <span class="math inline">\(\mathbb{Z}[i]\)</span> is associated
+to one of those listed. First of all, the decomposition <span
+class="math display">\[N(\pi) = \pi \cdot \bar{\pi} = p_{1} \cdots
+p_{r}\]</span> with rational primes <span
+class="math inline">\(p_{i}\)</span>, shows that <span
+class="math inline">\(\pi | p\)</span> for some <span
+class="math inline">\(p = p_{i}\)</span> This gives <span
+class="math inline">\(N(\pi) | N(p) = p^{2}\)</span>, so that either
+<span class="math inline">\(N(\pi) = p\)</span> or <span
+class="math inline">\(N\pi = p^{2}\)</span>. In the case <span
+class="math inline">\(N(\pi) = p\)</span> we get <span
+class="math inline">\(\pi = a + bi\)</span> with <span
+class="math inline">\(a^{2} + b^{2} = p\)</span>, so <span
+class="math inline">\(\pi\)</span> is of type (2) or, if <span
+class="math inline">\(p = 2\)</span>, it is associated to <span
+class="math inline">\(1 + i\)</span>. On the other hand, if <span
+class="math inline">\(N(\pi) = p^{2}\)</span>, then <span
+class="math inline">\(\pi\)</span> is associated to <span
+class="math inline">\(p\)</span> since <span
+class="math inline">\(p/\pi\)</span> is an integer with norm one and
+thus a unit. Moreover, <span class="math inline">\(p = 3 \pmod
+4\)</span> has to hold in this case because otherwise we would have
+<span class="math inline">\(p = 2\)</span> or <span
+class="math inline">\(p = 1 \pmod 4\)</span> and because of (1) <span
+class="math inline">\(p = a^{2} + b^{2} = (a + bi) (a - bi)\)</span>
+could not be prime. This completes the proof. <span
+class="math inline">\(\square\)</span></p></li>
+</ol>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

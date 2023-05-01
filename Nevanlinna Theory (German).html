@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Nevanlinna Theory (I) | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Nevanlinna Theory (I)</h2>
+        
+        <section class="post-content">
+            <h1 id="elnleitung.">Elnleitung.</h1>
+<p>Mittels der Poisson-Jensenschen und der spezielleren Jensenschen
+Formel kann man nun den nachstehenden Satz beweisen, den wir wegen der
+grundlegenden Bedeutang desselben flit die ganze Theorie den ersten
+Hauptsatz nennen:</p>
+<p>Zu jeder meromorphen Funktion <span
+class="math inline">\(f(x)\)</span> geh"ort eine reelle Funktion <span
+class="math inline">\(T(r)\)</span> von folgenden Eigenschaften :</p>
+<ol type="1">
+<li><p><span class="math inline">\(T(r)\)</span> ist eine wachsende
+Funktion von <span class="math inline">\(r\)</span> and eine konvexe
+Funktion von <span class="math inline">\(\log r\)</span>.</p></li>
+<li><p>Wenn <span class="math inline">\(z\)</span> eine beliebige van
+<span class="math inline">\(x\)</span> unabMingige, endliche oder
+unendliche komplexe Zahl bezeichnet, so ist <span
+class="math display">\[m(r;z) + N(r;z) = T(r) + O(1).\]</span> Die auf
+der linken Seite der Beziehung (I) stehenden zwei Glieder sind
+nichtnegativ. Das erste Glied <span
+class="math inline">\(m(r;z)\)</span> ist der Mittelwert der Gr"oße
+<span class="math inline">\(\log^{+} \left|
+\frac{1}{f-z}\right|\)</span> auf dem Kreis <span
+class="math inline">\(|x| = r\)</span> und erh"alt also wesentliche
+Boitr"aige von denjenigen Bogen dieses Kreises, auf denen der
+Funktionenwert <span class="math inline">\(f\)</span> nahe an dem Wert
+<span class="math inline">\(z\)</span> liegt ; man k"onnte daher sagen,
+daß <span class="math inline">\(m(r;z)\)</span> ein blaß f"ur die
+St"arke der mittleren Hfinvergenz der Funktion <span
+class="math inline">\(f(x)\)</span> gegen den Wert <span
+class="math inline">\(z\)</span> f"ur <span class="math inline">\(r \to
+\infty\)</span> angibt. Das zweite Glied <span
+class="math inline">\(N(r;z)\)</span> bestimmt wiederum, wie dicht
+diejenigen Punkte liegen, in denen die Funktion den betreffenden Wert
+<span class="math inline">\(z\)</span> tats"achlich annimmt. Die Summe
+in <span class="math inline">\(m(r;z) + N(r; z)\)</span> k"onnte man
+deshalb als die "z-Komponente" in der Variation der meromorpben Funktion
+f"ur <span class="math inline">\(|x| \to \infty\)</span> on bezeichnen:
+sie charakterisiert sozusagen die St"arke der Affinit"at, welche die
+Fnnktion zn dem komplexen Wert <span class="math inline">\(z\)</span>
+besitzt. Der erste Haoptsatz dr"uckt nnn ana, daß s"amtliche
+z-Komponenten einer meromorphen Funktion gleich stark sind; je zwei von
+ihnen halten einander f"ur <span class="math inline">\(r \to
+\infty\)</span> im Gleichgewicht, derart daß ihre Differenz f"ur jedes
+<span class="math inline">\(r\)</span> beschr"ankt ist. Diese schon an
+sich bemerkenswerte Symmetrieeigenschaft der meromorphen Funktionen iat
+f"ur die ganze Theorie von fondamentaler Wichtigkeit.</p></li>
+</ol>
+<p>使用 Poisson-Jensen 公式和更具体的 Jensen 公式
+现在可以证明以下定理，我们称之为第一定律，因为它对整个理论具有根本重要性：</p>
+<p>每个亚纯函数 <span class="math inline">\(f(x)\)</span>
+都有一个具有以下属性的实函数 <span
+class="math inline">\(T(r)\)</span>：</p>
+<ol type="1">
+<li><p><span class="math inline">\(T(r)\)</span>是<span
+class="math inline">\(r\)</span>的增函数和<span
+class="math inline">\(\log r\)</span>的凸函数。</p></li>
+<li><p>如果 <span class="math inline">\(z\)</span> 表示独立于 <span
+class="math inline">\(x\)</span> 的任何复数，有限或无限，则 <span
+class="math display">\[m(r;z) + N(r;z) = T(r) + O(1).\]</span> 关系 (I)
+左边的两项是 非负的。 第一项 <span class="math inline">\(m(r;z)\)</span>
+是圆 $|x| = r $ 上的数量 <span class="math inline">\(\log^{+} \left|
+\frac{1}{f-z}\right|\)</span>
+的平均值，并且因此，从该圆的那些弧上接收到显着的
+Boitraige，在这些弧上函数值 <span class="math inline">\(f\)</span>
+接近值 <span class="math inline">\(z\)</span>；因此可以说 <span
+class="math inline">\(m(r;z)\)</span> 苍白表示平均同向度的强度函数 <span
+class="math inline">\(f(x)\)</span> 对值 <span
+class="math inline">\(z\)</span> 的 <span class="math inline">\(r \to
+\infty\)</span>。第二项 <span class="math inline">\(N(r; z)\)</span>
+反过来决定了这些点与函数实际假定相关值的距离有多近<span
+class="math inline">\(z\)</span>。 因此，<span
+class="math inline">\(m(r;z) + N(r;z)\)</span> 中的和可以称为 <span
+class="math inline">\(|x| 的亚纯函数变体中的“z 分量” \to 表示
+\infty\)</span> on：可以说，它表征了函数对复值 <span
+class="math inline">\(z\)</span> 的亲和力强度。
+第一个前提声明亚纯函数的所有 z 分量都同样强； 他们中的任何两个在 <span
+class="math inline">\(r \to \infty\)</span>
+中保持彼此平衡，使得它们对每个 <span class="math inline">\(r\)</span>
+的差异是有界的。亚纯函数的这种已经显着的对称性在
+f“只有整个理论根本的重要性。</p></li>
+</ol>
+<p>Dieaer zweite Hauplsatz, wie wir ihn nennen, mann in folgender Weise
+ausgesprochen werden: Es seien <span class="math inline">\(f(x)\)</span>
+eine beliebige meromoryhe Futiklion, <span
+class="math inline">\(T(r)\)</span> lie eu ihr geh"orige
+Fundamentalgr"oße und <span class="math inline">\(a, b, c\)</span> drei
+non eitiander zerschiedene, endliche oder unendliche komplexe Sahlen.
+Dann besteht die Angleichung <span class="math display">\[T (r) &lt;
+N(r;a) + N(r; b) + N(r; c) - N_{1}(r) - S(r), \tag{II}\]</span> wo die
+Glieder <span class="math inline">\(N_{1}\)</span> und <span
+class="math inline">\(S\)</span> folgende Bedeiiftoiy haben : 1. <span
+class="math inline">\(N_{1}(r)\)</span> wird durch die multiplen Stellen
+der Funktion gebildet nach folgender Vorschrift:</p>
+<p>ldan bilde die Anzahl <span class="math inline">\(n_{1}(r)\)</span>
+der mehrachen Stellen von <span class="math inline">\(f(x)\)</span> in
+dem Abreise <span class="math inline">\(|x|&lt;r\)</span> in der Weise,
+daß eine m-fache Stelle nur (<span class="math inline">\(m -
+1\)</span>)-mal gez"ahlt wird; dann ist <span
+class="math display">\[N_{1}(r) = \int_{0}^{r} \frac{n_{1}(t)}{t}
+dt.\]</span></p>
+<ol start="2" type="1">
+<li>Das Restglied <span class="math inline">\(S(f)\)</span> gen"ugt der
+Ungleichung <span class="math display">\[S(r) &lt; O\left(\log
+T(r)\right)\]</span> außer m"oglicherweise, im Falle einer Funktion von
+unendliclier Ordnung, fur eine WerJmenge <span
+class="math inline">\(r\)</span> von endlichem Gesamtmaß.</li>
+</ol>
+<p>我们所说的第二定律可以这样说： 设 <span
+class="math inline">\(f(x)\)</span> 为任意记忆函数，<span
+class="math inline">\(T(r)\)</span> 设属于它的基本量，<span
+class="math inline">\(a、b、c\)</span> 为三个非独立的有限或无限复数。
+然后是对齐 <span class="math display">\[T (r) &lt; N(r;a) + N(r; b) +
+N(r; c) - N_{1}(r) - S(r), \tag{II}\]</span> 其中元素 <span
+class="math inline">\(N_{1}\)</span> 和 <span
+class="math inline">\(S\)</span> 具有以下含义： 1. <span
+class="math inline">\(N_{1}(r)\)</span>由函数的多位数字按照以下规则组成：</p>
+<p>然后在出发点<span class="math inline">\(|x| &lt;
+r\)</span>中形成<span class="math inline">\(f(x)\)</span>的多位数字<span
+class="math inline">\(n_{1}(r)\)</span>，使得第m个数字只有$m - 1 $ )
+次被计算；然后 <span class="math display">\[N_{1}(r) = \int_{0}^{r}
+\frac{n_{1}(t)}{t} dt.\]</span></p>
+<p>2.余数<span class="math inline">\(S(f)\)</span>满足不等式 <span
+class="math display">\[S(r) &lt; O\left(\log T(r)\right)\]</span>
+除非可能，在无限阶函数的情况下，对于有限总测度的值 <span
+class="math inline">\(r\)</span>。</p>
+<p>Es sei <span class="math inline">\(f(x)\)</span> eine in der
+endlichen Ebene meromorphe Funktion. Bezeichnen <span
+class="math inline">\(z_{1}, z_{2}, \cdots, z_{q}\)</span> untereinander
+verschiedene, endliche oder unendliehe Zahlen, so ist</p>
+<p><span class="math display">\[(q-2) T(r) &lt;  \sum_{\nu =1}^{q}
+N(r;z_{\nu})- N_{1}(r) + S(r)  \tag{III}\]</span></p>
+<p>wo <span class="math inline">\(N_{1}(r)\)</span> in derselben Weise,
+wie in dent zweiten Hauptsatz (S.63), mittels der mehrfachen Stellen von
+<span class="math inline">\(f(x)\)</span> gebildet wird, und das
+Restglied <span class="math inline">\(S(r)\)</span> ebenfalls den in
+diesem Satze angegebenen Bedingungeu gen"ugt.</p>
+<p>设 <span class="math inline">\(f(x)\)</span>
+是有限平面中的亚纯函数。如果 <span class="math inline">\(z_{1}, z_{2},
+\cdots, z_{q}\)</span> 表示不同的有限或无限数，则</p>
+<p><span class="math display">\[(q-2) T(r) &lt;  \sum_{\nu =1}^{q}
+N(r;z_{\nu})- N_{1}(r) + S(r)  \tag{III}\]</span></p>
+<p>其中 <span class="math inline">\(N_{1}(r)\)</span> 与第二定律 (p.63)
+相同的方式通过 <span class="math inline">\(f(x)\)</span>
+的多个位置形成，余数 <span class="math inline">\(S(r)\)</span>
+也满足该定理中给出的条件</p>
+<p>In der Ungleichung (III) ist die speziellere</p>
+<p><span class="math display">\[(q-2) T(r) &lt;  \sum_{\nu =1}^{q}
+\bar{N}(r;z_{\nu}) + S(r)  \tag{III$^{\prime}$}\]</span></p>
+<p>enthalten, wo die Bezeichnung N(t) die auf S.63 angegebene Bedeutung
+hat</p>
+<p>不等式(III)中比较特殊的一个</p>
+<p><span class="math display">\[(q-2) T(r) &lt;  \sum_{\nu =1}^{q}
+\bar{N}(r;z_{\nu}) + S(r)  \tag{III$^{\prime}$}\]</span></p>
+<p>包括在符号 <span class="math inline">\(N(t)\)</span> 具有第 63
+页给出的含义的地方</p>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
