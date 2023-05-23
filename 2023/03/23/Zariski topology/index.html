@@ -403,10 +403,11 @@ axiom <span class="math inline">\(T_{0}\)</span>. <span
 class="math inline">\(\square\)</span></p>
 <h2 id="propersition-3-compactness">Propersition 3 [Compactness]</h2>
 <p>We next prove <span class="math inline">\(X = \text{Spec}
-(A)\)</span> is (compact)[]. It only suffices to consider covering from
-topological basis <span class="math inline">\(\{X_{f}; {f\in
-E}\}\)</span>, where <span class="math inline">\(E\neq
-\emptyset\)</span> is a subset of ring <span
+(A)\)</span> endowed with Zariski topology is <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compact_space">compact</a>. It only
+suffices to consider covering from topological basis <span
+class="math inline">\(\{X_{f}; {f\in E}\}\)</span>, where <span
+class="math inline">\(E\neq \emptyset\)</span> is a subset of ring <span
 class="math inline">\(A\)</span>. Accrording to <a
 target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">De Morgan
 law</a> and axiom of closed set III, nota that <span
@@ -453,6 +454,7 @@ f_{n}\}\)</span>, thereby <span class="math inline">\(V(F) =
 <span class="math inline">\(\square\)</span></p>
 <h2 id="definition-nilradical-and-radical">Definition [Nilradical and
 Radical]</h2>
+<h2 id="proporsition-4">Proporsition 4</h2>
 <p>The ideal <span class="math inline">\(\mathfrak{R}\)</span> of all
 nipotents in a commutative ring <span class="math inline">\(A\)</span>
 with unit <span class="math inline">\(1\)</span> is the insection of all
@@ -462,8 +464,8 @@ class="math display">\[
 \mathsf{p}
 \]</span></p>
 <p>Of course <span class="math inline">\(\mathfrak{R}\)</span> is an
-ideal closed under addition and multiplicatio. We split the proof in two
-steps:</p>
+ideal closed under addition and multiplication. We split the proof in
+two steps:</p>
 <ol type="1">
 <li><p>If <span class="math inline">\(\mathsf{p}\)</span> is a prime
 ideal, then <span class="math inline">\(\mathfrak{R}\subseteq
@@ -471,8 +473,11 @@ ideal, then <span class="math inline">\(\mathfrak{R}\subseteq
 \mathsf{p}\)</span>, and we know for any <span class="math inline">\(f
 \in \mathfrak{R}\)</span>, there exist an integer <span
 class="math inline">\(n&gt;0\)</span> such that <span
-class="math display">\[f^{n} \in \mathsf{p} \Rightarrow \cdots
-\Rightarrow  f \in \mathsf{p}\]</span></p></li>
+class="math inline">\(f^{n} = 0\)</span>, hence <span
+class="math display">\[f^{n}= f^{n-1}\cdot f^{1} \in \mathsf{p}
+\Rightarrow f^{n-1} \in \mathsf{p} \text{ or } f \in \mathsf{p}\]</span>
+will eventually produces <span class="math inline">\(f \in
+\mathsf{p}\)</span>.</p></li>
 <li><p>If <span class="math inline">\(f\)</span> in not nilpotent, then
 there is a prime ideal <span class="math inline">\(\mathsf{p} \cap \{f\}
 = \emptyset\)</span>. Let <span class="math display">\[\Sigma = \left\{
@@ -519,8 +524,8 @@ non-empty open sets, then <span class="math inline">\(U_{1} \cap U_{2}
 if finer than connectness, because two open sets <span
 class="math inline">\(X_{1},X_{2}\)</span> can be intersected.</p>
 <h2 id="theorem-1irreducibility">Theorem 1[Irreducibility]</h2>
-<p><span class="math inline">\(\text{Spec}(A)\)</span> is irreducible if
-and only if its nilradical <span
+<p><span class="math inline">\(X = \text{Spec}(A)\)</span> is
+irreducible if and only if the nilradical <span
 class="math inline">\(\mathfrak{R}\)</span> of <span
 class="math inline">\(A\)</span> is a prime ideal.</p>
 <p>For any two non-empty open sets <span class="math inline">\(\cup_{f
@@ -533,7 +538,7 @@ X_{g}\)</span> in <span class="math inline">\(X=\text{Spec}(A)\)</span>.
         \left(\cup_{f \in F} X_{f}\right) \cap \left(\cup_{g \in G}
 X_{g}\right) \neq \emptyset &amp;\Leftrightarrow \cup_{f \in F, g\in G}
 \left(X_{fg}\right) \neq \emptyset \Leftrightarrow \exists f_{0}\in F,
-g_{0} \in G, f_{0}g_{0} \notin \mathfrak{R}
+g_{0} \in G, f_{0}g_{0} \notin \mathfrak{R}. \square
 \end{aligned}
 \]</span></p>
 <p><strong>Remark 1:</strong> Singletons <span
@@ -606,7 +611,7 @@ if <span class="math inline">\(r(\mathsf{p})\)</span> is a prime ideal,
 where <span class="math inline">\(\mathsf{p}\)</span> is an ideal of
 <span class="math inline">\(A\)</span>. <span
 class="math inline">\(\square\)</span></p>
-<h2 id="property-4-homomorphism">Property 4 [Homomorphism]</h2>
+<h2 id="property-5-homomorphism">Property 5 [Homomorphism]</h2>
 <p>Let <span class="math inline">\(\phi: A \to B\)</span> be
 homomorphism that preserves unit. <span
 class="math inline">\(X=\text{Spec}(A) , Y=\text{Spec}(B)\)</span>.
@@ -631,41 +636,56 @@ class="math inline">\(\phi\)</span> is a homeomorphism mappping, thereby
 <span class="math inline">\(\phi^{*}\)</span> establish a homeomorphism
 between <span class="math inline">\(Y=\text{Spec}(B)\)</span> and <span
 class="math inline">\(V\left(\ker(\phi)\right)\)</span>.</p></li>
-<li><p><span class="math inline">\(\overline{\phi^{*}(V(\mathsf{b}))} =
-V(\phi^{*}(\mathsf{b}))\)</span>. Hence if <span
+<li><p><span
+class="math inline">\(\overline{\phi^{*}(V_{B}(\mathsf{b}))} =
+V_{A}(\phi^{-1}(\mathsf{b}))\)</span>. Hence if <span
 class="math inline">\(\phi\)</span> is injective, then <span
 class="math inline">\(\phi^{*}(Y)\)</span> is dense in <span
 class="math inline">\(X\)</span>. Let <span
-class="math inline">\(\mathsf{q} \in V(\mathsf{b})\)</span> and note
-that <span class="math inline">\(\phi^{*}(\mathsf{b}) =
-\phi^{-1}(\mathsf{b}) \subseteq \phi^{-1}(\mathsf{q})\)</span>, so <span
+class="math inline">\(\mathsf{q} \in V_{B}(\mathsf{b})\)</span>. Hence
+<span class="math inline">\(\phi^{-1}(\mathsf{b}) \subseteq
+\phi^{-1}(\mathsf{q})\)</span> and <span
 class="math inline">\(\phi^{-1}(\mathsf{q}) \in
-V(\phi^{*}(\mathsf{b}))\)</span> and <span
-class="math inline">\(\mathsf{q} \in
-\phi(V(\phi^{*}(\mathsf{b})))\)</span>. Thus <span
-class="math inline">\(V(\mathsf{b}) \subseteq
-\phi(V(\phi^{*}(\mathsf{b})))\)</span>. Then note that <span
+V_{A}(\phi^{-1}(\mathsf{b}))\)</span>. Thus <span
+class="math inline">\(\phi^{*}\left(V_{B}(\mathsf{b})\right) \subseteq
+V_{A}(\phi^{-1}(\mathsf{b}))\)</span>. Then note that <span
 class="math display">\[y \in \overline{\{x\}} \Leftrightarrow
 \overline{\{y\}} \subseteq \overline{\{x\}} \Leftrightarrow
 V(\mathsf{p}_{y}) \subseteq V(\mathsf{p}_{x}) \Leftrightarrow
 \mathsf{p}_{x} \subseteq \mathsf{p}_{y}\]</span> which says <span
 class="math inline">\(\overline{\{x\}} =
-V\left(\mathsf{p}(={x})\right)\)</span>; <span
-class="math inline">\(V(\mathsf{b})\)</span> is obviously the minimal
-closed set in <span class="math inline">\(X\)</span> which contains
-<span class="math inline">\(\phi^{*}(V(\mathsf{b}))\)</span> since <span
-class="math inline">\(\phi^{*}(\mathsf{b}) \in
-\phi^{*}(V(\mathsf{b}))\)</span>.</p></li>
+V\left(\mathsf{p}(={x})\right)\)</span>. Let <span
+class="math inline">\(\mathsf{p} \in
+V_{A}(\phi^{-1}(\mathsf{b}))\)</span> and <span class="math inline">\(f
+\notin \mathsf{p}\)</span>. <span class="math inline">\(X_{f}\)</span>
+is the basic open set that contains <span
+class="math inline">\(\mathsf{p}\)</span>. We show that <span
+class="math inline">\(X_{f} \cap \phi^{*}(V_{B}(\mathsf{b}))\neq
+\emptyset\)</span>. WLOG, assume <span class="math inline">\(\mathsf{b}
+= r(\mathsf{b})\)</span>. For <span class="math inline">\(f \notin
+\mathsf{p} \supseteq \phi^{-1}(\mathsf{b})\)</span>, <span
+class="math inline">\(\phi(f) \notin \mathsf{b}\)</span> and there
+exists a prime ideal <span class="math inline">\(\mathsf{q}\)</span>
+containing <span class="math inline">\(\mathsf{b}\)</span> such that
+<span class="math inline">\(\phi(f) \notin \mathsf{q}\)</span>. Hence
+<span class="math display">\[\phi^{*}(\mathsf{q}) \in \phi^{*} \left(
+Y_{\phi(f)} \cap V_{B}(\mathsf{b})\right) = X_{f} \cap
+\phi^{*}(V_{B}(\mathsf{b}))\]</span> <span
+class="math inline">\(V_{A}\left(\phi^{-1}(\mathsf{b})\right)\)</span>
+is the minimal closed set in <span class="math inline">\(X\)</span>
+which contains <span class="math inline">\(\phi^{*}(V_{B
+}(\mathsf{b}))\)</span>.</p></li>
 </ol>
 <p><span class="math display">\[\begin{align}
     \require{AMScd}
     \begin{CD}
         X @&lt;&lt;{\phi^*}&lt; Y\\
         @AA{\tiny \text{$\cup$}}A  @AA{\tiny \text{$\cup$}}A\\
-        V_A(\phi^* (\mathsf{b})) @&lt;&lt;{\phi^*}&lt; V_B(\mathsf{b})\\
+        V_A(\phi^{-1} (\mathsf{b})) @&lt;&lt;{\phi^*}&lt;
+V_B(\mathsf{b})\\
         @AA{\text{$*$}}A  @AA{\text{$*$}}A\\
-        \text{Spec}(A/\phi^* (\mathsf{b})) @&lt;&lt;{\tilde\phi^*}&lt;
-\text{Spec} (B/\mathsf{b})
+        \text{Spec}(A/\phi^{-1} (\mathsf{b}))
+@&lt;&lt;{\tilde\phi^*}&lt; \text{Spec} (B/\mathsf{b})
     \end{CD}
 \end{align}\]</span></p>
 <p><strong>Example:</strong> Let <span class="math inline">\(A\)</span>
@@ -700,7 +720,10 @@ class="math inline">\(\mathscr{V}^{\prime}\)</span> satisfies axiom of
 closed set. The topology in <span
 class="math inline">\(\text{Spec}(A)\)</span> is called <a
 target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Constructible_topology">constructable
-topology</a>. which is finer than Zariski topology.</p>
+topology</a>. which is the smallest topology containing <span
+class="math inline">\(X_{f}\)</span> as both open sets and closed sets.
+It is finer than Zariski topology.</p>
+<p>We list five equivalent conditions below:</p>
 <ol type="1">
 <li><span class="math inline">\(A/\mathfrak{R}\)</span> is <a
 href="">absolutely flat</a> (<span
