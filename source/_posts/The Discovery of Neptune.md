@@ -32,7 +32,7 @@ possible with me on the little adventure.
 
 A planetary 'orbit' is an ellipse with the Sun $S$ at a focus, and the radius vector $SP$ sweeps out area at a constant rate (Kepler's second law). An orbit, given its plane, is defined by 4 elements, $a$, $e$, $\alpha$, $\epsilon$.
 The first 3 define the geometrical ellipse: $a$ is the semi-major axis; $e$ the eccentricity; $\alpha$ the longitude of perihelion, i.e. with the obvious polar coordinates $r, \theta$, $\theta$ is the 'longitude' and $\theta=a$ when $P$ is
-nearest $S$ (at an end of the major axis). When we know $a$ we know the 'mean angular velocity' $n$ and the associated period $p= 2 \pi/n$; $n$ is in fact proportional to $a^{-\frac{1}{2}}$ (Kepler's third law)[^1(2)]; further the constant rate of area sweeping is $\frac{1}{2}abn$[2(2)] and twice this rate is identical with the angular momentum'[^3(2)] (a.m. for short); this has the differential
+nearest $S$ (at an end of the major axis). When we know $a$ we know the 'mean angular velocity' $n$ and the associated period $p= 2 \pi/n$; $n$ is in fact proportional to $a^{-\frac{1}{2}}$ (Kepler's third law)[^1(2)]; further the constant rate of area sweeping is $\frac{1}{2}abn$[^2(2)] and twice this rate is identical with the angular momentum'[^3(2)] (a.m. for short); this has the differential
 calculus formula $r^{2}\theta$, and it also is of course constant. The 4th element, the 'epoch' $e$, is needed to identify the origin of $t$; the exact definition is that $\theta= \alpha$ (perihelion) occurs at the $t$ for which $nt+ \epsilon = \alpha$.
 
 
