@@ -432,3 +432,5 @@ Problem. 1) When a set of points $P$ is a one-to-one and continuous image (in a 
 16) Does there exist a continuum which is a sum of its proper disjoint saturated subcontinua?
 
 *Affirmative* solution by M. Knaster and Kuratowski, *Fund. Math.* V (to appear).
+
+

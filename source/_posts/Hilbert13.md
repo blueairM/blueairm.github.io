@@ -128,3 +128,5 @@ Therefore the functions $\chi_{r}^{q}$ converges uniformly to continuous limit f
 [1] Kolmogorov, A. N. (1957). On the representation of continuous functions of several variables by superposition of continuous functions of one variable and addition. (in Russian) In Doklady Akademii Nauk (Vol. 114, No. 5, pp. 953-956). Russian Academy of Sciences.
 
 [2] Arnold, V. I. (1957). On functions of three variables. (in Russian) Collected Works: Representations of Functions, Celestial Mechanics and KAM Theory, 1957–1965, 5-8.
+
+

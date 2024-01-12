@@ -133,3 +133,4 @@ $$\varPhi^{\prime} := y_{n}^{s} \sum_{\mathbf{u}} r_{\mathbf{u}} L^{\mathbf{u}} 
 
 is an element of $k[\mathbf{y}][S_{n}]$ having $x_{n}$-degree $m$, in which the coefficient of $x_{n}^{m}$ is equal to $\phi$. Hence, the $x_{n}$-degree of $\varPhi - \varPhi^{\prime}$ is less than $m$. Since $\varPhi - \varPhi^{\prime}$ is an element of $\ker \Delta_{n} \backslash k[\mathbf{y}][S_{n}]$, this contradicts the minimality of $m$. $\square$
 
+

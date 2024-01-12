@@ -55,3 +55,5 @@ Since $k$ is fixed and $N$ can be chosen as large as we please, $g(z)$ must have
 
 
 [1] Nevanlinna R. Le théorème de Picard-Borel et la théorie des fonctions méromorphes[M]. Chelsea Publishing Company, Incorporated, 1929.
+
+

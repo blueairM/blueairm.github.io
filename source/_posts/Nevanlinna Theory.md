@@ -220,3 +220,7 @@ $$\sum_{v\in S}\lambda_{D,v}(P)+h_{K_{X}}(P)\leq \epsilon h_{H}(P)+C \quad {\hbo
 [2] Nevanlinna, Rolf (1925), "Zur Theorie der Meromorphen Funktionen", Acta Mathematica, 46 (1–2): 1–99, doi:10.1007/BF02543858, ISSN 0001-5962
 
 [3] Nevanlinna, Rolf (1970), Analytic functions, Die Grundlehren der mathematischen Wissenschaften, vol. 162, Berlin, New York: Springer-Verlag, MR 0279280
+
+
+
+

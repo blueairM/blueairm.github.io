@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Cichon&#39;s Diagram | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Cichon&#39;s Diagram</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 31, 2023&nbsp;&nbsp;9:14:51</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Set-Theory/">Set Theory</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="definitions">Definitions</h1>
+<p>Let <span class="math inline">\(I\)</span> be an ideal of a given
+infinite set <span class="math inline">\(X\)</span>, that is, a
+partially ordered collection of subsets such that</p>
+<ol type="1">
+<li><p><span class="math inline">\(\emptyset \in I\)</span>,</p></li>
+<li><p><span class="math inline">\(B \in I\)</span> if <span
+class="math inline">\(B \subseteq A\)</span> for some <span
+class="math inline">\(A \in I\)</span>, and</p></li>
+<li><p><span class="math inline">\(A \cup B \in I\)</span> if <span
+class="math inline">\(A, B \in I\)</span>.</p></li>
+</ol>
+<p>Assume <span class="math inline">\(I\)</span> contains all finite
+subsets of <span class="math inline">\(X\)</span>. We define the
+following cardinal coefficients of I:</p>
+<ul>
+<li><span class="math inline">\(\operatorname{add} (I) = \min \{|A|: A
+\subseteq I \land \bigcup A \notin I\}\)</span>.<br />
+The "additivity" of <span class="math inline">\(I\)</span> is the
+smallest number of sets from <span class="math inline">\(I\)</span>
+whose union is not in <span class="math inline">\(I\)</span> any more.
+As any ideal is closed under finite unions, this number is always at
+least <span class="math inline">\(\aleph_{0}\)</span>; if <span
+class="math inline">\(I\)</span> is a <span
+class="math inline">\(\sigma\)</span>-ideal, then <span
+class="math inline">\(\operatorname{add} (I) \geq
+\aleph_{1}\)</span>.</li>
+<li><span class="math inline">\(\operatorname{cov} (I) = \min \{|A|: A
+\subseteq I \land \bigcup A = X\}\)</span>.<br />
+The "covering number" of <span class="math inline">\(I\)</span> is the
+smallest number of sets from <span class="math inline">\(I\)</span>
+whose union is all of <span class="math inline">\(X\)</span>. As <span
+class="math inline">\(X\)</span> itself is not in <span
+class="math inline">\(I\)</span>, we must have $ (I) (I) $.</li>
+<li><span class="math inline">\(\operatorname{non} (I) = \min \{|A|: A
+\subseteq X \land A \notin I\}\)</span>.<br />
+The "uniformity number" of <span class="math inline">\(I\)</span>
+(sometimes also written <span class="math inline">\(\operatorname{unif}
+(I)\)</span>) is the size of the smallest set not in <span
+class="math inline">\(I\)</span>. By our assumption on <span
+class="math inline">\(I\)</span>, <span
+class="math inline">\(\operatorname{add} (I) \leq \operatorname{non}
+(I)\)</span>.</li>
+<li><span class="math inline">\(\operatorname{cof} (I) = \{|\mathsf{A}|:
+\mathsf{A} \subseteq I \land (\forall B \in I)(\exists A \in
+\mathsf{A})(B \subseteq A)\}\)</span>.<br />
+The "cofinality" of <span class="math inline">\(I\)</span> is the
+cofinality of the partial order <span class="math inline">\((I,
+\subseteq)\)</span>. It is easy to see that we must have <span
+class="math inline">\(\operatorname{non} (I) \leq \operatorname{cof}
+(I)\)</span> and <span class="math inline">\(\operatorname{cov} (I) \leq
+\operatorname{cof} (I)\)</span>.</li>
+</ul>
+<p>Furthermore, the "bounding number" or "unboundedness number" <span
+class="math inline">\(\mathsf{b}\)</span> and the "dominating number"
+<span class="math inline">\(\mathsf{d}\)</span> are defined as
+follows:</p>
+<ul>
+<li><span class="math inline">\(\mathsf{b} = \min \{|F|: F \subseteq
+\mathbb{N}^{\mathbb{N}} \land (\forall g \in \mathbb{N}^{\mathbb{N}})
+(\exists f \in F) (\exists^{\infty}n \in \mathbb{N})(g(n)&lt;f(n))
+\}\)</span></li>
+<li><span class="math inline">\(\mathsf{d} = \min \{|F|: F \subseteq
+\mathbb{N}^{\mathbb{N}} \land (\forall g \in \mathbb{N}^{\mathbb{N}})
+(\exists f \in F) (\forall^{\infty}n \in \mathbb{N})(g(n)&lt;f(n))
+\}\)</span></li>
+</ul>
+<p>where "<span class="math inline">\(\exists^{\infty} n \in
+\mathbb{N}\)</span>" means: "there are infinitely many natural numbers
+<span class="math inline">\(n\)</span> such that ...", and "<span
+class="math inline">\(\forall^{\infty} n \in \mathbb{N}\)</span>" means
+"for all except finitely many natural numbers <span
+class="math inline">\(n\)</span> we have ...".</p>
+<h1 id="diagram">Diagram</h1>
+<p>Let <span class="math inline">\(\mathsf{B}\)</span> be the <span
+class="math inline">\(\sigma\)</span>-ideal of those subsets of the real
+line that are meager (or "of the first category") in the euclidean
+topology, and let <span class="math inline">\(\mathsf{L}\)</span> be the
+<span class="math inline">\(\sigma\)</span>-ideal of those subsets of
+the real line that are of Lebesgue measure zero. Then the following
+inequalities hold:</p>
+<p><span class="math display">\[\require{AMScd}
+\begin{CD}
+\, @.
+\operatorname{cov}(\mathsf{L}) @&gt;&gt;&gt;
+\operatorname{non}(\mathsf{B}) @&gt;&gt;&gt;
+\operatorname{cof}(\mathsf{B}) @&gt;&gt;&gt;
+\operatorname{cof}(\mathsf{L}) @&gt;&gt;&gt;
+2^{\aleph_{0}}\\
+@. @. @AAA @AAA @. @. \\
+@. \Bigg \uparrow @. \mathsf{b} @&gt;&gt;&gt; \mathsf{d} @. \Bigg
+\uparrow @. \\
+@. @. @AAA  @AAA @. @.\\
+\aleph_{1} @&gt;&gt;&gt;
+\operatorname{add}(\mathsf{L}) @&gt;&gt;&gt;
+\operatorname{add}(\mathsf{B}) @&gt;&gt;&gt;
+\operatorname{cov}(\mathsf{B}) @&gt;&gt;&gt;
+\operatorname{non}(\mathsf{L}) @. \,
+\end{CD}\]</span></p>
+<p>Where an arrow from <span class="math inline">\(x\)</span> to <span
+class="math inline">\(y\)</span> is to mean that <span
+class="math inline">\(x \leq y\)</span>. In addition, the following
+relations hold:</p>
+<p><span class="math display">\[\begin{aligned}
+\operatorname{add}({\mathsf B}) = &amp;
+\min\{\operatorname{cov}({\mathsf B}),{\mathsf b}\}, \text{ and }\\
+\operatorname{cof}({\mathsf B}) = &amp;
+\max\{\operatorname{non}({\mathsf B}),{\mathsf d}\}.
+\end{aligned}\]</span></p>
+<p>It turns out that the inequalities described by the diagram, together
+with the relations mentioned above, are all the relations between these
+cardinals that are provable in ZFC, in the following limited sense. Let
+<span class="math inline">\(A\)</span> be any assignment of the
+cardinals <span class="math inline">\(\aleph_{1}\)</span> and <span
+class="math inline">\(\aleph_{2}\)</span> to the <span
+class="math inline">\(10\)</span> cardinals in Cichoń's diagram. Then if
+<span class="math inline">\(A\)</span> is consistent with the diagram's
+relations, and if <span class="math inline">\(A\)</span> also satisfies
+the two additional relations, then <span
+class="math inline">\(A\)</span> can be realized in some model of
+ZFC.</p>
+<p>For larger continuum sizes, the situation is less clear. It is
+consistent with ZFC that all of the Cichon's diagram cardinals are
+simultaneously different apart from <span
+class="math inline">\(\operatorname{add}(B)\)</span> and <span
+class="math inline">\(\operatorname{cof}(B)\)</span> (which are equal to
+other entries), but it remains open whether all combinations of the
+cardinal orderings consistent with the diagram are consistent.</p>
+<p><strong>Conjecture 1:</strong> Suppose that <span
+class="math inline">\(P\)</span> is a closed subset of the real line
+such that <span class="math inline">\(\lambda(P) = 0\)</span> and <span
+class="math inline">\(\lambda(P+P)&gt;0\)</span>. Then there exists a
+set <span class="math inline">\(A \subseteq P\)</span> such that <span
+class="math inline">\(A+P\)</span> is a Lebersgue nonmeasurable set.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/07/31/Cichon's%20Diagram/">http://blueairm.github.io/2023/07/31/Cichon's%20Diagram/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Set-Theory/"># Set Theory</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/09/22/75%20Problems/">75 Problems in the Foundation of Mathematics</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/11/Nowicki%20Conjecture/">Nowicki Conjecture</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+<!-- hexo's local server only -->
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a> 
+        </span>
+    </div>
+    <div>        
+        <span>  <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+ 
+        </span>
+    </div>    
+</footer>
+
+
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H3BQWGrYEK5t7Nh",ck:"3H3BQWGrYEK5t7Nh"})</script>
+
+
+    </div>
+</body>
+
+</html>

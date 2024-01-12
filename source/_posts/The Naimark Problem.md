@@ -60,6 +60,9 @@ Resolved. Suzuki (2017).[^6]
 
 # Reference
 
-[1] Naimark, M. A. (1948), "Rings with involutions", Uspekhi Mat. Nauk, 3: 52–145
+[1] Naimark, M. A. (1948), "Rings with involutions", Uspekhi Mat. Nauk, 3: 52-145
 
-[2] Naimark, M. A. (1951), "On a problem in the theory of rings with involution", Uspekhi Mat. Nauk, 6: 160–164
+[2] Naimark, M. A. (1951), "On a problem in the theory of rings with involution", Uspekhi Mat. Nauk, 6: 160-164
+
+
+

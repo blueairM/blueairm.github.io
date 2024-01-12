@@ -409,3 +409,4 @@ which, after expanding the sin and cos and rearranging, is of the desired form (
 
 
 
+

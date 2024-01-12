@@ -44,3 +44,5 @@ Let $k$ be afield, $A$ a finitely generated $k$-algebra. Let $\mathsf{m}$ be a m
 # Reference 
 
 [1] Michael Atiyah. Introduction to commutative algebra. CRC Press, 2018.
+
+

@@ -166,3 +166,6 @@ $$\mathsf{p} = \mathfrak{P}_{1}^{e_{1}} \cdots \mathfrak{P}_{r}^{e_{r}}$$
 [3] Neukirch J. Algebraic number theory[M]. Springer Science & Business Media, 2013.
 
 [4] Weyl H. Algebraic theory of numbers[M]. Princeton University Press, 1998.
+
+
+

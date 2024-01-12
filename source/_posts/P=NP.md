@@ -172,3 +172,6 @@ Judgements are left to the reader...
 # Reference 
 
 [1] Turing, A. M. (1938). On Computable Numbers, with an Application to the Entscheidungsproblem. Proceedings of the London Mathematical Society. Wiley. s2-42 (1): 230–265.
+
+
+

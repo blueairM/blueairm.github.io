@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Nowicki Conjecture | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Nowicki Conjecture</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 11, 2023&nbsp;&nbsp;16:28:25</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Notes/">Notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Let <span class="math inline">\(A[\mathbf{x}] = A[x_{1}, \cdots,
+x_{n}\)</span>] be the polynomial ring in n variables over an integral
+domain <span class="math inline">\(A\)</span>, <span
+class="math inline">\(D\)</span> an <span
+class="math inline">\(A\)</span>-<a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Derivation_(differential_algebra)">derivation</a>
+of <span class="math inline">\(A[\mathbf{x}]\)</span> and denote <span
+class="math display">\[L^{D}_{ij} := D(x_{i}) x_{j} - D(x_{j}) x_{i},
+\quad \text{ for each } i, j \in \{1, \cdots, n\}.\]</span></p>
+<h2 id="theorem-1-nowicki-1-conjecture-6.9.10">Theorem 1 [Nowicki 1,
+Conjecture 6.9.10]</h2>
+<p>Assume that <span class="math inline">\(k[\mathbf{y}] = k[y_{1},
+\cdots, y_{n}]\)</span> is the polynomial ring in <span
+class="math inline">\(n\)</span> variables over a field <span
+class="math inline">\(k\)</span> of characteristic zero. If <span
+class="math inline">\(\Delta_{n}\)</span> is the <span
+class="math inline">\(k[\mathbf{y}]\)</span>-derivation of <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}]\)</span> defined by
+<span class="math inline">\(\Delta_{n}(x_{i}) = y_{i}\)</span> for <span
+class="math inline">\(i = 1, \cdots, n\)</span>, then <span
+class="math inline">\(\ker \Delta_{n}\)</span> is generated by <span
+class="math inline">\(L^{\Delta_{n}}_{ij}\)</span> for <span
+class="math inline">\(1 ≤ i &lt; j ≤ n\)</span> over <span
+class="math inline">\(k[\mathbf{y}]\)</span>.</p>
+<h2 id="proof-of-theorem-1">Proof of Theorem 1</h2>
+<p>We prove the conjecture by induction on <span
+class="math inline">\(n\)</span>.</p>
+<p>Step <span class="math inline">\(1\)</span>. The assertion is clear
+when <span class="math inline">\(n = 1\)</span>.</p>
+<p>Step <span class="math inline">\(n-1\)</span>. By the assumption on
+induction, <span class="math inline">\(\ker \Delta_{n-1}\)</span> is
+generated by <span class="math inline">\(S_{n-1}\)</span> over <span
+class="math inline">\(k[\mathbf{y}^{\prime}] := k[y_{1}, \cdots ,
+y_{n-1}]\)</span>, since <span
+class="math inline">\(L^{\Delta_{n-1}}_{i,j} =
+L^{\Delta_{n}}_{i,j}\)</span> for each <span class="math inline">\(i,
+j\)</span>.</p>
+<p>Step <span class="math inline">\(n\)</span>. Split the theorem into
+several lemmas.</p>
+<h2 id="lemma-1">Lemma 1</h2>
+<p>The <span
+class="math inline">\(k[\mathbf{y}^{\prime}]\)</span>-derivation <span
+class="math inline">\(\Delta_{n-1}\)</span> that naturally extends to a
+<span class="math inline">\(k[\mathbf{y}]\)</span>-derivation <span
+class="math inline">\((\Delta_{n-1})_{k[\mathbf{y}]}\)</span> of <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}^{\prime}] :=
+k[\mathbf{y}][x_{1}, \cdots, x_{n-1}]\)</span> satisfies</p>
+<p><span class="math display">\[\begin{equation}
+k[\mathbf{y}][\mathbf{x}^{\prime}] \cap \ker \Delta_{n} =
+k[\mathbf{y}][S_{n-1}].
+\end{equation}\]</span></p>
+<h2 id="proof-of-lemma-1">Proof of Lemma 1</h2>
+<p>As discussed in Section 1, then <span
+class="math inline">\((\Delta_{n-1})k[\mathbf{y}] =
+\Delta_{n}|_{k[\mathbf{y}][\mathbf{x}^{\prime}]}\)</span>, so we have
+<span class="math inline">\(\ker(\Delta_{n-1})k[\mathbf{y}] =
+k[\mathbf{y}][\mathbf{x}^{\prime}] \cap \ker \Delta_{n}\)</span>.
+Moreover, <span class="math inline">\(\ker(\Delta_{n-1})k[\mathbf{y}] =
+k[\mathbf{y}] \otimes_{k[\mathbf{y}^{\prime}]} \ker
+\Delta_{n-1}\)</span>, since <span
+class="math inline">\(k[\mathbf{y}]\)</span> is flat over <span
+class="math inline">\(k[\mathbf{y}^{\prime}]\)</span>. <span
+class="math inline">\(\square\)</span></p>
+<p>Let <span class="math inline">\(\mathbf{e}_{1}, \cdots ,
+\mathbf{e}_{n}\)</span> be the coordinate unit vectors of <span
+class="math inline">\(\mathbb{R}^{n}\)</span>, <span
+class="math inline">\(M\)</span> the <span
+class="math inline">\(\mathbb{Z}\)</span>-submodule of <span
+class="math inline">\((\mathbb{Z}^{n})^{2}\)</span> generated by <span
+class="math inline">\((\mathbf{e}_{j} - \mathbf{e}_{i}, \mathbf{e}_{i} -
+\mathbf{e}_{j})\)</span> for <span class="math inline">\(1 \leq i &lt; j
+\leq n\)</span>, and <span class="math inline">\(\Gamma =
+(\mathbb{Z}^{n})^{2}/M\)</span>.</p>
+<h2 id="theorem-2">Theorem 2</h2>
+<p>For each <span class="math inline">\(\gamma \in \Gamma\)</span>, we
+define <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}]_{\gamma}\)</span> to be
+the <span class="math inline">\(k\)</span>-vector space generated by
+<span class="math inline">\(\mathbf{y}^{a}\mathbf{x}^{b}:= y^{a_{1}}
+\cdots y^{a_{n}} x^{b_{1}} \cdots x^{b_{n}}\)</span> for <span
+class="math inline">\(a = (a_{1}, \cdots , a_{n})\)</span> and <span
+class="math inline">\(b = (b_{1}, \cdots , b_{n})\)</span> in <span
+class="math inline">\((\mathbb{Z}_{\geq 0})^{n}\)</span> such that the
+image of <span class="math inline">\((a, b)\)</span> in <span
+class="math inline">\(\Gamma\)</span> is equal to <span
+class="math inline">\(\gamma\)</span>. Then</p>
+<p><span class="math display">\[\ker \Delta_{n} = \bigoplus_{\gamma \in
+\Gamma} k[\mathbf{y}] [ \mathbf{x}]_{\gamma} \cap \ker
+\Delta_{n}\]</span></p>
+<h2 id="proof-of-theorem-2">Proof of Theorem 2</h2>
+<p>Note that <span
+class="math inline">\(\Delta_{n}(k[\mathbf{y}][\mathbf{x}]_{\gamma})\)</span>
+is contained in <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}]_{\gamma -
+\delta}\)</span> for each <span class="math inline">\(\gamma \in
+\Gamma\)</span>, where <span class="math inline">\(\delta\)</span> is
+the image of <span class="math inline">\((-\mathbb{e}_{n},
+\mathbb{e}_{n})\)</span> in <span class="math inline">\(\Gamma\)</span>.
+<span class="math inline">\(\square\)</span></p>
+<p>Hence, we are reduced to showing that each <span
+class="math inline">\(0 \neq \varPhi \in
+k[\mathbf{y}][\mathbf{x}]_{\gamma} \cap \ker \Delta_{n}\)</span> belongs
+to <span class="math inline">\(k[\mathbf{y}][S_{n}]\)</span> for <span
+class="math inline">\(\gamma \in \Gamma\)</span>.</p>
+<p>We may find <span class="math inline">\(a = (a_{1}, \cdots , a_{n})
+\in \mathbb{Z}^{n}\)</span> and <span class="math inline">\(l \in
+\mathbb{Z}_{\geq 0}\)</span> such that the image of <span
+class="math inline">\((a, l\mathbf{e}_{n})\)</span> in <span
+class="math inline">\(\Gamma\)</span> is equal to <span
+class="math inline">\(\gamma\)</span>. Let <span
+class="math inline">\(m\)</span> be the <span
+class="math inline">\(x_{n}\)</span>-degree of <span
+class="math inline">\(\varPhi\)</span>, where <span
+class="math inline">\(0 \leq m \leq l\)</span>, and <span
+class="math inline">\(\phi \in
+k[\mathbf{y}][\mathbf{x}^{\prime}]\)</span> the coefficient of <span
+class="math inline">\(x_{n}^{m}\)</span> in <span
+class="math inline">\(\varPhi\)</span>. By replacing <span
+class="math inline">\(\varPhi\)</span> if necessary, we may assume that
+<span class="math inline">\(m\)</span> is the minimum among the <span
+class="math inline">\(x_{n}\)</span>-degrees of elements of <span
+class="math inline">\(\ker \Delta_{n}\backslash
+k[\mathbf{y}][S_{n}]\)</span>.</p>
+<h2 id="lemma-2">Lemma 2</h2>
+<p>Write <span class="math inline">\(\phi\)</span> in expression of sum
+of <span class="math inline">\(y_{1}\cdots y_{n}\)</span></p>
+<p><span class="math display">\[\phi = y_{n}^{s}\sum_{\mathbf{u}}
+r_{\mathbf{u}} y_{1}^{\rho_{1}(\mathbf{u})}
+\cdots  y_{n-1}^{\rho_{n-1}(\mathbf{u})} L^{\mathbf{u}}\]</span></p>
+<p>where <span class="math inline">\(L^{\mathbf{u}} = \prod_{1 \leq
+i&lt;j\leq n-1} L_{i,j}^{u_{i,j}}\)</span> for each <span
+class="math inline">\(\mathbf{u}\)</span>. There holds the identity</p>
+<p><span class="math display">\[\begin{equation}
+\sum_{i=1}^{n-1} \rho_{i} (\mathbf{u}) = \sum_{i=1}^{n-1}a_{i} - 2(l-m)
+\end{equation}\]</span></p>
+<h2 id="lemma-3">Lemma 3</h2>
+<p>There holds the inequality</p>
+<p><span class="math display">\[\begin{equation}
+m \geq 2l - \sum_{i=1}^{n-1} a_{i}.
+\end{equation}\]</span></p>
+<h2 id="proof-of-lemma-2">Proof of Lemma 2</h2>
+<p>then, <span class="math inline">\(\phi\)</span> belongs to <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}]_{\mu}\)</span>, where
+<span class="math inline">\(\mu\)</span> is the image of <span
+class="math inline">\((a, (l - m)\mathbf{e}_{n})\)</span> in <span
+class="math inline">\(\Gamma\)</span>. Furthermore, <span
+class="math inline">\(0 = \Delta_{n}(\varPhi) =
+\Delta_{n}(\varphi)x^{m}_{n} + m\phi y_{n}x_{n}^{m-1} +
+\Delta_{n}(\varPhi - \phi x^{m}_{n})\)</span>, and the <span
+class="math inline">\(x_{n}\)</span>-degrees of <span
+class="math inline">\(m\phi y_{n}x_{n}^{m-1}\)</span> and <span
+class="math inline">\(\Delta_{n}(\varPhi - \phi x^{m}_{n})\)</span> are
+at most <span class="math inline">\(m - 1\)</span>. Hence, <span
+class="math inline">\(\Delta_{n}(\phi) = 0\)</span>. Thus, <span
+class="math inline">\(\phi\)</span> belongs to <span
+class="math inline">\(k[\mathbf{y}][S_{n-1}]\)</span> by (1). Write
+<span class="math inline">\(\phi = \sum_{b,\mathbf{u}}
+r^{\prime}_{b,\mathbf{u}}y^{b}\hat{y}^{-\mathbf{u}}L^{\mathbf{u}}\)</span>,
+where the sum is taken over <span class="math inline">\(b \in
+(\mathbb{Z}_{\geq 0})^{n}\)</span> and <span class="math inline">\(u =
+(u_{i,j})_{i,j}\)</span> with <span class="math inline">\(u_{i,j} \in
+\mathbb{Z}_{\geq 0}\)</span> for <span class="math inline">\(1 \leq i
+&lt; j \leq n - 1\)</span>, <span
+class="math inline">\(r^{\prime}_{b,\mathbf{u}} \in k\)</span> for each
+<span class="math inline">\(b\)</span> and <span
+class="math inline">\(\mathbf{u}\)</span>, and</p>
+<p><span class="math inline">\(\hat{y}^{-u} = \prod_{1\leq i &lt; j \leq
+n-1} (y_{i}y_{j})^{-u_{i,j}}, \quad L^{\mathbf{u}} = \prod_{1 \leq
+i&lt;j\leq n-1} L_{i,j}^{u_{i,j}}\)</span> for each <span
+class="math inline">\(\mathbf{u}\)</span>.</p>
+<p>We may assume that <span
+class="math inline">\(r_{b,\mathbf{u}}^{\prime} = 0\)</span> if <span
+class="math inline">\(\mathbf{y}^{b}\hat{\mathbf{y}}^{-\mathbf{u}}\)</span>
+is not in <span class="math inline">\(k[\mathbf{y}]\)</span>. Let <span
+class="math inline">\(\eta(b, \mathbf{u})\)</span> be the image of <span
+class="math inline">\((b - |\mathbf{u}|\mathbf{e}_{n},
+|\mathbf{u}|\mathbf{e}_{n})\)</span> in <span
+class="math inline">\(\Gamma\)</span>, where <span
+class="math inline">\(|\mathbf{u}| = \sum_{i,j} u_{i,j}\)</span>. Then,
+<span
+class="math inline">\(\mathbf{y}^{b}\hat{\mathbf{y}}^{-\mathbf{u}}L^{\mathbf{u}}\)</span>
+belongs to <span class="math inline">\(k[\mathbf{y}^{\pm
+1}][\mathbf{x}]_{\eta(b,\mathbf{u})}\)</span> for each <span
+class="math inline">\(b\)</span> and <span
+class="math inline">\(\mathbf{u}\)</span> where <span
+class="math inline">\(k[\mathbf{y}^{\pm 1}][\mathbf{x}] :=
+k[\mathbf{y}][\mathbf{x}][(y_{1} \cdots y_{n})^{-1}]\)</span>, since
+<span class="math inline">\((y_{i}y_{j})^{-1} L_{i,j}\)</span> belongs
+to <span class="math inline">\(k[\mathbf{y}^{\pm
+1}][\mathbf{x}]_{\delta}\)</span> for each <span
+class="math inline">\(i, j\)</span>. Since <span
+class="math inline">\(\phi\)</span> is in <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}]_{\mu}\)</span>, and
+<span class="math inline">\(\mu\)</span> is the image of <span
+class="math inline">\((a, (l - m)\mathbf{e}_{n})\)</span>, we may assume
+that <span class="math inline">\(r_{b,\mathbf{u}}^{\prime} = 0\)</span>
+unless <span class="math inline">\(|u| = l - m\)</span> and <span
+class="math inline">\(b = a + (l - m)\mathbf{e}_{n}\)</span>. For each
+<span class="math inline">\(\mathbf{u}\)</span> with <span
+class="math inline">\(r_{\mathbf{u}} := r^{\prime}_{a + (l-m)
+\mathbf{e}_{n},\mathbf{u}}\neq 0\)</span>, write <span
+class="math inline">\(\mathbf{y}^{a} y_{n}^{l-m}
+\hat{\mathbf{y}}^{-\mathbf{u}} = y_{1}^{\rho_{1}(\mathbf{u})} \cdots
+y_{n-1}^{\rho_{n-1}(\mathbf{u})} y_{n}^{s}\)</span>, where <span
+class="math inline">\(\rho_{i}(u) \in \mathbb{Z}_{\geq 0}\)</span> for
+<span class="math inline">\(i = 1, \cdots , n - 1\)</span>, and <span
+class="math inline">\(s = a_{n} + l - m\)</span>. Then, we have <span
+class="math inline">\(\phi = y_{n}^{s}\sum_{\mathbf{u}} r_{\mathbf{u}}
+y_{1}^{\rho_{1}(\mathbf{u})} \cdots y_{n-1}^{\rho_{n-1}(\mathbf{u})}
+L^{\mathbf{u}}\)</span>. Since <span class="math inline">\(|u| = l -
+m\)</span>, it follows that</p>
+<p><span class="math display">\[\begin{equation}
+\sum_{i=1}^{n-1} \rho_{i} (\mathbf{u}) = \sum_{i=1}^{n-1}a_{i} - 2(l-m)
+\end{equation}\]</span></p>
+<h2 id="proof-of-lemma-3">Proof of Lemma 3</h2>
+<p>Take <span class="math inline">\(\varPhi\)</span> which does not
+satisfy (3) so that <span class="math inline">\(m\)</span> would be the
+minimum among the <span class="math inline">\(x_{n}\)</span>-degrees of
+such polynomials. Then, <span class="math inline">\(t:= 2l -
+\sum_{i=1}^{n-1}a_{i} -m\)</span> is positive, and <span
+class="math inline">\(\sum_{i=1}^{n-1} \rho_{i}(\mathbf{u}) = m -
+t\)</span> for each <span class="math inline">\(\mathbf{u}\)</span> by
+(2). Hence, the <span class="math inline">\(x_{n}\)</span>-degree of</p>
+<p><span class="math display">\[\varPhi_{1}:= \sum_{\mathbf{u}}
+\sum_{\mathbf{u}} r_{\mathbf{u}} L^{\mathbf{u}} \prod_{i=1}^{n-1}
+L_{n,i}^{\rho_{i}(\mathbf{u})} = \sum_{\mathbf{u}} r_{\mathbf{u}}
+L^{\mathbf{u}} \prod_{i=1}^{n-1} (y_{i}x_{n} -
+y_{n}x_{i})^{\rho_{i}(\mathbf{u})}\]</span></p>
+<p>is <span class="math inline">\(m - t\)</span>. The coefficient of
+<span class="math inline">\(x_{n}^{n-t}\)</span> in <span
+class="math inline">\(y_{n}^{s}\varPhi_{1}\)</span> is equal to <span
+class="math inline">\(\phi\)</span>, so the coefficient of <span
+class="math inline">\(x_{n}^{m}\)</span> in <span
+class="math inline">\(y_{n}^{s}\varPhi_{1}L_{n,1}^{t}\)</span> is equal
+to that in <span class="math inline">\(y_{1}^{t}\varPhi\)</span>.
+Consequently, the <span class="math inline">\(x_{n}\)</span>-degree
+<span class="math inline">\(m^{\prime}\)</span> of <span
+class="math inline">\(\varPhi_{2}:= y_{1}^{t}\varPhi -
+y_{n}^{s}\varPhi_{1}L_{n,1}^{t}\)</span> is less than <span
+class="math inline">\(m\)</span>. We claim that <span
+class="math inline">\(\varPhi_{2} = 0\)</span>. In fact, if <span
+class="math inline">\(\gamma^{\prime}\)</span> is the image of <span
+class="math inline">\((a + t\mathbf{e}_{1}, l\mathbf{e}_{n})\)</span> in
+<span class="math inline">\(\Gamma\)</span>, and <span
+class="math inline">\((a^{\prime}_{1}, \cdots , a_{n}^{\prime} ) := a +
+t\mathbf{e}_{1}\)</span>, then <span
+class="math inline">\(\varPhi_{2}\)</span> belongs to <span
+class="math inline">\(k[\mathbf{y}][\mathbf{x}]_{\gamma^{\prime}} \cap
+\ker \Delta_{n}\)</span>, and</p>
+<p><span class="math display">\[2l - \sum_{i=1}^{n-1} a^{\prime}_{i} =
+2l - \sum_{i=1}^{n-1} a_{i} - t = m &gt; m^{\prime}\]</span></p>
+<p>This implies that <span class="math inline">\(\varPhi_{2} =
+0\)</span> by the minimality of <span class="math inline">\(m\)</span>.
+Hence, <span class="math inline">\(y_{1}^{t} \varPhi=
+y_{n}^{s}\varPhi_{1}L_{n,1}^{t}\)</span>. Thus, <span
+class="math inline">\(\varPhi_{1}\)</span> is divisible by <span
+class="math inline">\(y_{1}\)</span>, since neither are <span
+class="math inline">\(y_{n}\)</span> and <span
+class="math inline">\(L_{n,1}\)</span>. Recall that the kernel of a
+locally nilpotent derivation <span class="math inline">\(D\)</span> of
+an integral domain <span class="math inline">\(R\)</span> containing
+<span class="math inline">\(Q\)</span> is factorially closed in <span
+class="math inline">\(R\)</span>, that is, <span
+class="math inline">\(D(f g) = 0\)</span> implies <span
+class="math inline">\(D(f ) = D(g) = 0\)</span> for each <span
+class="math inline">\(f, g \in R \ \{0\}\)</span> (cf. [2, Proposition
+1.3.32 (iii)]). Note that <span
+class="math inline">\(\Delta_{n}\)</span> is locally nilpotent, <span
+class="math inline">\(\Delta_{n}(\varPhi_{1}) = 0\)</span>, <span
+class="math inline">\(\varPhi_{1} \neq 0\)</span> and <span
+class="math inline">\(\Delta_{n}(x_{n}) \neq 0\)</span>. Hence, <span
+class="math inline">\(\varPhi_{1}\)</span> is not divisible by <span
+class="math inline">\(x_{n}\)</span>. By substituting zero for <span
+class="math inline">\(x_{n}\)</span>, we obtain from <span
+class="math inline">\(\varPhi_{1}\)</span> a nonzero polynomial</p>
+<p><span class="math display">\[\sum_{\mathbf{u}}r_{\mathbf{u}}
+L^{\mathbf{u}} \prod_{i=1}^{n-1} (- y_{n} x_{i})^{\rho_{i}(\mathbf{u})}
+= ( - y_{n} )^{m-i} \varPsi, \text{ where } \varPsi = \sum_{\mathbf{u}}
+r_{\mathbf{u}} L^{\mathbf{u}} \prod_{i=1}^{n-1}
+x_{i}^{\rho_{i}(\mathbf{u})}.\]</span></p>
+<p>Then, <span class="math inline">\(\varPhi \neq 0\)</span>, and <span
+class="math inline">\(\varPhi\)</span> is divisible by <span
+class="math inline">\(y_{1}\)</span>, since so is <span
+class="math inline">\(\phi_{1}\)</span>. Define <span
+class="math inline">\(\sigma \in \text{Aut}_{k}
+k[\mathbf{y}][\mathbf{x}]\)</span> by <span
+class="math inline">\(\sigma(x_{i}) = y_{i}\)</span> and <span
+class="math inline">\(\sigma(y_{i}) = x_{i}\)</span> for <span
+class="math inline">\(i = 1, \cdots, n\)</span>. Then, <span
+class="math inline">\(\sigma(\varPhi)\)</span> is divisible by <span
+class="math inline">\(x_{1}\)</span>. On the other hand, <span
+class="math inline">\(\sigma(L_{i,j}) = L_{j,i}\)</span> and <span
+class="math inline">\(\sigma(x_{i}) = y_{i}\)</span> are in <span
+class="math inline">\(\ker \Delta_{n}\)</span> for each <span
+class="math inline">\(i, j\)</span>, so <span
+class="math inline">\(\sigma(\varPsi)\)</span> belongs to <span
+class="math inline">\(\ker \Delta_{n}\)</span>. Thus, we have <span
+class="math inline">\(\sigma(\varPsi) = 0\)</span>, because <span
+class="math inline">\(x_{1}\)</span> is not in <span
+class="math inline">\(\ker \Delta_[n]\)</span> and <span
+class="math inline">\(\ker \Delta_{n}\)</span> is factorially closed in
+<span class="math inline">\(k[\mathbf{y}][\mathbf{x}]\)</span>. This
+contradicts that <span class="math inline">\(\varPsi \neq 0\)</span>.
+<span class="math inline">\(\square\)</span></p>
+<h2 id="proof-of-theorem-1-1">Proof of Theorem 1</h2>
+<p>In fact, (3) implies that <span
+class="math inline">\(\sum_{i=1}^{n-1} \rho_{i}(\mathbf{u}) \geq
+m\)</span> by (2), so we have <span
+class="math inline">\(\sum_{i=1}^{n-1}\rho_{i}^{\prime}(\mathbf{u}) =
+m\)</span> for some integers <span class="math inline">\(0 \leq
+\rho^{\prime}_{i}(\mathbf{u}) \leq \rho_{i}(\mathbf{u})\)</span> for
+<span class="math inline">\(i = 1, \cdots, n - 1\)</span> for each <span
+class="math inline">\(u\)</span>. Then,</p>
+<p><span class="math display">\[\varPhi^{\prime} := y_{n}^{s}
+\sum_{\mathbf{u}} r_{\mathbf{u}} L^{\mathbf{u}} \prod_{i=1}^{n-1}
+y_{i}^{\rho_{i}(\mathbf{u}) - \rho_{i}^{\prime}(\mathbf{u})}
+L_{n,i}^{\rho_{i}^{\prime}(\mathbf{u})} = y_{n}^{s} \sum_{\mathbf{u}}
+r_{\mathbf{u}} \prod_{i=1}^{n-1} y_{i}^{\rho_{i}(\mathbf{u}) -
+\rho_{i}^{\prime}(\mathbf{u}) } (y_{i}x_{n} -
+x_{n}y_{i})^{\rho_{i}^{\prime}(\mathbf{u}) }\]</span></p>
+<p>is an element of <span
+class="math inline">\(k[\mathbf{y}][S_{n}]\)</span> having <span
+class="math inline">\(x_{n}\)</span>-degree <span
+class="math inline">\(m\)</span>, in which the coefficient of <span
+class="math inline">\(x_{n}^{m}\)</span> is equal to <span
+class="math inline">\(\phi\)</span>. Hence, the <span
+class="math inline">\(x_{n}\)</span>-degree of <span
+class="math inline">\(\varPhi - \varPhi^{\prime}\)</span> is less than
+<span class="math inline">\(m\)</span>. Since <span
+class="math inline">\(\varPhi - \varPhi^{\prime}\)</span> is an element
+of <span class="math inline">\(\ker \Delta_{n} \backslash
+k[\mathbf{y}][S_{n}]\)</span>, this contradicts the minimality of <span
+class="math inline">\(m\)</span>. <span
+class="math inline">\(\square\)</span></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/">http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Notes/"># Notes</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/07/31/Cichon's%20Diagram/">Cichon's Diagram</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/10/P=NP/">P = NP</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+<!-- hexo's local server only -->
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a> 
+        </span>
+    </div>
+    <div>        
+        <span>  <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+ 
+        </span>
+    </div>    
+</footer>
+
+
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H3BQWGrYEK5t7Nh",ck:"3H3BQWGrYEK5t7Nh"})</script>
+
+
+    </div>
+</body>
+
+</html>

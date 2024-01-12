@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Quadratic Reciprocity Law | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Quadratic Reciprocity Law</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 27, 2023&nbsp;&nbsp;18:42:10</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Algebraic-Number-Theory/">Algebraic Number Theory</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="quadratic-reciprocity-law">Quadratic Reciprocity Law</h2>
+<p>Let <span class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span> be distinct odd prime numbers, and
+define the Legendre symbol as:</p>
+<p><span class="math display">\[\left({\frac{q}{p}}\right)=
+\begin{cases}1&amp;{\text{if }}n^{2}\equiv q{\mod {p}}{\text{ for some
+integer }}n\\
+-1&amp;{\text{otherwise}}
+\end{cases}\]</span> Then:</p>
+<p><span class="math display">\[\left(\frac
+{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{p-1}{2}
+\frac{q-1}{2}}\]</span>.</p>
+<h2 id="example">Example</h2>
+<p>The law of decomposition of prime numbers <span
+class="math inline">\(p\)</span> in a quadratic number field <span
+class="math inline">\(Q(\sqrt{a})\)</span> is intimately related to
+Gauss's famous quadratic reciprocity law. The latter concerns the
+problem of integer solutions of the equation <span
+class="math display">\[x^{2}+by=a, (a,b \in \mathbb{Z}),\]</span> the
+simplest among the nontrivial diophantine equations. The theory of this
+equation reduces immediately to the case where <span
+class="math inline">\(b\)</span> is an odd prime number <span
+class="math inline">\(p\)</span> and <span class="math inline">\((a, p)
+= 1\)</span> (Exercise 1). Let us assume this for the sequel. We are
+then facing the question as to whether <span
+class="math inline">\(a\)</span> is a quadratic residue <span
+class="math inline">\(\mod p\)</span>, i.e., whether the congruence</p>
+<p><span class="math display">\[x^{2} \equiv a \mod p\]</span></p>
+<p>does or does not have a solution. In other words, we want to know if
+the equation <span class="math inline">\(\bar{x}^{2} = \bar{a}\)</span>,
+for a given element <span class="math inline">\(\bar{a} = a \mod p \in
+\mathbb{F}^{*}_{p}\)</span>, admits a solution in the field <span
+class="math inline">\(\mathbb{F}_{p}\)</span> or not. For this one
+introduces the Legendre symbol <span
+class="math inline">\(\left(\frac{a}{p}\right)\)</span>, which, for
+every rational number <span class="math inline">\(a\)</span> relatively
+prime to <span class="math inline">\(p\)</span>, is defined <span
+class="math inline">\(\left(\frac{a}{p}\right) = 1\)</span> or <span
+class="math inline">\(-1\)</span>, according as <span
+class="math inline">\(x^{2} \equiv a \mod p\)</span> has or does not
+have a solution. This symbol is multiplicative,</p>
+<p><span class="math display">\[\left(\frac{ab}{p}\right) =
+\left(\frac{a}{p}\right) \left(\frac{b}{p}\right)  \]</span></p>
+<p>This is because the group <span
+class="math inline">\(\mathbb{F}^{*}_{p}\)</span> is cyclic of order
+<span class="math inline">\(p-1\)</span> and the subgroup <span
+class="math inline">\(\mathbb{F}^{*2}_{p}\)</span> of squares has index
+<span class="math inline">\(2\)</span>, i.e., <span
+class="math inline">\(\mathbb{F}^{*}_{p}/\mathbb{F}^{*2}_{p} \cong
+\mathbb{Z}/2\mathbb{Z}\)</span>. . Since <span
+class="math inline">\(\left(\frac{a}{p}\right) = 1 \Longleftrightarrow
+\bar{a} \in \mathbb{F}_{p}^{*2}\)</span>, one also has</p>
+<p><span
+class="math display">\[\left(\frac{a}{p}\right)=a^{\frac{p-1}{2}} \mod
+p\]</span>.</p>
+<p>In the case of squarefree <span class="math inline">\(a\)</span>, the
+Legendre symbol <span
+class="math inline">\(\left(\frac{a}{p}\right)\)</span> bears the
+following relation with prime factorization. <span
+class="math inline">\(\left(\frac{a}{p}\right) = 1\)</span> $signifies
+that</p>
+<p><span class="math display">\[x^{2} -a \equiv (x - \alpha) (x +
+\alpha) \mod p \]</span></p>
+<p>for some <span class="math inline">\(\alpha \in \mathbb{Z}\)</span>.
+The conductor of <span class="math inline">\(Z [\sqrt{a}]\)</span> in
+the ring of integers of <span class="math inline">\(Q
+(\sqrt{a})\)</span> is <span class="math inline">\(a\)</span> divisor of
+<span class="math inline">\(2\)</span> (Exercise 2). We may therefore
+apply Exercise 3 and obtain the</p>
+<h2 id="proposition-1">Proposition 1</h2>
+<p>For squarefree <span class="math inline">\(a\)</span> and <span
+class="math inline">\((p, 2a) = 1\)</span>, we have the equivalence</p>
+<p><span class="math display">\[\left(\frac{a}{p}\right) = 1
+\Longleftrightarrow p \text{ is totally split in }
+\mathbb{Q}(\sqrt{a})\]</span></p>
+<p>For the Legendre symbol, one has the following remarkable law, which
+like none other has left its mark on the development of algebraic number
+theory.</p>
+<h2 id="theorem">Theorem</h2>
+<p>or two distinct odd prime numbers <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span>, the following identity holds:</p>
+<p><span class="math display">\[\left(\frac
+{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{p-1}{2}
+\frac{q-1}{2}}\]</span>.</p>
+<p>One also has the two "supplementary theorems"</p>
+<p><span class="math display">\[\left(\frac{-1}{p}\right) =
+(-1)^{\frac{p-1}{2}}, \quad \left(\frac{2}{p}\right)
+=  (-1)^{\frac{p^{2}-1}{8}}\]</span></p>
+<h2 id="proof">Proof</h2>
+<p><span class="math inline">\(\left(\frac{-1}{p}\right) =
+(-1)^{\frac{p-1}{2}} \mod p\)</span> implies <span
+class="math inline">\(\left(\frac{-1}{p}\right) =
+(-1)^{\frac{p-1}{2}}\)</span> since <span class="math inline">\(p \neq
+2\)</span></p>
+<p>In order to determine <span
+class="math inline">\(\left(\frac{2}{p}\right)\)</span>, we work in the
+ring <span class="math inline">\(\mathbb{Z}[i]\)</span> of Gaussian
+integers. Since <span class="math inline">\((1+i)^{2} = 2i\)</span>, we
+find</p>
+<p><span class="math display">\[(1+i)^{p} = (1+ i)
+\left((1+i)^{2}\right)^{\frac{p-1}{2}} = (1+i) i^{\frac{p-1}{2}}
+2^{\frac{p-1}{2}}\]</span></p>
+<p>and since <span class="math inline">\((1 + i)^{p} = 1 + i^{p} \mod
+p\)</span> and <span class="math inline">\(\left(\frac{2}{p}\right) =
+2^{\frac{p -1 }{2}} \mod p\)</span>, it follows that</p>
+<p><span class="math display">\[\left(\frac{2}{p}\right) (1+i)
+i^{\frac{p-1}{2}} \equiv 1 + i(-1)^{\frac{p-1}{2}} \mod p\]</span></p>
+<p>From this, an easy computation yields</p>
+<p><span class="math display">\[\left(\frac{2}{p}\right) \equiv
+(-1)^{\frac{p-1}{4}} \mod p, \text{ resp. } \left(\frac{2}{p}\right)
+=  \equiv (-1)^{\frac{p+1}{4}} \mod p\]</span></p>
+<p>if <span class="math inline">\(p-1\)</span> is even, resp. odd. Since
+<span class="math inline">\(\frac{p^{2}- 1}{8} = \frac{p-1}{4}
+\frac{p+1}{2} = \frac{p+1}{4} \frac{p-1}{2}\)</span>, we deduce <span
+class="math inline">\(\left(\frac{2}{p}\right) =
+(-1)^{\frac{p^{2}-1}{8}}\)</span>.</p>
+<p>In order to prove the first formula, we work in the ring <span
+class="math inline">\(\mathbb{Z}[\zeta]\)</span>, where <span
+class="math inline">\(\zeta\)</span> is a primitive <span
+class="math inline">\(p\)</span>-th root of unity. We consider the Gauss
+sum</p>
+<p><span class="math display">\[g = \sum_{a \in \mathbb{Z}/p\mathbb{Z}}
+\left(\frac{a}{p}\right)\zeta^{a}\]</span></p>
+<p>and show that</p>
+<p><span class="math display">\[g^{2} =
+\left(\frac{-1}{p}\right)p\]</span></p>
+<p>For this, let <span class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> vary over the group <span
+class="math inline">\((\mathbb{Z}/p\mathbb{Z})^{*}\)</span>, put <span
+class="math inline">\(c = ab^{-1}\)</span> and deduce from the identity
+<span class="math inline">\(\left(\frac{b}{p}\right) =
+\left(\frac{b^{-1}}{p}\right)\)</span> that</p>
+<p><span class="math display">\[\begin{aligned}
+\left(\frac{-1}{p}\right) g^{2} = &amp;\sum_{a,b}
+\left(\frac{-ab}{p}\right) \zeta^{a+b} = \sum_{a,b}
+\left(\frac{ab^{-1}}{p}\right) \zeta^{a-b} = \sum_{a,b}
+\left(\frac{c}{p}\right) \zeta^{bc -b}\\
+= &amp; \sum_{c\neq 1}\left(\frac{c}{p}\right) \sum_{b}\zeta^{b(c-1)} +
+\sum_{b} \left(\frac{1}{p}\right)  
+\end{aligned}\]</span></p>
+<p>Now <span class="math inline">\(\sum_{c} \left(\frac{c}{p}\right) =
+0\)</span>, as one sees by multiplying the sum with a symbol $ () = -1$,
+and putting <span class="math inline">\(\xi = \zeta^{c-1}\)</span> gives
+<span class="math inline">\(\sum_{b} \zeta ^{b(c-1)} = \xi + \xi^{2} +
+\cdots + \xi^{p-1} = -1\)</span> from which we indeed find that</p>
+<p><span class="math display">\[\left(\frac{-1}{p}\right) g^{2} =
+(-1)(-1) + p -1 = p\]</span></p>
+<p>This, together with the congruence <span
+class="math inline">\(\left(\frac{p}{q}\right) = p^{\frac{q-1}{2}} \mod
+q\)</span> and the identity <span
+class="math inline">\(\left(\frac{-1}{p}\right) =
+(-1)^{\frac{p-1}{2}}\)</span>, implies</p>
+<p><span class="math display">\[g^{q} = g (g^{2})^{\frac{q-1}{2}} \equiv
+g (-1)^{\frac{p-1}{2}\frac{q-1}{2}} \left(\frac{p}{q}\right) \mod
+q\]</span></p>
+<p>On the other hand one has</p>
+<p><span class="math display">\[g^{q} = \sum_{a}
+\left(\frac{a}{p}\right) \zeta^{aq} = \left(\frac{p}{q}\right)
+\sum_{a^{\prime}} \left(\frac{aq}{p}\right)\zeta^{aq} \equiv
+\left(\frac{q}{p}\right)g \mod q\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[g\left(\frac{q}{p}\right) \equiv g
+(-1)^{\frac{p-1}{2}\frac{q-1}{2}} \left(\frac{p}{q}\right) \mod q
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(g\)</span> and dividing by
+<span class="math inline">\(\pm p\)</span> yields the claim. <span
+class="math inline">\(\square\)</span></p>
+<h2 id="exercise-1">Exercise 1</h2>
+<p>Given a positive integer <span class="math inline">\(b &gt;
+1\)</span>, an integer <span class="math inline">\(a\)</span> relatively
+prime to <span class="math inline">\(b\)</span> is a quadratic residue
+<span class="math inline">\(\mod b\)</span> if and only if it is a
+quadratic residue modulo each prime divisor <span
+class="math inline">\(p\)</span> of <span
+class="math inline">\(b\)</span>, and if <span class="math inline">\(a -
+1 \mod 4\)</span> when <span class="math inline">\(4|b\)</span>, <span
+class="math inline">\(8{\small\not|} b\)</span>, resp. <span
+class="math inline">\(a \equiv 1 \mod 8\)</span> when <span
+class="math inline">\(8|b\)</span>.</p>
+<h2 id="exercise-2">Exercise 2</h2>
+<p>Let <span class="math inline">\(D\)</span> be a squarefree rational
+integer <span class="math inline">\(\neq 0, 1\)</span> and <span
+class="math inline">\(d\)</span> the discriminant of the quadratic
+number field <span class="math inline">\(\mathbf{K} =
+\mathbb{Q}(\sqrt{D})\)</span>. Show that <span class="math display">\[
+\begin{aligned}
+d = D, \quad &amp; \text{ if } D \equiv 1 \mod 4\\
+d = 4D, \quad &amp; \text{ if } D \equiv 2 \text{ or } 3 \mod 4\\
+\end{aligned}
+\]</span> and that an integral basis of <span
+class="math inline">\(\mathbf{K}\)</span> is given by <span
+class="math inline">\(\{1,\sqrt{D}\}\)</span> in the second case, by
+<span class="math inline">\(\left\{l, \frac{1}{2}(1
++\sqrt{D})\right\}\)</span> in the first case, and by <span
+class="math inline">\(\left\{1, \frac{1}{2}(d
++\sqrt{d})\right\}\)</span> in both cases.</p>
+<h2 id="exercise-3">Exercise 3</h2>
+<p>Denote <span class="math inline">\(\mathcal{o}\)</span> an arbitrary
+Dedekind domain and the integral closure <span
+class="math inline">\(\mathcal{O}\)</span> of <span
+class="math inline">\(\mathcal{o}\)</span> in a finite extension of its
+field of fractions.</p>
+<p>Let <span class="math inline">\(\mathsf{p}\)</span> be a prime ideal
+of <span class="math inline">\(\mathcal{o}\)</span> which is relatively
+prime to the conductor <span class="math inline">\(\mathfrak{F}\)</span>
+of <span class="math inline">\(\mathcal{o}[\theta]\)</span>, and let
+<span class="math display">\[\bar{p}(X) = \bar{p}_{1}(X)^{e_{1}}
+\bar{p}_{2}(X)^{e_{2}} \cdots \bar{p}_{r}(X)^{e_{r}}\]</span> be the
+factorization of the polynomial <span class="math inline">\(\bar{p} (X)
+= p (X) \mod p\)</span> into irreducibles <span
+class="math inline">\(\bar{p}_{i} (X) = p_{i}(X) \mod
+\mathsf{p}\)</span> over the residue class field <span
+class="math inline">\(\mathcal{o}/\mathsf{p}\)</span>, with all <span
+class="math inline">\(p_{i} (X) \in \mathcal{o}[X]\)</span> monic. Then
+<span class="math display">\[\mathfrak{P}_{i} = \mathsf{p} \mathcal{O} +
+p_{i}(\theta)\mathcal{O}, i=1,\cdots,r,\]</span></p>
+<p>are the different prime ideals of <span
+class="math inline">\(\mathcal{O}\)</span> above <span
+class="math inline">\(\mathsf{p}\)</span>. The inertia degree <span
+class="math inline">\(f_{i}\)</span> of <span
+class="math inline">\(\mathfrak{P}_{i}\)</span> is the degree of <span
+class="math inline">\(\bar{p}_{i} (X)\)</span>, and one has <span
+class="math display">\[\mathsf{p} = \mathfrak{P}_{1}^{e_{1}} \cdots
+\mathfrak{P}_{r}^{e_{r}}\]</span></p>
+<h1 id="reference">Reference</h1>
+<p>[1] Artin, Emil. "Quadratische Körper im Gebiete der höheren
+Kongruenzen. I. Arithmetischer Teil." Mathematische Zeitschrift 19.1
+(1924): 153-206.</p>
+<p>[2] Gauss, Carl Friedrich (1986). Disquisitiones Arithemeticae.
+Translated by Clarke, Arthur A. (Second, corrected ed.). New York:
+Springer.</p>
+<p>[3] Neukirch J. Algebraic number theory[M]. Springer Science &amp;
+Business Media, 2013.</p>
+<p>[4] Weyl H. Algebraic theory of numbers[M]. Princeton University
+Press, 1998.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/">http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Algebraic-Number-Theory/"># Algebraic Number Theory</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/04/The%20Discovery%20of%20Neptune/">The Discovery of Neptune (By J.E. Littlewood)</a>
+            
+            
+            <a class="next" rel="next" href="/2023/03/27/Nevanlinna%20Theory2/">Nevanlinna Theory (II)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+<!-- hexo's local server only -->
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a> 
+        </span>
+    </div>
+    <div>        
+        <span>  <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+ 
+        </span>
+    </div>    
+</footer>
+
+
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H3BQWGrYEK5t7Nh",ck:"3H3BQWGrYEK5t7Nh"})</script>
+
+
+    </div>
+</body>
+
+</html>

@@ -71,3 +71,5 @@ For larger continuum sizes, the situation is less clear. It is consistent with Z
 
 **Conjecture 1:** Suppose that $P$ is a closed subset of the real line such that $\lambda(P) = 0$ and $\lambda(P+P)>0$. Then there exists a set $A \subseteq P$ such that $A+P$ is a Lebersgue nonmeasurable set. 
 
+
+

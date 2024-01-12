@@ -257,3 +257,5 @@ Let $A$ be any commutative ring with unit. The following statements are equivale
 
 [3] Bartel L Van der Waerden. A history of algebra: From al-Khwārizmī to Emmy Noether.
 Springer Science & Business Media, 2013.
+
+
