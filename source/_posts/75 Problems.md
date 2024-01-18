@@ -12,7 +12,7 @@ mathjax: true
 
 
 
-1) When a set of points $P$ is a one-to-one and continuous image (but not necessarily bi-continuous) of a set $Q$ and when $Q$ is a one-to-one and continuous image of $P$? Are the sets $P$ and $Q $ necessarily homomorphic?
+1) When a set of points $P$ is a one-to-one and continuous image (but not necessarily bi-continuous) of a set $Q$ and when $Q$ is a one-to-one and continuous image of $P$? Are the sets $P$ and $Q $ necessarily homeomorphic?
 
 Problem of M. W. Sierpinski. 
 

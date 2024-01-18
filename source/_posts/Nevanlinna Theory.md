@@ -56,7 +56,7 @@ $$\begin{aligned}N(r,\infty,w) =& \int_{0}^{r} \frac{n(t,\infty) - n(0,\infty)}{
 m(r, \infty, w) =& \frac{1}{2\pi} \int_{0}^{2\pi} \log^{+} \left|w(re^{i\varphi})\right|d\varphi
 \end{aligned}$$
 
-where $n(r, a)$ is the number of roots of the equation $w- a =  0$ in the disk $|z|<r$ 
+where $n(r, a)$ is the number of roots of the equation $w- a =  0$ in the disk $|z|\leq r$ 
 
 Jensen's formula then becomes
 
