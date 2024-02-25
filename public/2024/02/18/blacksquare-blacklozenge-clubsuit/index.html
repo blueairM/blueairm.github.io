@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>$\blacksquare$, $\blacklozenge$, $\clubsuit$ | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/seminar">Seminar</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/seminar">Seminar</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">$\blacksquare$, $\blacklozenge$, $\clubsuit$</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 18, 2024&nbsp;&nbsp;8:50:47</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Set-Theory/">Set Theory</a>
+                            
+                                <a href="/categories/Mathematical-Logic/">Mathematical Logic</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>In mathematics, particularly in mathematical logic and set theory, a
+club set is a subset of a limit ordinal that is closed under the order
+topology, and is unbounded (see below) relative to the limit ordinal.
+The name club is a contraction of "closed and unbounded". Formally,</p>
+<ul>
+<li><p>if <span class="math inline">\(\kappa\)</span> is a limit
+ordinal, then a set $ C$ is <em>closed</em> in <span
+class="math inline">\(\kappa\)</span> if and only if for every <span
+class="math inline">\(\alpha &lt;\kappa\)</span>, if <span
+class="math inline">\(\sup(C\cap \alpha )=\alpha \neq 0\)</span> then
+<span class="math inline">\(\alpha \in C\)</span>. Thus, if the limit of
+some sequence from <span class="math inline">\(C\)</span> is less than
+<span class="math inline">\(\kappa\)</span>, then the limit is also in
+<span class="math inline">\(C\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\kappa\)</span> is a limit ordinal
+and <span class="math inline">\(C\subseteq \kappa\)</span> then <span
+class="math inline">\(C\)</span> is <em>unbounded</em> in <span
+class="math inline">\(\kappa\)</span> if for any <span
+class="math inline">\(\alpha &lt;\kappa\)</span>, there is some <span
+class="math inline">\(\beta \in C\)</span> such that <span
+class="math inline">\(\alpha &lt;\beta\)</span>.</p></li>
+</ul>
+<p>If a set is both closed and unbounded, then it is a
+<em>club</em>.</p>
+<p>In mathematics, specifically set theory and model theory, a
+stationary set is a set that is not too small in the sense that it
+intersects all club sets and is analogous to a set of non-zero measure
+in measure theory. There are at least three closely related notions of
+stationary set, depending on whether one is looking at subsets of an
+ordinal, or subsets of something of given cardinality, or a
+powerset.</p>
+<p>If <span class="math inline">\(\kappa\)</span> is a cardinal of
+uncountable cofinality, <span class="math inline">\(S\subseteq
+\kappa\)</span>, and <span class="math inline">\(S\)</span> intersects
+every club set in <span class="math inline">\(\kappa\)</span> then <span
+class="math inline">\(S\)</span> is called a stationary set. If a set is
+not stationary.</p>
+<p>If <span class="math inline">\(S\)</span> is a stationary set and
+<span class="math inline">\(C\)</span> is a club set, then their
+intersection <span class="math inline">\(S\cap C\)</span> is also
+stationary. This is because if <span class="math inline">\(D\)</span> is
+any club set, then <span class="math inline">\(C\cap D\)</span> is a
+club set, thus <span class="math inline">\((S\cap C)\cap D=S\cap (C\cap
+D)\)</span> is nonempty. Therefore, <span class="math inline">\((S\cap
+C)\)</span> must be stationary.</p>
+<h2 id="fodor-lemma">Fodor lemma</h2>
+<p>If <span class="math inline">\(\kappa\)</span> is a regular,
+uncountable cardinal, <span class="math inline">\(S\)</span> is a
+stationary subset of <span class="math inline">\(\kappa\)</span>, and
+<span class="math inline">\(f:S\rightarrow \kappa\)</span> is regressive
+(that is, <span class="math inline">\(f(\alpha )&lt;\alpha\)</span> for
+any <span class="math inline">\(\alpha \in S\)</span>, <span
+class="math inline">\(\alpha \neq 0\)</span>) then there is some <span
+class="math inline">\(\gamma\)</span> and some stationary subset <span
+class="math inline">\(S_{0}\subseteq S\)</span> such that <span
+class="math inline">\(f(\alpha )=\gamma\)</span> for any <span
+class="math inline">\(\alpha \in S_{0}\)</span>.</p>
+<h2 id="proof">Proof</h2>
+<p>We can assume that <span class="math inline">\(0\notin S\)</span> (by
+removing 0, if necessary). If Fodor's lemma is false, for every <span
+class="math inline">\(\alpha &lt;\kappa\)</span> there is some club set
+<span class="math inline">\(C_{\alpha }\)</span> such that <span
+class="math inline">\(C_{\alpha }\cap f^{-1}(\alpha
+)=\emptyset\)</span>. Let <span class="math inline">\(C=\Delta_{\alpha
+&lt;\kappa }C_{\alpha }\)</span>. The club sets are closed under
+diagonal intersection, so <span class="math inline">\(C\)</span> is also
+club and therefore there is some <span class="math inline">\(\alpha \in
+S\cap C\)</span>. Then <span class="math inline">\(\alpha \in C_{\beta
+}\)</span> for each <span class="math inline">\(\beta
+&lt;\alpha\)</span>, and so there can be no <span
+class="math inline">\(\beta &lt;\alpha\)</span> such that <span
+class="math inline">\(\alpha \in f^{-1}(\beta )\)</span>, so <span
+class="math inline">\(f(\alpha )\geq \alpha\)</span>, a
+contradiction.</p>
+<h2 id="blacksquare_kappa"><span
+class="math inline">\(\blacksquare_{\kappa}\)</span></h2>
+<p>If <span class="math inline">\(\kappa\)</span> is an uncountable
+cardinal, then <span class="math inline">\(\square_{\kappa }\)</span>
+asserts that there is a sequence <span class="math inline">\(\{C_{\beta
+}\mid \beta {\text{ a limit point of }}\kappa ^{+}\}\)</span>
+satisfying:</p>
+<ul>
+<li><p><span class="math inline">\(C_{\beta }\)</span> is a club set of
+<span class="math inline">\(\beta\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\operatorname{cf}\beta
+&lt;\kappa\)</span>, then <span class="math inline">\(|C_{\beta
+}|&lt;\kappa\)</span></p></li>
+<li><p>If <span class="math inline">\(\gamma\)</span> is a limit point
+of <span class="math inline">\(C_{\beta }\)</span> then <span
+class="math inline">\(C_{\gamma }=C_{\beta }\cap
+\gamma\)</span></p></li>
+</ul>
+<p>Jensen proved that this principle holds in the constructible universe
+for any uncountable cardinal <span
+class="math inline">\(\kappa\)</span>.</p>
+<h2 id="blacklozenge_kappa"><span
+class="math inline">\(\blacklozenge_{\kappa}\)</span></h2>
+<p>There are three equivalent definitions about the diamond principle
+<span class="math inline">\(\lozenge\)</span>:</p>
+<ol type="1">
+<li><p>There is a sequence <span class="math inline">\(\{S_{\alpha}\mid
+\alpha &lt; \omega_{1}\}\)</span> such that <span
+class="math inline">\(S_{\alpha} \subseteq \mathcal{P}(\alpha)\)</span>
+and <span class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for
+<span class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If
+<span class="math inline">\(X \subseteq \omega_{1}\)</span>, then the
+set <span class="math inline">\(\{\alpha &lt; \omega_{1} \mid X \cap
+\alpha \in S_{\alpha}\}\)</span> is stationary in <span
+class="math inline">\(\omega_{1}\)</span>.</p></li>
+<li><p>There is a sequence <span class="math inline">\(\{S_{\alpha}\mid
+\alpha &lt; \omega_{1}\}\)</span> such that <span
+class="math inline">\(S_{\alpha} \subseteq \alpha\)</span> for <span
+class="math inline">\(\alpha &lt; \omega_{1}\)</span> and if <span
+class="math inline">\(X \subseteq \omega_{1}\)</span>, then the set
+<span class="math inline">\(\{\alpha &lt; \omega_{1} \mid X \cap \alpha
+= S_{\alpha}\}\)</span> is stationary in <span
+class="math inline">\(\omega_{1}\)</span>.</p></li>
+<li><p>There is a sequence <span class="math inline">\(\{h_{\alpha}\mid
+\alpha &lt; \omega_{1}\}\)</span> of functions such that for every
+function <span class="math inline">\(h: \omega_{1} \to
+\omega_{1}\)</span>, the set <span class="math inline">\(\{\alpha &lt;
+\omega_{1}\mid h\upharpoonright \alpha = h_{\alpha}\}\)</span> is
+stationary.</p></li>
+</ol>
+<p>We also introduce two stronger versions of <span
+class="math inline">\(\lozenge\)</span>.</p>
+<p><span class="math inline">\(\lozenge^{*}\)</span>: There is a
+sequence <span class="math inline">\(\{S_{\alpha}\mid \alpha &lt;
+\omega_{1}\}\)</span> such that <span class="math inline">\(S_{\alpha}
+\subseteq \mathcal{P}(\alpha)\)</span> and <span
+class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for <span
+class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If <span
+class="math inline">\(X \subseteq \omega_{1}\)</span>, then the set
+<span class="math inline">\(\{\alpha &lt; \omega_{1} \mid X \cap \alpha
+\in S_{\alpha}\}\)</span> contains a closed unbounded set.</p>
+<p><span class="math inline">\(\lozenge^{+}\)</span>: There is a
+sequence <span class="math inline">\(\{S_{\alpha}\mid \alpha &lt;
+\omega_{1}\}\)</span> such that <span class="math inline">\(S_{\alpha}
+\subseteq \mathcal{P}(\alpha)\)</span> and <span
+class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for <span
+class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If <span
+class="math inline">\(X \subseteq \omega_{1}\)</span> there exists a
+closed unbounded <span class="math inline">\(C \subseteq
+\omega_{1}\)</span> such that if <span class="math inline">\(\alpha \in
+C\)</span>, then <span class="math inline">\(X \cap \alpha\)</span>,
+<span class="math inline">\(C \cap \alpha \in S_{\alpha}\)</span>.</p>
+<p>Clearly <span class="math inline">\(\lozenge^{+} \to \lozenge^{*} \to
+\lozenge\)</span>. Jensen has proved that the arrows cannot be
+reversed.</p>
+<h3 id="theorem">Theorem</h3>
+<p><span class="math inline">\(\lozenge\)</span> <span
+class="math inline">\(\to\)</span> CH.</p>
+<h3 id="theorem-1">Theorem</h3>
+<p>Assume <span class="math inline">\(V = L\)</span>. <span
+class="math inline">\(\lozenge\)</span> is valid.</p>
+<h3 id="theorem-2">Theorem</h3>
+<p>Assume <span class="math inline">\(\lozenge\)</span>. The there
+exists a Souslin tree.</p>
+<h2 id="clubsuit_kappa"><span
+class="math inline">\(\clubsuit_{\kappa}\)</span></h2>
+<p>For a given cardinal number <span
+class="math inline">\(\kappa\)</span> and a stationary set <span
+class="math inline">\(S\subseteq \kappa\)</span>, <span
+class="math inline">\(\clubsuit _{S}\)</span> is the statement that
+there is a sequence <span class="math inline">\(\{ A_{\delta }:\delta
+\in S \}\)</span> such that</p>
+<ul>
+<li><p>every <span class="math inline">\(A_{\delta}\)</span> is a
+cofinal subset of <span class="math inline">\(\delta\)</span>.</p></li>
+<li><p>for every unbounded subset <span class="math inline">\(A\subseteq
+\kappa\)</span>, there is a <span class="math inline">\(\delta\)</span>
+so that <span class="math inline">\(A_{\delta }\subseteq
+A\)</span>.</p></li>
+</ul>
+<p><span class="math inline">\(\clubsuit _{\omega _{1}}\)</span> is
+usually written as just <span
+class="math inline">\(\clubsuit\)</span>.</p>
+<p>It is clear that <span class="math inline">\(\lozenge \to
+\clubsuit\)</span>, and it was shown in 1975 that <span
+class="math inline">\(\clubsuit\)</span> + CH <span
+class="math inline">\(\to\)</span> <span
+class="math inline">\(\lozenge\)</span>; however, Saharon Shelah gave a
+proof in 1980 that there exists a model of <span
+class="math inline">\(\clubsuit\)</span> in which CH does not hold, so
+<span class="math inline">\(\clubsuit\)</span> and <span
+class="math inline">\(\lozenge\)</span> are not equivalent (since <span
+class="math inline">\(\lozenge\)</span> <span
+class="math inline">\(\to\)</span> CH).</p>
+<p>Jensen, R. Bj"orn (1972), "The fine structure of the constructible
+hierarchy", Annals of Mathematical Logic, 4 (3): 229–308.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2024/02/18/blacksquare-blacklozenge-clubsuit/">http://blueairm.github.io/2024/02/18/blacksquare-blacklozenge-clubsuit/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Set-Theory/"># Set Theory</a>
+                    
+                        <a href="/tags/Mathematical-Logic/"># Mathematical Logic</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/01/17/Hopf%20ergodic%20theorem/">Hopf's Ergodic Theorem</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+<!-- hexo's local server only -->
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a> 
+        </span>
+    </div>
+    <div>        
+        <span>  <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+ 
+        </span>
+    </div>    
+</footer>
+
+
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H3BQWGrYEK5t7Nh",ck:"3H3BQWGrYEK5t7Nh"})</script>
+
+
+    </div>
+</body>
+
+</html>

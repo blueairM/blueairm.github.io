@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Seminar | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/seminar">Seminar</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/seminar">Seminar</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Seminar</h2>
+        
+        <section class="post-content">
+            <h1 id="nwu-set-theory-seminar20240130">NWU Set Theory
+Seminar(2024/01/30)</h1>
+<p>Hello~ Welcome to the Set Theory Seminar at Northwest
+Univeristy!🎉🎉🎉</p>
+<p>This is a regularly held up seminar organized by graduates from 2014,
+Mathematics and Applied Mathematics at the School of Mathematics,
+Northwest University. We invite you to join us for discussions,
+presentations, and auditions.</p>
+<p>For subscription, please send an email including your resume to any
+organizer below. For instance, you can send it to one of the organizer
+<a href="wanghm37@mail2.sysu.edu.cn">wanghm37@mail2.sysu.edu.cn</a>.
+Once we have reviewed your resume, we will send you an email one day
+before, containing the title, abstract, and Tencent Meeting link for the
+upcoming event.</p>
+<p>Our discussions typically take place on Fridays, once every one to
+two weeks. The inaugural session is scheduled for February 2, 2024, from
+1:00 p.m. to 3:00 p.m (Beijing Time). You can find updated information
+on titles and abstracts on <a
+href="https://blueairm.github.io/seminar/">Seminar</a>.</p>
+<p>If you have any question or need help, feel free to ask!</p>
+<h2 id="organizers">Organizers</h2>
+<p>Cao Zilong</p>
+<p><em>PhD, School of Mathematics, Northwest University</em></p>
+<p>nwu_czl(At)stumail(dot)nwu(dot)edu(dot)cn</p>
+<p>Qian Jingxu</p>
+<p><em>Graduate, Department of Physics, National University of Defense
+Technology</em></p>
+<p>qian_jingxu(At)alumni(dot)nudt(dot)edu(dot)cn</p>
+<p>Shao Kerun</p>
+<p><em>PhD, School of Mathematical Sciences, Zhejiang
+University</em></p>
+<p>12335003(At)zju(dot)edu(dot)cn</p>
+<p>Sheng Xi</p>
+<p><em>PhD, School of Mathematical Sciences, University of Science and
+Technology of China</em></p>
+<p>sunx(At)mail(dot)ustc(dot)edu(dot)cn</p>
+<p><a href="https://blueairm.github.io/">Wang Haoming</a></p>
+<p><em>PhD, School of Mathematics, Sun Yat-sen University</em></p>
+<p>wanghm37(At)mail2(dot)sysu(dot)edu(dot)cn</p>
+<p>Xue Xiaolong</p>
+<p><em>PhD, Department of Mathematical Sciences, Tsinghua
+University</em></p>
+<p>xxl19(At)mails(dot)tsinghua(dot)edu(dot)cn</p>
+<p>Yang Yixuan</p>
+<p><em>PhD, Department of Computer Science and Engineering, South
+University of Science and Technology of China &amp; Department of
+Computer Science, Warwick University</em></p>
+<p>nakeryang(At)gmail(dot)com</p>
+<h2 id="upcoming-events">Upcoming Events</h2>
+<p>2024/03/15, 13:00 p.m., <a href="">TBA</a></p>
+<p>Sheng Xi (University of Science and Technology of China)</p>
+<p><strong>TBA</strong></p>
+<h2 id="past-events">Past Events</h2>
+<p>2024/02/02, 1:00 p.m., <a href="">Tencent Meeting</a></p>
+<p>Wang Haoming (Sun Yat-sen University)</p>
+<p><strong>Hierarchy of Maximal ideals in the Banach Algebra
+I</strong></p>
+<p>This paper introduces two topologies, namely the weak*-topology (also
+known as the product topology) and the Zariski topology on the set of
+maximal ideals in the Banach algebra using both analytical and algebraic
+methods. It proves that under the condition of separability, the set of
+maximal ideals endowed with the weak*-topology is second countable and
+metrizable, and it demonstrates that the two topologies are
+homeomorphic. We illustrate examples such as the continuous function
+ring <span class="math inline">\(C(X)\)</span>, where <span
+class="math inline">\(X\)</span> is a compact Hausdorff space and the
+<span class="math inline">\(l^p\)</span> space for <span
+class="math inline">\(1 \leq p &lt; +\infty\)</span>.</p>
+<p><em>Manuscript</em>, <a
+href="https://blueairm.github.io/seminar/pdf/whm20240202.pdf">Slides</a></p>
+<p>2024/02/23, 10:00 a.m., <a
+target="_blank" rel="noopener" href="https://meeting.tencent.com/v2/cloud-record/share?id=2a1f7a17-350c-4abd-8bd2-6ffc1ac42b1e&amp;from=3&amp;record_type=2">Tencent
+Meeting</a></p>
+<p>Wang Haoming (Sun Yat-sen University)</p>
+<p><strong>Hierarchy of Maximal ideals in the Banach Algebra
+II</strong></p>
+<p>Based on the series talk I, we discuss applications of results of the
+C*-algebra to the quantum mechanics.</p>
+<p><em>Manuscript</em></p>
+
+        </section>
+    </article>
+</div>
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+
+
+    <div id="popular_posts_pv"></div>
+    <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+
+
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a> 
+        </span>
+    </div>
+    <div>        
+        <span>  <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+ 
+        </span>
+    </div>    
+</footer>
+
+
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H3BQWGrYEK5t7Nh",ck:"3H3BQWGrYEK5t7Nh"})</script>
+
+
+    </div>
+</body>
+
+</html>

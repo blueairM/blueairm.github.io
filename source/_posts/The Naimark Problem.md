@@ -34,6 +34,7 @@ Akemann & Donner (1979) constructs example with a C$^{*}$-algebra with $\aleph _
 [^3]: Bice, T., & Koszmider, P. (2017). A note on the Akemann-Doner and Farah-Wofsey constructions. Proceedings of the American Mathematical Society, 145(2), 681-687.
 
 
+<!-- more --> 
 
 ## Question 3:  
 
@@ -53,7 +54,6 @@ Do there exist non-discrete second countable locally compact groups which are C$
 [^5]: Pierre de la Harpe, On simplicity of reduced C$^{*}$-algebras of groups, Bull. Lond. Math. Soc.
 
 Resolved. Suzuki (2017).[^6] 
-
 
 [^6]: Suzuki, Y. (2017). Elementary constructions of non-discrete 𝐶*-simple groups. Proceedings of the American Mathematical Society, 145(3), 1369-1371.
 
