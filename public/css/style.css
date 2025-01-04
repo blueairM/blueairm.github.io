@@ -1375,3 +1375,15 @@ header label {
   max-width: 780px;
   margin: auto;
 }
+.year-toggle {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #007acc;
+}
+.year-toggle:hover {
+  text-decoration: underline;
+}
+.year-posts {
+  margin-left: 20px;
+}

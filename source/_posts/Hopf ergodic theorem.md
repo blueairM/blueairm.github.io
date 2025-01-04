@@ -216,8 +216,7 @@ Thus, the proof of Hopf's ergodic theorem is complete.
 
 
 
-[1] Hopf, E. Fuchsian groups and ergodic theory. Trans. Amer. Math. Soc. 39 (1936).
+[1] Hopf, E. Ergodentheorie. Berlin (1937).
 
-[2] Hopf, E. Ergodentheorie. Berlin (1937).
+[2] Hedlund, G. A. A new proof for a metrically transitive system. Amer. J. Math. 62 (1940).
 
-[3] Tsuji, M. Hopf's ergodic theorem on Fuchsian groups. Journ. Math. Soc. Japan, 7(1955).

@@ -5,9 +5,12 @@ date: 2024-01-30 20:52:41
 sticky: 100
 top: true
 mathjax: true
+pagination: true
+per_page: 10
 ---
 
-# NWU Set Theory Seminar(2024/01/30)
+
+# NWU Set Theory Seminar(From 2024 January)
 
 
 
@@ -23,81 +26,116 @@ If you have any question or need help, feel free to ask!
 
 ## Organizers
 
-Cao Zilong
+[Cao Zilong](https://scholar.google.com/citations?user=cago5xUAAAAJ&hl=zh-CN) *(Mathematical Statistics)*
 
-*PhD, School of Mathematics, Northwest University*
+PhD, School of Mathematics, Northwest University
 
-nwu_czl(At)stumail(dot)nwu(dot)edu(dot)cn
+Email: [nwu_czl@stumail.nwu.edu.cn](nwu_czl@stumail.nwu.edu.cn) 
 
-Qian Jingxu
+[Mu Miaomiao](https://nichole2023.github.io/) *(Number Theory, Algebraic Geometry)* *Female
 
-*Graduate, Department of Physics, National University of Defense Technology*
+PhD, School of Mathematical Sciences, University of Science and Technology of China
 
-qian_jingxu(At)alumni(dot)nudt(dot)edu(dot)cn
+Email: [mumm@mail.ustc.edu.cn](mumm@mail.ustc.edu.cn)
 
-Shao Kerun
+Qian Jingxu, *(Mathematical Physics)*
 
-*PhD, School of Mathematical Sciences, Zhejiang University*
+Graduate, Department of Physics, National University of Defense Technology
 
-12335003(At)zju(dot)edu(dot)cn
+Email: [qian_jingxu@alumni.nudt.edu.cn](qian_jingxu@alumni.nudt.edu.cn)
 
-Sheng Xi
+[Shao Kerun](https://www.researchgate.net/profile/Kerun-Shao) *(Analysis, Partial Differential Equations)*
 
-*PhD, School of Mathematical Sciences, University of Science and Technology of China*
+Email: [12335003@zju.edu.cn](12335003@zju.edu.cn)
 
-sunx(At)mail(dot)ustc(dot)edu(dot)cn
+PhD, School of Mathematical Sciences, Zhejiang University
 
-[Wang Haoming](https://blueairm.github.io/) 
+[Sheng Xi](https://www.researchgate.net/profile/Xi-Sheng-3) *(Analysis, Topology, Dynamic Systems)*
 
-*PhD, School of Mathematics, Sun Yat-sen University*
+PhD, School of Mathematical Sciences, University of Science and Technology of China
 
-wanghm37(At)mail2(dot)sysu(dot)edu(dot)cn
+Email: [sunx@mail.ustc.edu.cn](sunx@mail.ustc.edu.cn)
 
-Xue Xiaolong
+[Wang Haoming](https://blueairm.github.io/) *(Combinatorics, Probability, Statistics)*
 
-*PhD, Department of Mathematical Sciences, Tsinghua University*
+PhD, School of Mathematics, Sun Yat-sen University
 
-xxl19(At)mails(dot)tsinghua(dot)edu(dot)cn
+Email: [wanghm37@mail2.sysu.edu.cn](wanghm37@mail2.sysu.edu.cn)
 
-Yang Yixuan
+Xue Xiaolong *(Topology, Differential Geometry)*
 
-*PhD, Department of Computer Science and Engineering, South University of Science and Technology of China \& Department of Computer Science, Warwick University*
+PhD, Department of Mathematical Sciences, Tsinghua University
 
-nakeryang(At)gmail(dot)com
+Email: [xxl19@mails.tsinghua.edu.cn](xxl19@mails.tsinghua.edu.cn)
+
+[Yang Yixuan](https://openreview.net/profile?id=~Yixuan_Yang5) *(Theoretical Computer Science, Mathematical Logic)*
+
+PhD, Department of Computer Science and Engineering, South University of Science and Technology of China \& Department of Computer Science, Warwick University
+
+Email: [nakeryang@gmail.com](nakeryang@gmail.com)
 
 
 ## Upcoming Events
 
-2024/03/15, 13:00 p.m., [TBA]()
+2025/02/14, 10:00 a.m., [TBA]()
 
-Sheng Xi (University of Science and Technology of China)
+Xue Xiaolong (Tsinghua University)
 
-**TBA**
+**The rigidity of eigenfunctions's gradient estimates**
 
+On compact Riemannian manifolds with non-negative Ricci curvature and smooth (possibly empty), convex (or mean convex) boundary, if the sharp Li-Yau type gradient estimate of an Neumann (or Dirichlet) eigenfunction holds at some non-critical points of the eigenfunction; we show that the manifold is isometric to the product of one lower dimension manifold and a round circle (or a line segment).
+
+[Article](https://link.springer.com/article/10.1007/s00209-024-03665-8) in Mathematische Zeitschrift.
+
+2025/02/28, 10:00 a.m., [TBA]()
+
+Yilong Zhang (Bonn University)
+
+**Green points in the reals**
+
+We construct an expansion of a real closed field by a multiplicative subgroup adapting Poizat's theory of green points Its theory is strongly dependent, and every open set definable in a model of this theory is semialgebraic. We prove that the real field with a dense family of logarithmic spirals, proposed by Zilber, satisfies our theory.
+
+[ArXiv](https://arxiv.org/abs/2501.01176).
+
+2025/04/25, 10:00 a.m., [TBA]()
+
+Shao Kerun (Zhejiang University)
+
+**Existence of global solutions to semilinear wave equations** 
+
+TBA.
+
+[Article](https://www.researchgate.net/profile/Kerun-Shao).
+
+
+2025/06/20, 10:00 a.m., [TBA]()
+
+Liu Han (Fudan University)
+
+**On Thompson's group $F$**
+
+TBA.
+
+To submit to arXiv.
+
+
+2025/07+, 10:00 a.m., [TBA]()
+
+Chen Zaoli (Cornell University)
+
+**Extreme values for a class of stable regenerative sets** 
+
+TBA.
+
+[Article](https://link.springer.com/article/10.1007/s10959-019-00951-8).
 
 
 ## Past Events
 
 
-2024/02/02, 1:00 p.m., [Tencent Meeting]()
+[2024](/seminar/2024)
 
-Wang Haoming (Sun Yat-sen University)
-
-**Hierarchy of Maximal ideals in the Banach Algebra I**
-
-This paper introduces two topologies, namely the weak\*-topology (also known as the product topology) and the Zariski topology on the set of maximal ideals in the Banach algebra using both analytical and algebraic methods. It proves that under the condition of separability, the set of maximal ideals endowed with the weak\*-topology is second countable and metrizable, and it demonstrates that the two topologies are homeomorphic. We illustrate examples such as the continuous function ring $C(X)$, where $X$ is a compact Hausdorff space and the $l^p$ space for $1 \leq p < +\infty$.
-
-*Manuscript*, [Slides](https://blueairm.github.io/seminar/pdf/whm20240202.pdf)
-
-
-2024/02/23, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/v2/cloud-record/share?id=2a1f7a17-350c-4abd-8bd2-6ffc1ac42b1e&from=3&record_type=2)
-
-Wang Haoming (Sun Yat-sen University)
-
-**Hierarchy of Maximal ideals in the Banach Algebra II**
-
-Based on the series talk I, we discuss applications of results of the C*-algebra to the quantum mechanics.
-
-*Manuscript*
-
-
+<div class="pagination">
+  <a>Previous Page</a>
+  <a class="previous" href="/seminar/2024">Next Page</a>
+</div>

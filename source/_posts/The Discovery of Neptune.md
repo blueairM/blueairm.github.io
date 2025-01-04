@@ -2,9 +2,9 @@
 title: The Discovery of Neptune (By J.E. Littlewood)
 date: 2023-04-04 20:02:28
 tags:
-    - [Notes]
+    - [Miscellanies]
 categories: 
-    - [Notes]
+    - [Miscellanies]
 mathjax: true
 ---
 

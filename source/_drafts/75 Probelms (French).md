@@ -174,7 +174,7 @@ Un point $x$ de $F$ est dit lin\'eairement accessible s'il existe un segment rec
 
 Probl\'eme de Sierpi\'nski.
 
-34) Appelons un ensemble (lin\`eaire) mesurable ($B$) de classe a *irr\'eductible* s'il n'est de classe $<\alpha$ dans aucun intervalle. Quelle est la puissance de l'ensemble de tous les types topologiques d'ensumbles irr\'eductibles de classe $\alpha$?
+34) Appelons un ensemble (lin\`eaire) mesurable ($B$) de classe $\alpha$ *irr\'eductible* s'il n'est de classe $<\alpha$ dans aucun intervalle. Quelle est la puissance de l'ensemble de tous les types topologiques d'ensumbles irr\'eductibles de classe $\alpha$?
 
 Appelons un ensemble ($A$) irr\'eductible, s'il n'est mesurable ($B$) dans aucun intervalle. Quelle est la puissance de tous les types topologiques des ensembles ($A$) irr\'eductibles?
 
@@ -208,7 +208,7 @@ Probl\'eme de M. O. Nikodym.
 
 Probl\'eme de M. Sierpi\'nski.
 
-41) $E_{1}, E_{2}, E_{3}, \dots$ \'etant une suite d\'enombrable d'ensembles lin\'eaires dont chacun est une projection d;un ensemble plan compl\'ementaire \`a un ensemble ($A$) de M. Souslin, l'ensemble $E_{1}E_{2} E_{3} \dots $ est il de m\^eme nature?
+41) $E_{1}, E_{2}, E_{3}, \dots$ \'etant une suite d\'enombrable d'ensembles lin\'eaires dont chacun est une projection d'un ensemble plan compl\'ementaire \`a un ensemble ($A$) de M. Souslin, l'ensemble $E_{1}E_{2} E_{3} \dots $ est il de m\^eme nature?
 
 Probl\'eme de M. Sierpi\'nski.
 
@@ -280,7 +280,7 @@ b) Lasst sieh jede $R$-Menge in endlich viele absolu#e Retrakte zerlegen?
 
 Probl\'emes de M. K. Borsuk.
 
-58) Soient $A$ et $B$ deux espaces topologiques et $A^{2}$ et $B^{2}$ respectivement leur carr\'es (a. \`a. d. $A^{2}$ p. ex. se compose de tous tes couples ($a_{1}$, $a_{2}$) extraite de $A$).
+56) Soient $A$ et $B$ deux espaces topologiques et $A^{2}$ et $B^{2}$ respectivement leur carr\'es (a. \`a. d. $A^{2}$ p. ex. se compose de tous tes couples ($a_{1}$, $a_{2}$) extraite de $A$).
 
 Est-il vrai que si $A^{2}$ et $B^{2}$ sont hom'eomorphes. $A$ et $B$ le sont aussi?
 
@@ -333,7 +333,7 @@ Probl\'eme de M. W. Hurewicz.
 
 64)	Gibt es im $R^{n}$ zwei orientierbare Mannigfaltigkeiten $M_{1}^{k}$ und $M_{2}^{k}$, deren Komplement\"arr\"aume $R^{n} - M_{1}^{k}$ und $R^{n} - M_{2}^{k}$ hom\"oomorph und deren Homologieringe nicht isomorph sind?
 
-65)	Soient $B_{0}, B_{1}, B_{2}, \dots, B_{\omega}, \dots, B_{\alpha}, \dots$ des classes boreliennes d'ensembles, form\'ees en partant d'une classe quelconque d'ensembles abstraits. On sait que $B_{\alpha} = B_{\alpha+}$. entra\^ine $B_{\alpha}= B_{\beta}$ pour tout $\beta>\alpha$; soit $\alpha_{0}$ le premier nombre $\alpha$ satisfaisant \`a cette condition. Quels sont les nombres $v$ pour lesquels il existe des classes $B_{0}$ telles que l'on ait $\alpha_{0} = v$? (Cf. Fund. Math. t. XV, p. 284).
+65)	Soient $B_{0}, B_{1}, B_{2}, \dots, B_{\omega}, \dots, B_{\alpha}, \dots$ des classes boreliennes d'ensembles, form\'ees en partant d'une classe quelconque d'ensembles abstraits. On sait que $B_{\alpha} = B_{\alpha+}$. entra\^ine $B_{\alpha}= B_{\beta}$ pour tout $\beta>\alpha$; soit $\alpha_{0}$ le premier nombre $\alpha$ satisfaisant \`a cette condition. Quels sont les nombres $\nu$ pour lesquels il existe des classes $B_{0}$ telles que l'on ait $\alpha_{0} = \nu$? (Cf. Fund. Math. t. XV, p. 284).
 
 Probl\'emes de M. A. Ko1mogoroff.
 

@@ -108,7 +108,7 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/archives">Posts</a>
@@ -117,9 +117,11 @@
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
+                    <a class="menu-item" href="/research">Research</a>
+                
                     <a class="menu-item" href="/seminar">Seminar</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/info">Infos</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -132,7 +134,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -144,9 +146,11 @@
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
+                    <a class="menu-item" href="/research">Research</a>
+                
                     <a class="menu-item" href="/seminar">Seminar</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/info">Infos</a>
                 
             </div>
         </div>
@@ -264,242 +268,97 @@
         </header>
 
         <div class="post-content">
-            <h2 id="quadratic-reciprocity-law">Quadratic Reciprocity Law</h2>
-<p>Let <span class="math inline">\(p\)</span> and <span
-class="math inline">\(q\)</span> be distinct odd prime numbers, and
-define the Legendre symbol as:</p>
+            <h1 id="quadratic-reciprocity-law">Quadratic Reciprocity Law</h1>
+<h2 id="the-reciprocity-law-one">The Reciprocity Law one</h2>
+<p>Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be distinct odd prime numbers, and
+define the Legendre symbol as</p>
 <p><span class="math display">\[\left({\frac{q}{p}}\right)=
 \begin{cases}1&amp;{\text{if }}n^{2}\equiv q{\mod {p}}{\text{ for some
 integer }}n\\
 -1&amp;{\text{otherwise}}
-\end{cases}\]</span> Then:</p>
+\end{cases}\]</span> Then</p>
 <p><span class="math display">\[\left(\frac
-{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{p-1}{2}
-\frac{q-1}{2}}\]</span>.</p>
-<h2 id="example">Example</h2>
-<p>The law of decomposition of prime numbers <span
-class="math inline">\(p\)</span> in a quadratic number field <span
-class="math inline">\(Q(\sqrt{a})\)</span> is intimately related to
-Gauss's famous quadratic reciprocity law. The latter concerns the
-problem of integer solutions of the equation <span
-class="math display">\[x^{2}+by=a, (a,b \in \mathbb{Z}),\]</span> the
-simplest among the nontrivial diophantine equations. The theory of this
-equation reduces immediately to the case where <span
-class="math inline">\(b\)</span> is an odd prime number <span
-class="math inline">\(p\)</span> and <span class="math inline">\((a, p)
-= 1\)</span> (Exercise 1). Let us assume this for the sequel. We are
-then facing the question as to whether <span
-class="math inline">\(a\)</span> is a quadratic residue <span
-class="math inline">\(\mod p\)</span>, i.e., whether the congruence</p>
-<p><span class="math display">\[x^{2} \equiv a \mod p\]</span></p>
-<p>does or does not have a solution. In other words, we want to know if
-the equation <span class="math inline">\(\bar{x}^{2} = \bar{a}\)</span>,
-for a given element <span class="math inline">\(\bar{a} = a \mod p \in
-\mathbb{F}^{*}_{p}\)</span>, admits a solution in the field <span
-class="math inline">\(\mathbb{F}_{p}\)</span> or not. For this one
-introduces the Legendre symbol <span
-class="math inline">\(\left(\frac{a}{p}\right)\)</span>, which, for
-every rational number <span class="math inline">\(a\)</span> relatively
-prime to <span class="math inline">\(p\)</span>, is defined <span
-class="math inline">\(\left(\frac{a}{p}\right) = 1\)</span> or <span
-class="math inline">\(-1\)</span>, according as <span
-class="math inline">\(x^{2} \equiv a \mod p\)</span> has or does not
-have a solution. This symbol is multiplicative,</p>
-<p><span class="math display">\[\left(\frac{ab}{p}\right) =
-\left(\frac{a}{p}\right) \left(\frac{b}{p}\right)  \]</span></p>
-<p>This is because the group <span
-class="math inline">\(\mathbb{F}^{*}_{p}\)</span> is cyclic of order
-<span class="math inline">\(p-1\)</span> and the subgroup <span
-class="math inline">\(\mathbb{F}^{*2}_{p}\)</span> of squares has index
-<span class="math inline">\(2\)</span>, i.e., <span
-class="math inline">\(\mathbb{F}^{*}_{p}/\mathbb{F}^{*2}_{p} \cong
-\mathbb{Z}/2\mathbb{Z}\)</span>. . Since <span
-class="math inline">\(\left(\frac{a}{p}\right) = 1 \Longleftrightarrow
-\bar{a} \in \mathbb{F}_{p}^{*2}\)</span>, one also has</p>
-<p><span
-class="math display">\[\left(\frac{a}{p}\right)=a^{\frac{p-1}{2}} \mod
-p\]</span>.</p>
-<p>In the case of squarefree <span class="math inline">\(a\)</span>, the
-Legendre symbol <span
-class="math inline">\(\left(\frac{a}{p}\right)\)</span> bears the
-following relation with prime factorization. <span
-class="math inline">\(\left(\frac{a}{p}\right) = 1\)</span> $signifies
-that</p>
-<p><span class="math display">\[x^{2} -a \equiv (x - \alpha) (x +
-\alpha) \mod p \]</span></p>
-<p>for some <span class="math inline">\(\alpha \in \mathbb{Z}\)</span>.
-The conductor of <span class="math inline">\(Z [\sqrt{a}]\)</span> in
-the ring of integers of <span class="math inline">\(Q
-(\sqrt{a})\)</span> is <span class="math inline">\(a\)</span> divisor of
-<span class="math inline">\(2\)</span> (Exercise 2). We may therefore
-apply Exercise 3 and obtain the</p>
-<h2 id="proposition-1">Proposition 1</h2>
-<p>For squarefree <span class="math inline">\(a\)</span> and <span
-class="math inline">\((p, 2a) = 1\)</span>, we have the equivalence</p>
-<p><span class="math display">\[\left(\frac{a}{p}\right) = 1
-\Longleftrightarrow p \text{ is totally split in }
-\mathbb{Q}(\sqrt{a})\]</span></p>
-<p>For the Legendre symbol, one has the following remarkable law, which
-like none other has left its mark on the development of algebraic number
-theory.</p>
-<h2 id="theorem">Theorem</h2>
-<p>or two distinct odd prime numbers <span
-class="math inline">\(p\)</span> and <span
-class="math inline">\(q\)</span>, the following identity holds:</p>
-<p><span class="math display">\[\left(\frac
-{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{p-1}{2}
-\frac{q-1}{2}}\]</span>.</p>
-<p>One also has the two "supplementary theorems"</p>
-<p><span class="math display">\[\left(\frac{-1}{p}\right) =
-(-1)^{\frac{p-1}{2}}, \quad \left(\frac{2}{p}\right)
-=  (-1)^{\frac{p^{2}-1}{8}}\]</span></p>
-<h2 id="proof">Proof</h2>
-<p><span class="math inline">\(\left(\frac{-1}{p}\right) =
-(-1)^{\frac{p-1}{2}} \mod p\)</span> implies <span
-class="math inline">\(\left(\frac{-1}{p}\right) =
-(-1)^{\frac{p-1}{2}}\)</span> since <span class="math inline">\(p \neq
-2\)</span></p>
-<p>In order to determine <span
-class="math inline">\(\left(\frac{2}{p}\right)\)</span>, we work in the
-ring <span class="math inline">\(\mathbb{Z}[i]\)</span> of Gaussian
-integers. Since <span class="math inline">\((1+i)^{2} = 2i\)</span>, we
-find</p>
-<p><span class="math display">\[(1+i)^{p} = (1+ i)
-\left((1+i)^{2}\right)^{\frac{p-1}{2}} = (1+i) i^{\frac{p-1}{2}}
-2^{\frac{p-1}{2}}\]</span></p>
-<p>and since <span class="math inline">\((1 + i)^{p} = 1 + i^{p} \mod
-p\)</span> and <span class="math inline">\(\left(\frac{2}{p}\right) =
-2^{\frac{p -1 }{2}} \mod p\)</span>, it follows that</p>
-<p><span class="math display">\[\left(\frac{2}{p}\right) (1+i)
-i^{\frac{p-1}{2}} \equiv 1 + i(-1)^{\frac{p-1}{2}} \mod p\]</span></p>
-<p>From this, an easy computation yields</p>
-<p><span class="math display">\[\left(\frac{2}{p}\right) \equiv
-(-1)^{\frac{p-1}{4}} \mod p, \text{ resp. } \left(\frac{2}{p}\right)
-=  \equiv (-1)^{\frac{p+1}{4}} \mod p\]</span></p>
-<p>if <span class="math inline">\(p-1\)</span> is even, resp. odd. Since
-<span class="math inline">\(\frac{p^{2}- 1}{8} = \frac{p-1}{4}
-\frac{p+1}{2} = \frac{p+1}{4} \frac{p-1}{2}\)</span>, we deduce <span
-class="math inline">\(\left(\frac{2}{p}\right) =
-(-1)^{\frac{p^{2}-1}{8}}\)</span>.</p>
-<p>In order to prove the first formula, we work in the ring <span
-class="math inline">\(\mathbb{Z}[\zeta]\)</span>, where <span
-class="math inline">\(\zeta\)</span> is a primitive <span
-class="math inline">\(p\)</span>-th root of unity. We consider the Gauss
-sum</p>
-<p><span class="math display">\[g = \sum_{a \in \mathbb{Z}/p\mathbb{Z}}
-\left(\frac{a}{p}\right)\zeta^{a}\]</span></p>
-<p>and show that</p>
-<p><span class="math display">\[g^{2} =
-\left(\frac{-1}{p}\right)p\]</span></p>
-<p>For this, let <span class="math inline">\(a\)</span> and <span
-class="math inline">\(b\)</span> vary over the group <span
-class="math inline">\((\mathbb{Z}/p\mathbb{Z})^{*}\)</span>, put <span
-class="math inline">\(c = ab^{-1}\)</span> and deduce from the identity
-<span class="math inline">\(\left(\frac{b}{p}\right) =
-\left(\frac{b^{-1}}{p}\right)\)</span> that</p>
-<p><span class="math display">\[\begin{aligned}
-\left(\frac{-1}{p}\right) g^{2} = &amp;\sum_{a,b}
-\left(\frac{-ab}{p}\right) \zeta^{a+b} = \sum_{a,b}
-\left(\frac{ab^{-1}}{p}\right) \zeta^{a-b} = \sum_{a,b}
-\left(\frac{c}{p}\right) \zeta^{bc -b}\\
-= &amp; \sum_{c\neq 1}\left(\frac{c}{p}\right) \sum_{b}\zeta^{b(c-1)} +
-\sum_{b} \left(\frac{1}{p}\right)  
-\end{aligned}\]</span></p>
-<p>Now <span class="math inline">\(\sum_{c} \left(\frac{c}{p}\right) =
-0\)</span>, as one sees by multiplying the sum with a symbol $ () = -1$,
-and putting <span class="math inline">\(\xi = \zeta^{c-1}\)</span> gives
-<span class="math inline">\(\sum_{b} \zeta ^{b(c-1)} = \xi + \xi^{2} +
-\cdots + \xi^{p-1} = -1\)</span> from which we indeed find that</p>
-<p><span class="math display">\[\left(\frac{-1}{p}\right) g^{2} =
-(-1)(-1) + p -1 = p\]</span></p>
-<p>This, together with the congruence <span
-class="math inline">\(\left(\frac{p}{q}\right) = p^{\frac{q-1}{2}} \mod
-q\)</span> and the identity <span
-class="math inline">\(\left(\frac{-1}{p}\right) =
-(-1)^{\frac{p-1}{2}}\)</span>, implies</p>
-<p><span class="math display">\[g^{q} = g (g^{2})^{\frac{q-1}{2}} \equiv
-g (-1)^{\frac{p-1}{2}\frac{q-1}{2}} \left(\frac{p}{q}\right) \mod
-q\]</span></p>
-<p>On the other hand one has</p>
-<p><span class="math display">\[g^{q} = \sum_{a}
-\left(\frac{a}{p}\right) \zeta^{aq} = \left(\frac{p}{q}\right)
-\sum_{a^{\prime}} \left(\frac{aq}{p}\right)\zeta^{aq} \equiv
-\left(\frac{q}{p}\right)g \mod q\]</span></p>
-<p>so that</p>
-<p><span class="math display">\[g\left(\frac{q}{p}\right) \equiv g
-(-1)^{\frac{p-1}{2}\frac{q-1}{2}} \left(\frac{p}{q}\right) \mod q
-\]</span></p>
-<p>Multiplying by <span class="math inline">\(g\)</span> and dividing by
-<span class="math inline">\(\pm p\)</span> yields the claim. <span
-class="math inline">\(\square\)</span></p>
-<h2 id="exercise-1">Exercise 1</h2>
-<p>Given a positive integer <span class="math inline">\(b &gt;
-1\)</span>, an integer <span class="math inline">\(a\)</span> relatively
-prime to <span class="math inline">\(b\)</span> is a quadratic residue
-<span class="math inline">\(\mod b\)</span> if and only if it is a
-quadratic residue modulo each prime divisor <span
-class="math inline">\(p\)</span> of <span
-class="math inline">\(b\)</span>, and if <span class="math inline">\(a -
-1 \mod 4\)</span> when <span class="math inline">\(4|b\)</span>, <span
-class="math inline">\(8{\small\not|} b\)</span>, resp. <span
-class="math inline">\(a \equiv 1 \mod 8\)</span> when <span
-class="math inline">\(8|b\)</span>.</p>
-<h2 id="exercise-2">Exercise 2</h2>
-<p>Let <span class="math inline">\(D\)</span> be a squarefree rational
-integer <span class="math inline">\(\neq 0, 1\)</span> and <span
-class="math inline">\(d\)</span> the discriminant of the quadratic
-number field <span class="math inline">\(\mathbf{K} =
-\mathbb{Q}(\sqrt{D})\)</span>. Show that <span class="math display">\[
-\begin{aligned}
-d = D, \quad &amp; \text{ if } D \equiv 1 \mod 4\\
-d = 4D, \quad &amp; \text{ if } D \equiv 2 \text{ or } 3 \mod 4\\
-\end{aligned}
-\]</span> and that an integral basis of <span
-class="math inline">\(\mathbf{K}\)</span> is given by <span
-class="math inline">\(\{1,\sqrt{D}\}\)</span> in the second case, by
-<span class="math inline">\(\left\{l, \frac{1}{2}(1
-+\sqrt{D})\right\}\)</span> in the first case, and by <span
-class="math inline">\(\left\{1, \frac{1}{2}(d
-+\sqrt{d})\right\}\)</span> in both cases.</p>
-<h2 id="exercise-3">Exercise 3</h2>
-<p>Denote <span class="math inline">\(\mathcal{o}\)</span> an arbitrary
-Dedekind domain and the integral closure <span
-class="math inline">\(\mathcal{O}\)</span> of <span
-class="math inline">\(\mathcal{o}\)</span> in a finite extension of its
-field of fractions.</p>
-<p>Let <span class="math inline">\(\mathsf{p}\)</span> be a prime ideal
-of <span class="math inline">\(\mathcal{o}\)</span> which is relatively
-prime to the conductor <span class="math inline">\(\mathfrak{F}\)</span>
-of <span class="math inline">\(\mathcal{o}[\theta]\)</span>, and let
-<span class="math display">\[\bar{p}(X) = \bar{p}_{1}(X)^{e_{1}}
-\bar{p}_{2}(X)^{e_{2}} \cdots \bar{p}_{r}(X)^{e_{r}}\]</span> be the
-factorization of the polynomial <span class="math inline">\(\bar{p} (X)
-= p (X) \mod p\)</span> into irreducibles <span
-class="math inline">\(\bar{p}_{i} (X) = p_{i}(X) \mod
-\mathsf{p}\)</span> over the residue class field <span
-class="math inline">\(\mathcal{o}/\mathsf{p}\)</span>, with all <span
-class="math inline">\(p_{i} (X) \in \mathcal{o}[X]\)</span> monic. Then
-<span class="math display">\[\mathfrak{P}_{i} = \mathsf{p} \mathcal{O} +
-p_{i}(\theta)\mathcal{O}, i=1,\cdots,r,\]</span></p>
-<p>are the different prime ideals of <span
-class="math inline">\(\mathcal{O}\)</span> above <span
-class="math inline">\(\mathsf{p}\)</span>. The inertia degree <span
-class="math inline">\(f_{i}\)</span> of <span
-class="math inline">\(\mathfrak{P}_{i}\)</span> is the degree of <span
-class="math inline">\(\bar{p}_{i} (X)\)</span>, and one has <span
-class="math display">\[\mathsf{p} = \mathfrak{P}_{1}^{e_{1}} \cdots
-\mathfrak{P}_{r}^{e_{r}}\]</span></p>
-<h1 id="reference">Reference</h1>
-<p>[1] Artin, Emil. "Quadratische Körper im Gebiete der höheren
-Kongruenzen. I. Arithmetischer Teil." Mathematische Zeitschrift 19.1
-(1924): 153-206.</p>
-<p>[2] Gauss, Carl Friedrich (1986). Disquisitiones Arithemeticae.
-Translated by Clarke, Arthur A. (Second, corrected ed.). New York:
-Springer.</p>
-<p>[3] Neukirch J. Algebraic number theory[M]. Springer Science &amp;
-Business Media, 2013.</p>
-<p>[4] Weyl H. Algebraic theory of numbers[M]. Princeton University
-Press, 1998.</p>
+{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{p^{\prime}q^{\prime}}.\]</span></p>
+<p>where <span class="math inline">\(p^{\prime} = \frac{p-1}{2}\)</span>
+and <span class="math inline">\(q^{\prime}=\frac{q-1}{2}\)</span>.</p>
+<p><img src="/2023/03/27/Quadratic%20Reciprocity%20Law/QRL.png"></p>
+<p>Since <span class="math inline">\(p^{\prime}q^{\prime}\)</span> is
+even if either <span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span> is of the form <span class="math inline">\(4n+1\)</span>, and odd if both are of the form
+<span class="math inline">\(4n + 3\)</span>, we can also state the
+theorem as</p>
+<h2 id="the-reciprocity-law-two">The Reciprocity Law two</h2>
+<p>If <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are odd primes, then <span class="math display">\[\left(\frac {p}{q}\right) =
+\left(\frac{q}{p}\right)\]</span> unless both <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are of the forv <span class="math inline">\(4n+3\)</span>, in which case <span class="math display">\[\left(\frac {p}{q}\right) = -
+\left(\frac{q}{p}\right)\]</span></p>
+<h2 id="the-reciprocity-lemma">The Reciprocity Lemma</h2>
+<p>If <span class="math display">\[S(q,p) =
+\sum_{s=1}^{p^{\prime}}\left[\frac{sq}{p}\right],\]</span> then <span class="math display">\[S(q,p) + S(p,q) =
+p^{\prime}q^{\prime}.\]</span></p>
+<p>The proof may be stated in a geometrical form. In the figure <span class="math inline">\(AC\)</span> and <span class="math inline">\(BC\)</span> are <span class="math inline">\(x =
+p\)</span>, <span class="math inline">\(y=q\)</span>, and <span class="math inline">\(KM\)</span> and <span class="math inline">\(LM\)</span> are <span class="math inline">\(x =
+p^{\prime}\)</span>, <span class="math inline">\(y =
+q^{\prime}\)</span>. If (as in the figure) <span class="math inline">\(p
+&gt; q\)</span>, then <span class="math inline">\(q^{\prime}/p^{\prime}
+&lt; q/p\)</span>, and <span class="math inline">\(M\)</span> falls
+below the diagonal <span class="math inline">\(OC\)</span>. Since <span class="math display">\[q^{\prime} &lt; \frac{qp^{\prime}}{p} &lt;
+q^{\prime}-l,\]</span> there is no integer between <span class="math inline">\(KM = q^{\prime}\)</span> and <span class="math inline">\(KN = qp^{\prime}/p\)</span>.</p>
+<p>We count up, in two different ways, the number of lattice points in
+the rectangle <span class="math inline">\(OKML\)</span>, counting the
+points on <span class="math inline">\(KM\)</span> and <span class="math inline">\(LM\)</span> but not those on the axes. In the
+first place, this number is plainly <span class="math inline">\(p^{\prime}q^{\prime}\)</span>. But there are no
+lattice points on <span class="math inline">\(OC\)</span> (since <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are prime), and none in the triangle
+<span class="math inline">\(PMN\)</span> except perhaps on <span class="math inline">\(PM\)</span>. Hence the number of lattice points in
+<span class="math inline">\(OKML\)</span> is the sum of those in the
+triangles <span class="math inline">\(OKN\)</span> and <span class="math inline">\(OLP\)</span> (counting those on <span class="math inline">\(KN\)</span> and <span class="math inline">\(LP\)</span> but not those on the axes). The number
+on <span class="math inline">\(ST\)</span>, the line <span class="math inline">\(x = s\)</span>, is <span class="math inline">\([sq/p]\)</span>, since <span class="math inline">\(sq/p\)</span> is the ordinate of <span class="math inline">\(T\)</span>. Hence the number in <span class="math inline">\(OKN\)</span> is <span class="math display">\[\sum_{s=1}^{p^{\prime}}\left[\frac{sq}{p}\right]
+= S(q,p)\]</span> Similarly, the number in <span class="math inline">\(OLP\)</span> is <span class="math inline">\(S(p,
+q)\)</span>, and the conclusion follows.</p>
+<h2 id="the-proof-of-reciprocity-law">The proof of Reciprocity Law</h2>
+<p>We can write <span class="math display">\[\begin{equation}
+\label{eq: summing}
+kq = p \left[\frac{kq}{p}\right] + u_{k}
+\end{equation}\]</span> where <span class="math inline">\(1\leq k \leq
+p^{\prime}\)</span>, <span class="math inline">\(1 \leq u_{k} \leq
+p-1\)</span>. Here <span class="math inline">\(u_k\)</span> is the least
+positive residue of <span class="math inline">\(kq (\bmod \,
+p)\)</span>. If <span class="math inline">\(u_k = v_k
+\leq  p^{\prime}\)</span>, then <span class="math inline">\(u_k\)</span>
+is one of the minimal residues <span class="math inline">\(r_i\)</span>,
+while if <span class="math inline">\(u_k = w_k &gt; p^{\prime}\)</span>,
+then <span class="math inline">\(u_k - p\)</span> is one of the minimal
+residues <span class="math inline">\(-r^{\prime}_{j}\)</span>. Thus
+<span class="math display">\[r_i = v_k, \quad r^{\prime}_{j} = p -
+w_k\]</span> for every <span class="math inline">\(i,j\)</span> and some
+<span class="math inline">\(k\)</span>.</p>
+<p>The <span class="math inline">\(r_i\)</span> and <span class="math inline">\(r_j^{\prime}\)</span> are the numbers <span class="math inline">\(1,2,\dots,p^{\prime}\)</span> in some order.
+Hence, if <span class="math display">\[R = \sum r_i = \sum v_k, \quad
+R^{\prime} = \sum r_{j}^{\prime} = \sum (p - w_k) = up - \sum
+w_k\]</span> (where <span class="math inline">\(\mu\)</span> is the
+number of <span class="math inline">\(r_j^{\prime}\)</span>), we have
+<span class="math display">\[R+R^{\prime} = \sum_{\nu=1}^{p^{\prime}}
+\nu = \frac{1}{2}\frac{p-1}{2}\frac{p+1}{2} = \frac{p^2 -1}{8},\]</span>
+and so <span class="math display">\[\begin{equation}
+\label{eq: From}
+\mu p +\sum v_k - \sum w_k = \frac{1}{8}(p^2-1)
+\end{equation}\]</span> On the other hand, summing <span class="math inline">\(\eqref{eq: summing}\)</span> from <span class="math inline">\(k=1\)</span> to <span class="math inline">\(k=p^{\prime}\)</span>, we have <span class="math display">\[\begin{equation}
+\label{eq: and}
+\frac{1}{8} q (p^2-1) = p S(q,p) + \sum u_{k} = p S(q,p) + \sum v_{k} +
+\sum w_k.
+\end{equation}\]</span> From <span class="math inline">\(\eqref{eq:
+From}\)</span> and <span class="math inline">\(\eqref{eq: and}\)</span>
+we deduce <span class="math display">\[\begin{equation}
+\label{eq: of}
+\frac{1}{8} (p^2-1) (q-1) = pS(q,p) + 2\sum w_k - \mu p.
+\end{equation}\]</span> Now <span class="math inline">\(q-1\)</span> is
+even, and <span class="math inline">\(p^2 -1 \equiv 0 (\bmod
+8)\)</span>; so that the left-hand side of <span class="math inline">\(\eqref{eq: of}\)</span> is even, and also the
+second term on the right. Hence (since <span class="math inline">\(p\)</span> is odd) <span class="math display">\[S(q,p) \equiv \mu (\bmod 2),\]</span> and
+therefore, by Gauss's lemma, <span class="math display">\[\left(\frac
+{q}{p}\right) = (-1)^{\mu} = (-1)^{S(q,p)}.\]</span> Finally, <span class="math display">\[\left(\frac {q}{p}\right)\left(\frac
+{p}{q}\right) = (-1)^{S(q,p) + S(p,q)} =
+(-1)^{p^{\prime}q^{\prime}}\]</span> by preceding lemma.</p>
+<p>[1] Hardy G.H., Wright E.M. - An Introduction to the Theory of
+Numbers (1975)</p>
 
         </div>
 

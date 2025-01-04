@@ -108,7 +108,7 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/archives">Posts</a>
@@ -117,9 +117,11 @@
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
+                    <a class="menu-item" href="/research">Research</a>
+                
                     <a class="menu-item" href="/seminar">Seminar</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/info">Infos</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -132,7 +134,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -144,9 +146,11 @@
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
+                    <a class="menu-item" href="/research">Research</a>
+                
                     <a class="menu-item" href="/seminar">Seminar</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/info">Infos</a>
                 
             </div>
         </div>
@@ -270,21 +274,16 @@
         <div class="post-content">
             <h2 id="theorem-1">Theorem 1</h2>
 <p>For any integer <span class="math inline">\(n\geq 2\)</span> there
-are continuous real functions <span
-class="math inline">\(\psi^{p,q}(x)\)</span> on the closed unit interval
+are continuous real functions <span class="math inline">\(\psi^{p,q}(x)\)</span> on the closed unit interval
 <span class="math inline">\(E^{1} = [0,1]\)</span> such that each
-continuous real function <span
-class="math inline">\(f(x_{1},\cdots,x_{n})\)</span> on the <span
-class="math inline">\(n\)</span>-dimensional unit cube <span
-class="math inline">\(E^{n}\)</span> is representable as</p>
+continuous real function <span class="math inline">\(f(x_{1},\cdots,x_{n})\)</span> on the <span class="math inline">\(n\)</span>-dimensional unit cube <span class="math inline">\(E^{n}\)</span> is representable as</p>
 <p><span class="math display">\[f(x_{1},\cdots,x_{n}) =
 \sum_{q=1}^{2n+1} \chi^{q} \left[\sum_{p=1}^{n}
 \psi^{p,q}(x_{p})\right]\]</span></p>
 <p>where <span class="math inline">\(\chi^{q}(y)\)</span> are continuous
 real function.</p>
 <p><br></p>
-<p><strong>Step 1</strong>: <em>Construction of the functions <span
-class="math inline">\(\psi^{pq}\)</span></em>.</p>
+<p><strong>Step 1</strong>: <em>Construction of the functions <span class="math inline">\(\psi^{pq}\)</span></em>.</p>
 <p>Consider the closed intervals</p>
 <p><span class="math display">\[\begin{aligned}
 &amp; A_{k,i}^{q} = \left[\frac{1}{(9n)^{k}}\left(i - 1 -
@@ -294,63 +293,44 @@ class="math inline">\(\psi^{pq}\)</span></em>.</p>
 2n +1, k= 1,2,\cdots
 \end{aligned}\]</span></p>
 <p>with lengths <span class="math inline">\(\frac{1}{9n}^{k} ( 1 -
-\frac{1}{3n})\)</span> and Accordingly, for fixed <span
-class="math inline">\(k\)</span> and <span
-class="math inline">\(q\)</span> by passing <span
-class="math inline">\(i\)</span> to <span
-class="math inline">\(i+1\)</span> using a shift to the right over a
+\frac{1}{3n})\)</span> and Accordingly, for fixed <span class="math inline">\(k\)</span> and <span class="math inline">\(q\)</span> by passing <span class="math inline">\(i\)</span> to <span class="math inline">\(i+1\)</span> using a shift to the right over a
 distance <span class="math inline">\(1/(9n)^{k}\)</span>. Accordingly,
-for fixed <span class="math inline">\(k\)</span> and <span
-class="math inline">\(q\)</span> the cubes</p>
+for fixed <span class="math inline">\(k\)</span> and <span class="math inline">\(q\)</span> the cubes</p>
 <p><span class="math display">\[S_{k,i_{1},\cdots,i_{n}}^{q} =
 \prod_{p=1}^{n} A_{k,i_{p}}^{q}\]</span></p>
-<p>with edges of lengths <span
-class="math inline">\(\frac{1}{(9n)^{k}}\)</span> cover the unit cube
+<p>with edges of lengths <span class="math inline">\(\frac{1}{(9n)^{k}}\)</span> cover the unit cube
 <span class="math inline">\(E^{n}\)</span> to within the separating
-slits of widths <span
-class="math inline">\(\frac{1}{3n(9n)^{k}}\)</span>. It's easy to verify
+slits of widths <span class="math inline">\(\frac{1}{3n(9n)^{k}}\)</span>. It's easy to verify
 the following</p>
 <h2 id="lemma-1">Lemma 1</h2>
-<p>The system of all cubes <span
-class="math inline">\(S_{k,i_{1},\cdots,i_{n}}^{q}\)</span> with
-constant <span class="math inline">\(k\)</span> and variable <span
-class="math inline">\(q\)</span> and <span
-class="math inline">\(i_{1},\cdots,i_{n}\)</span> covers the unit cube
+<p>The system of all cubes <span class="math inline">\(S_{k,i_{1},\cdots,i_{n}}^{q}\)</span> with
+constant <span class="math inline">\(k\)</span> and variable <span class="math inline">\(q\)</span> and <span class="math inline">\(i_{1},\cdots,i_{n}\)</span> covers the unit cube
 <span class="math inline">\(E^{n}\)</span> so that each point belonging
 to <span class="math inline">\(E^{n}\)</span> is covered by at least
-<span class="math inline">\(n+1\)</span> times. <span
-class="math inline">\(\label{lem 1}\)</span></p>
+<span class="math inline">\(n+1\)</span> times. <span class="math inline">\(\label{lem 1}\)</span></p>
 <p><br></p>
 <p>Using induction on <span class="math inline">\(k\)</span> we can
 prove the following</p>
 <h2 id="lemma-2">Lemma 2</h2>
-<p>There exist constants <span
-class="math inline">\(\lambda^{pq}_{k,i}\)</span> and <span
-class="math inline">\(\epsilon_{k}\)</span> such that</p>
+<p>There exist constants <span class="math inline">\(\lambda^{pq}_{k,i}\)</span> and <span class="math inline">\(\epsilon_{k}\)</span> such that</p>
 <ol type="1">
 <li><p><span class="math inline">\(\lambda^{pq}_{k,i} \leq
 \lambda^{pq}_{k,i+1} \leq \lambda^{pq}_{k,i} +
 1/2^{k}\)</span>;</p></li>
 <li><p><span class="math inline">\(\lambda^{pq}_{k,i} \leq
 \lambda^{pq}_{k+1,i^{\prime}} \leq \lambda^{pq}_{k,i} + \epsilon_{k+1} -
-\epsilon_{k}\)</span> if the closed intevals <span
-class="math inline">\(A_{k,i}^{q}\)</span> and <span
-class="math inline">\(A_{k+1,i^{\prime}}^{q}\)</span> do not
+\epsilon_{k}\)</span> if the closed intevals <span class="math inline">\(A_{k,i}^{q}\)</span> and <span class="math inline">\(A_{k+1,i^{\prime}}^{q}\)</span> do not
 intersect;</p></li>
-<li><p>the closed interval <span
-class="math inline">\(\Delta^{q}_{k,i_{1}, \cdots, i_{n}} =
+<li><p>the closed interval <span class="math inline">\(\Delta^{q}_{k,i_{1}, \cdots, i_{n}} =
 \left[\sum_{p}\lambda^{pq}_{k,i_{p}}, \sum_{p}\lambda^{pq}_{k,i_{p}} + n
-\epsilon_{k}\right]\)</span> are pairwise disjoint for fixed <span
-class="math inline">\(k\)</span> and <span
-class="math inline">\(q\)</span>.</p></li>
+\epsilon_{k}\right]\)</span> are pairwise disjoint for fixed <span class="math inline">\(k\)</span> and <span class="math inline">\(q\)</span>.</p></li>
 </ol>
 <p>It's easy to note that 1. and 3. imply</p>
 <ol start="4" type="1">
 <li><span class="math inline">\(\epsilon \leq 1/2^{k}\)</span>.</li>
 </ol>
 <h2 id="lemma-3">Lemma 3</h2>
-<p>For fixed <span class="math inline">\(p\)</span> and <span
-class="math inline">\(q\)</span> the condition</p>
+<p>For fixed <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> the condition</p>
 <ol start="5" type="1">
 <li><span class="math inline">\(\lambda^{pq}_{k,i} \leq \psi^{pq}(x)
 \leq \lambda^{pq}_{k,i} + \epsilon_{k}\)</span> uniquely determine a
@@ -360,16 +340,13 @@ continuous function <span class="math inline">\(\psi^{pq}\)</span> on
 <p>From 5. and 3. it follows that</p>
 <ol start="6" type="1">
 <li><span class="math inline">\(\sum_{p} \psi^{pq} (x_{p}) \in
-\Delta^{q}_{k,i_{1}, \cdots, i_{n}}\)</span> for <span
-class="math inline">\((x_{1}, \cdots, x_{n}) \in
+\Delta^{q}_{k,i_{1}, \cdots, i_{n}}\)</span> for <span class="math inline">\((x_{1}, \cdots, x_{n}) \in
 S_{k,i_{1},\cdots,i_{n}}^{q}\)</span>.</li>
 </ol>
 <p><br></p>
-<p><strong>Step 2</strong>: <em>Construction of the functions <span
-class="math inline">\(\chi^{q}\)</span></em>.</p>
+<p><strong>Step 2</strong>: <em>Construction of the functions <span class="math inline">\(\chi^{q}\)</span></em>.</p>
 <p>Let <span class="math inline">\(\chi_{0}^{q} \equiv 0\)</span>, while
-for <span class="math inline">\(r &gt;0\)</span>, <span
-class="math inline">\(\chi_{r}^{q}\)</span> will be defined by induction
+for <span class="math inline">\(r &gt;0\)</span>, <span class="math inline">\(\chi_{r}^{q}\)</span> will be defined by induction
 on <span class="math inline">\(r\)</span> simultaneously with the
 natural number <span class="math inline">\(k_{r}\)</span>.</p>
 <p>Denote as below</p>
@@ -378,22 +355,16 @@ natural number <span class="math inline">\(k_{r}\)</span>.</p>
 \psi^{pq}(x_{p})\right]\\
 M_{r}= &amp; \sup_{E^{n}} \left|f
 -f_{r}\right|\end{aligned}\]</span></p>
-<p><strong>Inductive step:</strong> Assuming <span
-class="math inline">\(\chi_{r-1}^{q}\)</span> and <span
-class="math inline">\(k_{r-1}\)</span> have already been determined.</p>
-<p><strong>Passing to step <span
-class="math inline">\(r\)</span>:</strong></p>
-<p>Since the diameter of the cubes <span
-class="math inline">\(S_{k,i_{1},\cdots,i_{n}}^{q}\)</span> tend to zero
+<p><strong>Inductive step:</strong> Assuming <span class="math inline">\(\chi_{r-1}^{q}\)</span> and <span class="math inline">\(k_{r-1}\)</span> have already been determined.</p>
+<p><strong>Passing to step <span class="math inline">\(r\)</span>:</strong></p>
+<p>Since the diameter of the cubes <span class="math inline">\(S_{k,i_{1},\cdots,i_{n}}^{q}\)</span> tend to zero
 as <span class="math inline">\(k \to \infty\)</span>, we can choose
 <span class="math inline">\(k_{r}\)</span> so large that the oscillation
 of the difference <span class="math inline">\(f - f_{r-1}\)</span> does
 not exceed <span class="math inline">\(M_{r}/(2n+2)\)</span> on any
-<span
-class="math inline">\(S_{k_{r},i_{1},\cdots,i_{n}}^{q}\)</span>.</p>
+<span class="math inline">\(S_{k_{r},i_{1},\cdots,i_{n}}^{q}\)</span>.</p>
 <p>Let <span class="math inline">\(\xi_{k,i}^{q}\)</span> be arbitrary
-points belonging to the corresponding closed intervals <span
-class="math inline">\(A_{k,i}^{q}\)</span>. For the closed interval
+points belonging to the corresponding closed intervals <span class="math inline">\(A_{k,i}^{q}\)</span>. For the closed interval
 <span class="math inline">\(\Delta^{q}_{k,i_{1}, \cdots, i_{n}}\)</span>
 we put</p>
 <p><span class="math display">\[\begin{aligned}\chi_{r}^{q}(y) = &amp;
@@ -402,8 +373,7 @@ we put</p>
 \xi_{k,i_{n}}^{q})\right]\\
 &amp; \left|\chi_{r}^{q} (y) - \chi_{r-1}(y)\right| \leq \frac{1}{n+1}
 M_{r-1}\end{aligned}\]</span></p>
-<p>Outside the closed intervals <span
-class="math inline">\(\Delta^{q}_{k,i_{1}, \cdots, i_{n}}\)</span> the
+<p>Outside the closed intervals <span class="math inline">\(\Delta^{q}_{k,i_{1}, \cdots, i_{n}}\)</span> the
 function <span class="math inline">\(\chi_{r}^{q}\)</span> is defined
 arbitrarily, with the preservation of the inequality above and
 continuity.</p>
@@ -413,20 +383,13 @@ f_{r-1}(x_{1},\cdots,x_{n})\\
 - \sum_{q=1}^{2n+1}
 \left\{\chi_{r}^{q}\left[\sum_{p}\psi^{pq}(x_{p})\right] -
 \chi_{r-1}^{q}\left[\sum_{p}\psi^{pq}(x_{p})\right]\right\}\end{aligned}\]</span></p>
-<p>We represent the sum in above equation in the form <span
-class="math inline">\(\sum^{\prime} + \sum^{\prime\prime}\)</span>,
+<p>We represent the sum in above equation in the form <span class="math inline">\(\sum^{\prime} + \sum^{\prime\prime}\)</span>,
 where the sum <span class="math inline">\(\sum^{\prime}\)</span> extends
-over certain <span class="math inline">\(n+1\)</span> values of <span
-class="math inline">\(q\)</span> for which the point <span
-class="math inline">\((x_{1},\cdots,x_{n})\)</span> is contained in one
-of the cubes <span
-class="math inline">\(S_{k_{r},i_{1},\cdots,i_{n}}^{q}\)</span> (by
+over certain <span class="math inline">\(n+1\)</span> values of <span class="math inline">\(q\)</span> for which the point <span class="math inline">\((x_{1},\cdots,x_{n})\)</span> is contained in one
+of the cubes <span class="math inline">\(S_{k_{r},i_{1},\cdots,i_{n}}^{q}\)</span> (by
 Lemma 1<span class="math inline">\(\ref{lem 1}\)</span>, such cubes
-exist) and the sum <span
-class="math inline">\(\sum^{\prime\prime}\)</span> extends over the
-remaining <span class="math inline">\(n\)</span> values of <span
-class="math inline">\(q\)</span>. Hence, for each term in <span
-class="math inline">\(\sum^{\prime}\)</span> we have</p>
+exist) and the sum <span class="math inline">\(\sum^{\prime\prime}\)</span> extends over the
+remaining <span class="math inline">\(n\)</span> values of <span class="math inline">\(q\)</span>. Hence, for each term in <span class="math inline">\(\sum^{\prime}\)</span> we have</p>
 <p><span class="math display">\[\begin{aligned}
 &amp;\chi_{r}^{q}\left[\sum_{p}\psi^{pq}(x_{p})\right] -
 \chi_{r-1}^{q}\left[\sum_{p}\psi^{pq}(x_{p})\right] \\
@@ -445,15 +408,12 @@ f_{r-1}(x_{1},\cdots,x_{n})\right] + \frac{\omega^{q}}{n+1}
 (\chi_{r}^{q} - \chi_{r-1}^{q})\right| \leq \\
 \frac{1}{2n+2} M_{r-1} + \frac{n}{n+1} M_{r-1} = \frac{2n +1}{2n +2}
 M_{r-1} \end{aligned}\]</span></p>
-<p>Since inequality holds at any point <span
-class="math inline">\((x_{1},\cdots,x_{n}) \in E^{n}\)</span>, it
-follows that the absolute values of the differences <span
-class="math inline">\(\chi^{q} - \chi_{r}^{q}\)</span> do not exceed the
+<p>Since inequality holds at any point <span class="math inline">\((x_{1},\cdots,x_{n}) \in E^{n}\)</span>, it
+follows that the absolute values of the differences <span class="math inline">\(\chi^{q} - \chi_{r}^{q}\)</span> do not exceed the
 corresponding terms of the absolutely convergent series</p>
 <p><span class="math display">\[\sum_{r} \frac{1}{n+1}
 M_{r-1}\]</span></p>
-<p>Therefore the functions <span
-class="math inline">\(\chi_{r}^{q}\)</span> converges uniformly to
+<p>Therefore the functions <span class="math inline">\(\chi_{r}^{q}\)</span> converges uniformly to
 continuous limit functions <span class="math inline">\(\chi^{q}\)</span>
 for <span class="math inline">\(r\to \infty\)</span>.</p>
 <p><br></p>

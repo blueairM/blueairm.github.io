@@ -108,7 +108,7 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Ygmant&#39;s Blog</a></div>
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/archives">Posts</a>
@@ -117,9 +117,11 @@
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
+                    <a class="menu-item" href="/research">Research</a>
+                
                     <a class="menu-item" href="/seminar">Seminar</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/info">Infos</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -132,7 +134,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">Ygmant&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -144,9 +146,11 @@
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
+                    <a class="menu-item" href="/research">Research</a>
+                
                     <a class="menu-item" href="/seminar">Seminar</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/info">Infos</a>
                 
             </div>
         </div>
@@ -272,21 +276,13 @@ topology, and is unbounded (see below) relative to the limit ordinal.
 The name club is a contraction of "closed and unbounded". Formally,</p>
 <ul>
 <li><p>if <span class="math inline">\(\kappa\)</span> is a limit
-ordinal, then a set $ C$ is <em>closed</em> in <span
-class="math inline">\(\kappa\)</span> if and only if for every <span
-class="math inline">\(\alpha &lt;\kappa\)</span>, if <span
-class="math inline">\(\sup(C\cap \alpha )=\alpha \neq 0\)</span> then
+ordinal, then a set $ C$ is <em>closed</em> in <span class="math inline">\(\kappa\)</span> if and only if for every <span class="math inline">\(\alpha &lt;\kappa\)</span>, if <span class="math inline">\(\sup(C\cap \alpha )=\alpha \neq 0\)</span> then
 <span class="math inline">\(\alpha \in C\)</span>. Thus, if the limit of
 some sequence from <span class="math inline">\(C\)</span> is less than
 <span class="math inline">\(\kappa\)</span>, then the limit is also in
 <span class="math inline">\(C\)</span>.</p></li>
 <li><p>If <span class="math inline">\(\kappa\)</span> is a limit ordinal
-and <span class="math inline">\(C\subseteq \kappa\)</span> then <span
-class="math inline">\(C\)</span> is <em>unbounded</em> in <span
-class="math inline">\(\kappa\)</span> if for any <span
-class="math inline">\(\alpha &lt;\kappa\)</span>, there is some <span
-class="math inline">\(\beta \in C\)</span> such that <span
-class="math inline">\(\alpha &lt;\beta\)</span>.</p></li>
+and <span class="math inline">\(C\subseteq \kappa\)</span> then <span class="math inline">\(C\)</span> is <em>unbounded</em> in <span class="math inline">\(\kappa\)</span> if for any <span class="math inline">\(\alpha &lt;\kappa\)</span>, there is some <span class="math inline">\(\beta \in C\)</span> such that <span class="math inline">\(\alpha &lt;\beta\)</span>.</p></li>
 </ul>
 <p>If a set is both closed and unbounded, then it is a
 <em>club</em>.</p>
@@ -300,8 +296,7 @@ powerset.</p>
 <p>If <span class="math inline">\(\kappa\)</span> is a cardinal of
 uncountable cofinality, <span class="math inline">\(S\subseteq
 \kappa\)</span>, and <span class="math inline">\(S\)</span> intersects
-every club set in <span class="math inline">\(\kappa\)</span> then <span
-class="math inline">\(S\)</span> is called a stationary set. If a set is
+every club set in <span class="math inline">\(\kappa\)</span> then <span class="math inline">\(S\)</span> is called a stationary set. If a set is
 not stationary.</p>
 <p>If <span class="math inline">\(S\)</span> is a stationary set and
 <span class="math inline">\(C\)</span> is a club set, then their
@@ -317,31 +312,20 @@ uncountable cardinal, <span class="math inline">\(S\)</span> is a
 stationary subset of <span class="math inline">\(\kappa\)</span>, and
 <span class="math inline">\(f:S\rightarrow \kappa\)</span> is regressive
 (that is, <span class="math inline">\(f(\alpha )&lt;\alpha\)</span> for
-any <span class="math inline">\(\alpha \in S\)</span>, <span
-class="math inline">\(\alpha \neq 0\)</span>) then there is some <span
-class="math inline">\(\gamma\)</span> and some stationary subset <span
-class="math inline">\(S_{0}\subseteq S\)</span> such that <span
-class="math inline">\(f(\alpha )=\gamma\)</span> for any <span
-class="math inline">\(\alpha \in S_{0}\)</span>.</p>
+any <span class="math inline">\(\alpha \in S\)</span>, <span class="math inline">\(\alpha \neq 0\)</span>) then there is some <span class="math inline">\(\gamma\)</span> and some stationary subset <span class="math inline">\(S_{0}\subseteq S\)</span> such that <span class="math inline">\(f(\alpha )=\gamma\)</span> for any <span class="math inline">\(\alpha \in S_{0}\)</span>.</p>
 <h2 id="proof">Proof</h2>
 <p>We can assume that <span class="math inline">\(0\notin S\)</span> (by
-removing 0, if necessary). If Fodor's lemma is false, for every <span
-class="math inline">\(\alpha &lt;\kappa\)</span> there is some club set
-<span class="math inline">\(C_{\alpha }\)</span> such that <span
-class="math inline">\(C_{\alpha }\cap f^{-1}(\alpha
+removing 0, if necessary). If Fodor's lemma is false, for every <span class="math inline">\(\alpha &lt;\kappa\)</span> there is some club set
+<span class="math inline">\(C_{\alpha }\)</span> such that <span class="math inline">\(C_{\alpha }\cap f^{-1}(\alpha
 )=\emptyset\)</span>. Let <span class="math inline">\(C=\Delta_{\alpha
 &lt;\kappa }C_{\alpha }\)</span>. The club sets are closed under
 diagonal intersection, so <span class="math inline">\(C\)</span> is also
 club and therefore there is some <span class="math inline">\(\alpha \in
 S\cap C\)</span>. Then <span class="math inline">\(\alpha \in C_{\beta
 }\)</span> for each <span class="math inline">\(\beta
-&lt;\alpha\)</span>, and so there can be no <span
-class="math inline">\(\beta &lt;\alpha\)</span> such that <span
-class="math inline">\(\alpha \in f^{-1}(\beta )\)</span>, so <span
-class="math inline">\(f(\alpha )\geq \alpha\)</span>, a
+&lt;\alpha\)</span>, and so there can be no <span class="math inline">\(\beta &lt;\alpha\)</span> such that <span class="math inline">\(\alpha \in f^{-1}(\beta )\)</span>, so <span class="math inline">\(f(\alpha )\geq \alpha\)</span>, a
 contradiction.</p>
-<h2 id="blacksquare_kappa"><span
-class="math inline">\(\blacksquare_{\kappa}\)</span></h2>
+<h2 id="blacksquare_kappa"><span class="math inline">\(\blacksquare_{\kappa}\)</span></h2>
 <p>If <span class="math inline">\(\kappa\)</span> is an uncountable
 cardinal, then <span class="math inline">\(\square_{\kappa }\)</span>
 asserts that there is a sequence <span class="math inline">\(\{C_{\beta
@@ -354,35 +338,26 @@ satisfying:</p>
 &lt;\kappa\)</span>, then <span class="math inline">\(|C_{\beta
 }|&lt;\kappa\)</span></p></li>
 <li><p>If <span class="math inline">\(\gamma\)</span> is a limit point
-of <span class="math inline">\(C_{\beta }\)</span> then <span
-class="math inline">\(C_{\gamma }=C_{\beta }\cap
+of <span class="math inline">\(C_{\beta }\)</span> then <span class="math inline">\(C_{\gamma }=C_{\beta }\cap
 \gamma\)</span></p></li>
 </ul>
 <p>Jensen proved that this principle holds in the constructible universe
-for any uncountable cardinal <span
-class="math inline">\(\kappa\)</span>.</p>
-<h2 id="blacklozenge_kappa"><span
-class="math inline">\(\blacklozenge_{\kappa}\)</span></h2>
+for any uncountable cardinal <span class="math inline">\(\kappa\)</span>.</p>
+<h2 id="blacklozenge_kappa"><span class="math inline">\(\blacklozenge_{\kappa}\)</span></h2>
 <p>There are three equivalent definitions about the diamond principle
 <span class="math inline">\(\lozenge\)</span>:</p>
 <ol type="1">
 <li><p>There is a sequence <span class="math inline">\(\{S_{\alpha}\mid
-\alpha &lt; \omega_{1}\}\)</span> such that <span
-class="math inline">\(S_{\alpha} \subseteq \mathcal{P}(\alpha)\)</span>
+\alpha &lt; \omega_{1}\}\)</span> such that <span class="math inline">\(S_{\alpha} \subseteq \mathcal{P}(\alpha)\)</span>
 and <span class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for
 <span class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If
 <span class="math inline">\(X \subseteq \omega_{1}\)</span>, then the
 set <span class="math inline">\(\{\alpha &lt; \omega_{1} \mid X \cap
-\alpha \in S_{\alpha}\}\)</span> is stationary in <span
-class="math inline">\(\omega_{1}\)</span>.</p></li>
+\alpha \in S_{\alpha}\}\)</span> is stationary in <span class="math inline">\(\omega_{1}\)</span>.</p></li>
 <li><p>There is a sequence <span class="math inline">\(\{S_{\alpha}\mid
-\alpha &lt; \omega_{1}\}\)</span> such that <span
-class="math inline">\(S_{\alpha} \subseteq \alpha\)</span> for <span
-class="math inline">\(\alpha &lt; \omega_{1}\)</span> and if <span
-class="math inline">\(X \subseteq \omega_{1}\)</span>, then the set
+\alpha &lt; \omega_{1}\}\)</span> such that <span class="math inline">\(S_{\alpha} \subseteq \alpha\)</span> for <span class="math inline">\(\alpha &lt; \omega_{1}\)</span> and if <span class="math inline">\(X \subseteq \omega_{1}\)</span>, then the set
 <span class="math inline">\(\{\alpha &lt; \omega_{1} \mid X \cap \alpha
-= S_{\alpha}\}\)</span> is stationary in <span
-class="math inline">\(\omega_{1}\)</span>.</p></li>
+= S_{\alpha}\}\)</span> is stationary in <span class="math inline">\(\omega_{1}\)</span>.</p></li>
 <li><p>There is a sequence <span class="math inline">\(\{h_{\alpha}\mid
 \alpha &lt; \omega_{1}\}\)</span> of functions such that for every
 function <span class="math inline">\(h: \omega_{1} \to
@@ -390,24 +365,17 @@ function <span class="math inline">\(h: \omega_{1} \to
 \omega_{1}\mid h\upharpoonright \alpha = h_{\alpha}\}\)</span> is
 stationary.</p></li>
 </ol>
-<p>We also introduce two stronger versions of <span
-class="math inline">\(\lozenge\)</span>.</p>
+<p>We also introduce two stronger versions of <span class="math inline">\(\lozenge\)</span>.</p>
 <p><span class="math inline">\(\lozenge^{*}\)</span>: There is a
 sequence <span class="math inline">\(\{S_{\alpha}\mid \alpha &lt;
 \omega_{1}\}\)</span> such that <span class="math inline">\(S_{\alpha}
-\subseteq \mathcal{P}(\alpha)\)</span> and <span
-class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for <span
-class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If <span
-class="math inline">\(X \subseteq \omega_{1}\)</span>, then the set
+\subseteq \mathcal{P}(\alpha)\)</span> and <span class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for <span class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If <span class="math inline">\(X \subseteq \omega_{1}\)</span>, then the set
 <span class="math inline">\(\{\alpha &lt; \omega_{1} \mid X \cap \alpha
 \in S_{\alpha}\}\)</span> contains a closed unbounded set.</p>
 <p><span class="math inline">\(\lozenge^{+}\)</span>: There is a
 sequence <span class="math inline">\(\{S_{\alpha}\mid \alpha &lt;
 \omega_{1}\}\)</span> such that <span class="math inline">\(S_{\alpha}
-\subseteq \mathcal{P}(\alpha)\)</span> and <span
-class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for <span
-class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If <span
-class="math inline">\(X \subseteq \omega_{1}\)</span> there exists a
+\subseteq \mathcal{P}(\alpha)\)</span> and <span class="math inline">\(|S_{\alpha}| \leq \omega\)</span> for <span class="math inline">\(\alpha &lt; \omega_{1}\)</span>, and: If <span class="math inline">\(X \subseteq \omega_{1}\)</span> there exists a
 closed unbounded <span class="math inline">\(C \subseteq
 \omega_{1}\)</span> such that if <span class="math inline">\(\alpha \in
 C\)</span>, then <span class="math inline">\(X \cap \alpha\)</span>,
@@ -416,20 +384,14 @@ C\)</span>, then <span class="math inline">\(X \cap \alpha\)</span>,
 \lozenge\)</span>. Jensen has proved that the arrows cannot be
 reversed.</p>
 <h3 id="theorem">Theorem</h3>
-<p><span class="math inline">\(\lozenge\)</span> <span
-class="math inline">\(\to\)</span> CH.</p>
+<p><span class="math inline">\(\lozenge\)</span> <span class="math inline">\(\to\)</span> CH.</p>
 <h3 id="theorem-1">Theorem</h3>
-<p>Assume <span class="math inline">\(V = L\)</span>. <span
-class="math inline">\(\lozenge\)</span> is valid.</p>
+<p>Assume <span class="math inline">\(V = L\)</span>. <span class="math inline">\(\lozenge\)</span> is valid.</p>
 <h3 id="theorem-2">Theorem</h3>
 <p>Assume <span class="math inline">\(\lozenge\)</span>. The there
 exists a Souslin tree.</p>
-<h2 id="clubsuit_kappa"><span
-class="math inline">\(\clubsuit_{\kappa}\)</span></h2>
-<p>For a given cardinal number <span
-class="math inline">\(\kappa\)</span> and a stationary set <span
-class="math inline">\(S\subseteq \kappa\)</span>, <span
-class="math inline">\(\clubsuit _{S}\)</span> is the statement that
+<h2 id="clubsuit_kappa"><span class="math inline">\(\clubsuit_{\kappa}\)</span></h2>
+<p>For a given cardinal number <span class="math inline">\(\kappa\)</span> and a stationary set <span class="math inline">\(S\subseteq \kappa\)</span>, <span class="math inline">\(\clubsuit _{S}\)</span> is the statement that
 there is a sequence <span class="math inline">\(\{ A_{\delta }:\delta
 \in S \}\)</span> such that</p>
 <ul>
@@ -441,19 +403,11 @@ so that <span class="math inline">\(A_{\delta }\subseteq
 A\)</span>.</p></li>
 </ul>
 <p><span class="math inline">\(\clubsuit _{\omega _{1}}\)</span> is
-usually written as just <span
-class="math inline">\(\clubsuit\)</span>.</p>
+usually written as just <span class="math inline">\(\clubsuit\)</span>.</p>
 <p>It is clear that <span class="math inline">\(\lozenge \to
-\clubsuit\)</span>, and it was shown in 1975 that <span
-class="math inline">\(\clubsuit\)</span> + CH <span
-class="math inline">\(\to\)</span> <span
-class="math inline">\(\lozenge\)</span>; however, Saharon Shelah gave a
-proof in 1980 that there exists a model of <span
-class="math inline">\(\clubsuit\)</span> in which CH does not hold, so
-<span class="math inline">\(\clubsuit\)</span> and <span
-class="math inline">\(\lozenge\)</span> are not equivalent (since <span
-class="math inline">\(\lozenge\)</span> <span
-class="math inline">\(\to\)</span> CH).</p>
+\clubsuit\)</span>, and it was shown in 1975 that <span class="math inline">\(\clubsuit\)</span> + CH <span class="math inline">\(\to\)</span> <span class="math inline">\(\lozenge\)</span>; however, Saharon Shelah gave a
+proof in 1980 that there exists a model of <span class="math inline">\(\clubsuit\)</span> in which CH does not hold, so
+<span class="math inline">\(\clubsuit\)</span> and <span class="math inline">\(\lozenge\)</span> are not equivalent (since <span class="math inline">\(\lozenge\)</span> <span class="math inline">\(\to\)</span> CH).</p>
 <p>Jensen, R. Bj"orn (1972), "The fine structure of the constructible
 hierarchy", Annals of Mathematical Logic, 4 (3): 229–308.</p>
 
@@ -508,6 +462,8 @@ hierarchy", Annals of Mathematical Logic, 4 (3): 229–308.</p>
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/11/13/Henkin%E2%80%98s%20Theorem/">Henkin's Theorem</a>
             
             
             <a class="next" rel="next" href="/2024/01/17/Hopf%20ergodic%20theorem/">Hopf's Ergodic Theorem</a>

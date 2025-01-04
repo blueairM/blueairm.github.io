@@ -165,8 +165,6 @@ where $|w|$ and $|y|$ denote the lengths of $w$ and $y$, respectively.
 
 <h2> Problem Statement: Dose P = NP? </h2>
 
-Judgements are left to the reader...
-
 
 
 # Reference 
