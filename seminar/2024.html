@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Seminar | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/seminar">Seminar</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/seminar">Seminar</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Seminar</h2>
+        
+        <section class="post-content">
+            <h2 id="section">(2024/01/30-2024/12/31)</h2>
+<p>2024/11/22, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Tang Dingxuan (Northwest A&amp;F University)</p>
+<p><strong>Local Conditional Entropy For Amenable Group
+Actions</strong></p>
+<p>For a countable discrete amenable group action, we study two types of
+measure-theoretical entropies and the concept of topological conditional
+entropy, both for finite measurable covers conditioned by finite
+partitions. Using an orbital approach, we establish a local conditional
+variational principle for an amenable group action. Moreover, we study
+the concept of conditional entropy tuples. At the end, we introduce the
+notion of conditional metric mean dimensions and present a corresponding
+variational principle.</p>
+<p>Manuscript.</p>
+<p>2024/10/11, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Zhang Jiashu (Westlake University)</p>
+<p><strong>Homogeneous Besov Spaces in Dunkl Setting</strong></p>
+<p>The purpose of this paper is to characterize the homogeneous Besov
+space in the Dunkl setting. We utilize a new discrete reproducing
+formula, that is, the building blocks are differences of the
+Dunkl-Poisson kernel which involves both the Euclidean metric and the
+Dunkl metric. To introduce the Besov spaces in the Dunkl setting, new
+test functions and distributions are introduced, and a new decomposition
+is established.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2408.00340">arXiv</a>.</p>
+<p>2024/04/13, 13:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Wang Tao (Nankai University)</p>
+<p><strong>General relativistic stochastic thermodynamics</strong></p>
+<p>Based on the recent work [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.01982">1</a>,<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.07805">2</a>], we formulate the first
+law and the second law of stochastic thermodynamics in the framework of
+general relativity. These laws are established for a charged Brownian
+particle moving in a heat reservoir and subjecting to an external
+electromagnetic field in generic stationary spacetime background, and in
+order to maintain general covariance, they are presented respectively in
+terms of the divergences of the energy current and the entropy density
+current. The stability of the equilibrium state is also analyzed.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2311.04025">Article 0</a>, <a target="_blank" rel="noopener" href="https://doi.org/10.1007/s10955-023-03204-5">Article 1</a>, <a target="_blank" rel="noopener" href="https://doi.org/10.1007/s10955-023-03205-4">Article 2</a>. Two
+appears in Journal of Statistical Physics.</p>
+<p>2024/03/16, 13:00 p.m., <a target="_blank" rel="noopener" href="https://meeting.tencent.com/v2/cloud-record/share?id=f4188d5c-1e25-47b7-b935-b4cd41040215">Tencent
+Meeting</a> Password: 789A</p>
+<p>Sheng Xi (University of Science and Technology of China)</p>
+<p><strong>Stochastic Approximation Algorithms Whose Averages are
+Competitive</strong></p>
+<p>This report discusses a class of stochastic approximation algorithms
+for iterative processes. Under the assumption of large deviations, the
+relationship between the long time behavior of the iterative process and
+the solution flow of the mean field is discussed. When this mean field
+satisfies a special property, competition, we show that the final
+behavior of the iterative process asymptotically approximates to some
+invariant manifold of co-dimension 1. Further, we use a similar
+approximation algorithm to study the stochastic stability of competing
+systems and have similar conclusions.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2311.07038">arXiv</a>.</p>
+<p>2024/02/23, 10:00 a.m., <a target="_blank" rel="noopener" href="https://meeting.tencent.com/v2/cloud-record/share?id=2a1f7a17-350c-4abd-8bd2-6ffc1ac42b1e&amp;from=3&amp;record_type=2">Tencent
+Meeting</a></p>
+<p>Wang Haoming (Sun Yat-sen University)</p>
+<p><strong>Hierarchy of Maximal ideals in the Banach Algebra
+II</strong></p>
+<p>Based on the series talk I, we discuss applications of results of the
+C*-algebra to the quantum mechanics.</p>
+<p>Manuscript.</p>
+<p>2024/02/02, 13:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Wang Haoming (Sun Yat-sen University)</p>
+<p><strong>Hierarchy of Maximal ideals in the Banach Algebra
+I</strong></p>
+<p>This paper introduces two topologies, namely the weak*-topology (also
+known as the product topology) and the Zariski topology on the set of
+maximal ideals in the Banach algebra using both analytical and algebraic
+methods. It proves that under the condition of separability, the set of
+maximal ideals endowed with the weak*-topology is second countable and
+metrizable, and it demonstrates that the two topologies are
+homeomorphic. We illustrate examples such as the continuous function
+ring <span class="math inline">\(C(X)\)</span>, where <span class="math inline">\(X\)</span> is a compact Hausdorff space and the
+<span class="math inline">\(l^p\)</span> space for <span class="math inline">\(1 \leq p &lt; +\infty\)</span>.</p>
+<p>Manuscript, <a href="https://blueairm.github.io/seminar/pdf/whm20240202.pdf">Slides</a></p>
+<div class="pagination">
+<p><a class="previous" href="/seminar/index">Previous Page</a> <a>Next
+Page</a></p>
+</div>
+
+        </section>
+    </article>
+</div>
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+
+
+    <div id="popular_posts_pv"></div>
+    <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+
+
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a> 
+        </span>
+    </div>
+    <div>        
+        <span>  <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+ 
+        </span>
+    </div>    
+</footer>
+
+
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H3BQWGrYEK5t7Nh",ck:"3H3BQWGrYEK5t7Nh"})</script>
+
+
+    </div>
+</body>
+
+</html>
