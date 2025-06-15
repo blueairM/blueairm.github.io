@@ -13,7 +13,7 @@
 
 
 
-<title>tag | Hexo</title>
+<title>Continuous Logic and Free Probability | Hexo</title>
 
 
 
@@ -40,6 +40,45 @@
 
     
     
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
         
     
 
@@ -132,33 +171,111 @@
     }
 </script>
             <div class="main">
-                
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Continuous Logic and Free Probability</h2>
+        
+        <section class="post-content">
+            <p>This webpage is about the 2025 seminar on <em>Continuous Logic and
+Free Probability</em>. Titles and abstracts are updated on this
+webpage.</p>
+<h2 id="summary">Summary</h2>
+<p>2025/09/19, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Hu Yuqi (UC Irvine)</p>
+<p><strong>Basic continuous model theory</strong></p>
+<p>TBA.</p>
+<p>2025/10/03, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Li Xiangchao (UCST)</p>
+<p><strong>Central limit theorem for mesoscopic eigenvalue statistics of
+the free sum of matrices</strong></p>
+<p>TBA.</p>
+<p>2025/10/17, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Liu Han (Fudan)</p>
+<p><strong>A brief introduction to Baum-Connes conjecture</strong></p>
+<p>TBA.</p>
+<p>2025/10/31, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Qian Jin (ECNU)</p>
+<p><strong>Continuous model theory and local geometry of Banach
+space</strong></p>
+<p>TBA.</p>
+<p>2025/11/14, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Wang Haoming (SYSU)</p>
+<p><strong>Free limits of simultaneous diagonalisable adjoint
+operators</strong></p>
+<p>TBA.</p>
+<p>2025/11/28, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Wang Leda (Yale)</p>
+<p><strong>Asymptotic Freeness for Gaussian, Wigner, and Unitary random
+matrices</strong></p>
+<p>TBA.</p>
+<p>2025/12/05, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Yu Tingzhou (Alberta)</p>
+<p><strong>The circular law of random combination matrices</strong></p>
+<p>TBA.</p>
+<p>2025/12/19, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Zhang Yilong (Alberta)</p>
+<p><strong>A course in model theory</strong></p>
+<p>TBA.</p>
+<p>2026/01/02, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Zhu Yue (CAS)</p>
+<p><strong>Free probability and random matrices</strong></p>
+<p>TBA.</p>
+<p>2026/01/16, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p>Zou Guangyi (USTC)</p>
+<p><strong>Edge statistics of random band matrices</strong></p>
+<p>TBA.</p>
+<div class="pagination">
+<p><a class="previous" href="/seminar/index">Previous Page</a></p>
+</div>
 
-    <div class="container">
-        <div class="post-wrap tags">
-            <h2 class="post-title">-&nbsp;Tag Cloud&nbsp;-</h2>
+        </section>
+    </article>
+</div>
 
-            <div class="tag-cloud-tags">
-                
-                    <a href="/tags/Set-Theory/">Set Theory<small>(3)</small></a>
-                
-                    <a href="/tags/Sevaral-Complex-Variables/">Sevaral Complex Variables<small>(3)</small></a>
-                
-                    <a href="/tags/Notes/">Notes<small>(5)</small></a>
-                
-                    <a href="/tags/Hilbert-s-23-Problems/">Hilbert's 23 Problems<small>(1)</small></a>
-                
-                    <a href="/tags/Miscellanies/">Miscellanies<small>(2)</small></a>
-                
-                    <a href="/tags/Mathematical-Logic/">Mathematical Logic<small>(3)</small></a>
-                
-                    <a href="/tags/Algebraic-Number-Theory/">Algebraic Number Theory<small>(1)</small></a>
-                
-                    <a href="/tags/Algebraic-Geometry/">Algebraic Geometry<small>(1)</small></a>
-                
-            </div>
-        </div>
-    </div>
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: 'c57037b21b37e5c14337',
+        clientSecret: '596f02cdfe1b5da8338dfe51cdb41ea7ab521be9',
+        repo: 'Comments',
+        owner: 'blueairm',
+        admin: 'blueairm',
+        id: location.pathname,
+        labels: '[&#39;Gitalk&#39;]'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: true
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+
+
+
+
+
+    <div id="popular_posts_pv"></div>
+    <script src="https://github.com/tea3/hexo-related-popular-posts/blob/master/lib/pv.js"></script>
+<div id="popular_posts_pv"></div>
+<script type="text/javascript">
+    var pageViews = new popularPosts({
+      clientId: '',
+      serviceEmail: '',
+      key: '',
+    })
+    popularPosts.render('popular_posts_pv')
+</script>
+<!-- hexo's local server only -->
+
+
+
 
 
             </div>
