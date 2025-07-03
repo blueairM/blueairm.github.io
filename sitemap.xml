@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/23/Zariski%20topology/</loc>
+    <loc>http://blueairm.github.io/2023/04/10/The%20Naimark%20Problem/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/04/10/The%20Naimark%20Problem/</loc>
+    <loc>http://blueairm.github.io/2023/03/23/Zariski%20topology/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -182,6 +182,15 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/2023/07/31/Cichon's%20Diagram/</loc>
+    
+    <lastmod>2024-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</loc>
     
     <lastmod>2024-02-25</lastmod>
@@ -192,15 +201,6 @@
   
   <url>
     <loc>http://blueairm.github.io/2023/03/23/Hilbert13/</loc>
-    
-    <lastmod>2024-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/2023/07/31/Cichon's%20Diagram/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -225,13 +225,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Set-Theory/</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/tags/Algebraic-Geometry/</loc>
     <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -247,6 +240,13 @@
   
   <url>
     <loc>http://blueairm.github.io/tags/Notes/</loc>
+    <lastmod>2025-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Set-Theory/</loc>
     <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -283,13 +283,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Set-Theory/</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/</loc>
     <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -304,14 +297,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
+    <loc>http://blueairm.github.io/categories/Set-Theory/</loc>
     <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -325,7 +311,21 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
+    <lastmod>2025-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/categories/Commutative-Algebra/</loc>
+    <lastmod>2025-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
     <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
