@@ -26,8 +26,8 @@ public_dir: public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
-research_dir: research ### 20241112
-seminar_dir: seminar ### 20240130
+research_dir: researches ### 20241112
+seminar_dir: seminars ### 20240130
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
