@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Zariski Topology | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Zariski Topology</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 23, 2023&nbsp;&nbsp;7:13:04</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Commutative-Algebra/">Commutative Algebra</a>
+                            
+                                <a href="/categories/Commutative-Algebra/Algebraic-Geometry/">Algebraic Geometry</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="definition">Definition</h2>
+<p>Let <span class="math inline">\(A\)</span> be commutative ring with
+unit. <span class="math inline">\(\text{Spec}(A)\)</span> is the
+collection of prime ideals of <span class="math inline">\(A\)</span>.</p>
+<p><span class="math inline">\(V(E)\)</span> is the collection of prime
+ideals containing <span class="math inline">\(E \subseteq A\)</span>.
+<span class="math inline">\(\{V(E); E \subseteq A\}\)</span> is a
+collection of closed subsets of <span class="math inline">\(\text{Spec}
+(A)\)</span>, since</p>
+<ol type="1">
+<li><p><span class="math inline">\(V(1)=\emptyset, V(0) =X\)</span>.
+Hence <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Closed_set">Axiom of Closed
+Set I</a> is satisfied.</p></li>
+<li><p><span class="math inline">\(\cap_{i \in I} V(E_{i}) =V(\cup_{i
+\in I} E_{i})\)</span>. Hence <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Closed_set">Axiom of Closed Set
+II</a> is satisfied.</p></li>
+<li><p>To verify axiom III, Consider the ideal <span class="math inline">\(\mathsf{a}_{1}\)</span> generated by <span class="math inline">\(E_{1}\)</span> and the ideal <span class="math inline">\(\mathsf{a}_{2}\)</span> generated by <span class="math inline">\(E_{2}\)</span>. Note that <span class="math inline">\(V(\mathsf{a}_{1}) \cup V(\mathsf{a}_{2}) \subseteq
+V(\mathsf{a}_{1} \cap \mathsf{a}_{2})\)</span>. Then, for any prime
+ideal <span class="math inline">\(\mathsf{p}\)</span> containing <span class="math inline">\(\mathsf{a}_{1} \cap \mathsf{a}_{2}\)</span>, we
+have <span class="math inline">\(\mathsf{a}_{1} \subseteq
+\mathsf{p}\)</span> or <span class="math inline">\(\mathsf{a}_{2}
+\subseteq \mathsf{p}\)</span>, since</p></li>
+</ol>
+<p><span class="math display">\[ x_{1},x_{2} \notin \mathsf{p}
+\Rightarrow x_{1}x_{2} \notin \mathsf{p} \text{ while }\,\, x_{1}\in
+\mathsf{a}_{1}, x_{2}\in \mathsf{a}_{2} \Rightarrow x_{1}x_{2} \in
+\mathsf{a}_{1} \cap \mathsf{a}_{2}\]</span></p>
+<p>This proves <span class="math inline">\(V(\mathsf{a}_{1} \cap
+\mathsf{a}_{2}) \subseteq V(\mathsf{a}_{1}) \cup
+V(\mathsf{a}_{2})\)</span>. Therefore, these sets equal to each other
+<span class="math inline">\(V(\mathsf{a}_{1} \cap \mathsf{a}_{2}) =
+V(\mathsf{a}_{1}) \cup V(\mathsf{a}_{2})\)</span>, which verifies <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Closed_set">Axiom of Closed Set
+III</a>. <span class="math inline">\(\square\)</span></p>
+<h2 id="proporsition-1-topological-basis">Proporsition 1 [Topological
+basis]</h2>
+<p>Given an element <span class="math inline">\(f\)</span> in <span class="math inline">\(A\)</span>, we define <span class="math inline">\(X_{f}\)</span> to be the complement of <span class="math inline">\(V(f)\)</span> in <span class="math inline">\(X=\text{Spec}(A)\)</span>, so <span class="math display">\[ \mathscr{U}^{\prime} = \{X_{f}; f\in
+A\}\]</span></p>
+<p>is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Base_(topology)">topological
+basis</a> for <span class="math display">\[\mathscr{U} = \{ X\backslash
+V(E); E \subseteq A\}\]</span></p>
+<p>To see more clearly, Choose an open set <span class="math inline">\(O
+\in \mathscr{U}\)</span>, it must be the complement of a closed set
+<span class="math inline">\(V(E)\)</span> generated by some subset <span class="math inline">\(E\)</span> of ring <span class="math inline">\(A\)</span>, that is, <span class="math inline">\(O
+= X\backslash V(E)\)</span>. Decompose <span class="math inline">\(E\)</span> into the union of its components <span class="math inline">\(\left\{f\right\}\)</span> we have <span class="math inline">\(E = \cup_{f\in E}\{f\}\)</span>, by utilize axiom
+of closed set III</p>
+<p><span class="math display">\[
+    O =X\backslash \left(\cap_{f \in E} V(f)\right) = \cup_{f\in E}
+\left(X \backslash V(f)\right) =\cup_{f\in E} X_{f}
+\]</span></p>
+<p>That is to say <span class="math inline">\(\mathscr{U}^{\prime}\)</span> is a topological
+basis for <span class="math inline">\(\mathscr{U}\)</span>. <span class="math inline">\(\square\)</span></p>
+<p><br></p>
+<h2 id="proporsition-1-countability-axiom-not-c_1">Proporsition 1
+[Countability Axiom, not <span class="math inline">\(C_{1}\)</span>]</h2>
+<h2 id="example">Example</h2>
+<p>Let <span class="math inline">\(A\)</span> be <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unique_factorization_domain">UFD</a>.
+<span class="math inline">\(I\)</span> is an index set, <span class="math inline">\(|I| \geq \aleph_{1}\)</span>. For each index <span class="math inline">\(i\in I\)</span> associate with a variable <span class="math inline">\(x_{i}\)</span>, Consider polynomial ring with
+coeffiecients in <span class="math inline">\(A\)</span> <span class="math display">\[ A[I] := \{\sum a_{i_{1},i_{2},\cdots,i_{k}}
+x_{i_{i}}^{n_{1}}x_{i_{2}}^{n_{2}} \cdots x_{i_{k}}^{n_{k}} :
+a_{i_{1},i_{2},\cdots,i_{k}}\in A \}\]</span> . Since <span class="math inline">\(A[I]\)</span> in integral domain, <span class="math inline">\((0)\)</span> is a prime ideal. The Zariski
+topological basis <span class="math inline">\(\{X_{f}; {f \in
+A(I)}\}\)</span> for ring <span class="math inline">\(A(I)\)</span> with
+emptyset exception, that is <span class="math inline">\(f\neq
+0\)</span>, is a neighborhood basis at <span class="math inline">\((0)\)</span> for <span class="math inline">\(\text{Spec}(A[I])\)</span> . Since <span class="math inline">\(A[I]\)</span> is either UFD, <span class="math inline">\(A[I]\)</span> contains uncoutable many prime idels
+<span class="math inline">\((x_{i}), {i \in I}\)</span>, which implies
+<span class="math inline">\(A[I]\)</span> dose not satisfies <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/First-countable_space">first-countable
+axiom <span class="math inline">\(C_{1}\)</span></a>.</p>
+<p>For topological space, we are also interested in its separation,
+compactness and connectedness etc.</p>
+<h2 id="proporsition-2-separation-axiom-t_0">Proporsition 2 [Separation
+Axiom <span class="math inline">\(T_{0}\)</span>]</h2>
+<p>A topological space <span class="math inline">\((X,\mathscr{U})\)</span> satisfies <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kolmogorov_space">separtion axiom
+<span class="math inline">\(T_{0}\)</span></a> separation, if for any
+<span class="math inline">\(x,y \in X\)</span>, <span class="math inline">\(x\neq y\)</span>, there exists open set <span class="math inline">\(U \in \mathscr{U}\)</span>, such that <span class="math inline">\(x\in U, y \notin U\)</span> of if <span class="math inline">\(y \in U, x \notin U\)</span>.</p>
+<p>Let <span class="math inline">\(x,y\)</span> be distinct two points
+in <span class="math inline">\(X=\text{Spec}(A)\)</span>, i.e. two
+distinct prime ideals <span class="math inline">\(\mathsf{p}_{x},\mathsf{p}_{y}\)</span> of ring
+<span class="math inline">\(A\)</span>:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(\mathsf{p}_{x} \subseteq
+\mathsf{p}_{y}\)</span>, then <span class="math inline">\(V(\mathsf{p}_{y}) \subseteq
+V(\mathsf{p}_{x})\)</span>. Taking <span class="math inline">\(U= X
+\backslash V(\mathsf{p}_{y})\)</span> we have <span class="math inline">\(x\in U, y \notin U\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\mathsf{p}_{x} \subsetneq
+\mathsf{p}_{y}\)</span>, thereby <span class="math inline">\(\mathsf{p}_{y} \notin V(\mathsf{p}_{x})\)</span>.
+Taking <span class="math inline">\(U = X \backslash
+V(\mathsf{p}_{x})\)</span> we have <span class="math inline">\(y \in U,
+x \notin U\)</span>.</p></li>
+</ol>
+<p>This together impies that <span class="math inline">\(X=\text{Spec}(A)\)</span> satisfies separation
+axiom <span class="math inline">\(T_{0}\)</span>. <span class="math inline">\(\square\)</span></p>
+<h2 id="propersition-3-compactness">Propersition 3 [Compactness]</h2>
+<p>We next prove <span class="math inline">\(X = \text{Spec}
+(A)\)</span> is (compact)[]. It only suffices to consider covering from
+topological basis <span class="math inline">\(\{X_{f}; {f\in
+E}\}\)</span>, where <span class="math inline">\(E\neq
+\emptyset\)</span> is a subset of ring <span class="math inline">\(A\)</span>. Accrording to (De Morgan law)[] and
+axiom of closed set III, nota that <span class="math display">\[
+X \backslash \left(\cup_{f\in E} X_{f}\right) = \cap_{f\in E} \left(X
+\backslash X_{f} \right) = V (\cup_{f\in E}  \{f\})
+\]</span> hence <span class="math inline">\(\cup_{f\in E} X_{f} = X
+\Leftrightarrow  V(E) =\emptyset\)</span>. Let the ideal generated by
+<span class="math inline">\(E\)</span> be <span class="math inline">\(\mathsf{a}\)</span>, we show that $= (1) $:</p>
+<blockquote>
+<p>Let <span class="math inline">\(\Sigma\)</span> consist of
+non-trivial ideals of <span class="math inline">\(A\)</span>. Since the
+non-decreasing chain of ideals are also an ideal, by Zorn lemma, if
+<span class="math inline">\(\Sigma \neq \emptyset\)</span>, <span class="math inline">\(\Sigma\)</span> contains a maximal element <span class="math inline">\(\mathsf{a}_{0}\)</span> with respect to <span class="math inline">\(\subseteq\)</span>-partial ordering; it is indeed
+an maximal ideal. (Otherwise, if there exist another <span class="math inline">\(\mathsf{a}_{0}^{\prime}\)</span> such that <span class="math inline">\(\mathsf{a}_{0} \subseteq
+\mathsf{a}_{0}^{\prime}\)</span>, <span class="math inline">\(\mathsf{a}_{0}^{\prime} = \mathsf{a}_{0} \cup
+\mathsf{a}_{0}^{\prime}\)</span> is maximal with respect to inclusion
+relation.) It also can be proved that if <span class="math inline">\(\mathsf{a} \neq (1)\)</span>, <span class="math inline">\(\mathsf{a}\)</span> is contained in a maximal
+ideal. Hence if <span class="math inline">\(\mathsf{a} \neq
+(1)\)</span>, <span class="math inline">\(V(\mathsf{a})\)</span>
+contains at least an element. Contradiction. <span class="math inline">\(\square\)</span> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Zorn%27s_lemma">[See Zorn
+lemma]</a></p>
+</blockquote>
+<p>Therefore <span class="math inline">\(1\)</span> can be represented
+by a finite sum of products of elements from <span class="math inline">\(E\)</span> and <span class="math inline">\(A\)</span>: <span class="math display">\[1 =
+g_{1}f_{1} + \cdots + g_{n}f_{n}, \quad g_{i}\in A, f_{i} \in E, 1 \leq
+i \leq n\]</span> Take <span class="math inline">\(F= \{f_{1}, \cdots,
+f_{n}\}\)</span>, thereby <span class="math inline">\(V(F) =
+\emptyset\)</span>, which implies <span class="math inline">\(\{X_{f};
+{f \in F}\}\)</span> covers <span class="math inline">\(X\)</span>.
+<span class="math inline">\(\square\)</span></p>
+<h2 id="definition-nilradical-and-radical">Definition [Nilradical and
+Radical]</h2>
+<p>The ideal <span class="math inline">\(\mathfrak{R}\)</span> of all
+nipotents in a commutative ring <span class="math inline">\(A\)</span>
+with unit <span class="math inline">\(1\)</span> is the insection of all
+prime ideals of <span class="math inline">\(A\)</span>, that is, <span class="math display">\[
+\mathfrak{R} = \bigcap_{\mathsf{p} \text{ is a prime ideal of $A$}}
+\mathsf{p}
+\]</span></p>
+<p>Of course <span class="math inline">\(\mathfrak{R}\)</span> is an
+ideal closed under addition and multiplicatio. We split the proof in two
+steps:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(\mathsf{p}\)</span> is a prime
+ideal, then <span class="math inline">\(\mathfrak{R}\subseteq
+\mathsf{p}\)</span>. Since <span class="math inline">\(0 \in
+\mathsf{p}\)</span>, and we know for any <span class="math inline">\(f
+\in \mathfrak{R}\)</span>, there exist an integer <span class="math inline">\(n&gt;0\)</span> such that <span class="math display">\[f^{n} \in \mathsf{p} \Rightarrow \cdots
+\Rightarrow  f \in \mathsf{p}\]</span></p></li>
+<li><p>If <span class="math inline">\(f\)</span> in not nilpotent, then
+there is a prime ideal <span class="math inline">\(\mathsf{p} \cap \{f\}
+= \emptyset\)</span>. Let <span class="math display">\[\Sigma = \left\{
+\mathsf{a} \text{ is an ideal of $A$}: \text{for any $n \in
+\mathbb{N}_{*}$, }f^{n} \notin \mathsf{a} \right\}\]</span></p></li>
+</ol>
+<blockquote>
+<p>Since <span class="math inline">\((0) \in \Sigma\)</span>. By Zorn
+lemma, <span class="math inline">\(\Sigma\)</span> contains maximal
+element <span class="math inline">\(\mathsf{p}\)</span> with respect to
+<span class="math inline">\(\subseteq\)</span>-inclusion partial
+ordering. This <span class="math inline">\(\mathsf{p}\)</span> is indeed
+a prime ideal, because: For any <span class="math inline">\(x,y \notin
+\mathsf{p}\)</span>, thanks to the maximal proporty of <span class="math inline">\(\mathsf{p}\)</span> we have <span class="math inline">\(\mathsf{p} +  (x)\)</span>, <span class="math inline">\(\mathsf{p} + (y)\)</span> <span class="math inline">\(\notin \Sigma\)</span>; however, <span class="math display">\[\begin{aligned}
+f^{m} \in\mathsf{p} + (x) &amp;, f^{n} \in \mathsf{p} +(y) \Rightarrow
+f^{m+n} \in \mathsf{p} + (xy)
+\end{aligned}\]</span> implies <span class="math inline">\(\mathsf{p} +
+(xy)  \notin \Sigma\)</span>; therefore <span class="math inline">\(xy
+\notin \mathsf{p}\)</span>. <span class="math inline">\(\square\)</span></p>
+</blockquote>
+<p>Denote <span class="math display">\[r(\mathsf{a}): = \{f\in A:
+\text{there exist integer } n &gt;0 \text{ such that } f^{n} \in
+\mathsf{a}\}\]</span> which is the intersection of all prime ideals
+containing <span class="math inline">\(\mathsf{a}\)</span> by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Isomorphism_theorems">correspondence
+theorem</a>.</p>
+<h2 id="definition-irreducibility">Definition [Irreducibility]</h2>
+<p>A topological space <span class="math inline">\((X,\mathscr{U})\)</span> is said to be <a href>irreducible</a> if <span class="math inline">\(X\neq
+\emptyset\)</span> and <span class="math inline">\(X\)</span> can't be
+union of any two non-empty open sets <span class="math inline">\(X =
+X_{1} \cup X_{2}\)</span>, or equivalently, if <span class="math inline">\(U_{1}, U_{2} \neq \emptyset\)</span> are any two
+non-empty open sets, then <span class="math inline">\(U_{1} \cap U_{2}
+\neq \emptyset\)</span>.</p>
+<p><strong>Remark:</strong> According to the definition, irreducibility
+if finer than connectness, because two open sets <span class="math inline">\(X_{1},X_{2}\)</span> can be intersected.</p>
+<h2 id="theorem-1irreducibility">Theorem 1[Irreducibility]</h2>
+<p><span class="math inline">\(\text{Spec}(A)\)</span> is irreducible if
+and only if its nilradical <span class="math inline">\(\mathfrak{R}\)</span> of <span class="math inline">\(A\)</span> is a prime ideal.</p>
+<p>For any two non-empty open sets <span class="math inline">\(\cup_{f
+\in F} X_{f}\)</span> and <span class="math inline">\(\cup_{g \in G}
+X_{g}\)</span> in <span class="math inline">\(X=\text{Spec}(A)\)</span>.
+<span class="math display">\[
+\begin{aligned}
+        \cup_{f \in F} X_{f} \neq \emptyset &amp;\Leftrightarrow \cap_{f
+\in E} V(f) \neq X \Leftrightarrow \exists f_{0} \notin \mathfrak{R}\\
+        \left(\cup_{f \in F} X_{f}\right) \cap \left(\cup_{g \in G}
+X_{g}\right) \neq \emptyset &amp;\Leftrightarrow \cup_{f \in F, g\in G}
+\left(X_{fg}\right) \neq \emptyset \Leftrightarrow \exists f_{0}\in F,
+g_{0} \in G, f_{0}g_{0} \notin \mathfrak{R}
+\end{aligned}
+\]</span></p>
+<p><strong>Remark 1:</strong> Singletons <span class="math inline">\(\{x\}, x\in X\)</span> are irreducible subspaces;
+the closure of irreducible subspaces in <span class="math inline">\(X\)</span> are irreducible subspaces.</p>
+<p><strong>Remark 2:</strong> Each singleton <span class="math inline">\(\{x\}, x\in X\)</span> contained in a maximal
+irreducible subspace of <span class="math inline">\(X\)</span>, which is
+called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Irreducible_component">irreducible
+component</a>. The irrducible components cover <span class="math inline">\(X\)</span>.</p>
+<p><strong>Remark 3:</strong> In an irreducible Hausdorff space <span class="math inline">\(X\)</span>, the irrducible components of <span class="math inline">\(X\)</span> are singletons. However, the conected
+components, for instance, Euclidean space, are itself.</p>
+<p>By taking quotient <span class="math inline">\(A/\mathsf{p}\)</span>
+and noting that there is a one-to-one correspondence <span class="math inline">\(h:\mathsf{a} \mapsto \mathsf{a}/
+\mathsf{p}\)</span> between <span class="math inline">\(V(\mathsf{p})\)</span> and <span class="math inline">\(\text{Spec}(A/\mathsf{p})\)</span> that preserves
+prime ideals, there is a one-to-one correspondence between <span class="math inline">\(r(\mathsf{p}) = \cap_{\mathsf{p}_{x} \in
+V(\mathsf{p})} \mathsf{p}_{x}\)</span> and <span class="math inline">\(\mathfrak{R} (A/\mathsf{p}) =  \cap_{x\in
+\text{Spec}(A/\mathsf{p})} x\)</span>, as is shown in the diagram</p>
+<p><span class="math display">\[\begin{align}
+    \require{AMScd}
+    \begin{CD}
+        V(\mathsf{p}) @&gt;&gt;h&gt; \text{Spec} (A/\mathsf{p})\\
+        @VV{\tiny \text{cap}}V @VV{\tiny \text{cap}}V\\
+        r(\mathsf{p}) @&gt;&gt;h&gt; \mathfrak{R} (A/\mathsf{p})
+    \end{CD}
+\end{align}\]</span></p>
+<p>According to above theorem and</p>
+<blockquote>
+<p>Non-zero ring <span class="math inline">\(A\)</span> has minimal
+prime ideals with respect to set inclusion. By Zorn's lemma, it only
+suffices to prove that the intersection <span class="math inline">\(\cap_{n}\mathsf{p}_{n}\)</span> of a
+non-increasing sequence of prime ideals <span class="math inline">\(\cdots \supseteq \mathsf{p}_{n} \supseteq
+\mathsf{p}_{n+1}\supseteq \cdots\)</span> is also a prime ideal. By
+considering <span class="math inline">\(x,y \in A, xy \in
+\cap_{n}\mathsf{p}_{n}\)</span>, we have for each <span class="math inline">\(n\)</span>, either <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> belongs to <span class="math inline">\(\mathsf{p}_{n}\)</span>. Then one of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occurs in <span class="math inline">\(\mathsf{p}_{n}\)</span> for infinitely many times,
+say, for example, <span class="math inline">\(x  \in
+\cap_{n}\mathsf{p}_{n}\)</span>. <span class="math inline">\(\square\)</span></p>
+</blockquote>
+<p>we only need to show that <span class="math inline">\(h\)</span> is a
+homeomorphism, which is indeed true since <span class="math inline">\(h\)</span> maps <span class="math inline">\(V(\mathsf{a}) \cap V(\mathsf{p}) = V(\mathsf{a} +
+\mathsf{p})\)</span> to <span class="math inline">\(V((\mathsf{a} +
+\mathsf{p})/ \mathsf{p})\)</span> and vice versa, where <span class="math inline">\(\mathsf{a}\)</span> is an ideal of <span class="math inline">\(A\)</span>. Similarily, the closed subspace <span class="math inline">\(V(\mathsf{p})\)</span> of <span class="math inline">\(\text{Spec}(A)\)</span> is irreducible if and only
+if <span class="math inline">\(r(\mathsf{p})\)</span> is a prime ideal,
+where <span class="math inline">\(\mathsf{p}\)</span> is an ideal of
+<span class="math inline">\(A\)</span>. <span class="math inline">\(\square\)</span></p>
+<h2 id="property-4-homomorphism">Property 4 [Homomorphism]</h2>
+<p>Let <span class="math inline">\(\phi: A \to B\)</span> be
+homomorphism that preserves unit. <span class="math inline">\(X=\text{Spec}(A) , Y=\text{Spec}(B)\)</span>.
+Since <span class="math inline">\(\phi^{-1}\)</span> draws back prime
+ideals in <span class="math inline">\(Y\)</span> into prime ideals in
+<span class="math inline">\(X\)</span>, <span class="math inline">\(\phi\)</span> introduces naturally a mapping <span class="math inline">\(\phi^{*}:  \text{Spec}(B) \to
+\text{Spec}(A)\)</span> by <span class="math inline">\(\mathsf{q}
+\mapsto \phi^{-1} (\mathsf{q})\)</span></p>
+<ol type="1">
+<li><p>It is easy to verify that <span class="math inline">\((\phi^{*})^{-1}(X_{f}) =Y_{\phi(f)}\)</span>,
+which implies <span class="math inline">\(\phi^{*}\)</span> is
+continuous.</p></li>
+<li><p>If <span class="math inline">\(\phi\)</span> is surjective, then
+<span class="math inline">\(\phi^{*}\)</span> is injective. By <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fundamental_theorem_on_homomorphisms">Fundamental
+theorem on homomorphisms</a>, <span class="math inline">\(A/\ker(\phi)
+\cong B\)</span>. Note in above we mention that <span class="math inline">\(\phi\)</span> is a homeomorphism mappping, thereby
+<span class="math inline">\(\phi^{*}\)</span> establish a homeomorphism
+between <span class="math inline">\(Y=\text{Spec}(B)\)</span> and <span class="math inline">\(V\left(\ker(\phi)\right)\)</span>.</p></li>
+<li><p><span class="math inline">\(\overline{\phi^{*}(V(\mathsf{b}))} =
+V(\phi^{*}(\mathsf{b}))\)</span>. Hence if <span class="math inline">\(\phi\)</span> is injective, then <span class="math inline">\(\phi^{*}(Y)\)</span> is dense in <span class="math inline">\(X\)</span>. Let <span class="math inline">\(\mathsf{q} \in V(\mathsf{b})\)</span> and note
+that $^{*}() = ^{-1}() ^{-1}() $, so <span class="math inline">\(\phi^{-1}(\mathsf{q}) \in
+V(\phi^{*}(\mathsf{b}))\)</span> and <span class="math inline">\(\mathsf{q} \in
+\phi(V(\phi^{*}(\mathsf{b})))\)</span>. Thus <span class="math inline">\(V(\mathsf{b}) \subseteq
+\phi(V(\phi^{*}(\mathsf{b})))\)</span>. Then note that <span class="math display">\[y \in \overline{\{x\}} \Leftrightarrow
+\overline{\{y\}} \subseteq \overline{\{x\}} \Leftrightarrow
+V(\mathsf{p}_{y}) \subseteq V(\mathsf{p}_{x}) \Leftrightarrow
+\mathsf{p}_{x} \subseteq \mathsf{p}_{y}\]</span> which says <span class="math inline">\(\overline{\{x\}} =
+V\left(\mathsf{p}(={x})\right)\)</span>; <span class="math inline">\(V(\mathsf{b})\)</span> is obviously the minimal
+closed set in <span class="math inline">\(X\)</span> which contains
+<span class="math inline">\(\phi^{*}(V(\mathsf{b}))\)</span> since <span class="math inline">\(\phi^{*}(\mathsf{b}) \in
+\phi^{*}(V(\mathsf{b}))\)</span>.</p></li>
+</ol>
+<p><span class="math display">\[\begin{align}
+    \require{AMScd}
+    \begin{CD}
+        X @&lt;&lt;{\phi^*}&lt; Y\\
+        @AA{\tiny \text{$\cup$}}A  @AA{\tiny \text{$\cup$}}A\\
+        V_A(\phi^* (\mathsf{b})) @&lt;&lt;{\phi^*}&lt; V_B(\mathsf{b})\\
+        @AA{\text{$*$}}A  @AA{\text{$*$}}A\\
+        \text{Spec}(A/\phi^* (\mathsf{b})) @&lt;&lt;{\tilde\phi^*}&lt;
+\text{Spec} (B/\mathsf{b})
+    \end{CD}
+\end{align}\]</span></p>
+<p><strong>Example:</strong> Let <span class="math inline">\(A\)</span>
+be an integral domain with just one non-zero prime ideal <span class="math inline">\(\mathsf{p}\)</span>. and let <span class="math inline">\(K\)</span> be the field of fractions of <span class="math inline">\(A\)</span>. Let <span class="math inline">\(B=(A/\mathsf{p}) \times K\)</span>. Define <span class="math inline">\(\phi: A \to B\)</span> by <span class="math inline">\(\phi(x) = (\bar{x}, x)\)</span>, where <span class="math inline">\(\bar{x}\)</span> is the image of <span class="math inline">\(x\)</span> in <span class="math inline">\(A/\mathsf{p}\)</span>. <span class="math inline">\(\phi^{*}\)</span> is bijective but not a
+homeomorphism: Since <span class="math inline">\(A/\mathsf{p}\)</span>
+is also a field, hence <span class="math inline">\(B = (A/\mathsf{p})
+\times K\)</span> has only two prime ideals <span class="math display">\[\left\{(1)\times(0), (0)
+\times(1)\right\}\]</span> Direct computation yields <span class="math inline">\(\phi^{*}\)</span> is a bijection. However, <span class="math inline">\(\{(1) \times (0)\}\)</span> is a closed set of
+<span class="math inline">\(\text{Spec}(B)\)</span> whereas <span class="math inline">\(\{(0)\}\)</span> is not closed in <span class="math inline">\(\text{Spec}(A)\)</span>.</p>
+<h2 id="more-on-separation-axiom-t_1-t_2">More on Separation Axiom
+[<span class="math inline">\(T_{1}\)</span>, <span class="math inline">\(T_{2}\)</span>]</h2>
+<p>We define <span class="math display">\[\mathscr{V}^{\prime} = \left\{
+\phi^{*}\left(\text{Spec}(B)\right): \text{ where $\phi:A \to B$ is ring
+homomorphism} \right\}\]</span> It can be verified that <span class="math inline">\(\mathscr{V}^{\prime}\)</span> satisfies axiom of
+closed set. The topology in <span class="math inline">\(\text{Spec}(A)\)</span> is called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Constructible_topology">constructable
+topology</a>. which is finer than Zariski topology.</p>
+<ol type="1">
+<li><span class="math inline">\(A/\mathfrak{R}\)</span> is <a href>absolutely flat</a> (<span class="math inline">\(\mathfrak{R}\)</span> being the nilradical of
+<span class="math inline">\(A\)</span>).</li>
+<li>Every prime ideal of <span class="math inline">\(A\)</span> is
+maximal.</li>
+<li><span class="math inline">\(\text{Spec} (A)\)</span> is a <span class="math inline">\(T_{1}\)</span>-space (i.e., every subset
+consisting of a single point is closed).</li>
+<li><span class="math inline">\(\text{Spec} (A)\)</span> is
+Hausdorff.</li>
+<li>The Zariski topology and the constructible topology on <span class="math inline">\(\text{Spec} (A)\)</span> coincide</li>
+</ol>
+<h2 id="proporsition-5-connectedness">Proporsition 5
+[Connectedness]</h2>
+<p>If a commutative ring <span class="math inline">\(A\)</span> with
+unit can be represented as direct product of non-zero ring, <span class="math inline">\(A_{i}, i=1, 2, \cdots, n\)</span>, By a standard
+result in commutative ring, the ideals <span class="math inline">\(A=\prod_{i=1}^{n}A_{i}\)</span> has the form</p>
+<p><span class="math display">\[\mathsf{a}_{1} \times \cdots \times
+\mathsf{a}_{i} \times \cdots \times \mathsf{a}_{n}, \text{ where
+$\mathsf{a}_{i}$ are ideals of $A_{i}$} \]</span><br>
+Especially, prime ideals in <span class="math inline">\(A\)</span> has
+the form</p>
+<p><span class="math display">\[(1) \times \cdots \times \mathsf{p}_{i}
+\times \cdots \times (1), \text{ where $\mathsf{p}_{i}$ are prime ideals
+of $A_{i}$}\]</span></p>
+<p>For ring <span class="math inline">\(A=\prod_{i=1}^{n}A_{i}\)</span>,
+the spectrum <span class="math inline">\(X = \text{Spec}(A)\)</span> is
+the disjoint union of <span class="math inline">\(X_{i}, i
+=1,2,\cdots,n\)</span>, where <span class="math inline">\(X_{i}\)</span>
+consists of prime ideals containing <span class="math inline">\((1)
+\times \cdots \times \underset{i}{(0)} \times \cdots \times
+(1)\)</span>, homeomorphic to <span class="math inline">\(\text{Spec}(A_{i})\)</span>. Hence <span class="math inline">\(X=\text{Spec}(A)\)</span> is not connected. <span class="math inline">\(\square\)</span></p>
+<p>Conversly, if the subsets <span class="math inline">\(X_{1}, X_{2}
+\neq \emptyset, X_{1} \cap X_{2} = \emptyset\)</span> of <span class="math inline">\(X=\text{Spec}(A)\)</span> satisfies <span class="math inline">\(X_{1} \cup X_{2} = X\)</span>. According to the
+definition of spectrum, we have <span class="math inline">\(X_{1}
+=V(\mathsf{a}_{1}), X_{2} =V(\mathsf{a}_{2}),\)</span> where <span class="math inline">\(\mathsf{a}_{1},\mathsf{a}_{2}\)</span> are ideals
+of ring <span class="math inline">\(A\)</span>, and <span class="math display">\[
+\begin{aligned}
+V(\mathsf{a}_{1}) \cap V(\mathsf{a}_{2}) = V(\mathsf{a}_{1}
++\mathsf{a}_{2}) =\emptyset &amp;\Rightarrow
+\mathsf{a}_{1} +\mathsf{a}_{2} = (1)\\
+V(\mathsf{a}_{1}) \cup V(\mathsf{a}_{2}) = V(\mathsf{a}_{1} \cap
+\mathsf{a}_{2}) = X &amp;\Rightarrow
+\mathsf{a}_{1} \cap \mathsf{a}_{2} \subseteq \mathfrak{R}
+\end{aligned}
+\]</span> there exist <span class="math inline">\(x_{1} \in
+\mathsf{a}_{1}, x_{2} \in \mathsf{a}_{2}\)</span>, and integer <span class="math inline">\(n&gt;0\)</span> such that <span class="math display">\[
+\begin{aligned}
+x_{1} + x_{2} &amp;=1\\
+(x_{1} x_{2})^{n} &amp;=0
+\end{aligned}
+\]</span> Due to elementary arithmetic it finds that <span class="math display">\[r(x_{1}^{n}) + r(x_{2}^{n}) =1 \Rightarrow
+(x_{1}^{n}) + (x_{2}^{n}) =1 \]</span>. Therefore we can find an
+idempotent <span class="math inline">\(e\neq 0,1 \in
+(x_{1}^{n})\)</span> such that <span class="math inline">\(1 - e \in
+(x_{2}^{n})\)</span>, and <span class="math inline">\(e(1 - e) =
+0\)</span>, because the non-empty assumption of <span class="math inline">\(X_{i}, i=1,2\)</span>. Thereby <span class="math inline">\(A\)</span> can be decomposed as the direct product
+of <span class="math inline">\(eA\)</span> and <span class="math inline">\((1-e) A\)</span>. $ $</p>
+<p>We summarize the result below:</p>
+<p>Let <span class="math inline">\(A\)</span> be any commutative ring
+with unit. The following statements are equivalent:</p>
+<ol type="1">
+<li><p><span class="math inline">\(X = \text{Spec} (A)\)</span> is
+disconnected.</p></li>
+<li><p><span class="math inline">\(A \cong A_{1} \times A_{2}\)</span>
+where neither of the rings <span class="math inline">\(A_{1}\)</span> or
+<span class="math inline">\(A_{2}\)</span> is the zero ring.</p></li>
+<li><p><span class="math inline">\(A\)</span> contains an idempotent
+<span class="math inline">\(\neq 0,1\)</span>.</p></li>
+</ol>
+<p><strong>Remark:</strong> Local ring, that is, ring with only one
+maximal ideal, is always connected.</p>
+<h1 id="reference">Reference</h1>
+<p>[1] Michael Atiyah. Introduction to commutative algebra. CRC Press,
+2018.</p>
+<p>[2] Suzanne C Dieudonne. History Algebraic Geometry. CRC Press,
+1985.</p>
+<p>[3] Bartel L Van der Waerden. A history of algebra: From al-Khwārizmī
+to Emmy Noether. Springer Science &amp; Business Media, 2013.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/03/23/Zariski%20topology/">http://blueairm.github.io/2023/03/23/Zariski%20topology/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Algebraic-Geometry/"># Algebraic Geometry</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/03/23/Hilbert's%20Nullstellensatz/">Hilbert's Nullstellensatz</a>
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
