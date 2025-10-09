@@ -1,0 +1,40 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+# rss: /atom.xml
+
+# Content
+excerpt_link: read more
+
+# Favicon
+# favicon: /favicon.ico
+
+# Settings toggle
+settings: true
+
+# Code CSS toggle
+highlight: true
+
+# Word count (needs hexo-wordcount)
+word_count: false
+
+# Google Analytics
+google_analytics:
+  enable: false
+  acct: "UA-000000000-0"
+
+# IntenseDebate ID
+intensedebate:
+  enable: false
+  acct: "00000000000000000000000000000000"
+
+
+# LaTeX Math Equations Support
+math:
+  mathjax: 
+    enable: true
+    # Specified version number no less than '3.0.0', or you need to modify the CDN link manually.
+    # Version number '3' is for the latest '3.x' version of MathJax.
+    version: 3.2.0
+
