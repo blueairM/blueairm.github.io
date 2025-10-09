@@ -70,7 +70,7 @@ This work connects to universality in random matrix theory and free probability,
 
 [Wang Haoming](https://blueairm.github.io/) (SYSU) Reviewer: Koki Shimizu (TUS)
 
-**Simultaneous diagonalisable adjoint operators: A finite sample study**
+**Some notes on simultaneous diagonalisable adjoint operators**
 
 This work is based on the proper orthogonal decomposition or Karhunen-Lo\'eve theorem for stochastic processes. Four canonical digonal forms $T_{1}$, $T_{1\frac{1}{2}}$, $T_{2}$ and $T_{3}$ are considered.
 
