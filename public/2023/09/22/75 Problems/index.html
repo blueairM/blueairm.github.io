@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>75 Problems in the Foundation of Mathematics | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">75 Problems in the Foundation of Mathematics</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 22, 2023&nbsp;&nbsp;22:10:39</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Set-Theory/">Set Theory</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="forewords">Forewords</h1>
+<p>There are 75 open problems recorded in the Polish journal
+<em>Fundamenta Mathematicae</em> in volumes 1-34 from its inception,
+some of which have already been solved. These problems represent the
+development of the foundations of mathematics since the late 19th
+century when M. G. Cantor established naive set theory. The original
+text is in French and German, and the translated version is as
+follows.</p>
+<h1 id="problems">Problems</h1>
+<ol type="1">
+<li>When is a set of points <span class="math inline">\(P\)</span> a
+one-to-one and continuous image (but not necessarily bi-continuous) of a
+set <span class="math inline">\(Q\)</span> and when is <span class="math inline">\(Q\)</span> a one-to-one and continuous image of
+<span class="math inline">\(P\)</span>? Are the sets <span class="math inline">\(P\)</span> and $Q $ necessarily homeomorphic?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="2" type="1">
+<li>Is a (bounded) planar continuum, topologically homogeneous,
+necessarily homeomorphic to a circumference?</li>
+</ol>
+<p>(A set <span class="math inline">\(E\)</span> is said to be
+<em>topologically homogeneous</em>, when there exists for any pair of
+points <span class="math inline">\(a, b\)</span> of <span class="math inline">\(E\)</span> a one-to-one and bi-continuous
+transformation of <span class="math inline">\(E\)</span> into itself
+which transforms <span class="math inline">\(a\)</span> into <span class="math inline">\(b\)</span>)</p>
+<p>Problem of MM. B. Knaster and C. Kuratowski.</p>
+<ol start="3" type="1">
+<li>Is a set ordered (linearly) without jumps or gaps and such that any
+set of its intervals (containing more than one element) does not overlap
+with each other is at most innumerable, necessarily a (ordinary) linear
+continuum?</li>
+</ol>
+<p>Problem of M. M. Souslin.</p>
+<ol start="4" type="1">
+<li>Is there a decomposition of an interval into <span class="math inline">\(\aleph_{1}\)</span> (non-empty) sets without
+common points that are <span class="math inline">\(B\)</span>
+measurable?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="5" type="1">
+<li>Does there exist an uncountable linear set <span class="math inline">\(E\)</span> such that every linear set homeomorphic
+to <span class="math inline">\(E\)</span> has zero Lebesgue measure? Can
+we prove the existence of such a set assuming that <span class="math inline">\(2^{\aleph_{0}} = \aleph_{1}\)</span>?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="6" type="1">
+<li>Can we find without the hypothesis of the continuum (<span class="math inline">\(2^{\aleph_{0}} = \aleph_{1}\)</span>) that a sum
+of <span class="math inline">\(\aleph_{1}\)</span> sets of zero Lebesgue
+measure is not necessarily zero Lebesgue measure? that a sum of <span class="math inline">\(\aleph_{1}\)</span> sets of the first category is
+not necessarily of the first category? that a product of <span class="math inline">\(\aleph_{1}\)</span> sets (<span class="math inline">\(A\)</span>) is not necessarily a set (<span class="math inline">\(A\)</span>)?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="7" type="1">
+<li>Can we establish without the hypothesis of the continuum the
+existence of a planar set which has zero (Lebesgue) measure on any
+direction parallel to the abscissa axis and whose complement has zero
+measure on any direction parallel to the ordinate axis?</li>
+</ol>
+<p>Problem of M. H. Steinhaus.</p>
+<ol start="8" type="1">
+<li>Can we give an effective example of a set of real numbers <span class="math inline">\(E\)</span> such that any sum, difference, product
+or quotient of two numbers of <span class="math inline">\(E\)</span>
+(except division by 0) belongs to <span class="math inline">\(E\)</span>
+and that <span class="math inline">\(E\)</span> is uncountable, but
+distinct from the set of all real numbers?</li>
+</ol>
+<p>Problem of M. S. Mazurkiewicz.</p>
+<ol start="9" type="1">
+<li>What is the power of sets complementary to sets (<span class="math inline">\(A\)</span>)?</li>
+</ol>
+<p>Problem of M. N. Lusin.</p>
+<p><em>Notice.</em> The linear sets (<span class="math inline">\(A\)</span>) are orthogonal projections (on a line)
+of the measurable planar sets <span class="math inline">\(B\)</span>. M.
+Lusin demonstrated that the power of an uncountable set complementary to
+a set (<span class="math inline">\(A\)</span>) is <span class="math inline">\(\aleph_{1}\)</span> or <span class="math inline">\(2^{\aleph_{0}}\)</span>, but we do not know if it
+can really be <span class="math inline">\(\aleph_{1}\)</span> (in the
+case where <span class="math inline">\(2^{\aleph_{0}} &gt;
+\aleph_{1}\)</span>).</p>
+<ol start="10" type="1">
+<li>Does there exist a second class function that is not a limit of
+almost everywhere continuous functions? Can we give an effective example
+of a function which is not a limit of piecewise continuous
+functions?</li>
+</ol>
+<p>Problem of MM. T. Feosztyn and W. Sierpinski.</p>
+<ol start="11" type="1">
+<li>Does there exist a class (<span class="math inline">\(\mathcal{L}\)</span>) of M. Fr'echet (i.e. a class
+in which the limit is defined) of power greater than the continuum, such
+that any uncountable set of elements of this class contains at least one
+condensation element?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="12" type="1">
+<li>Does a (linearly) ordered set of which all well-ordered subsets
+(increasing and decreasing) are at most countable, necessarily have a
+power not greater than the continuum?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="13" type="1">
+<li>Does there exist a planar closed set which is not the sum of two
+closed sets without common points, but a sum of countable closed sets
+without common points.</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="14" type="1">
+<li>Does a continuum in <span class="math inline">\(m\)</span>-dimensional space which is homeomorphic
+to any continuum contain necessarily a simple arc (i.e. image of an
+one-to-one and continuous mapping of the interval <span class="math inline">\((0,1)\)</span>?</li>
+</ol>
+<p>Problem of M. Mazurkiewicz.</p>
+<ol start="15" type="1">
+<li>Does there exist a continuum of which every everything under
+continuous mapping is indecomposable? (A continuum is said to be
+indecomposable when it is not a sum of two continua different from
+it.)</li>
+</ol>
+<p>Problem of MM. Knaster and Kuratowski.</p>
+<ol start="16" type="1">
+<li>Does there exist a continuum (unbounded) which is a sum of its
+proper saturated sub-continuums where any two of them do not
+intersect?</li>
+</ol>
+<p>(We say that a real subcontinuum <span class="math inline">\(K\)</span> of <span class="math inline">\(C\)</span> is <em>saturated</em>, when there
+exists no continuum different from <span class="math inline">\(K\)</span> and <span class="math inline">\(C\)</span> which contains <span class="math inline">\(K\)</span> and which is contained in <span class="math inline">\(C\)</span>.)</p>
+<p>Problem of M. Kuratowski.</p>
+<ol start="17" type="1">
+<li>What is the power of the set of all values that a Baire class 1
+function does not take?</li>
+</ol>
+<p>(This problem is equivalent to problem 9 of M. Lusin, t. I. p.224. It
+would be enough to solve this problem for functions admitting
+uncountable points of discontinuity.)</p>
+<ol start="18" type="1">
+<li>Is a (linear) set of power less than the continuum necessarily of
+the first category of M. Baire?</li>
+</ol>
+<p>Problem of M. Ruziewicz.</p>
+<ol start="19" type="1">
+<li>Does there exist in each biconnected set <span class="math inline">\(B\)</span> a point <span class="math inline">\(p\)</span> such that the set <span class="math inline">\(B - (p)\)</span> contains no connected set?</li>
+</ol>
+<p><em>Notice.</em> According to a theorem of M. Kline (this volume,
+p.238), there cannot exist in a connected set <span class="math inline">\(B\)</span> more than one point <span class="math inline">\(p\)</span> enjoying the property in question. We
+know, on the other hand, that, if such a point exists, the set <span class="math inline">\(B\)</span> is biconnected, i.e. it is not the sum
+of two disjoint connected sets containing more than one point (cf.
+Knaster and Kuratowski, <em>Fund. Math.</em> II, p, 214.)</p>
+<p>Problem of M. Kuratowski.</p>
+<ol start="20" type="1">
+<li>Let <span class="math inline">\(f(E)\)</span> be a function defined
+by any measurable (<span class="math inline">\(L\)</span>) set <span class="math inline">\(E\)</span> of a Euclidean space of <span class="math inline">\(m \geq 3\)</span> dimensions and satisfying the
+following conditions:</li>
+</ol>
+<ol type="1">
+<li><span class="math inline">\(f(E) \geq 0\)</span>.</li>
+<li><span class="math inline">\(f(E_{0}) = 1\)</span> for a certain set
+<span class="math inline">\(E_{0}\)</span> of measure 1.</li>
+<li><span class="math inline">\(f(E_{1} +E_{2}) = f(E_{1}) +
+f(E_{2})\)</span>, if <span class="math inline">\(E_{1} E_{2} =
+0\)</span>.</li>
+<li><span class="math inline">\(f(E_{1}) = f(E_{2})\)</span>, if <span class="math inline">\(E_{1}\)</span> and <span class="math inline">\(E_{2}\)</span> are superposable.</li>
+</ol>
+<p>Does the function <span class="math inline">\(f(E)\)</span>
+necessarily coincide with the Lebesgue measure of the set <span class="math inline">\(E\)</span>?</p>
+<p>(For <span class="math inline">\(m=1\)</span> and <span class="math inline">\(m=2\)</span> the answer is negative, as M. Banach
+proved in a memoir which will be published in the volume IV of this
+journal.)</p>
+<p>Problem of M. Ruziewicz.</p>
+<ol start="21" type="1">
+<li>Given a set of real numbers which is not of the first category in
+any interval, is there a decomposition: <span class="math inline">\(A =
+B + C\)</span>, <span class="math inline">\(B \times C = 0\)</span> such
+that neither <span class="math inline">\(B\)</span> nor <span class="math inline">\(C\)</span> are of the first category in any
+interval?</li>
+</ol>
+<p><em>Notice.</em> We could give the affirmative answer in the
+hypothesis additional that <span class="math inline">\(A\)</span> has
+the Baire property (in the sense established in this volume), p.319 . M.
+Sierpinski also pointed out the affirmative answer in the hypothesis of
+the continuum, <span class="math inline">\(\aleph_{1} =
+2^{\aleph_{0}}\)</span>.</p>
+<p>Problem of M. Kuratowski.</p>
+<ol start="22" type="1">
+<li>Let us call the (linear) set <span class="math inline">\(E\)</span>
+<em>perfectly measurable</em>, if every set homeomorphic to <span class="math inline">\(E\)</span> is measurable in the sense of Lebesgue.
+What is the power of the class of perfectly measurable sets? Is a
+complementary set to a perf. measurable set always perf.
+measurable?</li>
+</ol>
+<p>Problem of M. Urysohn.</p>
+<ol start="23" type="1">
+<li>Does there exist a function of a real variable $ f(x)$ pantachically
+dicontinuous and such that we have for all real <span class="math inline">\(x\)</span></li>
+</ol>
+<p><span class="math display">\[\lim_{h \to 0} \frac{f( x+h ) -
+f(x-h)}{2h} = 0?\]</span></p>
+<p>Problem of M. Steinhaus.</p>
+<ol start="24" type="1">
+<li>Is a function satisfying Baire's condition necessarily measurable
+(<span class="math inline">\(L\)</span>)? What is the power of all the
+functions of a real variable satisfying the Baire condition? (We say
+that a function <span class="math inline">\(f(x)\)</span> satisfies the
+Baire condition, if it is continuous on any perfect set when we neglect
+the sets of the first category has with respect to that perfect
+set.)</li>
+</ol>
+<p>Problem of M. Sierpinski.</p>
+<ol start="25" type="1">
+<li>Can a planar set, such that any straight line meets it at two (and
+only two) points, be measurable (<span class="math inline">\(B\)</span>)? (The existence of such a set has been
+demonstrated, using M. Zermelo's theorem, by MM. Mazurkiewicz<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (in 1914) and Rosenthal<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> (in 1922))</li>
+</ol>
+<ol start="26" type="1">
+<li>Is a class 3 function of M. Baire always a superposition of three
+class 1 functions, that is to say, does it exist for any function <span class="math inline">\(f(x)\)</span> of class 3 three class 1 functions
+<span class="math inline">\(\varphi(x)\)</span>, <span class="math inline">\(\psi(x)\)</span> and <span class="math inline">\(\vartheta(x)\)</span>, such that we have for all
+real <span class="math inline">\(x\)</span></li>
+</ol>
+<p><span class="math display">\[f(x) = \varphi \{\psi[\vartheta
+(x)]\}\]</span></p>
+<p>Problem of M. Lusin.</p>
+<ol start="27" type="1">
+<li>Is the set <span class="math inline">\(D(E)\)</span> of the
+distances of the points of a linear set <span class="math inline">\(E\)</span> that is (<span class="math inline">\(B\)</span>) measurable always (<span class="math inline">\(B\)</span>) measurable? (<span class="math inline">\(D(E)\)</span> is therefore the set of all numbers
+<span class="math inline">\(|x - y|\)</span>, where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> belong to <span class="math inline">\(E\)</span>. We can prove the existence of set
+<span class="math inline">\(E\)</span> that are measurable (<span class="math inline">\(L\)</span>), such that <span class="math inline">\(D(E)\)</span> is non-measurable (<span class="math inline">\(L\)</span>).)</li>
+</ol>
+<p>Problem of M. Sierpinski.</p>
+<ol start="28" type="1">
+<li>If <span class="math inline">\(E\)</span> is a (<span class="math inline">\(B\)</span> measurable) planar set, let us denote
+by <span class="math inline">\(N(E)\)</span> the set of all real numbers
+<span class="math inline">\(a\)</span>, such that the line <span class="math inline">\(x = a\)</span> meets <span class="math inline">\(E\)</span> at a uncountable infinite number of
+points. Is the set <span class="math inline">\(N(E)\)</span> necessarily
+a set (<span class="math inline">\(A\)</span>), or, more simply, is it
+measurable (<span class="math inline">\(L\)</span>)? (It can be shown
+that the set of all real numbers <span class="math inline">\(a\)</span>,
+such that the line <span class="math inline">\(x = a\)</span> meets the
+(<span class="math inline">\(B\)</span> measurable) set <span class="math inline">\(E\)</span> in an infinity number of points is
+always a set (<span class="math inline">\(A\)</span>).)</li>
+</ol>
+<p>Problem of M. Sierpinski.</p>
+<ol start="29" type="1">
+<li>Let <span class="math inline">\(F\)</span> be a planar set, p. ex.
+closed (or, more generally, measurable) - A point <span class="math inline">\(x\)</span> of <span class="math inline">\(F\)</span> will be said to be <em>linearly
+accessible</em> if there exists a rectilinear segment <span class="math inline">\(\overline{xp}\)</span> such that all its points
+(except the point <span class="math inline">\(x\)</span>) are outside
+<span class="math inline">\(F\)</span>. Can it be shown that the set
+<span class="math inline">\(A\)</span> of all linearly accessible points
+of <span class="math inline">\(F\)</span> is always measurable (<span class="math inline">\(L\)</span>)?</li>
+</ol>
+<p>Problem of M. Urysohn.</p>
+<ol start="30" type="1">
+<li>If <span class="math inline">\(f(x)\)</span> is an arbitrarily given
+function (measurable or not), what is the measure of the sum of all
+points <span class="math inline">\(x\)</span>, such that</li>
+</ol>
+<p><span class="math display">\[\lim \limits_{h\to 0} \left |\frac{f(
+x+h ) - f(x)}{h}\right| = \infty \]</span></p>
+<p>Problem of M. Ruziewicz.</p>
+<ol start="31" type="1">
+<li>Is the statement "<span class="math inline">\(\mathsf{m} =
+2\cdot\mathsf{m}\)</span> for any <em>transfinite</em> cardinal number
+<span class="math inline">\(\mathsf {m}\)</span>" equivalent to <em>the
+axiom of choice</em>?</li>
+</ol>
+<p>Cf. my Note "<em>On some theorems which are equivalent to the axiom
+of choice</em>" in this volume, p. 147.</p>
+<p>Problem of M. Tajtelbaum-Tarski .</p>
+<ol start="32" type="1">
+<li>Is a planar closed set, where every point is linearly accessible,
+necessarily of zero surface measure?</li>
+</ol>
+<p>Problem of M. Banach.</p>
+<p>A point <span class="math inline">\(x\)</span> of <span class="math inline">\(F\)</span> is said to be linearly accessible if
+there exists a rectilinear segment <span class="math inline">\(\overline{xp}\)</span> such that all its points
+(except the point <span class="math inline">\(x\)</span>) are outside
+<span class="math inline">\(F\)</span>. M. Urysohn proved that the set
+of all linearly accessible points of a planar closed set is always a set
+(<span class="math inline">\(A\)</span>) of M. Souslin, but may not be
+measurable (<span class="math inline">\(B\)</span>). But we do not know
+if the set of all linearly accessible points of a planar <span class="math inline">\(G_{\delta}\)</span> set is measurable (<span class="math inline">\(L\)</span>) (Cf. Problem 29, <em>Fund. Math.</em>
+t. V, p. 337).</p>
+<ol start="33" type="1">
+<li>Is the image of a one-to-one and continuous map (in one sense) of a
+set complementary to a set (<span class="math inline">\(A\)</span>) of
+M. Souslin necessarily a homeomorphism?</li>
+</ol>
+<p>Problem of Sierpinski.</p>
+<ol start="34" type="1">
+<li>Let us call a (linear) set (<span class="math inline">\(B\)</span>)
+measurable of class <span class="math inline">\(\alpha\)</span>
+<em>irreducible</em> if it is not of class <span class="math inline">\(&lt;\alpha\)</span> in any interval. What is the
+power of the set of all topological types of irreducible sets of class
+<span class="math inline">\(\alpha\)</span>?</li>
+</ol>
+<p>Let us call a set (<span class="math inline">\(A\)</span>)
+<em>irreducible</em>, if it is not (<span class="math inline">\(B\)</span>) measurable in any interval. What is
+the power of all the topological types of the sets (<span class="math inline">\(A\)</span>) irreducible?</p>
+<p>Problem of MM. Alexandroff and Urysohn.</p>
+<ol start="35" type="1">
+<li>Let us call the (linear) set <span class="math inline">\(E\)</span>
+<em>perfectly measurable in the narrow sense</em>, if every unambiguous
+and continuous image of <span class="math inline">\(E\)</span> is
+measurable in the sense of Lebesgue. Is a set complementary to a set
+perfectly measurable in the narrow sense always a homeomorphic
+image?</li>
+</ol>
+<p>Cf. Problem 22 of P. Urysohn (<em>Fund. Math.</em> t. IV, p. 368),
+solved by M. Lavrentieff (<em>Fund. Math.</em> t. VI, p. 159).</p>
+<p>Probleme de M. O. Nikodym.</p>
+<ol start="36" type="1">
+<li>According to M. Souslin, if <span class="math inline">\(E\)</span>
+is a set (<span class="math inline">\(A\)</span>) and <span class="math inline">\(H\)</span> a complementary set to a set (<span class="math inline">\(A\)</span>), and if <span class="math inline">\(E
+\subset H\)</span>, there exists a set <span class="math inline">\(Q\)</span>, (<span class="math inline">\(B\)</span>) measurable, such that <span class="math inline">\(E\subset Q \subset H\)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.
+Does this proposition admit a reciprocal, that is to say, <em>if <span class="math inline">\(E\)</span> is a complementary set to a set (<span class="math inline">\(A\)</span>) and <span class="math inline">\(H\)</span> ------ does a set (<span class="math inline">\(A\)</span>), such that <span class="math inline">\(E \subset H\)</span>, exist always a (<span class="math inline">\(B\)</span>) measurable set <span class="math inline">\(Q\)</span>, such that <span class="math inline">\(E \subset Q \subset H\)</span>?</em></li>
+</ol>
+<p>Problem of M. Sierpinski.</p>
+<ol start="37" type="1">
+<li>Is a Jordan (bounded) continuum which contains only a simple closed
+curve homeomorphic to one of its (real) sub-continuums?</li>
+</ol>
+<p>Problem of M. Zarankiewicz.</p>
+<ol start="38" type="1">
+<li>Can a square and a circle whose areas are equal be decomposed into a
+finite number of respectively congruent disjoint subsets?</li>
+</ol>
+<p>Problem of M. Tarski.</p>
+<ol start="39" type="1">
+<li>Does there exist a planar closed set for which the set of linearly
+accessible points is non-measurable (<span class="math inline">\(B\)</span>)? (In the space the problem is resolved
+in the affirmative sense).</li>
+</ol>
+<p>Problem of M. O. Nikodym.</p>
+<ol start="40" type="1">
+<li>If <span class="math inline">\(E\)</span> is a planar <span class="math inline">\(G_{\delta}\)</span> set, is the set of all real
+numbers <span class="math inline">\(a\)</span>, such that the line <span class="math inline">\(x=a\)</span> meets the set <span class="math inline">\(E\)</span> in one and only one point, not
+necessarily complementary to a set (<span class="math inline">\(A\)</span>) of M. Souslin?</li>
+</ol>
+<p>Problem of M. Sierpinski.</p>
+<ol start="41" type="1">
+<li>If <span class="math inline">\(E_{1}, E_{2}, E_{3}, \dots\)</span>
+are a sequence of countable linear sets each of which is a projection of
+a planar set complementary to a set (<span class="math inline">\(A\)</span>) of M. Souslin, is the set $E_{1}E_{2}
+E_{3} $ of the same nature?</li>
+</ol>
+<p>Problem of M. Sierpinski.</p>
+<ol start="42" type="1">
+<li>Does there exist in every continuum <span class="math inline">\(A\)</span> a continuum <span class="math inline">\(B\)</span> such that the set <span class="math inline">\(A - B\)</span> is connected?</li>
+</ol>
+<p>Problem of MM. Knaster and Zarankiewicz.</p>
+<ol start="43" type="1">
+<li>Let <span class="math inline">\(D\)</span> denote a closed set
+homeomorphic to a planar set located in 3-dimensional Euclidean space,
+is every point of <span class="math inline">\(D\)</span> is
+<em>accessible</em> in this space?</li>
+</ol>
+<p>(A point <span class="math inline">\(d\)</span> of <span class="math inline">\(D\)</span> is said to be <em>accessible</em> in
+<span class="math inline">\(E\)</span>, when there exists a continuum
+<span class="math inline">\(C \subset E\)</span> such that <span class="math inline">\((d) = CD\)</span>).</p>
+<p>Problem of M. Knaster.</p>
+<p>Unfortunately, Problem 44 and 45 by MM. N. Lusin and H. Steinhaus
+which should have appeared in XI, p.308, were missing.</p>
+<ol start="46" type="1">
+<li>It is asked to set up the logical relations between the various
+concepts of homogeneity, in so far as they refer to locally compact
+sets. In particular, even if the sets are considered to be connected and
+(or) locally connected.</li>
+</ol>
+<p>(See D. van Dantzig , "On topologically homogeneous continua, volume
+15, pp. 102, 103).</p>
+<p>Problem of M. van Dantzig.</p>
+<ol start="47" type="1">
+<li>Is every (connected, unbounded) <span class="math inline">\(n\)</span>-dimensional manifold involutory
+homogeneous?</li>
+</ol>
+<p>(Cf. D. van Dantzig, le p. 104, ^7.)</p>
+<p>Problem of M. van Dantzig.</p>
+<ol start="48" type="1">
+<li>Let us call a topological group <em>monothetic</em> if an infinite
+cyclic group is dense in it (in which case it is commutative and can be
+written additively), and <em>complete</em> if every sequence $x_{} $,
+which satisfies the Cauchy's convergence criterion <span class="math inline">\(\lim (x_{\nu} - x_{\mu }) = 0\)</span> has a limit
+element in the group, the question is whether a monothetic group can be
+complete without being compact.</li>
+</ol>
+<p>(See lc p. 116 {}^{29}a))</p>
+<p>Problem of M. van Dantzig.</p>
+<ol start="49" type="1">
+<li>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two Peano continua (= continuous
+images of the interval) and <span class="math inline">\(Z\)</span> be
+their topological product (= the space of all pairs $z = (x,y) $ or
+<span class="math inline">\(\lim z_{n}=z\)</span> when <span class="math inline">\(\lim x_{n} = x\)</span> and <span class="math inline">\(\lim y_{n} = y\)</span>).</li>
+</ol>
+<p>1^0. If the continuum <span class="math inline">\(X\)</span>, as well
+as <span class="math inline">\(Y\)</span>, has the property that in each
+continuous transformation of this continuum into a subset there exists
+an invariant point, is it true that <span class="math inline">\(Z\)</span> has the same property?</p>
+<p>2^0. If the continuum <span class="math inline">\(X\)</span>, as well
+as <span class="math inline">\(Y\)</span>, is uni-consistent (= in each
+decomposition of this continuum into two sub-continuums the common part
+of these sub-continuums is connected), is it true that <span class="math inline">\(Z\)</span> is uni-coherent?</p>
+<p>Problem of M. Kuratowski.</p>
+<ol start="50" type="1">
+<li>Is the topological circle the only homogeneous locally connected
+curve? (Curve = one-dimensional connected compact space. A space is
+called homogeneous, if for each of its two points <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> there exist a homeomorphism which sends
+<span class="math inline">\(p\)</span> to <span class="math inline">\(q\)</span> ). On the plane, the circle is the only
+homogeneous locally connected curve.</li>
+</ol>
+<p>(Cf. Mazurkiewicz, Fund. Math. V, p. 137).</p>
+<p>Problem with M. K. Menger.</p>
+<ol start="51" type="1">
+<li>Are there any or even an infinite number of compact one-dimensional
+spaces, any two of which are incomparable in dimension one? Two spaces
+<span class="math inline">\(R\)</span> and <span class="math inline">\(R^{\prime}\)</span> may be called
+one-dimensionally incomparable, if no one-dimensional subset of <span class="math inline">\(R\)</span>, (or of <span class="math inline">\(R^{\prime}\)</span>) is homeomorphic with a subset
+of <span class="math inline">\(R^{\prime}\)</span> (or of <span class="math inline">\(R^{\prime}\)</span>). For example, a line and a
+continuum without partial arcs are incomparable in one dimension. (If
+there are <span class="math inline">\(n\)</span>, or <span class="math inline">\(\aleph_{0}\)</span> in pairs of one-dimensionally
+incomparable curves, then there exist compact one-dimensional spaces
+which contains at least <span class="math inline">\(2^{n} +1\)</span>,
+or <span class="math inline">\(2^{\aleph_{0}}\)</span> monotone, <span class="math inline">\(F_{\sigma}\)</span>-additive, topological,
+compactifiable systems of subsets).</li>
+</ol>
+<p>(See Monthly Issues f. Math. and Phys. 36, p. 207).</p>
+<p>Problem of M. K. Menger.</p>
+<ol start="52" type="1">
+<li>Does there exist a continuum of which every other continuum is a
+continuous image?</li>
+</ol>
+<p>Problem of M. H. Hahn.</p>
+<ol start="53" type="1">
+<li><ol type="a">
+<li>Can any absolute retract be decomposed into a finite number of
+absolute retracts with arbitrarily small diameters?</li>
+</ol></li>
+</ol>
+<ol start="2" type="a">
+<li>Can any <span class="math inline">\(R\)</span> set be decomposed
+into a finite number of absolute retracts?</li>
+</ol>
+<p>(The definition of absolute retracts and <span class="math inline">\(R\)</span> sets is given, for example, in Fund.
+Math. XIX, p. 222).</p>
+<ol start="54" type="1">
+<li><p>Is every partial continuum <span class="math inline">\(C\)</span>
+of the Euclidean <span class="math inline">\(n\)</span>-dimensional
+space <span class="math inline">\(R_{n}\)</span>, which intersects <span class="math inline">\(R_{n}\)</span> and which is transferred by
+arbitrarily small transformations (i.e. by a continuous mapping which
+sends every point from <span class="math inline">\(C\)</span> to an
+arbitrarily close point of <span class="math inline">\(R_{n}\)</span>)
+into a subset of <span class="math inline">\(R_{n}\)</span> that is
+foreign to it, a (<span class="math inline">\(n-1\)</span>) dimensional
+space?</p></li>
+<li><p>Can every route image lying in <span class="math inline">\(R_{3}\)</span> and intersecting <span class="math inline">\(R_{3}\)</span> be mapped continuously without
+fixed points?</p></li>
+</ol>
+<p>Problem of M. K. Borsuk.</p>
+<ol start="56" type="1">
+<li>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two topological spaces and <span class="math inline">\(A^{2}\)</span> and <span class="math inline">\(B^{2}\)</span> respectively their squares (a. `ad
+<span class="math inline">\(A^{2}\)</span> p. ex. consists of all your
+pairs (<span class="math inline">\(a_{1}\)</span>, <span class="math inline">\(a_{2}\)</span>) extracted from <span class="math inline">\(A\)</span>).</li>
+</ol>
+<p>Is it true that if <span class="math inline">\(A^{2}\)</span> and
+<span class="math inline">\(B^{2}\)</span> are homeomorphic, are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> too?</p>
+<p>In case of a positive answer, we deduce that, if <span class="math inline">\(C\)</span> is a set which is not homeomorphic to
+none of <span class="math inline">\(C^{n}\)</span>, <span class="math inline">\(n&gt;1\)</span>, the sets <span class="math inline">\(C^{m}\)</span> and <span class="math inline">\(C^{n}\)</span> are neither homeomorphic for <span class="math inline">\(m \neq n\)</span>; this provides in the case where
+<span class="math inline">\(C\)</span> is an interval of the theorem of
+"invariance of the dimension" of M. Brouwer.</p>
+<p>Problem of M. S. Ulam.</p>
+<ol start="57" type="1">
+<li>Does there exist an infinite-dimensional continuum that does not
+contain any finite-dimensional continuum?</li>
+</ol>
+<p>Problems of M. S. Mazurkiewicz.</p>
+<ol start="58" type="1">
+<li>Does there exist in a set <span class="math inline">\(E\)</span> of
+size <span class="math inline">\(\aleph_{1}\)</span> a countable system
+of subsets <span class="math inline">\(A_{1}, A_{2},\dots\)</span> such
+that one has the form <span class="math display">\[X = \overline{\lim}
+A_{p_{n}}\]</span> where (<span class="math inline">\(p_{1},
+p_{2},\dots\)</span> is a subsequence of the natural numbers, <span class="math inline">\(\overline{\lim}\)</span> means the Borel
+<em>complete limit set</em>) all subsets <span class="math inline">\(X,
+A_{1}, A_{2},\dots\)</span> are received from <span class="math inline">\(E\)</span>?</li>
+</ol>
+<p>(It is a question of proving the negation without using the continuum
+hypothesis).</p>
+<p>Problems with M. F. Hausdorff.</p>
+<ol start="59" type="1">
+<li>A function with the Baire property (i.e. continuous on any perfect
+set, when we neglect a set of <span class="math inline">\(1^{st}\)</span> category relative to this set) of
+a function with the Baire property, is it of the same nature?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="60" type="1">
+<li>Let <span class="math inline">\(\rho\)</span> be the set of all
+homeomorphic transformations of the Cartesian plane in itself, of the
+form: <span class="math display">\[x^{\prime} = x, \quad y^{\prime} =f(
+x,y )\]</span> and <span class="math display">\[x^{\prime}=g( x,y ),
+\quad    y^{\prime}=y.\]</span></li>
+</ol>
+<p>Let us denote by <span class="math inline">\(\sigma\)</span> the
+group formed by all the finite superpositions of all the transformations
+belonging to <span class="math inline">\(\rho\)</span>. Can an arbitrary
+homeomorphic transformation of the plane in itself always be approached
+by those of the group <span class="math inline">\(\sigma\)</span>?</p>
+<p>An analogous problem remains for <span class="math inline">\(n&gt;2\)</span> dimensional spaces.</p>
+<p>Problem of M.S. Ulam.</p>
+<ol start="61" type="1">
+<li>Let <span class="math inline">\(E\)</span> be a <span class="math inline">\(G_{\delta}\)</span> set in the plane (more
+generally: a Borel set) all of whose intersections with the lines
+parallel to the <span class="math inline">\(y\)</span> axis are closed
+sets (more generally: <span class="math inline">\(F_{\sigma}\)</span>).
+Is the projection of <span class="math inline">\(E\)</span> on the <span class="math inline">\(x\)</span> axis always a Borel set?</li>
+</ol>
+<p>Problem of M. E. Szpilrajsn.</p>
+<ol start="62" type="1">
+<li>The (real) function <span class="math inline">\(f(x)\)</span> of the
+real variable <span class="math inline">\(x\)</span> is called
+<em>symmetric-continuous</em> if for every <span class="math inline">\(x\)</span> <span class="math display">\[\lim
+\limits_{h \to 0} [f( x+h ) - f(x - h)] = 0.\]</span> Can the set of
+discontinuities of such a function be uncountable? Can it be an
+arbitrarily prescribed set <span class="math inline">\(F_{\sigma}\)</span>? (That they are an arbitrarily
+prescribed countable set is easy to see.)</li>
+</ol>
+<p>Problem of M. F. Hausdorff.</p>
+<ol start="63" type="1">
+<li>Two compact spaces <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the <em>same homotopy type</em>,
+when there exists a continuous transformation <span class="math inline">\(f\)</span> from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> and a continuous transformation <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span>, such as the superpositions <span class="math inline">\(\varphi f\)</span> and <span class="math inline">\(f\varphi\)</span> (consider respectively as
+transformations of <span class="math inline">\(A\)</span> into <span class="math inline">\(A\)</span> and of <span class="math inline">\(B\)</span> into <span class="math inline">\(B\)</span>) are homotopic to the identity. Are two
+closed varieties of the same homotopy type always homomorphic?</li>
+</ol>
+<p>Problem of M. W. Hurewicz.</p>
+<ol start="64" type="1">
+<li><p>Do there exist two in <span class="math inline">\(R^{n}\)</span>
+orientable Manifolds <span class="math inline">\(M_{1}^{k}\)</span> and
+<span class="math inline">\(M_{2}^{k}\)</span>, whose Complementary
+<span class="math inline">\(R^{n} - M_{1}^{k}\)</span> and <span class="math inline">\(R^{n} - M_{2}^{k}\)</span> are homomorphic and
+whose Homology rings are not isomorphic?</p></li>
+<li><p>Let <span class="math inline">\(B_{0}, B_{1}, B_{2}, \dots,
+B_{\omega}, \dots, B_{\alpha}, \dots\)</span> be Borel classes of sets,
+formed in starting from any class of abstract sets. We know that <span class="math inline">\(B_{\alpha} = B_{\alpha+}\)</span>. results in
+<span class="math inline">\(B_{\alpha}= B_{\beta}\)</span> for all <span class="math inline">\(\beta&gt;\alpha\)</span>; let <span class="math inline">\(\alpha_{0}\)</span> be the first number <span class="math inline">\(\alpha\)</span> satisfying this condition. What
+are the numbers <span class="math inline">\(\nu\)</span> for which there
+exist classes <span class="math inline">\(B_{0}\)</span> such that we
+have <span class="math inline">\(\alpha_{0} = \nu\)</span>? (Cf. Fund.
+Math. t. XV, p. 284).</p></li>
+</ol>
+<p>Problem of M. A. Kolmogoroff.</p>
+<ol start="66" type="1">
+<li>Does the <em>weak</em> <span class="math inline">\(LC\)</span>
+property entail the strong <span class="math inline">\(LC\)</span>
+property for any compact metric space? Same question for <span class="math inline">\(HLC\)</span> properties . (For definitions see
+Annals of Mathematics , vol. 85, p. 119-129 and Duke Mathematical
+Journal, vol . 1, p. 1-18).</li>
+</ol>
+<p>Problem of M. S. Lefschetz.</p>
+<ol start="67" type="1">
+<li>Is the property (<span class="math inline">\(C\)</span>) of linear
+sets invariant with respect to homeomorphic transformations and, more
+generally, with respect to continuous transformations? (We say that a
+set <span class="math inline">\(E\)</span> has the <em>property (<span class="math inline">\(C\)</span>)</em>, when there exists for each
+sequence <span class="math inline">\(\{a_{n}\}\)</span> of positive
+numbers a decomposition $E=E_{1}+E_{2} + $ such that the diameter of
+<span class="math inline">\(E_{n}\)</span> does not exceed $ a_{n}$ for
+<span class="math inline">\(n= 1, 2,\dots\)</span>. Cf. Fund. Math,
+volume XI, p. 304; volume XV, p. 126; volume XXII, p. 310.)</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="68" type="1">
+<li>If <span class="math inline">\(E_{1}\)</span> and $ E_{2}$ are two
+linear sets always of first category (i.e. of first category on any
+perfect set), the set <span class="math inline">\(E_{1} \times
+E_{2}\)</span>. (i.e. the set of all points <span class="math inline">\((x, y)\)</span> of the plane where <span class="math inline">\(x \in E_{1}\)</span> and <span class="math inline">\(y \in E_{2}\)</span>) Is it of the same
+nature?</li>
+</ol>
+<p>Problem of M. E. Szpilrajn.</p>
+<ol start="69" type="1">
+<li>When a Jordan curve (in a three-dimensional space) has a determinate
+tangent at each point, does there necessarily exist a parametric
+representation of this curve expressing the cartesian coordinates of a
+point of this curve as functions which can be derived from a parameter
+(and in this case the three derivatives cannot all cancel out at the
+same time)?</li>
+</ol>
+<p>If the answer is negative, the question is asked again by admitting a
+set of zero measurement values of the parameter where the imposed
+conditions are not both satisfied.</p>
+<p>Problem of M. M. Fr'echet.</p>
+<ol start="70" type="1">
+<li>Does there exist a linear set $ E$ such that each linear analytical
+set is a one-to-one and continuous (in one sense) image of <span class="math inline">\(E\)</span>?</li>
+</ol>
+<p>Problem of M. W. Sierpinski.</p>
+<ol start="71" type="1">
+<li>Does there exist an infinite sequence <span class="math inline">\(S\)</span> of functions of a real variable
+(measurable or not), such that any function of a real variable of class
+<span class="math inline">\(2\)</span> Baire is a limit of some sequence
+extracted from <span class="math inline">\(S\)</span>?</li>
+</ol>
+<p>(According to M. C. Burstin such a sequence <span class="math inline">\(S\)</span> cannot be composed uniquely of
+measurable functions<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>)</p>
+<p>Problem M. W. Sierpinski.</p>
+<ol start="72" type="1">
+<li>Does there exist in the <span class="math inline">\(n\)</span>-dimensional Cartesian space (<span class="math inline">\(n&gt;1\)</span>) a set always of the first
+category (i.e. of first category on each perfect set) and which is of
+positive dimension?</li>
+</ol>
+<p>(M. W. Hurewicz demonstrated using the continuum hypothesis that
+there exists in Hilbert space an uncountable set <span class="math inline">\(H\)</span> of which each uncountable subset is of
+infinite dimension<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>). M. F. Hausdorff noticed that the
+set <span class="math inline">\(H\)</span> is always of the first
+category. This follows easily from the fact that each separable metric
+space <span class="math inline">\(M\)</span> is the sum of a set of
+dimension <span class="math inline">\(0\)</span> and a set of first
+category in <span class="math inline">\(M\)</span>. -- <em>There
+therefore exists, if <span class="math inline">\(2^{\aleph} =
+\aleph_{1}\)</span>, in Hilbert space a set always of first category and
+of positive dimension</em>).</p>
+<p>Probleme de M. E. Szpilrajn.</p>
+<ol start="73" type="1">
+<li>Let, in three-dimensional Euclidean space, <span class="math inline">\(E\)</span> be a homeomorphic image of the solid
+sphere <span class="math inline">\(S\)</span> and <span class="math inline">\(L\)</span> be a rectilinear segment whose interior
+is contained in the interior, and the ends in the border of <span class="math inline">\(E\)</span> . Does there still exist a
+homeomorphism transforming <span class="math inline">\(E\)</span> into
+<span class="math inline">\(S\)</span> such that <span class="math inline">\(L\)</span> is transformed into the diameter of
+<span class="math inline">\(S\)</span>?</li>
+</ol>
+<p>Problem of M. K. Borsuk.</p>
+<ol start="74" type="1">
+<li>Let <span class="math inline">\(\mathbf {B}(\mathbf {F})\)</span> be
+the smallest family of sets containing the given family $ $ and closed
+with respect to the operations <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\delta\)</span> (addition and multiplication of
+countable values). Is there a family of enumerable <span class="math inline">\(\mathbf{D}\)</span> of sets, such that all linear
+analytic sets belong to <span class="math inline">\(\mathbf
+{B}(\mathbf{D})\)</span> ?</li>
+</ol>
+<p>Problem of M. S. Ulam.</p>
+<ol start="75" type="1">
+<li>Is there an infinite set <span class="math inline">\(E\)</span>
+(e.g. the set of all natural numbers) and a function <span class="math inline">\(f(X)\)</span> which maps to any subset <span class="math inline">\(X\)</span> of $E $ a subset <span class="math inline">\(f(X)\)</span> of <span class="math inline">\(E\)</span>, so that:</li>
+</ol>
+<ol type="1">
+<li><span class="math inline">\(X \subset f(X)\)</span> for <span class="math inline">\(X \subset E\)</span>,</li>
+<li><span class="math inline">\(f(X+Y) = f(X) + f(Y)\)</span> for <span class="math inline">\(X \subset E\)</span>, <span class="math inline">\(Y \subset E\)</span>,</li>
+<li>there exists for every set <span class="math inline">\(Y \subset
+E\)</span> at least one set <span class="math inline">\(X \subset
+E\)</span>, such that <span class="math inline">\(Y =
+f(X)\)</span>,</li>
+<li>there exists at least one set <span class="math inline">\(X_{0}
+\subset E\)</span>, such that <span class="math inline">\(f(X_{0}) \neq
+X_{0}\)</span>.</li>
+</ol>
+<p>If we replace the relative condition to <span class="math inline">\(f(X+Y)\)</span> by the condition weaker than <span class="math inline">\(f(X) \subset f(Y)\)</span> pure <span class="math inline">\(X \subset Y \subset E\)</span>, the positive
+answer is obvious.</p>
+<p>Problem of M. E. <span class="math inline">\(\check{\text{C}}\)</span>ech.</p>
+<h1 id="problems-resolved.">Problems resolved.</h1>
+<ol type="1">
+<li>When is a set of points <span class="math inline">\(P\)</span> a
+one-to-one and continuous image (in a sense) of <span class="math inline">\(Q\)</span> and <span class="math inline">\(Q\)</span> a one-to-one and continuous image of
+<span class="math inline">\(P\)</span>, can we affirm that the sets
+<span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are homeomorphic?</li>
+</ol>
+<p><em>Negative</em> solution from M. Kuratowski, Fund. Math. t. II, pp.
+158-160</p>
+<ol start="4" type="1">
+<li>Is there a decomposition of an interval into <span class="math inline">\(\aleph_{1}\)</span> measurable sets (<span class="math inline">\(B\)</span>), each non-empty and without common
+points?</li>
+</ol>
+<p><em>Affirmative</em> solution from MM. Lusin and Sierpinski,
+<em>Comptes Rendus</em>, t. 175, p.357 (note of August 21, 1922).</p>
+<ol start="6" type="1">
+<li>Third part. Can it be shown that a product of <span class="math inline">\(\aleph_{1}\)</span> sets (<span class="math inline">\(A\)</span>) is not necessarily a set (<span class="math inline">\(A\)</span>)?</li>
+</ol>
+<p><em>Affirmative</em> solution from MM. Lusin and Sierpinski,
+<em>Journ, de Math</em>. 1923 (The authors define a set which is
+complementary to a set (<span class="math inline">\(A\)</span>) is not
+necessarily a set (<span class="math inline">\(A\)</span>).)</p>
+<ol start="8" type="1">
+<li>Can we give an effective example of a set of real numbers <span class="math inline">\(E\)</span>, such as any sum, difference, product
+or quotient of two numbers of <span class="math inline">\(E\)</span>
+(except division by 0) belongs to <span class="math inline">\(E_{1}\)</span> and that <span class="math inline">\(E\)</span> is uncountable, distinct from the set
+of all real numbers?</li>
+</ol>
+<p><em>Affirmative</em> solution from M. Souslin, <em>Fund. Math.</em>
+IV, p.311.</p>
+<ol start="10" type="1">
+<li>First part. Is there a second class function which is not the limit
+of almost everywhere discontinuous functions?</li>
+</ol>
+<p><em>Affirmative</em> solution from M. Zalcwasser.</p>
+<ol start="12" type="1">
+<li>Does an ordered set of which all well-ordered subsets (increasing or
+decreasing) are at most enumerable necessarily have a power no greater
+than that of the continuum?</li>
+</ol>
+<p><em>Affirmative</em> solution from M. Urysohn, <em>Fund. Math.</em> V
+(to appear).</p>
+<ol start="15" type="1">
+<li>Is there a continuum of which any subcontinuum is
+indecomposable?</li>
+</ol>
+<p><em>Affirmative</em> solution from M. Knaster, <em>Fund. Math.</em>
+III pp. 247-286.</p>
+<ol start="16" type="1">
+<li>Does there exist a continuum which is a sum of its proper disjoint
+saturated subcontinua?</li>
+</ol>
+<p><em>Affirmative</em> solution by MM. Knaster and Kuratowski,
+<em>Fund. Math.</em> V.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Accounts of the Soc. of Varsovic Sciences , t. VII,
+p.382.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Sitzungaber d. Bayer. Akad. d. Wiss., math.-phys. K1,
+1922, p. 223.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>See p. e. N. Lusin and W. Sierpinski <em>Journ. of
+Math.</em> t. II (1923) p. 60; also <em>Bull. Acad. Krakow</em> 1918 p.
+40.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Monatshefte f. Math. u. Phys. 28 (1917), p. 107.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Fund . Math. 19 (1932), p.8.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/09/22/75%20Problems/">http://blueairm.github.io/2023/09/22/75%20Problems/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Set-Theory/"># Set Theory</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/01/17/Hopf%20ergodic%20theorem/">Hopf's Ergodic Theorem</a>
+            
+            
+            <a class="next" rel="next" href="/2023/07/31/Cichon's%20Diagram/">Cichon's Diagram</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

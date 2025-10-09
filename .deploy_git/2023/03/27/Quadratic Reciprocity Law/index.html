@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Quadratic Reciprocity Law | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Quadratic Reciprocity Law</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 27, 2023&nbsp;&nbsp;18:42:10</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Algebraic-Number-Theory/">Algebraic Number Theory</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="quadratic-reciprocity-law">Quadratic Reciprocity Law</h1>
+<h2 id="the-reciprocity-law-one">The Reciprocity Law one</h2>
+<p>Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be distinct odd prime numbers, and
+define the Legendre symbol as</p>
+<p><span class="math display">\[\left({\frac{q}{p}}\right)=
+\begin{cases}1&amp;{\text{if }}n^{2}\equiv q{\mod {p}}{\text{ for some
+integer }}n\\
+-1&amp;{\text{otherwise}}
+\end{cases}\]</span> Then</p>
+<p><span class="math display">\[\left(\frac
+{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{p^{\prime}q^{\prime}}.\]</span></p>
+<p>where <span class="math inline">\(p^{\prime} = \frac{p-1}{2}\)</span>
+and <span class="math inline">\(q^{\prime}=\frac{q-1}{2}\)</span>.</p>
+<p><img src="/2023/03/27/Quadratic%20Reciprocity%20Law/QRL.png"></p>
+<p>Since <span class="math inline">\(p^{\prime}q^{\prime}\)</span> is
+even if either <span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span> is of the form <span class="math inline">\(4n+1\)</span>, and odd if both are of the form
+<span class="math inline">\(4n + 3\)</span>, we can also state the
+theorem as</p>
+<h2 id="the-reciprocity-law-two">The Reciprocity Law two</h2>
+<p>If <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are odd primes, then <span class="math display">\[\left(\frac {p}{q}\right) =
+\left(\frac{q}{p}\right)\]</span> unless both <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are of the forv <span class="math inline">\(4n+3\)</span>, in which case <span class="math display">\[\left(\frac {p}{q}\right) = -
+\left(\frac{q}{p}\right)\]</span></p>
+<h2 id="the-reciprocity-lemma">The Reciprocity Lemma</h2>
+<p>If <span class="math display">\[S(q,p) =
+\sum_{s=1}^{p^{\prime}}\left[\frac{sq}{p}\right],\]</span> then <span class="math display">\[S(q,p) + S(p,q) =
+p^{\prime}q^{\prime}.\]</span></p>
+<p>The proof may be stated in a geometrical form. In the figure <span class="math inline">\(AC\)</span> and <span class="math inline">\(BC\)</span> are <span class="math inline">\(x =
+p\)</span>, <span class="math inline">\(y=q\)</span>, and <span class="math inline">\(KM\)</span> and <span class="math inline">\(LM\)</span> are <span class="math inline">\(x =
+p^{\prime}\)</span>, <span class="math inline">\(y =
+q^{\prime}\)</span>. If (as in the figure) <span class="math inline">\(p
+&gt; q\)</span>, then <span class="math inline">\(q^{\prime}/p^{\prime}
+&lt; q/p\)</span>, and <span class="math inline">\(M\)</span> falls
+below the diagonal <span class="math inline">\(OC\)</span>. Since <span class="math display">\[q^{\prime} &lt; \frac{qp^{\prime}}{p} &lt;
+q^{\prime}-l,\]</span> there is no integer between <span class="math inline">\(KM = q^{\prime}\)</span> and <span class="math inline">\(KN = qp^{\prime}/p\)</span>.</p>
+<p>We count up, in two different ways, the number of lattice points in
+the rectangle <span class="math inline">\(OKML\)</span>, counting the
+points on <span class="math inline">\(KM\)</span> and <span class="math inline">\(LM\)</span> but not those on the axes. In the
+first place, this number is plainly <span class="math inline">\(p^{\prime}q^{\prime}\)</span>. But there are no
+lattice points on <span class="math inline">\(OC\)</span> (since <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are prime), and none in the triangle
+<span class="math inline">\(PMN\)</span> except perhaps on <span class="math inline">\(PM\)</span>. Hence the number of lattice points in
+<span class="math inline">\(OKML\)</span> is the sum of those in the
+triangles <span class="math inline">\(OKN\)</span> and <span class="math inline">\(OLP\)</span> (counting those on <span class="math inline">\(KN\)</span> and <span class="math inline">\(LP\)</span> but not those on the axes). The number
+on <span class="math inline">\(ST\)</span>, the line <span class="math inline">\(x = s\)</span>, is <span class="math inline">\([sq/p]\)</span>, since <span class="math inline">\(sq/p\)</span> is the ordinate of <span class="math inline">\(T\)</span>. Hence the number in <span class="math inline">\(OKN\)</span> is <span class="math display">\[\sum_{s=1}^{p^{\prime}}\left[\frac{sq}{p}\right]
+= S(q,p)\]</span> Similarly, the number in <span class="math inline">\(OLP\)</span> is <span class="math inline">\(S(p,
+q)\)</span>, and the conclusion follows.</p>
+<h2 id="the-proof-of-reciprocity-law">The proof of Reciprocity Law</h2>
+<p>We can write <span class="math display">\[\begin{equation}
+\label{eq: summing}
+kq = p \left[\frac{kq}{p}\right] + u_{k}
+\end{equation}\]</span> where <span class="math inline">\(1\leq k \leq
+p^{\prime}\)</span>, <span class="math inline">\(1 \leq u_{k} \leq
+p-1\)</span>. Here <span class="math inline">\(u_k\)</span> is the least
+positive residue of <span class="math inline">\(kq (\bmod \,
+p)\)</span>. If <span class="math inline">\(u_k = v_k
+\leq  p^{\prime}\)</span>, then <span class="math inline">\(u_k\)</span>
+is one of the minimal residues <span class="math inline">\(r_i\)</span>,
+while if <span class="math inline">\(u_k = w_k &gt; p^{\prime}\)</span>,
+then <span class="math inline">\(u_k - p\)</span> is one of the minimal
+residues <span class="math inline">\(-r^{\prime}_{j}\)</span>. Thus
+<span class="math display">\[r_i = v_k, \quad r^{\prime}_{j} = p -
+w_k\]</span> for every <span class="math inline">\(i,j\)</span> and some
+<span class="math inline">\(k\)</span>.</p>
+<p>The <span class="math inline">\(r_i\)</span> and <span class="math inline">\(r_j^{\prime}\)</span> are the numbers <span class="math inline">\(1,2,\dots,p^{\prime}\)</span> in some order.
+Hence, if <span class="math display">\[R = \sum r_i = \sum v_k, \quad
+R^{\prime} = \sum r_{j}^{\prime} = \sum (p - w_k) = up - \sum
+w_k\]</span> (where <span class="math inline">\(\mu\)</span> is the
+number of <span class="math inline">\(r_j^{\prime}\)</span>), we have
+<span class="math display">\[R+R^{\prime} = \sum_{\nu=1}^{p^{\prime}}
+\nu = \frac{1}{2}\frac{p-1}{2}\frac{p+1}{2} = \frac{p^2 -1}{8},\]</span>
+and so <span class="math display">\[\begin{equation}
+\label{eq: From}
+\mu p +\sum v_k - \sum w_k = \frac{1}{8}(p^2-1)
+\end{equation}\]</span> On the other hand, summing <span class="math inline">\(\eqref{eq: summing}\)</span> from <span class="math inline">\(k=1\)</span> to <span class="math inline">\(k=p^{\prime}\)</span>, we have <span class="math display">\[\begin{equation}
+\label{eq: and}
+\frac{1}{8} q (p^2-1) = p S(q,p) + \sum u_{k} = p S(q,p) + \sum v_{k} +
+\sum w_k.
+\end{equation}\]</span> From <span class="math inline">\(\eqref{eq:
+From}\)</span> and <span class="math inline">\(\eqref{eq: and}\)</span>
+we deduce <span class="math display">\[\begin{equation}
+\label{eq: of}
+\frac{1}{8} (p^2-1) (q-1) = pS(q,p) + 2\sum w_k - \mu p.
+\end{equation}\]</span> Now <span class="math inline">\(q-1\)</span> is
+even, and <span class="math inline">\(p^2 -1 \equiv 0 (\bmod
+8)\)</span>; so that the left-hand side of <span class="math inline">\(\eqref{eq: of}\)</span> is even, and also the
+second term on the right. Hence (since <span class="math inline">\(p\)</span> is odd) <span class="math display">\[S(q,p) \equiv \mu (\bmod 2),\]</span> and
+therefore, by Gauss's lemma, <span class="math display">\[\left(\frac
+{q}{p}\right) = (-1)^{\mu} = (-1)^{S(q,p)}.\]</span> Finally, <span class="math display">\[\left(\frac {q}{p}\right)\left(\frac
+{p}{q}\right) = (-1)^{S(q,p) + S(p,q)} =
+(-1)^{p^{\prime}q^{\prime}}\]</span> by preceding lemma.</p>
+<p>[1] Hardy G.H., Wright E.M. - An Introduction to the Theory of
+Numbers (1975)</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/">http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Algebraic-Number-Theory/"># Algebraic Number Theory</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/04/The%20Discovery%20of%20Neptune/">The Discovery of Neptune (By J.E. Littlewood)</a>
+            
+            
+            <a class="next" rel="next" href="/2023/03/27/Nevanlinna%20Theory2/">Nevanlinna Theory (II)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
