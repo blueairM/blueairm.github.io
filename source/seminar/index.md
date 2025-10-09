@@ -122,7 +122,7 @@ A main ingredient is the notion of framed Lagrangian immersions and their Maurer
 [ArXiv1](https://arxiv.org/abs/2206.03028), [ArXiv2](https://arxiv.org/abs/2404.16172).
 
 
-2025/07+, 10:00 a.m., [Tencent Meeting]()
+2025/09+, 10:00 a.m., [Tencent Meeting]()
 
 Shao Kerun (Zhejiang University)
 
@@ -133,7 +133,7 @@ TBA.
 [Article](https://www.researchgate.net/profile/Kerun-Shao).
 
 
-2025/07+, 10:00 a.m., [TBA]()
+2025/09+, 10:00 a.m., [TBA]()
 
 Feng Yu (Tsinghua University)
 
