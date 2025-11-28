@@ -137,15 +137,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/04/10/The%20Naimark%20Problem/</loc>
-    
-    <lastmod>2024-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/2023/03/23/Zariski%20topology/</loc>
     
     <lastmod>2024-02-25</lastmod>
@@ -155,7 +146,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/</loc>
+    <loc>http://blueairm.github.io/2023/04/10/The%20Naimark%20Problem/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -165,6 +156,15 @@
   
   <url>
     <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</loc>
+    
+    <lastmod>2024-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/23/Hilbert13/</loc>
+    <loc>http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</loc>
+    <loc>http://blueairm.github.io/2023/03/23/Hilbert13/</loc>
     
     <lastmod>2024-02-25</lastmod>
     
@@ -225,14 +225,14 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Set-Theory/</loc>
+    <loc>http://blueairm.github.io/tags/Algebraic-Geometry/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Algebraic-Geometry/</loc>
+    <loc>http://blueairm.github.io/tags/Set-Theory/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -260,14 +260,14 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Hilbert-s-23-Problems/</loc>
+    <loc>http://blueairm.github.io/tags/Mathematical-Logic/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Mathematical-Logic/</loc>
+    <loc>http://blueairm.github.io/tags/Hilbert-s-23-Problems/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -304,14 +304,14 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
+    <loc>http://blueairm.github.io/categories/Miscellanies/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Miscellanies/</loc>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -332,7 +332,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/History-of-Mathematics/</loc>
+    <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -346,7 +346,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
+    <loc>http://blueairm.github.io/categories/History-of-Mathematics/</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
