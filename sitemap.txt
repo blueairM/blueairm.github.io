@@ -15,8 +15,8 @@ http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/
 http://blueairm.github.io/2023/04/10/P=NP/
 http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/
 http://blueairm.github.io/2024/01/17/Hopf%20ergodic%20theorem/
-http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/
 http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/
+http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/
 http://blueairm.github.io/2023/03/23/Hilbert13/
 http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/
 http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/
@@ -37,13 +37,13 @@ http://blueairm.github.io/categories/Set-Theory/
 http://blueairm.github.io/categories/Algebraic-Number-Theory/
 http://blueairm.github.io/categories/Sevaral-Complex-Variables/
 http://blueairm.github.io/categories/Notes/
-http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/
-http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/
 http://blueairm.github.io/categories/Miscellanies/
 http://blueairm.github.io/categories/Differential-Geometry/
+http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/
 http://blueairm.github.io/categories/Commutative-Algebra/
-http://blueairm.github.io/categories/Mathematical-Logic/
+http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/
 http://blueairm.github.io/categories/Differential-Geometry/Algebraic-Geometry/
 http://blueairm.github.io/categories/Commutative-Algebra/Algebraic-Geometry/
+http://blueairm.github.io/categories/Mathematical-Logic/
 http://blueairm.github.io/categories/History-of-Mathematics/
 http://blueairm.github.io/categories/History-of-Mathematics/Hilbert-s-23-Problems/

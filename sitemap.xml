@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/</loc>
+    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</loc>
+    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -329,20 +329,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/categories/Miscellanies/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -357,6 +343,13 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/categories/Commutative-Algebra/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -364,7 +357,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -379,6 +372,13 @@
   
   <url>
     <loc>http://blueairm.github.io/categories/Commutative-Algebra/Algebraic-Geometry/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
