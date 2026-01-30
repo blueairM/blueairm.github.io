@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</loc>
+    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/</loc>
+    <loc>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/</loc>
+    <loc>http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</loc>
+    <loc>http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -243,28 +243,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Miscellanies/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/tags/Notes/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/tags/Mathematical-Logic/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/tags/Differential-Geometry-Algebraic-Geometry/</loc>
+    <loc>http://blueairm.github.io/tags/Algebraic-Number-Theory/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -278,21 +257,42 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Hilbert-s-23-Problems/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/tags/Algebraic-Number-Theory/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/tags/Algebraic-Geometry/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Notes/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Miscellanies/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Differential-Geometry-Algebraic-Geometry/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Mathematical-Logic/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Hilbert-s-23-Problems/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -308,7 +308,28 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Miscellanies/</loc>
+    <loc>http://blueairm.github.io/categories/Algebraic-Number-Theory/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -316,6 +337,13 @@
   
   <url>
     <loc>http://blueairm.github.io/categories/Notes/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Miscellanies/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -336,20 +364,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/History-of-Mathematics/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -364,13 +378,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Algebraic-Number-Theory/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/categories/Commutative-Algebra/Algebraic-Geometry/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -378,14 +385,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
+    <loc>http://blueairm.github.io/categories/History-of-Mathematics/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
