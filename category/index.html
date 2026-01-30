@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>category | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+
+
+
+    <div class="container">
+        <div class="post-wrap categories">
+            <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
+            <div class="categories-card">
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Algebraic-Number-Theory/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Algebraic Number Theory
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/27/Quadratic%20Reciprocity%20Law/">Quadratic Reciprocity Law</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Set-Theory/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Set Theory
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/09/22/75%20Problems/">75 Problems in the Foundation of Mathematics</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/07/31/Cichon's%20Diagram/">Cichon's Diagram</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/02/18/blacksquare-blacklozenge-clubsuit/">$\blacksquare$, $\blacklozenge$, $\clubsuit$</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Sevaral-Complex-Variables/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Sevaral Complex Variables
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/01/17/Hopf%20ergodic%20theorem/">Hopf's Ergodic Theorem</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/27/Nevanlinna%20Theory2/">Nevanlinna Theory (II)</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/27/Nevanlinna%20Theory/">Nevanlinna Theory (I)</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Notes/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Notes
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/11/13/Henkin%E2%80%98s%20Theorem/">Henkin's Theorem</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Hilbert13/">Hilbert's 13th Problem</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/04/11/Nowicki%20Conjecture/">Nowicki Conjecture</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/04/10/P=NP/">P = NP</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/04/10/The%20Naimark%20Problem/">Naimark's Problem</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Sevaral-Complex-Variables/Fuchsian-Group/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Fuchsian Group
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/01/17/Hopf%20ergodic%20theorem/">Hopf's Ergodic Theorem</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Miscellanies/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Miscellanies
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/">A Letter to Mr. Lei Yunhai</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/04/04/The%20Discovery%20of%20Neptune/">The Discovery of Neptune (By J.E. Littlewood)</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Differential-Geometry/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Differential Geometry
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2026/01/07/Grassmanian/">The Volumn of Grassmanianns</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Commutative-Algebra/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Commutative Algebra
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Hilbert's%20Nullstellensatz/">Hilbert's Nullstellensatz</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Zariski%20topology/">Zariski Topology</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Nevanlinna Theory
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/27/Nevanlinna%20Theory2/">Nevanlinna Theory (II)</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/27/Nevanlinna%20Theory/">Nevanlinna Theory (I)</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Mathematical-Logic/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Mathematical Logic
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/11/13/Henkin%E2%80%98s%20Theorem/">Henkin's Theorem</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/04/10/P=NP/">P = NP</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2024/02/18/blacksquare-blacklozenge-clubsuit/">$\blacksquare$, $\blacklozenge$, $\clubsuit$</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Differential-Geometry/Algebraic-Geometry/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Algebraic Geometry
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2026/01/07/Grassmanian/">The Volumn of Grassmanianns</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/Commutative-Algebra/Algebraic-Geometry/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Algebraic Geometry
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Hilbert's%20Nullstellensatz/">Hilbert's Nullstellensatz</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Zariski%20topology/">Zariski Topology</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/History-of-Mathematics/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    History of Mathematics
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Hilbert13/">Hilbert's 13th Problem</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
+                            <a href="/categories/History-of-Mathematics/Hilbert-s-23-Problems/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    Hilbert's 23 Problems
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link"
+                                           href="/2023/03/23/Hilbert13/">Hilbert's 13th Problem</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

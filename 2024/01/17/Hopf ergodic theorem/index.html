@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Hopf&#39;s Ergodic Theorem | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Hopf&#39;s Ergodic Theorem</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 17, 2024&nbsp;&nbsp;13:48:02</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Sevaral-Complex-Variables/">Sevaral Complex Variables</a>
+                            
+                                <a href="/categories/Sevaral-Complex-Variables/Fuchsian-Group/">Fuchsian Group</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="hopfs-ergodic-theorem">Hopf's Ergodic Theorem</h1>
+<p>Let <span class="math inline">\(y_1 = e^{i\theta_1}\)</span> and
+<span class="math inline">\(y_2 = e^{i\theta_2}\)</span> be two points
+on <span class="math inline">\(|z| = 1\)</span>. Then, the pair <span class="math inline">\((\theta_1, \theta_2)\)</span> can be considered as
+a point of a torus <span class="math inline">\(\Theta: 0 \leq \theta_1,
+\theta_2 &lt; 2\pi\)</span>.</p>
+<p>For a measurable set <span class="math inline">\(E\)</span> on <span class="math inline">\(\Theta\)</span>, we define its measure <span class="math inline">\(\mu(E)\)</span> by <span class="math inline">\(\mu(E) = \int\int d\theta_1 d\theta_2\)</span>, so
+that <span class="math inline">\(\mu(\Theta) = 4\pi^2\)</span>.</p>
+<p>If <span class="math inline">\(S_v\)</span> is any substitution of a
+Fuchsian group <span class="math inline">\(G\)</span> and <span class="math inline">\(T_v: \Theta \to S_v(\Theta)\)</span>, then the
+totality of <span class="math inline">\(\{ T_v \}\)</span> constitute a
+group <span class="math inline">\(S = G \times G\)</span>.</p>
+<h2 id="hopfs-ergodic-theorem-theorem-xi.-23.">Hopf's Ergodic Theorem
+(Theorem XI. 23.):</h2>
+<p>If <span class="math inline">\(\mu(\Theta) &lt; \infty\)</span>, then
+there exists no measurable set <span class="math inline">\(E\)</span> on
+<span class="math inline">\(\Theta\)</span> which is invariant by <span class="math inline">\(S\)</span>, and <span class="math inline">\(0 &lt;
+\mu(E) &lt; 4\pi^2\)</span>.</p>
+<p>Hence, if <span class="math inline">\(\mu(E) &gt; 0\)</span>, then
+<span class="math inline">\(\mu(E) = 4\pi^2\)</span>.</p>
+<h2 id="proof-tsuji">Proof (Tsuji):</h2>
+<p>Suppose that there exists a measurable set <span class="math inline">\(E\)</span> on <span class="math inline">\(\Theta\)</span> which is invariant by <span class="math inline">\(S\)</span>, and <span class="math inline">\(\mu(E)
+&gt; 0\)</span>. We shall prove that <span class="math inline">\(\mu(E)
+= 4\pi^{2}\)</span>.</p>
+<p>Let <span class="math inline">\(f(\theta_1, \theta_2)\)</span> be the
+characteristic function of $ E $ and put <span class="math display">\[
+u(z, w) = \frac{1}{4\pi^2} \iint_{\Theta} f(\theta_1, \theta_2)\frac{1-
+|z|^{2}}{|z - e^{i\theta_1}|^2} \frac{1- |w|^{2}}{|w -
+e^{i\theta_2}|^2}d\theta_1 d\theta_2,
+\]</span> where <span class="math inline">\(\Theta: |z| &lt; 1, |w| &lt;
+1\)</span>.</p>
+<p>Then <span class="math inline">\(u(z, w)\)</span> is invariant by
+<span class="math inline">\(S\)</span> such that <span class="math display">\[
+u(S(z), S(w)) = u(z, w), \quad \text{for } S \in G. \quad (2)
+\]</span></p>
+<p>We denote the Stolz domain: $|(1 - ze^{-i})| &lt; $ by $ (e^{i})$ and
+<span class="math inline">\(\mathcal{E}_+(\theta)\)</span> be its part
+contained in <span class="math inline">\(|z - e^{i\theta}| &lt;
+\delta\)</span>. Then by (Tsuji, Masatsugu. Potential theory in modern
+function theory. Maruzen, 1959. Theorem IV. 12)[3], for almost all $(_1,
+_2) $ on $ <span class="math inline">\(,\)</span>$ u(z, w) = f(_1, _2) z
+e^{i_1}, w e<sup>{i<em>2} </em>+(e</sup>{i<em>1}), </em>+(_2) . (3)
+$$</p>
+<p>Let <span class="math inline">\(E_{\theta_1}\)</span> be the section
+of <span class="math inline">\(E\)</span> by the line <span class="math inline">\(\theta = \text{const.} = \theta_1\)</span> and
+<span class="math inline">\(E_{\theta_2}\)</span> be that by the line
+<span class="math inline">\(\theta = \text{const.} = \theta_2\)</span>,
+then <span class="math display">\[
+\mu(E_{\theta_1})\mu(E_{\theta_2}) &gt; 0, \quad (4)
+\]</span> where <span class="math inline">\(\mu(\cdot)\)</span> denotes
+the linear measure.</p>
+<p>Since <span class="math inline">\(\mu(\Theta) &lt; \infty\)</span>,
+<span class="math inline">\(G\)</span> is of divergence type (Tsuji,
+Masatsugu. Potential theory in modern function theory. Maruzen, 1959.
+Theorem XI. 10)[3], so that there exists no measurable set <span class="math inline">\(e\)</span> on <span class="math inline">\(|z| =
+1\)</span> which is invariant by <span class="math inline">\(G\)</span>
+and <span class="math inline">\(\mu(e) &lt; 2\pi\)</span>. Hence, if
+<span class="math inline">\(\mu(E_{\theta_1}) &gt; 0\)</span>, then
+<span class="math inline">\(\mu(E_{\theta_1}) = 2\pi\)</span>.</p>
+<p>If <span class="math inline">\(\mu(E_{\theta_2}) = 0\)</span> on a
+set <span class="math inline">\(e\)</span> of positive measure in <span class="math inline">\([0, 2\pi)\)</span>, then since by the hypothesis
+on <span class="math inline">\(E\)</span>, such a set <span class="math inline">\(e\)</span> is invariant by <span class="math inline">\(G\)</span>, <span class="math inline">\(\mu(e) =
+2\pi\)</span>, so that <span class="math inline">\(\mu(E_{\theta_2})
+&gt; 0\)</span> almost everywhere in <span class="math inline">\([0,
+2\pi)\)</span>, hence <span class="math inline">\(\mu(E) =
+4\pi^2\)</span>, which is absurd.</p>
+<p>Hence, <span class="math display">\[
+\mu(E_{\theta_2}) &gt; 0 \text{ for almost all } \theta_2 \in [0, 2\pi).
+\quad (5)
+\]</span></p>
+<p>Hence by Egoroff's theorem, there exists a closed subset <span class="math inline">\(E_0\)</span> of <span class="math inline">\(E\)</span> which satisfies the following
+conditions (i), (ii), (iii), where <span class="math inline">\(\delta
+&gt; 0\)</span> and <span class="math inline">\(\eta &gt; 0\)</span> are
+sufficiently small constants.</p>
+<ol type="i">
+<li><p><span class="math inline">\(E_0\)</span> lies outside of the
+strip: <span class="math inline">\(|\theta_1 - \theta_2| &lt; \eta \mod
+2\pi\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(E_0^{\prime}\)</span> be the
+projection of <span class="math inline">\(E_0\)</span> on the <span class="math inline">\(\theta_1\)</span>-axis, then <span class="math display">\[
+\mu(E_0) &gt; 2\pi - \delta \quad \text{and} \quad \mu(\theta_1 \notin
+[0, \eta] \cap E_0) &gt; 0 \text{ for any } \theta_1 \in [0, 2\pi).
+\]</span></p></li>
+<li><p><span class="math inline">\(\lim u(z, w) = 1\)</span> uniformly
+on $ E_0 $, when <span class="math inline">\(z \to e^{i\theta_1}, w \to
+e^{i\theta_2}\)</span> from the inside of <span class="math inline">\(\mathcal{E}_+(\theta_1),
+\mathcal{E}_+(\theta_2)\)</span> respectively.</p></li>
+<li><p>When <span class="math inline">\(z \in E_0\)</span> and <span class="math inline">\(w \in S_2\mathcal{E}_+(\theta_2)\)</span>, then
+<span class="math display">\[
+1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for sufficiently small }
+\varepsilon &gt; 0.
+\]</span></p></li>
+<li><p>For any <span class="math inline">\(y &gt; 0\)</span>, let <span class="math display">\[
+M_y = \lim_{\delta \to 0} \mu(E_0 \cap \{ \theta_1 : \mu(\theta_1 \notin
+[0, \delta] \cap E_0) &gt; y \}).
+\]</span></p></li>
+</ol>
+<p>We shall prove that <span class="math display">\[
+M_y = \infty \quad (y = 1, 2, \ldots). \quad (13)
+\]</span></p>
+<p>Let <span class="math inline">\(K_j = S_j(K_0)\)</span>, then <span class="math inline">\(K_j\)</span> is obtained from <span class="math inline">\(K_0\)</span> by a rotation about <span class="math inline">\(\theta = 0\)</span>, so that the circle <span class="math inline">\(|z| = \rho_j\)</span> intersects <span class="math inline">\(K_j\)</span> in an arc <span class="math inline">\(J_j\)</span> whose projection on <span class="math inline">\(|z| = 1\)</span> from <span class="math inline">\(\theta = 0\)</span> is denoted by <span class="math inline">\(\mathcal{J}_j\)</span> then <span class="math inline">\(|\mathcal{J}_j| = |\mathcal{J}_0|\)</span>, so
+that <span class="math display">\[
+\text{const.}(1 - \rho_j)^{|\mathcal{J}_j|} \leq |\mathcal{J}_j| \leq
+\text{const.}(1 - \rho_j), \quad \text{(14)}
+\]</span> where <span class="math inline">\(\text{const.} &gt;
+0\)</span>.</p>
+<p>Since <span class="math inline">\(w \in E_0\)</span>, <span class="math inline">\(\mu(E_0 \cap \mathcal{J}_j) &gt; 0\)</span> by
+(ii) and by the condition (i), if <span class="math inline">\(\delta
+&gt; 0\)</span> is sufficiently small, then <span class="math display">\[
+|\theta_1 - \theta_2| &gt; \eta \mod 2\pi, \quad \text{for } \theta_1
+\in \mathcal{J}_j, \theta_2 \in \mathcal{J}_j \cap [0, \delta].
+\]</span></p>
+<p>Hence, by (iv), for any <span class="math inline">\(\theta_2 \in
+\mathcal{J}_j \cap [0, \delta]\)</span>, we have <span class="math display">\[
+1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for } z \in E_0, w \in
+S_2\mathcal{E}_+(\theta_2).
+\]</span></p>
+<p>Now, let <span class="math inline">\(K_j = \bigcup_{i=1}^{N_j}
+K_{j,i}\)</span>, where <span class="math inline">\(K_{j,i} =
+S_{j,i}(K_0)\)</span> and <span class="math inline">\(S_{j,i}\)</span>
+are distinct elements of <span class="math inline">\(G\)</span> for
+<span class="math inline">\(i = 1, 2, \ldots, N_j\)</span>. By Lemma 2,
+there exist <span class="math inline">\(0 &lt; \varphi_1 &lt; \varphi_2
+&lt; \ldots &lt; \varphi_{N_j} &lt; 2\pi\)</span> such that the circle
+<span class="math inline">\(|z| = \rho_j\)</span> intersects <span class="math inline">\(K_j\)</span> in a set of arcs <span class="math inline">\(J_{j,i}\)</span> (for $ i = 1, 2, , N_j $).</p>
+<p>By (14), we have <span class="math display">\[
+\text{const.}(1 - \rho_j)^{|\mathcal{J}_{j,i}|} \leq |\mathcal{J}_{j,i}|
+\leq \text{const.}(1 - \rho_j),
+\]</span> where <span class="math inline">\(|\mathcal{J}_{j,i}|\)</span>
+is the length of <span class="math inline">\(J_{j,i}\)</span>.</p>
+<p>Since <span class="math inline">\(E_0\)</span> is invariant by <span class="math inline">\(S\)</span>, <span class="math inline">\(\mu(E_0
+\cap \mathcal{J}_{j,i}) &gt; 0\)</span> for each <span class="math inline">\(i = 1, 2, \ldots, N_j\)</span>.</p>
+<p>Let <span class="math inline">\(\delta &gt; 0\)</span> be
+sufficiently small, then by the conditions (i) and (ii), for <span class="math inline">\(\theta_1 \in \mathcal{J}_{j,i}\)</span> and <span class="math inline">\(\theta_2 \in \mathcal{J}_{j,i} \cap [0,
+\delta]\)</span>, we have <span class="math display">\[
+|\theta_1 - \theta_2| &gt; \eta \mod 2\pi.
+\]</span></p>
+<p>Hence, by (iv), for any <span class="math inline">\(\theta_2 \in
+\mathcal{J}_{j,i} \cap [0, \delta]\)</span>, we have <span class="math display">\[
+1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for } z \in E_0, w \in
+S_{j,i}(\mathcal{E}_+(\theta_2)).
+\]</span></p>
+<p>Now, let <span class="math inline">\(\delta &gt; 0\)</span> be
+sufficiently small, so that <span class="math inline">\(S_{j,i}(\mathcal{E}_+(\theta_2))\)</span> is
+contained in a small neighborhood of <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span> for each <span class="math inline">\(i = 1, 2, \ldots, N_j\)</span>.</p>
+<p>Let <span class="math inline">\(V_{j,i}\)</span> be the union of
+these neighborhoods, i.e., <span class="math inline">\(V_{j,i} =
+\bigcup_{k=1}^{N_{j,i}} S_{j,i,k}(\mathcal{E}_+(\theta_2))\)</span>,
+where <span class="math inline">\(S_{j,i,k}\)</span> are distinct
+elements of <span class="math inline">\(G\)</span> for <span class="math inline">\(k = 1, 2, \ldots, N_{j,i}\)</span>.</p>
+<p>By the conditions (iv) and (v), we have <span class="math display">\[
+1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for } z \in E_0, w \in
+V_{j,i}.
+\]</span></p>
+<p>Now, for any <span class="math inline">\(y &gt; 0\)</span>, let <span class="math inline">\(M_{j,i,y}\)</span> be the measure of the set <span class="math inline">\(E_0 \cap \{ \theta_1 : \mu(\theta_1 \notin [0,
+\delta] \cap E_0) &gt; y \}\)</span>, then <span class="math display">\[
+M_{j,y} = \sum_{i=1}^{N_j} M_{j,i,y} = \lim_{\delta \to 0} \mu(E_0 \cap
+\{ \theta_1 : \mu(\theta_1 \notin [0, \delta] \cap E_0) &gt; y \}).
+\]</span></p>
+<p>Since <span class="math inline">\(\delta &gt; 0\)</span> is
+arbitrary, we can conclude that <span class="math display">\[
+M_{j,y} = \infty \quad \text{for any } y &gt; 0. \quad (16)
+\]</span></p>
+<p>Now, let <span class="math inline">\(M_y = \lim_{j \to \infty}
+M_{j,y}\)</span>, then by (16), we have <span class="math display">\[
+M_y = \infty \quad \text{for any } y &gt; 0. \quad (17)
+\]</span></p>
+<p>Next, we consider the set <span class="math display">\[
+A_y = \bigcup_{j=1}^{\infty} \left( E_0 \cap \{ \theta_1 : \mu(\theta_1
+\notin [0, \delta] \cap E_0) &gt; y \} \right).
+\]</span></p>
+<p>By (17), we have <span class="math display">\[
+\mu(A_y) = \infty \quad \text{for any } y &gt; 0. \quad (18)
+\]</span></p>
+<p>Now, let <span class="math inline">\(B_y = \bigcap_{n=1}^{\infty}
+A_{1/n}\)</span>, then <span class="math inline">\(B_y\)</span> is a
+subset of $ E_0 $ where <span class="math inline">\(\mu(\theta_1 \notin
+[0, \delta] \cap E_0) = 0\)</span> for any <span class="math inline">\(\delta &gt; 0\)</span>.</p>
+<p>By (iii), we have <span class="math display">\[
+\lim u(z, w) = 1 \quad \text{uniformly on } E_0, \text{ when } z \to
+e^{i\theta_1}, w \to e^{i\theta_2} \text{ from the inside of }
+\mathcal{E}_+(\theta_1), \mathcal{E}_+(\theta_2) \text{ respectively}.
+\]</span></p>
+<p>This implies that for any <span class="math inline">\(\epsilon &gt;
+0\)</span>, there exists a <span class="math inline">\(\delta &gt;
+0\)</span> such that if <span class="math inline">\(z \in E_0\)</span>
+and <span class="math inline">\(w \in \mathcal{E}_+(\theta_2)\)</span>
+with <span class="math inline">\(|\theta_1 - \theta_2| &lt;
+\delta\)</span>, then <span class="math inline">\(|u(z, w) - 1| &lt;
+\epsilon\)</span>.</p>
+<p>Now, consider <span class="math inline">\(\epsilon = 1/2\)</span>,
+there exists <span class="math inline">\(\delta &gt; 0\)</span> such
+that if <span class="math inline">\(z \in E_0\)</span> and <span class="math inline">\(w \in \mathcal{E}_+(\theta_2)\)</span> with <span class="math inline">\(|\theta_1 - \theta_2| &lt; \delta\)</span>, then
+<span class="math inline">\(|u(z, w) - 1| &lt; 1/2\)</span>.</p>
+<p>This means that <span class="math inline">\(u(z, w) &gt;
+1/2\)</span>, and hence <span class="math inline">\(u(z, w) \neq
+0\)</span>, for all such $ z $ and $ w $.</p>
+<p>Therefore, <span class="math inline">\(B_y\)</span> is a subset of
+<span class="math inline">\(E_0\)</span> where <span class="math inline">\(u(z, w) \neq 0\)</span> for all <span class="math inline">\(z \in B_y\)</span> and <span class="math inline">\(w \in \mathcal{E}_+(\theta_2)\)</span> with <span class="math inline">\(|\theta_1 - \theta_2| &lt; \delta\)</span>.</p>
+<p>Since <span class="math inline">\(B_y\)</span> is a subset of <span class="math inline">\(E_0\)</span> and <span class="math inline">\(E_0\)</span> satisfies (iii), we can conclude that
+<span class="math display">\[
+\lim u(z, w) = 1 \quad \text{uniformly on } B_y,
+\]</span> when <span class="math inline">\(z \to e^{i\theta_1}\)</span>
+and <span class="math inline">\(w \to e^{i\theta_2}\)</span> from the
+inside of <span class="math inline">\(\mathcal{E}_+(\theta_1)\)</span>
+and <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span>
+respectively.</p>
+<p>Now, consider <span class="math inline">\(\epsilon = 1/2\)</span>,
+there exists <span class="math inline">\(N\)</span> such that for all
+<span class="math inline">\(n &gt; N\)</span>, we have <span class="math inline">\(1/n &lt; \epsilon\)</span>.</p>
+<p>This implies that <span class="math inline">\(B_y\)</span> is a
+subset of <span class="math inline">\(E_0\)</span> where <span class="math display">\[
+\lim u(z, w) = 1 \quad \text{uniformly on } B_y,
+\]</span> when <span class="math inline">\(z \to e^{i\theta_1}\)</span>
+and <span class="math inline">\(w \to e^{i\theta_2}\)</span> from the
+inside of <span class="math inline">\(\mathcal{E}_+(\theta_1)\)</span>
+and <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span>
+respectively, for all <span class="math inline">\(\theta_1,
+\theta_2\)</span>.</p>
+<p>Hence, <span class="math inline">\(u(z, w) = 1\)</span> on <span class="math inline">\(B_y\)</span> for all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span>.</p>
+<p>Now, let <span class="math inline">\(A\)</span> be the complement of
+<span class="math inline">\(B_y\)</span> in <span class="math inline">\(E_0\)</span>, then <span class="math inline">\(\mu(A) = 0\)</span>.</p>
+<p>This implies that <span class="math inline">\(u(z, w) = 1\)</span>
+for almost all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in <span class="math inline">\(E_0\)</span>.</p>
+<p>Since <span class="math inline">\(E_0\)</span> is invariant by <span class="math inline">\(S\)</span> and <span class="math inline">\(u(z,
+w)\)</span> is invariant by <span class="math inline">\(S\)</span> (as
+shown in (2)), we have <span class="math display">\[
+u(S(z), S(w)) = u(z, w), \quad \text{for } S \in G.
+\]</span></p>
+<p>This means that <span class="math inline">\(u(z, w) = 1\)</span> for
+almost all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in <span class="math inline">\(S_1
+E_0\)</span>, where <span class="math inline">\(S_1\)</span> is an
+element of <span class="math inline">\(G\)</span>.</p>
+<p>Hence, by repeating this argument, we can conclude that <span class="math inline">\(u(z, w) = 1\)</span> for almost all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in $ G^n E_0 $, where <span class="math inline">\(G^n\)</span> is the <span class="math inline">\(n\)</span>-th iterate of <span class="math inline">\(G\)</span>.</p>
+<p>Since <span class="math inline">\(\mu(E_0) &gt; 2\pi -
+\delta\)</span>, we can choose <span class="math inline">\(n\)</span>
+sufficiently large such that <span class="math inline">\(\mu(G^n E_0)
+&gt; 0\)</span>.</p>
+<p>This implies that <span class="math inline">\(u(z, w) = 1\)</span>
+for almost all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in a set of positive measure.</p>
+<p>But this contradicts the fact that <span class="math inline">\(\lim
+u(z, w) = F(\theta_1)\)</span> for almost all <span class="math inline">\(\theta_1\)</span> in <span class="math inline">\(\Theta\)</span>, as stated in (19).</p>
+<p>Therefore, our assumption that there exists a measurable set <span class="math inline">\(E\)</span> on <span class="math inline">\(\Theta\)</span> which is invariant by <span class="math inline">\(S\)</span> and <span class="math inline">\(\mu(E)
+&gt; 0\)</span> must be false.</p>
+<p>Hence, <span class="math inline">\(\mu(E) = 4\pi^2\)</span>.</p>
+<p>Thus, the proof of Hopf's ergodic theorem is complete.</p>
+<p><strong>Q.E.D.</strong></p>
+<p>[1] Hopf, E. Ergodentheorie. Berlin (1937).</p>
+<p>[2] Hedlund, G. A. A new proof for a metrically transitive system.
+Amer. J. Math. 62 (1940).</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2024/01/17/Hopf%20ergodic%20theorem/">http://blueairm.github.io/2024/01/17/Hopf%20ergodic%20theorem/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Sevaral-Complex-Variables/"># Sevaral Complex Variables</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/02/18/blacksquare-blacklozenge-clubsuit/">$\blacksquare$, $\blacklozenge$, $\clubsuit$</a>
+            
+            
+            <a class="next" rel="next" href="/2023/09/22/75%20Problems/">75 Problems in the Foundation of Mathematics</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Seminar | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Seminar</h2>
+        
+        <section class="post-content">
+            <h2 id="section">(2025/01/01-2025/12/31)</h2>
+<p>2025/11/07, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Chen Zaoli (Cornell University)</p>
+<p><strong>Extreme Value Theory of Long-Range Dependent
+Sequences</strong></p>
+<p>In a long-range dependent setting, extreme values of a stationary
+processes exhibit both macroscopic and microscopic clustering features.
+Such an extremal clustering is subject to the dependence structure as
+well as the marginal distribution. In this talk, I will introduce the
+mechanism of a class of long-range dependent time series and its unique
+extremal behaviors. The talk is based on the following two articles.</p>
+<p>[1] Extremal clustering under moderately long range dependence and
+moderately heavy tails, Z. Chen and G. Samorodnitsky, Stochastic
+Processes and Their Applications, 2022.</p>
+<p>[2] Moderately Heavy Extreme Values under Extreme Long Range
+Dependence, Z. Chen, arXiv: 2505.23103.</p>
+<p>2025/09/26, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Lin Zhuowei (Nankai University, Center for Combinatorics)</p>
+<p><strong>The Combinatorics of Flagged Weyl Characters</strong></p>
+<p>In this talk, we introduce two aspects of flagged Weyl charcters,
+which can be restricted to Schubert polynomials. One is about
+coefficient-wise upper bounds and lower bounds of flagged Weyl
+charcters. This settles two conjectures proposed by Mészáros-St.
+Dizier-Tanjaya. The other one is about the principal specialization of
+Schubert polynomials, which improves the results previously obtained by
+Weigandt, Gao, and Mészáros-St. Dizier-Tanjaya.</p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.aam.2024.102752">Article1</a>, <a target="_blank" rel="noopener" href="https://doi.org/10.4153/S0008414X2510120X">Article2</a>, and <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2412.02932">arXiv</a>.</p>
+<p>2025/07/04, 10:00 a.m., <a target="_blank" rel="noopener" href="https://meeting.tencent.com/crm/NQDBn4ZJef">Tencent
+Meeting</a></p>
+<p>Yang Zhilin (CAS)</p>
+<p><strong>Weak coupling limit of a Brownian particle in the curl of the
+2D GFF</strong></p>
+<p>We study the weak coupling limit of the following equation in <span class="math inline">\(\mathbb{R}^2\)</span>: <span class="math display">\[dX_t^\varepsilon=\frac{\hat{\lambda}}{\sqrt{\log\frac1\varepsilon}}\omega^\varepsilon(X_t^\varepsilon)dt+\nu
+dB_t,\quad X_0^\varepsilon=0. \]</span> Here <span class="math inline">\(\omega^\varepsilon=\nabla^{\perp}\rho_\varepsilon*\xi\)</span>
+with <span class="math inline">\(\xi\)</span> representing the <span class="math inline">\(2d\)</span> Gaussian Free Field (GFF) and <span class="math inline">\(\rho_\varepsilon\)</span> denoting an appropriate
+identity. <span class="math inline">\(B_t\)</span> denotes a
+two-dimensional standard Brownian motion, and <span class="math inline">\(\hat{\lambda},\;\nu&gt;0\)</span> are two given
+constants. We use the approach from to show that the second moment of
+<span class="math inline">\(X_t^\varepsilon\)</span> under the annealed
+law converges to <span class="math inline">\((c(\nu,\hat\lambda)^2+2\nu^2)t\)</span> with a
+precisely determined constant <span class="math inline">\(c(\nu,\hat\lambda)&gt;0\)</span>, which implies a
+non-trivial limit of the drift terms as <span class="math inline">\(\varepsilon\)</span> vanishes. We also prove that
+in this weak coupling regime, the sequence of solutions converges in
+distribution to <span class="math inline">\(\left(\sqrt{\frac{c(\nu,\hat\lambda)^2}{2}+\nu^2}\right)\widetilde{B}_t\)</span>
+as <span class="math inline">\(\varepsilon\)</span> vanishes, where
+<span class="math inline">\(\widetilde{B}_t\)</span> is a
+two-dimensional standard Brownian motion.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.05778">ArXiv</a>.</p>
+<p>2025/05/09, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Xue Xiaolong (Tsinghua University)</p>
+<p><strong>The rigidity of eigenfunctions's gradient
+estimates</strong></p>
+<p>We introduce the rigidity results for eigenfunctions on Riemannian
+manifolds with nonnegative Ricci curvature. We also obtain the Li-Yau
+gradient estimate on convex domains and prove similar rigidity
+results.</p>
+<p><a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s00209-024-03665-8">Article</a>
+in Mathematische Zeitschrift.</p>
+<p>2025/02/26, 10:00 a.m., <a target="_blank" rel="noopener" href="https://meeting.tencent.com/crm/l7RgJdZmfe">Tencent Meeting</a>
+Password: ETDR</p>
+<p>Yilong Zhang (Bonn University)</p>
+<p><strong>Green points in the reals</strong></p>
+<p>We construct an expansion of a real closed field by a multiplicative
+subgroup adapting Poizat's theory of green points Its theory is strongly
+dependent, and every open set definable in a model of this theory is
+semialgebraic. We prove that the real field with a dense family of
+logarithmic spirals, proposed by Zilber, satisfies our theory.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.01176">ArXiv</a>.</p>
+<div class="pagination">
+<p><a class="previous" href="/seminar/index">Previous Page</a>
+<a class="next" href="/seminar/2024">Next Page</a></p>
+</div>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

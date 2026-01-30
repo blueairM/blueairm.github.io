@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Hilbert&#39;s Nullstellensatz | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Hilbert&#39;s Nullstellensatz</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 23, 2023&nbsp;&nbsp;7:51:28</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Commutative-Algebra/">Commutative Algebra</a>
+                            
+                                <a href="/categories/Commutative-Algebra/Algebraic-Geometry/">Algebraic Geometry</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="theorem-1-weak-form">Theorem 1 (Weak form)</h2>
+<p>Let <span class="math inline">\(X\)</span> be an affine algebraic
+variety in <span class="math inline">\(k^{n}\)</span>, where <span class="math inline">\(k\)</span> is an algebraically closed field, and
+let <span class="math inline">\(I(X)\)</span> be the ideal of <span class="math inline">\(X\)</span> in the polynomial ring <span class="math inline">\(k[t_{1}, \cdots, t_{n}]\)</span>. If <span class="math inline">\(I(X) \neq (1)\)</span> then <span class="math inline">\(X\)</span> is not empty. Every maximal ideal in
+the ring <span class="math inline">\(k[t_{1}, \cdots, t_{n}]\)</span> is
+of the form <span class="math inline">\((t_{1} - a_{1},\cdots,t_{n}-
+a_{n})\)</span> where <span class="math inline">\(a_{i}\in
+k\)</span>.</p>
+<h2 id="theorem-2-strong-form">Theorem 2 (Strong form)</h2>
+<p>Let <span class="math inline">\(k\)</span> be an algebraically closed
+field, let <span class="math inline">\(A\)</span> denote the polynomial
+ring <span class="math inline">\(k[t_{1}, \cdots, t_{n}]\)</span> and
+let <span class="math inline">\(\mathsf{a}\)</span> be an ideal in <span class="math inline">\(A\)</span>. Let <span class="math inline">\(V\)</span> be the variety in <span class="math inline">\(k^{n}\)</span> defined by the ideal <span class="math inline">\(\mathsf{a}\)</span>, so that <span class="math inline">\(V\)</span> is the set of all <span class="math inline">\(x = (x_{1}, \cdots, x_{n}) \in k^{n}\)</span> such
+that <span class="math inline">\(f(x) = 0\)</span> for all <span class="math inline">\(f \in \mathsf{a}\)</span>. Let <span class="math inline">\(I(V)\)</span> be the ideal of <span class="math inline">\(V\)</span>, i.e. the ideal of all polynomials
+<span class="math inline">\(g \in A\)</span> such that <span class="math inline">\(g(x) = 0\)</span> for all <span class="math inline">\(x \in V\)</span>. Then <span class="math inline">\(I(V) = r(\mathsf{a})\)</span>.</p>
+<h2 id="proof">Proof</h2>
+<p>It is clear that <span class="math inline">\(r(a) \subseteq
+I(V)\)</span>. Conversely, let <span class="math inline">\(f \notin
+r(\mathsf{a})\)</span>, then there is a prime ideal <span class="math inline">\(\mathsf{p}\)</span> containing <span class="math inline">\(\mathsf{a}\)</span> such that <span class="math inline">\(f\notin \mathsf{p}\)</span>. Let <span class="math inline">\(\bar{f}\)</span> be the image of <span class="math inline">\(f\)</span> in <span class="math inline">\(B =
+A/\mathsf{p}\)</span>, let <span class="math inline">\(C = B_{f} =
+B[1/\bar{f}]\)</span>, and let <span class="math inline">\(\mathsf{m}\)</span> be a maximal ideal of <span class="math inline">\(C\)</span>. Since <span class="math inline">\(C\)</span> is a finitely generated, <span class="math inline">\(k\)</span>-algebra we have <span class="math inline">\(C/\mathsf{m} \cong k\)</span>, by (7.9)[1]. The
+images <span class="math inline">\(x_{i}\)</span> in <span class="math inline">\(C/\mathsf{m}\)</span> of the generators <span class="math inline">\(t_{i}\)</span> of <span class="math inline">\(A\)</span> thus define a point <span class="math inline">\(x = (x_{1} \cdots, x_{n}) \in k^{n}\)</span>, and
+the construction shows that <span class="math inline">\(x \in V\)</span>
+and <span class="math inline">\(f(x) \neq 0\)</span>.</p>
+<h2 id="corollary-1">Corollary 1</h2>
+<p>Let <span class="math inline">\(k\)</span> be a field and <span class="math inline">\(B\)</span> a finitely generated <span class="math inline">\(k\)</span>-algebra. If <span class="math inline">\(B\)</span> is a field then it is a finite
+algebraic extension of <span class="math inline">\(k\)</span>.</p>
+<h2 id="corollary-2">Corollary 2</h2>
+<p>Let <span class="math inline">\(k\)</span> be a field and let <span class="math inline">\(B\)</span> be a finitely generated <span class="math inline">\(k\)</span>-algebra. Suppose that <span class="math inline">\(B\)</span> is a field. Then <span class="math inline">\(B\)</span> is a finite algebraic extension of
+k.</p>
+<h2 id="corollary-3">Corollary 3</h2>
+<p>Let <span class="math inline">\(k\)</span> be afield, <span class="math inline">\(A\)</span> a finitely generated <span class="math inline">\(k\)</span>-algebra. Let <span class="math inline">\(\mathsf{m}\)</span> be a maximal ideal of <span class="math inline">\(A\)</span>. Then the field <span class="math inline">\(A/\mathsf{m}\)</span> is a finite algebraic
+extension of <span class="math inline">\(k\)</span>. In particular, if
+<span class="math inline">\(k\)</span> is algebraically closed then
+<span class="math inline">\(A/\mathsf{m} \cong k\)</span>.</p>
+<h1 id="reference">Reference</h1>
+<p>[1] Michael Atiyah. Introduction to commutative algebra. CRC Press,
+2018.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/">http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/03/23/Hilbert13/">Hilbert's 13th Problem</a>
+            
+            
+            <a class="next" rel="next" href="/2023/03/23/Zariski%20topology/">Zariski Topology</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

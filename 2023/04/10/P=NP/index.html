@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>P = NP | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">P = NP</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 10, 2023&nbsp;&nbsp;20:38:46</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Notes/">Notes</a>
+                            
+                                <a href="/categories/Mathematical-Logic/">Mathematical Logic</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>We give the formal statement of "P=NP", which plays an important role
+in computer science and complexity theory.</p>
+<h2 id="definition-1">Definition 1</h2>
+<p>A function <span class="math inline">\(f:\mathbb{N}^{k}\rightarrow
+\mathbb{N}\)</span> is <strong><em>computable</em></strong> if and only
+if there is an effective procedure that, given any <span class="math inline">\(k\)</span>-tuple <span class="math inline">\(\mathbf{x}\)</span> of natural numbers, will
+produce the value <span class="math inline">\(f(\mathbf{x})\)</span></p>
+<h2 id="definition-2">Definition 2</h2>
+<p>Let <span class="math inline">\(\Sigma\)</span> be a finite alphabet
+(that is, a finite nonempty set) with at least two elements, and let
+<span class="math inline">\(\Sigma^{*}\)</span> be the set of finite
+strings over <span class="math inline">\(\Sigma\)</span>. Then a
+<strong><em>language over <span class="math inline">\(\Sigma\)</span></em></strong> is a subset <span class="math inline">\(L\)</span> of <span class="math inline">\(\Sigma^{*}\)</span>.</p>
+<h2 id="definition-3">Definition 3</h2>
+<p>A <strong><em>Turing machine <span class="math inline">\(M\)</span></em></strong> is a tuple <span class="math inline">\(⟨\Sigma, \Gamma, Q, \delta⟩\)</span>, where <span class="math inline">\(\Sigma, \Gamma, Q\)</span> are finite nonempty
+sets with <span class="math inline">\(\Sigma \subseteq \Gamma\)</span>
+and <span class="math inline">\(b \in \Gamma - \Sigma\)</span>. The
+state set <span class="math inline">\(Q\)</span> contains three special
+states <span class="math inline">\(q_{0}, q_{accept},
+q_{reject}\)</span>. The transition function <span class="math inline">\(\delta\)</span> satisfies <span class="math display">\[\delta: (Q − \{q_{accept}, q_{reject}\}) \times
+\Gamma \to  Q \times \Gamma × \{-1, 1\}.\]</span> If <span class="math inline">\(\delta(q, s) = (q^{\prime}, s^{\prime},
+h)\)</span>, the interpretation is that, if <span class="math inline">\(M\)</span> is in state <span class="math inline">\(q\)</span> scanning the symbol <span class="math inline">\(s\)</span>, then <span class="math inline">\(q^{\prime}\)</span> is the new state, <span class="math inline">\(s^{\prime}\)</span> is the symbol printed, and the
+tape head moves left or right one square depending on whether h is -1 or
+1.</p>
+<p>We assume that the sets <span class="math inline">\(Q\)</span> and
+<span class="math inline">\(\Gamma\)</span> are disjoint.</p>
+<h2 id="definition-4">Definition 4</h2>
+<p>A <strong><em>configuration</em></strong> of <span class="math inline">\(M\)</span> is a string <span class="math inline">\(xqy\)</span> with <span class="math inline">\(x, y
+\in \Gamma^{*}\)</span>, <span class="math inline">\(y\)</span> not the
+empty string, and <span class="math inline">\(q \in Q\)</span>. If <span class="math inline">\(C\)</span> and <span class="math inline">\(C^{\prime}\)</span> are configurations, then <span class="math inline">\(C \overset{M}{\to} C^{\prime}\)</span> if <span class="math inline">\(C = xqsy\)</span> and <span class="math inline">\(\delta(q, s) = (q^{\prime}, s^{\prime},
+h)\)</span> and one of the following holds:</p>
+<ul>
+<li><p><span class="math inline">\(C^{\prime} =
+xs^{\prime}q^{\prime}y\)</span> and <span class="math inline">\(h =
+1\)</span> and <span class="math inline">\(y\)</span> is
+nonempty.</p></li>
+<li><p><span class="math inline">\(C^{\prime} =
+xs^{\prime}q^{\prime}b\)</span> and <span class="math inline">\(h =
+1\)</span> and <span class="math inline">\(y\)</span> is empty.</p></li>
+<li><p><span class="math inline">\(C^{\prime} =
+x^{\prime}q^{\prime}as^{\prime}y\)</span> and <span class="math inline">\(h = -1\)</span> and <span class="math inline">\(x
+= x^{\prime}a\)</span> for some <span class="math inline">\(a \in
+\Gamma\)</span>.</p></li>
+<li><p><span class="math inline">\(C^{\prime} =
+q^{\prime}bs^{\prime}y\)</span> and <span class="math inline">\(h =
+-1\)</span> and <span class="math inline">\(x\)</span> is
+empty.</p></li>
+</ul>
+<p>A configuration <span class="math inline">\(xqy\)</span> is
+<strong><em>halting</em></strong> if <span class="math inline">\(q \in
+\{q_{accept}, q_{reject}\}\)</span>. Note that for each non-halting
+configuration <span class="math inline">\(C\)</span> there is a unique
+configuration <span class="math inline">\(C^{\prime}\)</span> such that
+<span class="math inline">\(C \overset{M}{\to} C^{\prime}\)</span>.</p>
+<h2 id="definition-5">Definition 5</h2>
+<p>The <strong><em>computation</em></strong> of <span class="math inline">\(M\)</span> on input <span class="math inline">\(w
+\in \Sigma^{*}\)</span> is the unique sequence <span class="math inline">\(C_{0}, C_{1}, \cdots\)</span> of configurations
+such that <span class="math inline">\(C_{0} = q_{0}w\)</span> (or <span class="math inline">\(C_{0} = q_{0}b\)</span> if <span class="math inline">\(w\)</span> is empty) and <span class="math inline">\(C_{i} \overset{M}{\to} C_{i+1}^{\prime}\)</span>
+for each <span class="math inline">\(i\)</span> with <span class="math inline">\(C_{i+1}\)</span> in the computation, and either
+the sequence is infinite or it ends in a halting configuration. If the
+computation is finite, then the number of steps is one less than the
+number of configurations; otherwise the number of steps is infinite. We
+say that <span class="math inline">\(M\)</span>
+<strong><em>accepts</em></strong> <span class="math inline">\(w\)</span>
+iff the computation is finite and the final configuration contains the
+state qaccept</p>
+<h2 id="theorem-1-turing-1936">Theorem 1 [Turing 1936]</h2>
+<p>There is no TM <span class="math inline">\(M\)</span> such that for
+all TMs <span class="math inline">\(N\)</span>, if <span class="math inline">\(M\)</span> is run with a code of <span class="math inline">\(N\)</span> on its tape, then the following
+hold:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(N\)</span> eventually halts when
+run on the empty tape, then <span class="math inline">\(M\)</span>
+eventually halts with <span class="math inline">\(1\)</span> on the tape
+and the reading head on the square with the <span class="math inline">\(1\)</span>.</p></li>
+<li><p>If <span class="math inline">\(N\)</span> does not eventually
+halt when run on the empty tape, then <span class="math inline">\(M\)</span> eventually halts with the tape
+completely empty.</p></li>
+</ol>
+<h2 id="theorem-2">Theorem 2</h2>
+<p>The set <span class="math inline">\(HALT\)</span> is not decidable,
+where <span class="math display">\[HALT = \left\{M : M \text{ is a
+Turing machine which halts on the empty tape }\right\}\]</span></p>
+<h2 id="definition">Definition</h2>
+<p>The halting function is a function <span class="math inline">\(h\)</span> of two arguments</p>
+<p><span class="math display">\[h(m,n) = \begin{cases}0, &amp; \text{
+machine $m$, started
+with input $n$, eventually halts }\\
+1, &amp; \text{  machine $m$, started
+with input $n$, never halts }
+\end{cases}\]</span></p>
+<p>By definition of Turing computability, Halting problem is not
+decidable if and only if halting function <span class="math inline">\(h\)</span> is not Turing computable.</p>
+<h2 id="lemma-1">Lemma 1</h2>
+<p>The halting function h is not Turing computable.</p>
+<h2 id="proof-of-lemma-1">Proof of Lemma 1</h2>
+<p>By way of background we need two special Turing machines.</p>
+<ol type="1">
+<li><p>A copying machine <span class="math inline">\(C\)</span>. Given a
+tape containing a block of <span class="math inline">\(n\)</span>
+strokes, and otherwise blank, if the machine is started scanning the
+leftmost stroke on the tape, it will eventually halt with the tape
+containing two blocks of <span class="math inline">\(n\)</span> strokes
+separated by a blank, and otherwise blank, with the machine scanning the
+leftmost stroke on the tape.</p></li>
+<li><p>A dithering machine <span class="math inline">\(D\)</span>.
+Started on the leftmost of a block of <span class="math inline">\(n\)</span> strokes on an otherwise blank tape,
+<span class="math inline">\(D\)</span> eventually halts if <span class="math inline">\(n &gt; 1\)</span>, but never halts if <span class="math inline">\(n = 1\)</span>.</p></li>
+</ol>
+<p>Now suppose we had a machine <span class="math inline">\(H\)</span>
+that computed the function <span class="math inline">\(h\)</span>. We
+could combine the machines <span class="math inline">\(C\)</span> and
+<span class="math inline">\(H\)</span> as follows: if the states of
+<span class="math inline">\(C\)</span> are numbered <span class="math inline">\(1\)</span> through <span class="math inline">\(p\)</span>, and the states of <span class="math inline">\(H\)</span> are numbered <span class="math inline">\(1\)</span> through <span class="math inline">\(q\)</span>, renumber the latter states <span class="math inline">\(p + 1\)</span> through <span class="math inline">\(r = p + q\)</span>, and write these renumbered
+instructions after the instructions for <span class="math inline">\(C\)</span>. Originally, <span class="math inline">\(C\)</span> tells us to halt by telling us to go
+into state <span class="math inline">\(p + 1\)</span>, but in the new
+combined instructions, going into state <span class="math inline">\(p +
+1\)</span> means not halting, but beginning the operations of machine
+<span class="math inline">\(H\)</span>. So the new combined instructions
+will have us first go through the operations of <span class="math inline">\(C\)</span>, and then, when <span class="math inline">\(C\)</span> would have halted, go through the
+operations of <span class="math inline">\(H\)</span>. The result is thus
+a machine <span class="math inline">\(G\)</span> that computes the
+function <span class="math inline">\(g(n) = h(n, n)\)</span>.</p>
+<p>We now combine this machine <span class="math inline">\(G\)</span>
+with the dithering machine <span class="math inline">\(D\)</span>,
+renumbering the states of the latter as <span class="math inline">\(r +
+1\)</span> and <span class="math inline">\(r + 2\)</span>, and writing
+its instructions after those for <span class="math inline">\(G\)</span>.
+The result will be a machine <span class="math inline">\(M\)</span> that
+goes through the operations of <span class="math inline">\(G\)</span>
+and then the operations of <span class="math inline">\(D\)</span>. Thus
+if machine number <span class="math inline">\(n\)</span> halts when
+started on its own number, that is, if <span class="math inline">\(h(n,
+n) = g(n) = 1\)</span>, then the machine <span class="math inline">\(M\)</span> does not halt when started on that
+number <span class="math inline">\(n\)</span>, whereas if machine number
+<span class="math inline">\(n\)</span> does not halt when started on its
+own number, that is, if <span class="math inline">\(h(n, n) = g(n) =
+2\)</span>, then machine <span class="math inline">\(M\)</span> does
+halt when started on <span class="math inline">\(n\)</span>. But of
+course there can be no such machine as <span class="math inline">\(M\)</span>. For what would it do if started with
+input its own number <span class="math inline">\(m\)</span>? It would
+halt if and only if machine number <span class="math inline">\(m\)</span>, which is to say itself, does not halt
+when started with input the number <span class="math inline">\(m\)</span>. This contradiction shows there can be
+no such machine as <span class="math inline">\(H\)</span>.</p>
+<h2 id="lemma-2">Lemma 2</h2>
+<p>There exist TMs <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> satisfying conditions in Lemma 1.</p>
+<h2 id="proof-of-lemma-2">Proof of Lemma 2</h2>
+<p>The instruction set of $$ consists of:</p>
+<ol type="1">
+<li>The reading and writing head of the Turing machine moves to the
+right until it stops at the square where the second letter is <span class="math inline">\(0\)</span>, and the letter in the square is
+changed to <span class="math inline">\(1\)</span>. Thus, two strings
+composed of <span class="math inline">\(1\)</span> separated by one or
+some in the middle appear on the paper tape, which will continue to
+exist in the operation of the Turing machine after that. We call the
+left as input string and the right as carbon string. The corresponding
+instruction is</li>
+</ol>
+<p><span class="math display">\[(q_{1},s_{1},R,q_{1}),
+(q_{1},s_{0},R,q_{2}), (q_{2},s_{0},1,q_{2}).\]</span></p>
+<ol start="2" type="1">
+<li><p>Move Turing's read/write head left to the first square on the
+right of the input string: <span class="math display">\[(q_{2},s_{1},L,q_{3}),
+(q_{3},s_{0},L,q_{3}).\]</span></p></li>
+<li><p>Then determine whether the input string has more than one square.
+And</p></li>
+</ol>
+<p>(i). If there is more than one square in the input string, the
+read/write head returns to the first square to the right of the input
+string, rewrites the letter as <span class="math inline">\(0\)</span>,
+then continues to the right until the first square to the right of the
+carbon string, rewrites the letter as <span class="math inline">\(1\)</span>, then return to step (2). The
+corresponding instruction is:</p>
+<p><span class="math display">\[\begin{aligned}
+(q_{3},s_{1},L,q_{4}), (q_{4},s_{1},R,q_{5}), (q_{5},s_{1},s_{0},q_{6}),
+(q_{5},s_{0},s_{0},q_{0}),\\
+(q_{6},s_{0},R,q_{6}), (q_{6},s_{1},s_{1},q_{7}), (q_{7},s_{1},R,q_{7}),
+(q_{7},s_{0},s_{1},q_{2}).
+\end{aligned}\]</span></p>
+<p>(ii). If there is only one square in the input string, then the
+read/write head changes the letter in the <span class="math inline">\(n-1\)</span> square to the right as <span class="math inline">\(1\)</span>, then returns to square <span class="math inline">\(0\)</span> and stops. The corresponding
+instruction is:</p>
+<p><span class="math display">\[\begin{aligned}
+(q_{4},s_{0},R,q_{8}), (q_{8},s_{1},R,q_{9}), (q_{9},s_{0},s_{1},q_{9}),
+(q_{9},s_{1},L,q_{10}),\\
+(q_{10},s_{1},s_{0},q_{16}), (q_{10},s_{0},L,q_{11}),
+(q_{11},s_{1},L,q_{11}), (q_{11},s_{0},L,q_{0}).
+\end{aligned}\]</span></p>
+<p>It is easy to verify that a Turing machine composed of instructions
+(1), (2), and (3) is the replicating machine in question. As for Turing
+machine <span class="math inline">\(D\)</span>, we simply set its
+instruction set to <span class="math inline">\((q_{1},s_{0},s_{0},q_{0}),(q_{1},s_{1},R,q_{1})\)</span>.<span class="math inline">\(\square\)</span></p>
+<h2 id="formal-statement-p-np">Formal Statement P = NP</h2>
+<p>We say that <span class="math inline">\(M\)</span> accepts <span class="math inline">\(w\)</span> if this computation terminates in the
+accepting state. The language accepted by <span class="math inline">\(M\)</span>, denoted <span class="math inline">\(L(M)\)</span>, has associated alphabet <span class="math inline">\(\Sigma\)</span> and is defined by</p>
+<p><span class="math display">\[ L(M) = \{w \in \Sigma^{*} | M \text{
+accepts } w\}.\]</span></p>
+<p>We denote by <span class="math inline">\(t_{M}(w)\)</span> the number
+of steps in the computation of <span class="math inline">\(M\)</span> on
+input <span class="math inline">\(w\)</span>. If this computation never
+halts, then <span class="math inline">\(t_{M}(w) = \infty\)</span>. For
+<span class="math inline">\(n \in \mathbb{N}\)</span> we denote by <span class="math inline">\(T_{M}(n)\)</span> the worst case run time of <span class="math inline">\(M\)</span>; that is</p>
+<p><span class="math display">\[T_{M}(n) = \max \{ t_{M}(w) | w \in
+\Sigma^{n} \},\]</span></p>
+<p>where <span class="math inline">\(\Sigma^{n}\)</span> is the set of
+all strings over <span class="math inline">\(\Sigma\)</span> of length
+<span class="math inline">\(n\)</span>. We say that <span class="math inline">\(M\)</span> runs in polynomial time if there exists
+<span class="math inline">\(k\)</span> such that for all <span class="math inline">\(n\)</span>, <span class="math inline">\(T_{M}(n)
+\leq n^{k} + k\)</span>. Now we define the class <span class="math inline">\(\mathbf{P}\)</span> of languages by</p>
+<p><span class="math display">\[\mathbf{P} = \left\{L | L = L(M) \text{
+for some Turing machine $M$ that runs
+in polynomial time}\right\}\]</span></p>
+<p>The notation <span class="math inline">\(\mathbf{NP}\)</span> stands
+for “nondeterministic polynomial time”.</p>
+<h2 id="definition-6">Definition 6</h2>
+<p>A <strong><em>checking relation</em></strong> is a binary relation
+<span class="math inline">\(R \subseteq \Sigma^{*} \times
+\Sigma^{*}_{1}\)</span> for some finite alphabets <span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\Sigma_{1}\)</span>. We associate with each such
+relation <span class="math inline">\(R\)</span> a language <span class="math inline">\(L_{R}\)</span> over <span class="math inline">\(\Sigma \cup \Sigma_{1} \cup \{ \# \}\)</span>
+defined by <span class="math display">\[L_{R} = \left\{w \# y | R(w,
+y)\right\}\]</span> where the symbol <span class="math inline">\(\#\)</span> is not in <span class="math inline">\(\Sigma\)</span>.</p>
+<p>We say that <span class="math inline">\(R\)</span> is polynomial-time
+iff <span class="math inline">\(L_{R} \in \mathbf{P}\)</span>. Now we
+define the class NP of languages by the condition that a language <span class="math inline">\(L\)</span> over <span class="math inline">\(\Sigma\)</span> is in <span class="math inline">\(\mathbf{NP}\)</span> iff there is <span class="math inline">\(k \in \mathbb{N}\)</span> and a polynomial-time
+checking relation <span class="math inline">\(R\)</span> such that for
+all <span class="math inline">\(w \in \Sigma^{∗}\)</span>, <span class="math display">\[w \in L \Longleftrightarrow \exists y\left(|y|
+\leq |w|^{k} \land R(w, y)\right).\]</span> where <span class="math inline">\(|w|\)</span> and <span class="math inline">\(|y|\)</span> denote the lengths of <span class="math inline">\(w\)</span> and <span class="math inline">\(y\)</span>, respectively.</p>
+<h2>
+Problem Statement: Dose P = NP?
+</h2>
+<h1 id="reference">Reference</h1>
+<p>[1] Turing, A. M. (1938). On Computable Numbers, with an Application
+to the Entscheidungsproblem. Proceedings of the London Mathematical
+Society. Wiley. s2-42 (1): 230–265.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/04/10/P=NP/">http://blueairm.github.io/2023/04/10/P=NP/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Notes/"># Notes</a>
+                    
+                        <a href="/tags/Mathematical-Logic/"># Mathematical Logic</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/11/Nowicki%20Conjecture/">Nowicki Conjecture</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/10/The%20Naimark%20Problem/">Naimark's Problem</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

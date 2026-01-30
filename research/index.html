@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Research | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Research</h2>
+        
+        <section class="post-content">
+            <h1 id="research">Research</h1>
+<p>My research interests are naive set theory, multivariate statistical
+analysis, probability and stochastic processes, and other scientific
+problems related to them. More specifically, my interests include not
+merely</p>
+<ul>
+<li>Time change and transformation of probability measures</li>
+<li>Special functions and statistical distributions</li>
+<li>Infinite cardinal arithmetics and computational complexity</li>
+<li>Countably normed rings and pure states in unbounded operators<br>
+</li>
+<li>. . .</li>
+</ul>
+<h1 id="publications">Publications</h1>
+<p>Thesis: Matrix Distribution under Classical Group Actions, 2025 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2505.00470">en</a> <span style="font-family: 楷体_GB2312;">典型群作用下的矩阵分布</span>, 2025 <a href="https://blueairm.github.io/research/pdf/21110588_王浩铭.pdf">ch</a></p>
+<h2 id="preprints">Preprints</h2>
+<p>All publications are available on <a target="_blank" rel="noopener" href="http://arxiv.org/a/wang_h_18">arXiv</a>.</p>
+<h2 id="articles">Articles</h2>
+<p>[1] <span style="font-family: 楷体_GB2312;"> 吕裴, 蒋笑天, 王浩铭,
+王戍堂.
+关于惯性参照系的一条引理---对朗道&lt;<场论>&gt;中不同惯性系下间隔相等证明的补充.
+2017. (遗稿) </场论></span></p>
+<p>[2] Wang, Haoming. On minimal predictable intensity of point
+processes[J]. Houston J. Math. 2025.</p>
+<p>[3] Wang, Haoming. Martingale problem and quadratic family[J]. 2026.
+Preprint.</p>
+<p>[4] Wang, Haoming. Real gamma distribution on analytic bundles of
+flag varieties[J]. 2025. Submitted.</p>
+<p>[5] Wang, Haoming. On incomplete Gamma and Beta integrals[J]. 2025.
+Submitted.</p>
+<p>[6] Wang, Haoming. On the distribution of the generalised ratio.
+2025. Submitted.</p>
+<p>[7] ..., Counting measure and positivity in reaction-diffusion
+systems. Preprint.</p>
+<p>[8] ..., Importance sampling for general point processes with smooth
+evelope. Preprint.</p>
+<h1 id="courses">Courses</h1>
+<ul>
+<li><p>2026/09-2027/01 <em>Probabilistic Methods in Combinatorics</em>
+<a href="https://blueairm.github.io/research/pdf/Probabilistic_Methods_in_Combinatorics.pdf">Notes</a><br>
+Graduate course in Center for Combinatorics at Nankai
+University</p></li>
+<li><p><em>Special Function</em> <a href>Notes</a></p></li>
+</ul>
+<h2 id="books">Books</h2>
+<h2 id="translations">Translations</h2>
+<p>I have decided to translate these books into Chinese but typically
+guarantee no scedule time.</p>
+<p><span style="font-family: 楷体_GB2312;">我打算翻译一本德文书,
+一本法文书, 还有一本科普读物, 但仍不知何时付梓.</span></p>
+<p>E. Hopf, Ergodentheorie, 1937, <span style="font-family: 楷体_GB2312;">霍普夫, 遍历论</span></p>
+<p>P. Lévy, Theorie de l'addition des variables aléatoires, 1937, <span style="font-family: 楷体_GB2312;">列维, 可加过程</span></p>
+<p>W. Sierpinski, A selection of problems in the theory of numbers,
+1964, <span style="font-family: 楷体_GB2312;">谢尔宾斯基,
+认识素数29讲</span></p>
+<h1 id="activities">Activities</h1>
+<ul>
+<li>Reviewer for <a target="_blank" rel="noopener" href="https://zbmath.org/">Zentralblatt für
+Mathematik</a></li>
+</ul>
+<h1 id="talks">Talks</h1>
+<p><em>2025/01/09</em>, The Conference of Complex Analysis in China
+2024, Shenzhen, <a href="https://blueairm.github.io/research/pdf/Zonal250109.pdf">Slides</a></p>
+<p><em>2024/11/10</em>, The Conference of Probability and Statistics in
+China 2024, Xiamen, <a href="https://blueairm.github.io/research/pdf/Prob241110.pdf">Slides</a></p>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

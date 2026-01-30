@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>The Volumn of Grassmanianns | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">The Volumn of Grassmanianns</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 7, 2026&nbsp;&nbsp;17:50:28</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Differential-Geometry/">Differential Geometry</a>
+                            
+                                <a href="/categories/Differential-Geometry/Algebraic-Geometry/">Algebraic Geometry</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="introduction">Introduction</h2>
+<p>The Grassmannian stands as one of the most important geometric
+objects in modern mathematics, serving as a meeting point for algebraic
+geometry, differential geometry, representation theory, and mathematical
+physics. At its core, the Grassmannian <span class="math inline">\(G(k,n)\)</span> parametrizes all <span class="math inline">\(k\)</span>-dimensional linear subspaces of an
+<span class="math inline">\(n\)</span>-dimensional vector space. This
+seemingly simple definition gives rise to remarkably rich structure:
+algebraically, it is a smooth projective variety defined by quadratic
+equations; differentially, it is a compact homogeneous space with a
+natural Riemannian structure. This article explores these dual
+perspectives in detail, revealing how they complement and enrich each
+other.</p>
+<h2 id="algebraic-geometry-the-grassmannian-as-a-projective-variety">1.
+Algebraic Geometry: The Grassmannian as a Projective Variety</h2>
+<h3 id="definition-and-basic-structure">1.1 Definition and Basic
+Structure</h3>
+<p>For a field <span class="math inline">\(K\)</span> (typically <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{C}\)</span>) and integers <span class="math inline">\(0 \leq k \leq n\)</span>, the Grassmannian <span class="math inline">\(G(k,n)\)</span> is defined as:</p>
+<p><span class="math display">\[G(k,n) = \{V \subseteq K^n \mid V \text{
+is a } k\text{-dimensional linear subspace}\}.\]</span></p>
+<p>When <span class="math inline">\(k = 1\)</span>, we recover
+projective space: <span class="math inline">\(G(1,n) \cong
+\mathbb{P}^{n-1}\)</span>. For <span class="math inline">\(k =
+n-1\)</span>, we obtain the dual projective space. Thus Grassmannians
+naturally generalize projective spaces.</p>
+<p>There is an equivalent projective interpretation: via
+projectivization, <span class="math inline">\(k\)</span>-dimensional
+subspaces of <span class="math inline">\(K^n\)</span> correspond to
+<span class="math inline">\((k-1)\)</span>-dimensional linear subspaces
+of <span class="math inline">\(\mathbb{P}^{n-1}\)</span>. This
+correspondence is bijective and inclusion-preserving.</p>
+<h3 id="the-plücker-embedding">1.2 The Plücker Embedding</h3>
+<p>The fundamental construction that reveals the algebraic nature of
+Grassmannians is the <strong>Plücker embedding</strong>. For <span class="math inline">\(V \in G(k,n)\)</span>, choose a basis <span class="math inline">\(v_1, \dots, v_k\)</span> and form the <span class="math inline">\(k \times n\)</span> matrix <span class="math inline">\(M\)</span> with these vectors as rows. For each
+<span class="math inline">\(k\)</span>-element subset <span class="math inline">\(I = \{i_1 &lt; \cdots &lt; i_k\} \subseteq
+\{1,\dots,n\}\)</span>, define the <strong>Plücker
+coordinate</strong>:</p>
+<p><span class="math display">\[x_I(V) = \det(M_I),\]</span></p>
+<p>where <span class="math inline">\(M_I\)</span> is the <span class="math inline">\(k \times k\)</span> submatrix consisting of
+columns indexed by <span class="math inline">\(I\)</span>.</p>
+<p>The Plücker map is then defined as:</p>
+<p><span class="math display">\[P_{k,n}: G(k,n) \longrightarrow
+\mathbb{P}^{\binom{n}{k}-1}, \quad V \mapsto
+[x_I(V)]_{|I|=k}.\]</span></p>
+<p><strong>Proposition 1.2.1</strong> The Plücker map is well-defined
+and injective.</p>
+<p><em>Proof:</em> To show well-definedness, note that changing the
+basis of <span class="math inline">\(V\)</span> replaces <span class="math inline">\(M\)</span> by <span class="math inline">\(AM\)</span> for some <span class="math inline">\(A
+\in GL(k)\)</span>. Then each minor transforms as <span class="math inline">\(\det((AM)_I) = \det(A)\det(M_I)\)</span>. Since
+<span class="math inline">\(\det(A) \neq 0\)</span>, this scales all
+Plücker coordinates by the same nonzero factor, leaving the projective
+point unchanged.</p>
+<p>For injectivity, suppose <span class="math inline">\(P_{k,n}(V) =
+P_{k,n}(W)\)</span>. Choose bases so that their matrix representations
+<span class="math inline">\(M_V\)</span> and <span class="math inline">\(M_W\)</span> have the same Plücker coordinates.
+After possibly rescaling, we may assume there exists <span class="math inline">\(I_0\)</span> with <span class="math inline">\(x_{I_0}(V) = x_{I_0}(W) = 1\)</span>. Perform
+column operations (which correspond to changes of basis in <span class="math inline">\(K^n\)</span>) to make both matrices have the
+identity in columns <span class="math inline">\(I_0\)</span>. The
+remaining columns are then uniquely determined by the other Plücker
+coordinates through the relations:</p>
+<p><span class="math display">\[x_{(I_0\setminus\{i\})\cup\{j\}} =
+\pm(\text{entry in row }i,\text{ column }j),\]</span></p>
+<p>which follows from expanding the determinant along column <span class="math inline">\(j\)</span>. Thus <span class="math inline">\(M_V =
+M_W\)</span>, so <span class="math inline">\(V = W\)</span>. ∎</p>
+<h3 id="plücker-relations-and-the-defining-ideal">1.3 Plücker Relations
+and the Defining Ideal</h3>
+<p>The image of <span class="math inline">\(P_{k,n}\)</span> is not all
+of <span class="math inline">\(\mathbb{P}^{\binom{n}{k}-1}\)</span>; it
+satisfies quadratic relations known as <strong>Plücker
+relations</strong>.</p>
+<p><strong>Theorem 1.3.1:</strong> For any <span class="math inline">\(I
+\subseteq \{1,\dots,n\}\)</span> with <span class="math inline">\(|I| =
+k-1\)</span> and <span class="math inline">\(J \subseteq
+\{1,\dots,n\}\)</span> with <span class="math inline">\(|J| =
+k+1\)</span>, define:</p>
+<p><span class="math display">\[f_{I,J} = \sum_{j \in J}
+(-1)^{\sigma(I,j)} x_{I \cup \{j\}} x_{J \setminus \{j\}},\]</span></p>
+<p>where <span class="math inline">\(\sigma(I,j)\)</span> is the sign of
+the permutation that orders <span class="math inline">\(I \cup
+\{j\}\)</span>. Then:</p>
+<p><span class="math display">\[P_{k,n}(G(k,n)) =
+V\left(\{f_{I,J}\}_{|I|=k-1, |J|=k+1}\right) \subseteq
+\mathbb{P}^{\binom{n}{k}-1}.\]</span></p>
+<p><em>Proof:</em> We prove both inclusions.</p>
+<p>(<span class="math inline">\(\subseteq\)</span>) Let <span class="math inline">\(V \in G(k,n)\)</span> with matrix representation
+<span class="math inline">\(M\)</span>. Fix <span class="math inline">\(I,J\)</span> as above. Consider the <span class="math inline">\((k+1) \times (k+1)\)</span> matrix formed by
+taking rows of <span class="math inline">\(M\)</span> corresponding to
+some basis and columns <span class="math inline">\(I \cup J\)</span>
+(with appropriate repetitions). This matrix has rank at most <span class="math inline">\(k\)</span>, so all <span class="math inline">\((k+1) \times (k+1)\)</span> minors vanish. The
+Laplace expansion of such a minor along a row yields exactly the Plücker
+relation <span class="math inline">\(f_{I,J}(P_{k,n}(V)) =
+0\)</span>.</p>
+<p>More concretely: Let <span class="math inline">\(M&#39;\)</span> be
+the <span class="math inline">\((k+1) \times n\)</span> matrix obtained
+by adding an extra row <span class="math inline">\(w\)</span> to <span class="math inline">\(M\)</span>. For any <span class="math inline">\(j
+\in J\)</span>, let <span class="math inline">\(M&#39;_{I \cup
+\{j\}}\)</span> be the <span class="math inline">\((k+1) \times
+(k+1)\)</span> submatrix with columns <span class="math inline">\(I \cup
+\{j\}\)</span>. The determinant <span class="math inline">\(\det(M&#39;_{I \cup \{j\}})\)</span> can be
+computed by expanding along the last row, giving a linear combination of
+<span class="math inline">\(k \times k\)</span> minors of <span class="math inline">\(M\)</span>. Summing over <span class="math inline">\(j\)</span> with appropriate signs gives zero,
+which is exactly <span class="math inline">\(f_{I,J}\)</span>.</p>
+<p>(<span class="math inline">\(\supseteq\)</span>) Suppose <span class="math inline">\(a = [a_I] \in \mathbb{P}^{\binom{n}{k}-1}\)</span>
+satisfies all Plücker relations. Choose <span class="math inline">\(I_0\)</span> with <span class="math inline">\(a_{I_0} \neq 0\)</span> and rescale so <span class="math inline">\(a_{I_0} = 1\)</span>. Construct a <span class="math inline">\(k \times n\)</span> matrix <span class="math inline">\(M\)</span> as follows: set columns <span class="math inline">\(I_0\)</span> to be the identity matrix. For <span class="math inline">\(j \notin I_0\)</span> and <span class="math inline">\(i \in I_0\)</span>, define the <span class="math inline">\((i,j)\)</span>-entry as:</p>
+<p><span class="math display">\[m_{ij} = (-1)^{\sigma(i,j)} a_{(I_0
+\setminus \{i\}) \cup \{j\}},\]</span></p>
+<p>where <span class="math inline">\(\sigma(i,j)\)</span> is determined
+by ordering considerations. Let <span class="math inline">\(V\)</span>
+be the row space of <span class="math inline">\(M\)</span>. One verifies
+that <span class="math inline">\(P_{k,n}(V) = a\)</span> by showing that
+for any <span class="math inline">\(I\)</span>, <span class="math inline">\(\det(M_I) = a_I\)</span>. This follows by
+induction on <span class="math inline">\(|I \setminus I_0|\)</span>,
+using the Plücker relations to express <span class="math inline">\(a_I\)</span> in terms of coordinates with smaller
+symmetric difference. ∎</p>
+<p><strong>Example 1.3.2:</strong> For <span class="math inline">\(G(2,4)\)</span>, with coordinates <span class="math inline">\((x_{12}, x_{13}, x_{14}, x_{23}, x_{24},
+x_{34})\)</span>, the only independent Plücker relation (up to sign)
+is:</p>
+<p><span class="math display">\[x_{12}x_{34} - x_{13}x_{24} +
+x_{14}x_{23} = 0.\]</span></p>
+<p>Thus <span class="math inline">\(G(2,4)\)</span> is a smooth quadric
+hypersurface in <span class="math inline">\(\mathbb{P}^5\)</span>, known
+as the <strong>Klein quadric</strong>.</p>
+<h3 id="irreducibility-dimension-and-smoothness">1.4 Irreducibility,
+Dimension, and Smoothness</h3>
+<p><strong>Proposition 1.4.1:</strong> <span class="math inline">\(G(k,n)\)</span> is an irreducible algebraic
+variety of dimension <span class="math inline">\(k(n-k)\)</span>.</p>
+<p><em>Proof:</em> For each <span class="math inline">\(k\)</span>-element subset <span class="math inline">\(I\)</span>, define the affine open:</p>
+<p><span class="math display">\[U_I = \{ [x_J] \in G(k,n) \mid x_I \neq
+0 \}.\]</span></p>
+<p>On <span class="math inline">\(U_I\)</span>, we can normalize <span class="math inline">\(x_I = 1\)</span>. Any <span class="math inline">\(V \in U_I\)</span> has a unique matrix
+representation of the form:</p>
+<p><span class="math display">\[M = \begin{pmatrix} I_k &amp;|&amp; A
+\end{pmatrix},\]</span></p>
+<p>where <span class="math inline">\(I_k\)</span> is the <span class="math inline">\(k \times k\)</span> identity matrix (in columns
+<span class="math inline">\(I\)</span>), and <span class="math inline">\(A\)</span> is a <span class="math inline">\(k
+\times (n-k)\)</span> matrix. The entries of <span class="math inline">\(A\)</span> provide coordinates on <span class="math inline">\(U_I\)</span>, giving an isomorphism <span class="math inline">\(U_I \cong \mathbb{A}^{k(n-k)}\)</span>.</p>
+<p>Since the <span class="math inline">\(U_I\)</span> cover <span class="math inline">\(G(k,n)\)</span> and each is irreducible, <span class="math inline">\(G(k,n)\)</span> is irreducible. The dimension is
+<span class="math inline">\(k(n-k)\)</span> because each <span class="math inline">\(U_I\)</span> is an affine space of that dimension.
+∎</p>
+<p>The affine coordinates also show that <span class="math inline">\(G(k,n)\)</span> is smooth: transition functions
+between charts are given by rational functions (specifically, by solving
+linear equations), hence regular.</p>
+<h2 id="differential-geometry-the-grassmannian-as-a-homogeneous-space">2.
+Differential Geometry: The Grassmannian as a Homogeneous Space</h2>
+<h3 id="smooth-manifold-structure">2.1 Smooth Manifold Structure</h3>
+<p>When <span class="math inline">\(K = \mathbb{R}\)</span> or <span class="math inline">\(\mathbb{C}\)</span>, the Grassmannian naturally
+carries the structure of a smooth (resp. complex) manifold. The affine
+charts <span class="math inline">\(U_I \cong
+\mathbb{A}^{k(n-k)}\)</span> provide local coordinate charts. Transition
+functions between charts are given by matrix operations: if <span class="math inline">\(V \in U_I \cap U_J\)</span>, then the matrix <span class="math inline">\(A\)</span> in the <span class="math inline">\(I\)</span>-chart and the matrix <span class="math inline">\(B\)</span> in the <span class="math inline">\(J\)</span>-chart are related by:</p>
+<p><span class="math display">\[B = (M_I^{-1}
+M_J)_{\text{complement}},\]</span></p>
+<p>where <span class="math inline">\(M\)</span> is a matrix representing
+<span class="math inline">\(V\)</span>, and the subscript indicates
+taking the appropriate submatrix. These are rational functions with
+nonzero denominators, hence smooth (holomorphic in the complex
+case).</p>
+<p>Thus <span class="math inline">\(G(k,n;\mathbb{R})\)</span> is a
+smooth manifold of dimension <span class="math inline">\(k(n-k)\)</span>, and <span class="math inline">\(G(k,n;\mathbb{C})\)</span> is a complex manifold
+of complex dimension <span class="math inline">\(k(n-k)\)</span> (hence
+real dimension <span class="math inline">\(2k(n-k)\)</span>).</p>
+<h3 id="homogeneous-space-structure">2.2 Homogeneous Space
+Structure</h3>
+<p>A fundamental insight is that Grassmannians are <strong>homogeneous
+spaces</strong> of classical Lie groups.</p>
+<p><strong>Theorem 2.2.1:</strong> There are natural
+diffeomorphisms:</p>
+<p><span class="math display">\[\begin{aligned}
+G(k,n;\mathbb{R}) &amp;\cong O(n)/(O(k) \times O(n-k)), \\
+G(k,n;\mathbb{C}) &amp;\cong U(n)/(U(k) \times U(n-k)).
+\end{aligned}\]</span></p>
+<p><em>Proof:</em> Consider the real case. The orthogonal group <span class="math inline">\(O(n)\)</span> acts transitively on <span class="math inline">\(G(k,n;\mathbb{R})\)</span>: given any <span class="math inline">\(k\)</span>-dimensional subspace <span class="math inline">\(V\)</span>, choose an orthonormal basis for <span class="math inline">\(V\)</span> and extend to an orthonormal basis for
+<span class="math inline">\(\mathbb{R}^n\)</span>. The orthogonal matrix
+sending the standard basis to this basis maps the standard <span class="math inline">\(k\)</span>-plane <span class="math inline">\(\mathbb{R}^k \times \{0\}\)</span> to <span class="math inline">\(V\)</span>.</p>
+<p>The stabilizer of the standard <span class="math inline">\(k\)</span>-plane consists of orthogonal matrices
+that preserve this subspace, which are precisely block-diagonal matrices
+with blocks in <span class="math inline">\(O(k)\)</span> and <span class="math inline">\(O(n-k)\)</span>. Thus by the orbit-stabilizer
+theorem, <span class="math inline">\(G(k,n;\mathbb{R}) \cong O(n)/(O(k)
+\times O(n-k))\)</span>.</p>
+<p>The complex case is analogous with <span class="math inline">\(U(n)\)</span> acting on <span class="math inline">\(\mathbb{C}^n\)</span>. ∎</p>
+<p>This description has several important consequences: - <span class="math inline">\(G(k,n)\)</span> is compact (as a quotient of
+compact groups). - <span class="math inline">\(G(k,n)\)</span> has a
+natural Riemannian metric induced from the bi-invariant metric on <span class="math inline">\(O(n)\)</span> or <span class="math inline">\(U(n)\)</span>. - The tangent space at a point
+<span class="math inline">\(V\)</span> can be identified with <span class="math inline">\(\operatorname{Hom}(V, V^\perp)\)</span>.</p>
+<h3 id="tangent-space-and-dimension">2.3 Tangent Space and
+Dimension</h3>
+<p>Let <span class="math inline">\(V \in G(k,n)\)</span>. A curve <span class="math inline">\(V(t)\)</span> in <span class="math inline">\(G(k,n)\)</span> with <span class="math inline">\(V(0) = V\)</span> can be described by a family of
+linear maps. Specifically, choose an orthonormal basis <span class="math inline">\(e_1, \dots, e_k\)</span> for <span class="math inline">\(V\)</span> and extend to an orthonormal basis for
+<span class="math inline">\(\mathbb{R}^n\)</span>. For small <span class="math inline">\(t\)</span>, we can write:</p>
+<p><span class="math display">\[e_i(t) = e_i + t \sum_{j=k+1}^n a_{ij}
+e_j + O(t^2),\]</span></p>
+<p>where <span class="math inline">\(A = (a_{ij})\)</span> is a <span class="math inline">\(k \times (n-k)\)</span> matrix. Differentiating at
+<span class="math inline">\(t=0\)</span> gives a linear map <span class="math inline">\(V \to V^\perp\)</span> represented by <span class="math inline">\(A\)</span>. Thus:</p>
+<p><strong>Proposition 2.3.1:</strong> There is a natural
+isomorphism:</p>
+<p><span class="math display">\[T_V G(k,n) \cong \operatorname{Hom}(V,
+V^\perp) \cong \mathbb{R}^{k(n-k)}.\]</span></p>
+<p>This provides an intrinsic, coordinate-free description of the
+tangent space and confirms the dimension <span class="math inline">\(k(n-k)\)</span>.</p>
+<h3 id="volume-formulas">2.4 Volume Formulas</h3>
+<p>The homogeneous space structure allows computation of volumes with
+respect to natural invariant metrics. We derive these formulas through a
+sequence of fibrations.</p>
+<p><strong>Lemma 2.4.1 (Sphere volumes):</strong></p>
+<p><span class="math display">\[\operatorname{vol}(S^{m-1}) =
+\frac{2\pi^{m/2}}{\Gamma(m/2)}.\]</span></p>
+<p><em>Proof:</em> This follows from integrating the volume form on the
+sphere or from the known formula for surface area. ∎</p>
+<p><strong>Theorem 2.4.2 (Classical group volumes):</strong></p>
+<p><span class="math display">\[\begin{aligned}
+\operatorname{vol}(O(n)) &amp;= \frac{2^n}{\prod_{j=1}^n \Gamma(j/2)}
+\pi^{\frac{n(n+1)}{4}}, \\
+\operatorname{vol}(U(n)) &amp;= \frac{2^n}{\prod_{j=1}^n \Gamma(j)}
+\pi^{\frac{n(n+1)}{2}}, \\
+\operatorname{vol}(Sp(n)) &amp;= \frac{2^n}{\prod_{j=1}^n \Gamma(2j)}
+\pi^{n(n+1)}.
+\end{aligned}\]</span></p>
+<p><em>Proof for <span class="math inline">\(O(n)\)</span>:</em>
+Consider the fibration:</p>
+<p><span class="math display">\[O(n-1) \hookrightarrow O(n)
+\xrightarrow{\pi} S^{n-1},\]</span></p>
+<p>where <span class="math inline">\(\pi\)</span> maps an orthogonal
+matrix to its first column. This is a Riemannian submersion with respect
+to the bi-invariant metric on <span class="math inline">\(O(n)\)</span>
+(induced from the Killing form <span class="math inline">\(\langle X, Y
+\rangle = \operatorname{tr}(X^TY)\)</span>). The fibers are isometric to
+<span class="math inline">\(O(n-1)\)</span>.</p>
+<p>By the coarea formula (or the fact that in a Riemannian submersion,
+volumes multiply):</p>
+<p><span class="math display">\[\operatorname{vol}(O(n)) =
+\operatorname{vol}(O(n-1)) \cdot
+\operatorname{vol}(S^{n-1}).\]</span></p>
+<p>Applying this recursively:</p>
+<p><span class="math display">\[\operatorname{vol}(O(n)) = \prod_{m=1}^n
+\operatorname{vol}(S^{m-1}) = \prod_{m=1}^n
+\frac{2\pi^{m/2}}{\Gamma(m/2)}.\]</span></p>
+<p>Simplifying:</p>
+<p><span class="math display">\[\prod_{m=1}^n 2\pi^{m/2} = 2^n
+\pi^{\sum_{m=1}^n m/2} = 2^n \pi^{\frac{n(n+1)}{4}},\]</span></p>
+<p>and the denominator is <span class="math inline">\(\prod_{j=1}^n
+\Gamma(j/2)\)</span>. ∎</p>
+<p>The proofs for <span class="math inline">\(U(n)\)</span> and <span class="math inline">\(Sp(n)\)</span> are similar, using fibrations:</p>
+<p><span class="math display">\[U(n-1) \hookrightarrow U(n)
+\twoheadrightarrow S^{2n-1}, \quad
+Sp(n-1) \hookrightarrow Sp(n) \twoheadrightarrow S^{4n-1}.\]</span></p>
+<p><strong>Corollary 2.4.3 (Grassmannian volumes):</strong></p>
+<p><span class="math display">\[\begin{aligned}
+\operatorname{vol}(G(k,n;\mathbb{R})) &amp;=
+\frac{\operatorname{vol}(O(n))}{\operatorname{vol}(O(k))
+\operatorname{vol}(O(n-k))} \\
+&amp;= \frac{\prod_{j=1}^n \Gamma(j/2)}{\prod_{j=1}^k \Gamma(j/2)
+\prod_{j=1}^{n-k} \Gamma(j/2)} \pi^{\frac{k(n-k)}{2}}, \\
+\operatorname{vol}(G(k,n;\mathbb{C})) &amp;=
+\frac{\operatorname{vol}(U(n))}{\operatorname{vol}(U(k))
+\operatorname{vol}(U(n-k))} \\
+&amp;= \frac{\prod_{j=1}^n \Gamma(j)}{\prod_{j=1}^k \Gamma(j)
+\prod_{j=1}^{n-k} \Gamma(j)} \pi^{k(n-k)}.
+\end{aligned}\]</span></p>
+<p><em>Proof:</em> This follows from the quotient representation <span class="math inline">\(G(k,n) \cong O(n)/(O(k) \times O(n-k))\)</span>
+and the fact that the natural projection <span class="math inline">\(O(n) \to G(k,n)\)</span> is a Riemannian
+submersion with fiber isometric to <span class="math inline">\(O(k)
+\times O(n-k)\)</span>. Thus:</p>
+<p><span class="math display">\[\operatorname{vol}(G(k,n)) =
+\frac{\operatorname{vol}(O(n))}{\operatorname{vol}(O(k) \times O(n-k))}
+= \frac{\operatorname{vol}(O(n))}{\operatorname{vol}(O(k))
+\operatorname{vol}(O(n-k))}.\]</span></p>
+<p>The simplification of the Gamma factors uses properties of the Gamma
+function and careful index manipulation. The exponent of <span class="math inline">\(\pi\)</span> comes from:</p>
+<p><span class="math display">\[\frac{n(n+1)}{4} - \frac{k(k+1)}{4} -
+\frac{(n-k)(n-k+1)}{4} = \frac{k(n-k)}{2}.\]</span></p>
+<p>The complex case is analogous. ∎</p>
+<h2 id="interplay-schubert-calculus-and-enumerative-geometry">3.
+Interplay: Schubert Calculus and Enumerative Geometry</h2>
+<p>The unity of algebraic and differential geometry is beautifully
+illustrated by enumerative problems on Grassmannians. A classic example
+is:</p>
+<p><strong>Problem:</strong> Given four lines in <span class="math inline">\(\mathbb{P}^3\)</span> in general position, how
+many lines intersect all four?</p>
+<p><strong>Solution using Grassmannians:</strong> Lines in <span class="math inline">\(\mathbb{P}^3\)</span> correspond to points in
+<span class="math inline">\(G(2,4)\)</span>. Given a fixed line <span class="math inline">\(L \subset \mathbb{P}^3\)</span>, the set of lines
+meeting <span class="math inline">\(L\)</span> is:</p>
+<p><span class="math display">\[X_L = \{ \ell \in G(2,4) \mid \ell \cap
+L \neq \emptyset \}.\]</span></p>
+<p>Under the Plücker embedding <span class="math inline">\(G(2,4)
+\hookrightarrow \mathbb{P}^5\)</span>, one can show that <span class="math inline">\(X_L\)</span> is cut out by a linear equation.
+Specifically, if <span class="math inline">\(L\)</span> has Plücker
+coordinates <span class="math inline">\((p_{ij})\)</span> and <span class="math inline">\(\ell\)</span> has coordinates <span class="math inline">\((x_{ij})\)</span>, then:</p>
+<p><span class="math display">\[\ell \cap L \neq \emptyset \iff
+\sum_{i&lt;j} \varepsilon_{ij} p_{ij} x_{kl} = 0,\]</span></p>
+<p>where <span class="math inline">\(\varepsilon_{ij}\)</span> are
+appropriate signs and <span class="math inline">\(\{k,l\} = \{1,2,3,4\}
+\setminus \{i,j\}\)</span>. Thus <span class="math inline">\(X_L =
+G(2,4) \cap H_L\)</span> where <span class="math inline">\(H_L\)</span>
+is a hyperplane in <span class="math inline">\(\mathbb{P}^5\)</span>.</p>
+<p>For four general lines <span class="math inline">\(L_1, L_2, L_3,
+L_4\)</span>, the set of lines meeting all four is:</p>
+<p><span class="math display">\[X = G(2,4) \cap H_1 \cap H_2 \cap H_3
+\cap H_4,\]</span></p>
+<p>where <span class="math inline">\(H_i = H_{L_i}\)</span>.
+Generically, the intersection of four hyperplanes in <span class="math inline">\(\mathbb{P}^5\)</span> is a line <span class="math inline">\(\mathbb{P}^1\)</span>. Since <span class="math inline">\(G(2,4)\)</span> is a quadric hypersurface, a line
+typically intersects it in 2 points (by Bézout's theorem). Thus there
+are exactly 2 lines meeting all four given lines.</p>
+<p>This reasoning combines: - Algebraic geometry: The Plücker embedding
+realizes <span class="math inline">\(G(2,4)\)</span> as a concrete
+variety. - Differential geometry: Transversality ensures the
+intersection is well-behaved for generic choices. - Enumerative
+geometry: Bézout's theorem provides the count.</p>
+<p>This is a simple example of <strong>Schubert calculus</strong>, the
+intersection theory on Grassmannians, which has deep connections to
+representation theory, combinatorics, and topology.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] Phillip Griffiths and Joseph Harris, Principles of Algebraic
+Geometry, John Wiley &amp; Sons, New York, 1994.</p>
+<p>[2] Robin Hartshorne, Algebraic Geometry, Graduate Texts in
+Mathematics, Vol. 52, Springer-Verlag, New York-Heidelberg, 1977.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2026/01/07/Grassmanian/">http://blueairm.github.io/2026/01/07/Grassmanian/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Differential-Geometry-Algebraic-Geometry/"># Differential Geometry,Algebraic Geometry</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/">A Letter to Mr. Lei Yunhai</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
