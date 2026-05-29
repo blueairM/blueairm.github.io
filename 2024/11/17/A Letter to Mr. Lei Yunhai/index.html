@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>A Letter to Mr. Lei Yunhai | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">A Letter to Mr. Lei Yunhai</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">November 17, 2024&nbsp;&nbsp;3:23:22</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Miscellanies/">Miscellanies</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="my-journey-with-mathematics">My Journey with Mathematics</h1>
+<p>It was the summer of 2014. Holding my college entrance exam results
+in hand, I walked up to my high school homeroom teacher and math
+instructor, Mr. Lei Yunhai, and said, "Mr. Lei, I want to study
+mathematics." A look of joy crossed his face, but after a brief pause,
+he replied, "You might want to consider statistics." Back then, big data
+and artificial intelligence hadn't yet become the buzzwords they are
+today, and statistics wasn't a trendy discipline. Yet, in my youthful
+ignorance, I filled out my college application form with the words:
+<em>Applied Statistics.</em></p>
+<h1 id="planting-the-seeds-of-mathematics">Planting the Seeds of
+Mathematics</h1>
+<p>In college, I met a remarkable professor, Mr. Wang Shutang, who
+taught us topology. His lectures were full of students who admire him
+and he was always peppered with his personal reflections on academic
+inquiry: "Science requires a spirit of dedication. Mathematics is about
+distilling the essence of ideas from the works of our
+predecessors-separating the wheat from the chaff, eliminating the false
+to retain the true, abstracting and generalizing. It's crucial for
+science to cultivate keen intuition and a vision that transcends mere
+logic..."</p>
+<p>Up until then, my perception of mathematics was tinged with a faint
+sense of mystique, shaped by the glowing tributes of Newton and Gauss.
+Professor Wang's words lit a fire in me. His philosophy resonated
+deeply, and the seed of a passion for research took root in my heart.
+Even today, I often wake from dreams recalling his wisdom. Looking back,
+I realize that my life's trajectory began intertwining with mathematics
+from that moment onward.</p>
+<h1 id="seven-years-of-numbers">Seven Years of Numbers</h1>
+<p>Four years later, I was admitted to graduate school to continue
+studying statistics. Seven years passed with a blink of eyes. Along the
+way, I made lifelong friends and developed a daily rhythm of
+mathematical research, spending my days immersed in calculating and
+problem-solving.</p>
+<p>To me, there is no boundary between applied mathematics and pure
+mathematics. Applied mathematics provides rich examples, while pure
+mathematics advances theoretical understanding, creating a virtuous
+cycle. My work in statistics has always swung between tackling
+real-world challenges and revisiting theoretical foundations.
+Occasionally, I've fantasized about finding a single, all-encompassing
+solution to every problem, but I've learned that such shortcuts are
+illusory.</p>
+<p>I often lost myself in my studies, spending entire days in libraries
+and study rooms, sometimes forgetting to eat. My first paper was on the
+Karhunen-Lo'eve theorem, where I classified bivariate random fields and
+established four necessary and sufficient conditions for the non-uniform
+convergence of random orthogonal series. At the age of 24, I tasted the
+satisfaction of producing original research, gaining confidence in my
+ability to make progress in mathematics.</p>
+<p>My continued engagement with real-world problems led me to observe
+that a bivariate random field corresponds naturally to a 2-tensor, or a
+random matrix. I proposed definitions for four classes of matrix normal
+distributions and submitted the findings to <em>Annals of
+Statistics.</em> My growing fascination with tensors led me to extend
+these results to general matrix rings, reducing the complexity of matrix
+multiplication to (O(n^{5/2})) which surpasses the classical (O(n^3)).
+These three papers marked my entry into mathematical research, but I
+know I owe much of my progress to Professor Wang's inspiring words.</p>
+<h1 id="doctoral-research-and-beyond">Doctoral Research and Beyond</h1>
+<p>My doctoral thesis was titled <em>Generalized Additive
+Processes,</em> a topic steeped in abstraction. In essence, it sought to
+uncover qualitative shifts arising from the accumulation of quantitative
+similarities among examples. I observed that additive processes,
+including Markov processes, share a common feature: they all have a
+predictable compensator. This observation led to the definition of a
+generalized additive process as the sum of a predictable process and a
+martingale, naturally extending the work of Doob and Meyer.</p>
+<p>Once the definition was in place, Br'emaud's 1972 conjecture followed
+almost effortlessly. This result, included in my thesis, yielded further
+intriguing corollaries, such as the existence of a cluster process that
+is not infinitely divisible. Some may wonder why a seemingly natural
+definition requires so much groundwork, but I believe that mathematics
+derives its strengths from such cumulative efforts. These scattered
+results coalesce into a cohesive whole, as mathematics relies not on
+itself to advance but on the synthesis of diverse ideas and
+perspectives.</p>
+<p>Recently, I've turned my attention to harmonic functions and
+representation theory, exploring their intricacies through practical
+examples. Unlike Professor Wang, whose philosophy laid my basis, I now
+pursue my own line of inquiry. Perhaps this is due to my encounters with
+Buddhism, which has taught me to be devout but not dogmatic. I balance
+my academic pursuits with hobbies like singing, running ten kilometers,
+swimming, and catching up with friends. These activities, along with my
+research, form the tapestry of my life.</p>
+<h1 id="a-vision-for-the-future">A Vision for the Future</h1>
+<p>Next year, I will graduate from the doctoral school. At that time, I
+hope to find a position that allows me to continue my research and
+translate books that perhaps inspire me. Above all, I aspire to learn
+from the people I admire. Some have passed on, but their spirit burns
+brightly, like a torch passed from one generation to the next. I don't
+seek to become a blazing fire myself; I'm content to be a blade of
+grass-weathering the winds and rains, but growing with each drop of
+nourishment.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/">http://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Miscellanies/"># Miscellanies</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/01/07/Grassmanian/">The Volumn of Grassmanianns</a>
+            
+            
+            <a class="next" rel="next" href="/2024/11/13/Henkin%E2%80%98s%20Theorem/">Henkin's Theorem</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
