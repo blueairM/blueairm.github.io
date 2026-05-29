@@ -182,6 +182,15 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/</loc>
+    
+    <lastmod>2025-10-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/2023/03/23/Hilbert's%20Nullstellensatz/</loc>
     
     <lastmod>2025-10-02</lastmod>
@@ -191,7 +200,7 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/</loc>
+    <loc>http://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -217,15 +226,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/</loc>
-    
-    <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://blueairm.github.io/</loc>
@@ -236,13 +236,6 @@
 
   
   <url>
-    <loc>http://blueairm.github.io/tags/Algebraic-Number-Theory/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/tags/Set-Theory/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -250,14 +243,21 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Sevaral-Complex-Variables/</loc>
+    <loc>http://blueairm.github.io/tags/Algebraic-Geometry/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Algebraic-Geometry/</loc>
+    <loc>http://blueairm.github.io/tags/Algebraic-Number-Theory/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/tags/Sevaral-Complex-Variables/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -301,13 +301,6 @@
 
   
   <url>
-    <loc>http://blueairm.github.io/categories/Algebraic-Number-Theory/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/categories/Set-Theory/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -315,21 +308,14 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/categories/Algebraic-Number-Theory/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -350,6 +336,13 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Fuchsian-Group/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/categories/Differential-Geometry/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -364,6 +357,20 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/categories/Sevaral-Complex-Variables/Nevanlinna-Theory/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/categories/Differential-Geometry/Algebraic-Geometry/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -372,13 +379,6 @@
   
   <url>
     <loc>http://blueairm.github.io/categories/Commutative-Algebra/Algebraic-Geometry/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blueairm.github.io/categories/Mathematical-Logic/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
