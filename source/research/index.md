@@ -47,8 +47,6 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 
 [8]  ..., Counting measure and positivity in reaction-diffusion systems. Preprint.
 
-[9] ..., Importance sampling for general point processes with smooth evelope. Preprint.
-
 # Courses
 
 |Date|Name|Details|Notes|
