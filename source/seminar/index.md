@@ -24,11 +24,6 @@ Our discussions typically take place on Fridays, once every one to two weeks. Th
 
 If you have any question or need help, feel free to ask!
 
-# News (Updated on 2025/06/16)
-
-We are intended to organise an online seminar on *Continuous Logic and Free Probability*. Schedules and summaries are listed in [2025Special](/seminar/Continuous Logic and Free Probability). Please feel free to joint us. Related information will be updated on this website.
-
-
 ## Organizers
 
 [Cao Zilong](https://scholar.google.com/citations?user=cago5xUAAAAJ&hl=zh-CN) *(Mathematical Statistics)*
@@ -79,106 +74,114 @@ PhD, Department of Computer Science and Engineering, South University of Science
 
 Email: [nakeryang@gmail.com](nakeryang@gmail.com)
 
+## News
+
+We plan to organize an online seminar in *Integral Geometry and Special Function*, sceduled in August, 31, 2026. Invited speakers will present their related works around this field. For more information, see our previous 2025 [senimar](/seminar/Continuous Logic and Free Probability).
+
+
 
 ## Upcoming Events
 
-2025/09/26, 10:00 a.m., [Tencent Meeting]()
+2026/07+, 10:00 a.m., [Tencent Meeting]()
 
-Lin Zhuowei (Nankai University, Center for Combinatorics)
+Guo Yuhui (Beijing Normal-Hong Kong Baptist University)
 
-**The Combinatorics of Flagged Weyl Characters**
+**Moments and asymptotics for a class of SPDEs with space-time white noise** 
 
-In this talk, we introduce two aspects of flagged Weyl charcters, which can be restricted to Schubert polynomials. One is about coefficient-wise upper bounds and lower bounds of flagged Weyl charcters. This settles two conjectures proposed by Mészáros-St. Dizier-Tanjaya. The other one is about the principal specialization of Schubert polynomials, which improves the results previously obtained by Weigandt, Gao, and Mészáros-St. Dizier-Tanjaya.
+In this article, we consider the nonlinear stochastic partial differential equation of fractional order in both space and time variables with constant initial condition:
+$$\left(\partial^{\beta}_t+\dfrac{\nu}{2}\left(-\Delta\right)^{\alpha / 2}\right) u(t, x)= \: I_{t}^{\gamma}\left[\lambda u(t, x) \dot{W}(t, x)\right]
+    \quad t>0,\: x\in \mathbb{R}^d,$$
+where $\dot{W}$ is space–time white noise, $\alpha>0$, $\beta\in(0,2]$, $\gamma \ge 0$, $\lambda\neq0$ and $\nu>0$.
+The existence and uniqueness of solution in the It\^o-Skorohod sense is obtained under Dalang's condition. We obtain explicit formulas for both the second moment and the second moment Lyapunov exponent. We derive the $p$-th moment upper bounds and find the matching lower bounds. Our results solve a large class of conjectures regarding the order of the $p$-th moment Lyapunov exponents. In particular, by letting $\beta=2$, $\alpha=2$, $\gamma=0$, and $d=1$, we confirm the following standing conjecture for the stochastic wave equation:
+$$t^{-1}\log \mathbb{E}[u(t,x)^p] \asymp p^{3/2}, \quad \text{for $p\ge 2$ as $t\to \infty$.}$$
+The method for the lower bounds is inspired by a recent work by Hu and Wang (arXiv:2109.03473), where the authors focus on the space-time colored Gaussian noise.
 
-[Article1](https://doi.org/10.1016/j.aam.2024.102752), [Article2](https://doi.org/10.4153/S0008414X2510120X), and [arXiv](https://arxiv.org/abs/2412.02932).
+[Article](https://arxiv.org/abs/2206.10069), in Transactions of the American Mathematical Society.
 
+2026/07+, 10:00 a.m., [Tencent Meeting]()
 
-2025/11/07, 10:00 a.m., [Tencent Meeting]()
+Xiao Ming (Wuhan University of Science and Technology)
 
-Chen Zaoli (Cornell University)
+**The Borel Ramsey properties for countable Borel equivalence relations** 
 
-**Extreme Value Theory of Long-Range Dependent Sequences** 
+We define some natural notions of strong and weak Borel Ramsey properties for countable Borel equivalence relations and show that they hold for a countable Borel equivalence relation if and only if the equivalence relation is smooth. We also consider some variation of the notion for hyperfinite non-smooth Borel equivalence relations.
 
-In a long-range dependent setting, extreme values of a stationary processes exhibit both macroscopic and microscopic clustering features. Such an extremal clustering is subject to the dependence structure as well as the marginal distribution. In this talk, I will introduce the mechanism of a class of long-range dependent time series and its unique extremal behaviors. The talk is based on the following two articles.
-
-[1]	Extremal clustering under moderately long range dependence and moderately heavy tails, Z. Chen and G. Samorodnitsky, Stochastic Processes and Their Applications, 2022.
-
-[2]	Moderately Heavy Extreme Values under Extreme Long Range Dependence, Z. Chen, arXiv: 2505.23103.
-
-
-
-2025/12/12, 10:00 a.m., [Tencent Meeting]()
-
-[Tan Ju](https://sites.google.com/view/ju-tan-math/) (Boston University)
-
-**Mirror Construction for Nakajima Quiver Varieties**
-
-In this paper, we construct the ADHM quiver representations and the corresponding sheaves as the mirror objects of formal deformations of the framed immersed Lagrangian sphere decorated with flat bundles. More generally, we construct Nakajima quiver varieties as localized mirrors of framed nodal unions of Lagrangian spheres in dimension two. This produces a mirror functor from the Fukaya category of a framed plumbing of surfaces to the dg category of complexes of bundles over the corresponding Nakajima quiver varieties.
-
-For affine ADE quivers in specific multiplicities, the corresponding (unframed) Lagrangian immersions are homological tori, whose moduli of stable deformations are asymptotically locally Euclidean (ALE) spaces. We show that framed stable Lagrangian branes are transformed into monadic complexes of framed torsion-free sheaves over the ALE spaces.
-
-A main ingredient is the notion of framed Lagrangian immersions and their Maurer-Cartan deformations. Moreover, using the formalism of quiver algebroid stacks, we find isomorphisms between the moduli of stable Lagrangian immersions and that of special Lagrangian fibers of an SYZ fibration in the affine $A_n$ cases.
-
-[ArXiv1](https://arxiv.org/abs/2206.03028), [ArXiv2](https://arxiv.org/abs/2404.16172).
+[Article](https://www.ams.org/journals/proc/2025-153-11/S0002-9939-2025-17340-3/home.html), in Proceedings of the American Mathematical Society.
 
 
-2025/09+, 10:00 a.m., [Tencent Meeting]()
+2026/01+, 10:00 a.m., [Tencent Meeting]()
 
 Shao Kerun (Zhejiang University)
 
-**Existence of global solutions to semilinear wave equations** 
+**TBA** 
 
 TBA.
 
 [Article](https://www.researchgate.net/profile/Kerun-Shao).
 
 
-2025/09+, 10:00 a.m., [TBA]()
+2026/01+, 10:00 a.m., [TBA]()
 
 Feng Yu (Tsinghua University)
+
+**TBA** 
+
+TBA.
+
+2026/01+, 10:00 a.m., [TBA]()
+
+Wang Shouda (Princeton University)
+
+**TBA** 
 
 TBA.
 
 
+
+
 ## Past Events
 
+206/01/30, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/lvdaBBL11c)
 
-2025/07/04, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/NQDBn4ZJef)
+[Tan Ju](https://sites.google.com/view/ju-tan-math/) (Center for Geometry and Physics, IBS, Korea)
 
-Yang Zhilin (CAS)
+**Maurer-Cartan deformation spaces of immersed Lagrangians with applications to quiver and sheaf moduli**
 
-**Weak coupling limit of a Brownian particle in the curl of the 2D GFF**
+In this talk, we will explain a geometric framework relating Maurer-Cartan deformation spaces of immersed Lagrangian branes, quiver moduli, and moduli of coherent sheaves via mirror symmetry. If time permits, we will discuss the recent results on localized mirror construction of Nakajima quiver varieties and Hecke correspondence, based on the joint work with Siu-Cheong Lau.
 
-We study the weak coupling limit of the following equation in $\mathbb{R}^2$: $$dX_t^\varepsilon=\frac{\hat{\lambda}}{\sqrt{\log\frac1\varepsilon}}\omega^\varepsilon(X_t^\varepsilon)dt+\nu dB_t,\quad X_0^\varepsilon=0. $$ Here $\omega^\varepsilon=\nabla^{\perp}\rho_\varepsilon*\xi$ with $\xi$ representing the $2d$ Gaussian Free Field (GFF) and $\rho_\varepsilon$ denoting an appropriate identity. $B_t$ denotes a two-dimensional standard Brownian motion, and $\hat{\lambda},\;\nu>0$ are two given constants. We use the approach from \cite{Cannizzaro.2023} to show that the second moment of $X_t^\varepsilon$ under the annealed law converges to $(c(\nu,\hat\lambda)^2+2\nu^2)t$ with a precisely determined constant $c(\nu,\hat\lambda)>0$, which implies a non-trivial limit of the drift terms as $\varepsilon$ vanishes. We also prove that in this weak coupling regime, the sequence of solutions converges in distribution to $\left(\sqrt{\frac{c(\nu,\hat\lambda)^2}{2}+\nu^2}\right)\widetilde{B}_t$ as $\varepsilon$ vanishes, where $\widetilde{B}_t$ is a two-dimensional standard Brownian motion.
-
-[ArXiv](https://arxiv.org/abs/2405.05778).
-
-
-2025/05/09, 10:00 a.m., [Tencent Meeting]()
-
-Xue Xiaolong (Tsinghua University)
-
-**The rigidity of eigenfunctions's gradient estimates**
-
-We introduce the rigidity results for eigenfunctions on Riemannian manifolds with nonnegative Ricci curvature. We also obtain the Li-Yau gradient estimate on convex domains and prove similar rigidity results.
-
-[Article](https://link.springer.com/article/10.1007/s00209-024-03665-8) in Mathematische Zeitschrift.
+[Article](https://arxiv.org/abs/2206.03028). To appear in Journal of Symplectic Geometry.
 
 
-2025/02/26, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/l7RgJdZmfe) Password: ETDR
+206/03/20, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/lvpn8R9440) Password: X8CE
 
-Yilong Zhang (Bonn University)
+[Zhang Shuqin](https://zhang-shuqin.github.io/) (Fudan University)
 
-**Green points in the reals**
+**Fractal dimensions and their Frostman characterisation**
 
-We construct an expansion of a real closed field by a multiplicative subgroup adapting Poizat's theory of green points Its theory is strongly dependent, and every open set definable in a model of this theory is semialgebraic. We prove that the real field with a dense family of logarithmic spirals, proposed by Zilber, satisfies our theory.
+In this talk, I will introduce the definitions of fractal dimensions, including the Hausdorff dimension, box dimensions, modified box dimensions, and correlation dimensions. I will detail the differences in scale properties across these various fractal dimensions. I will also recall the well-known Frostman's Lemma for the Hausdorff dimension and packing dimension, and further examine Frostman-type characterisations for the less familiar modified lower box dimension and upper correlation dimension. Finally, I will state that the upper correlation dimension lies between the modified lower box dimension and packing dimension, and present an example showing these three dimensions are all distinct. This talk is based on a joint collaboration with Prof. Kenneth J. Falconer.
 
-[ArXiv](https://arxiv.org/abs/2501.01176).
+[Article1](https://arxiv.org/abs/2505.21217), in Mathematische Zeitschrift.
 
 
-[2024](/seminar/2024)
+2026/05/30, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/KmOBPvbQd7)
+
+Zhu Yuchen (Nankai University)
+
+**Structure constants of Peterson Schubert calculus**
+
+We give an explicit, positive, and type-uniform formula for all equivariant structure constants of the Peterson Schubert calculus in arbitrary Lie types, using only the Cartan matrix of the corresponding root system $\Phi$. As an application, we derive a type-uniform formula for the mixed $\Phi$-Eulerian numbers.
+
+[ArXiv](https://arxiv.org/abs/2508.05457) To appear in Conference FPSAC.
+
+
+[2025](/seminar/2025), [2024](/seminar/2024). 
+
+
+## Special Talks
+
+- 2025/09/19-2026/01/02 - **Continuous Logic and Free Probability** $\vartriangleright$ [More](/seminar/Continuous Logic and Free Probability)
 
 <div class="pagination">
   <a>Previous Page</a>
-  <a class="previous" href="/seminar/2024">Next Page</a>
+  <a class="previous" href="/seminar/2025">Next Page</a>
 </div>

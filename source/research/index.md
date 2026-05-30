@@ -20,10 +20,10 @@ My research interests are naive set theory, multivariate statistical analysis, p
 
 # Publications
 
+Thesis: Matrix Distribution under Classical Group Actions, 2025 [en](https://arxiv.org/abs/2505.00470) <span style="font-family: 楷体_GB2312;">典型群作用下的矩阵分布</span>, 2025 [ch](https://blueairm.github.io/research/pdf/21110588_王浩铭.pdf)
+
+
 ## Preprints
-
-Thesis: Matrix Distributions under Classical Group Actions, 2025 [en](https://arxiv.org/abs/2505.00470) <span style="font-family: 楷体_GB2312;">矩阵分布与典型群作用</span>, 2025 [ch]()
-
 
 All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 
@@ -33,23 +33,38 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 吕裴, 蒋笑天, 王浩铭, 王戍堂. 关于惯性参照系的一条引理---对朗道<<场论>>中不同惯性系下间隔相等证明的补充. 2017. (遗稿)
 </span>
 
-[2] Wang, Haoming. On the distribution of the sample covariance from a matrix normal population[J]. 2025. Submitted.
+[2] H.-M. Wang. On minimal predictable intensity of point processes[J]. Houston J. Math., 51(3):501-515, 2025.
 
-[3] Wang, Haoming. On incomplete Gamma and Beta integrals[J]. 2025. Submitted.
+[3] H.-M. Wang. Martingale problem and quadratic family[J]. 2026. Preprint.
 
-[4] Wang, Haoming. On minimal predictable intensity of point processes[J]. 2025. Submitted.
+[4] H.-M. Wang. Real gamma distribution on analytic bundles of flag varieties[J]. 2025. Submitted.
 
-[5] Wang, Haoming. Martingale problem and quadratic family[J]. 2025. Preprint.
+[5] H.-M. Wang. On incomplete Gamma and Beta integrals[J]. 2025. Submitted.
 
-[6] Wang, Haoming. On the distribution of the ratio of a matrix normal distribution and the sample covariance. Preprint.
+[6] H.-M. Wang. On the distribution of the matrix ratio. 2025. Submitted.
 
-[7] Liang, Decai and Wang, Haoming and Huang, Hui. Counting measure and positivity in reaction-diffusion systems. Preprint.
+[7] K. Shimizu and H.-M. Wang. A determinantal representation of the joint distribution of top $k$ principal eigenvectors with application to simultaneous estimation. 2026. Preprint.
 
-[8] Liang, Decai and Wang, Haoming and Huang, Hui. Importance sampling for general point processes with smooth evelope. Preprint.
+[8]  ..., Counting measure and positivity in reaction-diffusion systems. Preprint.
 
-# Books
+[9] ..., Importance sampling for general point processes with smooth evelope. Preprint.
 
+# Courses
+
+|Date|Name|Details|Notes|
+|--------|-------------|---------------|----|
+|2026/03-2026/07|*Markov Processes*|Undergraduate seminar at Nankai University|[MP1]()| 
+|2026/09-2027/01| *Special Function*| Graduate course at Nankai University |[PC1]()| 
+|TBA|*Multivariate Statistical Analaysis*|Undergraduate seminar|[MS1]()| 
 ## Notes
+
+- [Riesz Markov Kakutani Representation Theorem](https://blueairm.github.io/research/pdf/Riesz_Markov_Kakutani.pdf)
+
+- [Zonal polynomial]()
+
+- [Probabilistic Methods in Combinatoric](https://blueairm.github.io/research/pdf/Probabilistic_Methods_in_Combinatorics.pdf)
+
+## Books
 
 ## Translations
 

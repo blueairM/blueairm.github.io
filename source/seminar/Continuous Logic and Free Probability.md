@@ -9,7 +9,7 @@ pagination: true
 per_page: 10
 ---
 
-This webpage is about the 2025 seminar on *Continuous Logic and Free Probability*. There are *TEN* lecturers from diverse universities to give related talks. Titles and abstracts are updated on this webpage.
+This webpage is about the 2025 seminar on *Continuous Logic and Free Probability*. There are *NINE* lecturers from diverse universities to give related talks. Titles and abstracts are updated on this webpage.
 
 ## Summary
 
@@ -82,6 +82,8 @@ This work is based on the proper orthogonal decomposition or Karhunen-Lo\'eve th
 
 [arXiv](https://arxiv.org/a/wang_h_18.html).
 
+*This study extends the classical matrix distribution theory under the Gaussian model by classifying covariance structures into four forms. Generalized Wishart and related distributions are presented, and further developments are expected for the complex case and the elliptical model. Numerical computation for the distributions in the special cases obtained remains a topic for future work. -- Koki Shimizu*
+
 2025/10/31, 10:00 a.m., [Tencent Meeting]()
 
 Qian Jin (ECNU) Reviewer: Song Shichang (BJTU)
@@ -91,6 +93,8 @@ Qian Jin (ECNU) Reviewer: Song Shichang (BJTU)
 In this talk, I will talk about model theoretic properties of finite representability and super-weak compactness of bounded convex metric spaces, and give a model theoretic proof of a result by Xiaoling Chen and Lixin Cheng on Kuratowski measure of noncompactness.
 
 Preprint.
+
+*钱进同学发现了程立新之前在Banach空间几何的工作和连续模型论之间的联系, 利用连续模型论给出了程立新关于Kuratowski测度的结果, 一个简洁的新证明. -- 宋诗畅*
 
 2025/11/14, 10:00 a.m., [Tencent Meeting]()
 
@@ -102,6 +106,8 @@ In this paper, we present generalizations of some results on the asymptotic prop
 
 [Article](https://arxiv.org/abs/2505.01268) *To appear in Journal of Noncommutative Geometry*.
 
+*本次报告中, 刘晗博士深入阐述了她在粗几何领域的最新研究成果. 报告从格罗莫夫(Gromov)定义的渐进维数等核心概念入手, 介绍了其工作在几何群论中的相关背景和问题, 并展示了如何通过度量几何的基本框架并结合Wreath-like Product构造方法构建了一类新型的, 具有渐进性质C的群. -- 刘伟华*
+
 2025/11/28, 10:00 a.m., [Tencent Meeting]()
 
 Zhu Yue (CAS) Reviewer: Yang Fan* (Tsinghua) *male
@@ -109,6 +115,8 @@ Zhu Yue (CAS) Reviewer: Yang Fan* (Tsinghua) *male
 **The free probability approach to random matrices**
 
 This report offers an introduction to the powerful framework of free probability and its profound applications in random matrix theory. We will explore how the classical limit theorems, such as Wigner's semicircle law, find their natural explanation within this framework. The core concept of freeness - a non-commutative analogue of independence - will be introduced to explain the asymptotic behavior of large-dimensional random matrices. We will demonstrate how key tools like the R-transform and S-transform allow for the computation of limiting spectral distributions of sums and products of independent matrices through the operations of free additive and multiplicative convolution. This overview aims to illustrate why free probability has become the indispensable language for modern random matrix analysis.
+
+*Dr. Zhu Yue introduces basic concepts of random matrices and free probability, with emphasis on GOE, GUE, GSE, and semi-circular elements. In an additive random matrix model with rank one perturbation, she illustrates how to combine novel methods from free probability to handle this problem by using the R-transformation and S-transformation. -- Wang Haoming*
 
 2025/12/05, 10:00 p.m., [Tencent Meeting]()
 
@@ -123,6 +131,8 @@ Firstly,  we establish the circular law for $M_n$ under specific sparsity condit
 Secondly, we investigate the smallest singular value $s_n(M_n)$ in the dense regime, where $d=pn$ for a fixed constant $p\in (0, 1/2]$. We establish a probabilistic upper bound for $s_n(M_n)$. This result complements existing lower bounds of the order $\Omega(n^{-1/2})$ and confirms that $s_n(M_n)$ is typically of the order $n^{-1/2}$ in this dense setting. These results are joint work with Dongbin Li and Alexander Litvak.
 
 
+*该报告思路清晰, 技术路线严谨, 研究了($n\times n$)的随机组合矩阵, 在稠密情形($d=pn$)下给出了最小奇异值的概率上界, 补全了已有的下界; 报告还讨论了关于稀疏情形的定量结果. 这一结果在编码理论与数值稳定性分析, 特定的数据分析等领域具有很大的应用潜力. -- 何平安*
+
 2025/12/19, 10:00 p.m., [Tencent Meeting]()
 
 [Zhang Yilong](https://yl-zh.github.io/) (Bonn) Reviewer: Will Johnson (Fudan)
@@ -132,6 +142,8 @@ Secondly, we investigate the smallest singular value $s_n(M_n)$ in the dense reg
 The Hrushovski construction is a variant of amalgamation methods. It was invented to construct new examples of strongly minimal theories. The method was later adapted to expansions of fields, including colored fields and powered fields. In this talk, I will present my attempt to apply the Hrushovski construction to ordered fields. I will construct an expansion of RCF by a dense multiplicative subgroup (green points). The construction induces a back-and-forth system, enabling us to study the dp-rank and the open core of this structure. I will also introduce my recent progress on powered fields, an expansion of RCF by "power functions" on the unit circle, and my plan to axiomatize expansions of the real field using the Hrushovski construction.
 
 [ArXiv](https://arxiv.org/abs/2501.01176).
+
+*Hrushovski constructions were invented by Hrushovski to construct counterexamples to the Zilber conjecture; they were later shown to axiomatize certain natural structures related to exponentiation and power maps.  These constructions are usually carried out in the setting of stable theories, or even finite Morley rank theories.  In his talk, Zhang Yilong explained how the machinery of (uncollapsed) Hrushovski constructions--including predimension functions and strong embeddings and Fraisse limits--can also be made to work in unstable settings like real closed fields (RCF).  He used a Hrushovski construction in RCF to axiomatize an expansion of RCF by "power functions" on the unit circle.  Zhang Yilong's work gives interesting new examples of strongly NIP theories, and introduces new techniques for building NIP counterexamples.  The results also offer new insights into the model theory of exponentiation. -- Will Johnson*
 
 2026/01/02, 10:00 a.m., [Tencent Meeting]()
 
@@ -146,22 +158,7 @@ References:
 
 [1] Fan Zhou. Approximate Message Passing algorithms for rotationally invariant matrices. Ann. Stat. 50. (2022). 
 
-2026/01/16, 10:00 a.m., [Tencent Meeting]()
-
-[Zou Guangyi](https://zouguangyi.wordpress.com/) (USTC) Reviewer: Chen Zaoli (USTC)
-
-**Edge statistics of random band matrices**
-
-Random band matrices are interpolation models between Wigner matrices and random Schr\"odinger operators. When the bandwidth changes at different rates relative to the system size, the eigenvalues of band matrices exhibit two distinct behaviors: Wigner matrix eigenvalue statistics and Poisson eigenvalue statistics.
-
-In this talk, we consider the edge statistics of band matrices and discuss the mechanism behind the transition between Wigner statistics and Poisson statistics of eigenvalues. Our discussion involves a type of Feynman diagram expansion and Feynman integral estimates. This discussion is based on collaborative work with Professor Dang-Zheng Liu (USTC), arxiv:2401.00492.
-
-带状矩阵的边界谱分布
-
-随机带状矩阵是 Wigner 矩阵和随机薛定谔算子之间的插值模型。当带宽相对系统大小以不同速率变化，带状矩阵的特征值会出现两种不同行为：Wigner 矩阵特征值统计和 Poisson 特征值统计。
-
-本次报告我们考虑带状矩阵的边缘谱分布特征值 Wigner 统计 / Poisson 统计转变背后的机制。我们的讨论会涉及到一类 Feynamn 图展开和 Feynman 积分估计。这次讨论基于我和刘党政教授（USTC）的合作工作 arxiv:2401.00492
-
+*Our speaker guided us through the paper -- Approximate Message Passing Algorithms for Rotationally Invariant Matrices. The goal is to develop an extension of the well-known AMP algorithm from the i.i.d. scenario to the correlated scenario whose distribution is invariant under orthogonal conjugations. The main result established the joint convergence of all iterations to a Gaussian limit, whose covariance matrix are obtained from various tools: Stein's lemma, free cumulants, Bolthausen's conditioning technique, etc. It is wonderful to begin this year's seminar series with such a solid talk! -- Chen Zaoli*
 
 <div class="pagination">
   <a class="previous" href="/seminar/index">Previous Page</a>
