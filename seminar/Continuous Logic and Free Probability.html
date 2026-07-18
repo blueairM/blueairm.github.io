@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Continuous Logic and Free Probability | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Continuous Logic and Free Probability</h2>
+        
+        <section class="post-content">
+            <p>This webpage is about the 2025 seminar on <em>Continuous Logic and
+Free Probability</em>. There are <em>NINE</em> lecturers from diverse
+universities to give related talks. Titles and abstracts are updated on
+this webpage.</p>
+<h2 id="summary">Summary</h2>
+<p>2025/09/19, 10:00 a.m., <a target="_blank" rel="noopener" href="https://meeting.tencent.com/crm/2aZ5RQd890">Tencent
+Meeting</a></p>
+<p>Hu Yuqi (UC Irvine) Reviewer: Wang Wei (SYSU)</p>
+<p><strong>Basic continuous model theory</strong></p>
+<p>I will discuss continuous logic and show how it can be used to extend
+Voiculescu's free entropy of microstates to model-theoretic types. I
+will also present some results and open problems related to the analogy
+between microstates and types.</p>
+<p>在本报告中，我将探讨连续逻辑，并展示如何利用它将 Voiculescu
+的自由微态熵推广至模型论类型。此外，我将介绍关于微态与类型类比方面的现有研究成果和未解之谜。</p>
+<p>References:</p>
+<p>[1] Isaac Goldbring (Ed.) Model Theory of Operator Algebras.</p>
+<p><em>Dr. Hu discusses the basic concepts of continuous logic and free
+probability theory and their applications in model theory, with
+particular attention to the developement of free probability theory
+based on continuous logic, as well as proving a major theorem of
+Voiculescu's free entropy from the perspective of continuous logic. --
+Wang Wei</em></p>
+<p>2025/10/03, 9:30 a.m., <a target="_blank" rel="noopener" href="https://meeting.tencent.com/crm/KnOkBqP1b6">Tencent Meeting</a>
+Password: LQL2</p>
+<p>Li Xiangchao (USTC) Reviewer: Xu Yuanyuan (CAS)</p>
+<p><strong>Central limit theorem for mesoscopic eigenvalue statistics of
+the free sum of matrices</strong></p>
+<p>This paper studies the central limit theorem (CLT) for mesoscopic
+eigenvalue statistics of the free sum of random matrices. Consider
+matrices of the form: <span class="math display">\[H_N = A_N + U_N B_N
+U_N^*,\]</span> where <span class="math inline">\(A_N, B_N\)</span> are
+deterministic Hermitian matrices, and <span class="math inline">\(U_N\)</span> is a Haar-distributed random unitary
+(or orthogonal) matrix. The focus is on linear eigenvalue statistics:
+<span class="math display">\[\sum_{i=1}^N g\left(\frac{\lambda_i -
+E}{\eta}\right) - \mathbb{E}\sum_{i=1}^N g\left(\frac{\lambda_i -
+E}{\eta}\right)\]</span> within the mesoscopic regime <span class="math inline">\(N^{-1} \ll \eta \ll 1\)</span> in the regular bulk
+of the spectrum. The main result establishes convergence to a centered
+Gaussian random variable with variance: <span class="math display">\[\frac{1}{2\beta\pi^2}
+\int_{\mathbb{R}}\int_{\mathbb{R}} \frac{(g(x_1) - g(x_2))^2}{(x_1 -
+x_2)^2} dx_1 dx_2 = \frac{1}{\beta\pi} \int_{\mathbb{R}}
+|\xi||\hat{g}(\xi)|^2 d\xi,
+\]</span> where <span class="math inline">\(\beta = 2\)</span> (unitary
+case) or <span class="math inline">\(\beta = 1\)</span> (orthogonal
+case). The proof uses:</p>
+<ul>
+<li><p>Characteristic function analysis of linear statistics.</p></li>
+<li><p>Ward identities from Haar measure invariance.</p></li>
+<li><p>Local laws for resolvents, e.g., <span class="math inline">\(|G_{ij}(z) - \frac{1}{a_i -
+\omega_B(z)}\delta_{ij}| \prec
+\frac{1}{\sqrt{N|\eta|}}\)</span>.</p></li>
+<li><p>Analytic subordination properties of free additive convolution:
+<span class="math display">\[F_{\mu_A}(\omega_B(z)) =
+F_{\mu_B}(\omega_A(z)), \quad F_\mu(z) = -1/m_\mu(z).\]</span>
+Extensions include:</p></li>
+<li><p>Orthogonal conjugation case (<span class="math inline">\(H_N = A
++ OBO^T\)</span>).</p></li>
+<li><p>Edge behavior with modified variance and bias terms.</p></li>
+</ul>
+<p>This work connects to universality in random matrix theory and free
+probability, providing a unified framework for mesoscopic
+fluctuations.</p>
+<p><em>The report mainly focused on the indepth discussion of random
+matrix theory on free sums. It explored the universality in the bulk and
+special behaviors at the edge. For the edge, analyzing its unique
+properties precisely, studying the relationship with other regions and
+how it behaves under Tracy-Widom limits are potential research
+directions.. -- Xu Yuanyuan</em></p>
+<p>2025/10/19, 09:30 a.m., <a href>Zoom</a></p>
+<p><a href="https://blueairm.github.io/">Wang Haoming</a> (SYSU)
+Reviewer: Koki Shimizu (TUS)</p>
+<p><strong>Some notes on simultaneous diagonalisable adjoint
+operators</strong></p>
+<p>This work is based on the proper orthogonal decomposition or
+Karhunen-Lo'eve theorem for stochastic processes. Four canonical digonal
+forms <span class="math inline">\(T_{1}\)</span>, <span class="math inline">\(T_{1\frac{1}{2}}\)</span>, <span class="math inline">\(T_{2}\)</span> and <span class="math inline">\(T_{3}\)</span> are considered.</p>
+<ul>
+<li><p>Four matrix normal distributions are introduced, extending the
+separable covariance <span class="math inline">\(\varPhi
+\otimes  \varPsi\)</span> with potentially variable-level (<span class="math inline">\(\varPsi\)</span>) and/or sample-level (<span class="math inline">\(\varPhi\)</span>) correlations.</p></li>
+<li><p>The corresponding Wishart distribution, matrix <span class="math inline">\(t\)</span>-distribution, matrix <span class="math inline">\(F\)</span>-distribution are considered in the
+finte sample case. Several well-known results, including the non-central
+Wishart distribution and normal quadratic forms, now appear as
+corollaries.</p></li>
+<li><p>Distributions of the largest and smallest roots in principle
+component analysis and analysis of variance are calculated, with
+discussion of future extensions to large sample studies.</p></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/a/wang_h_18.html">arXiv</a>.</p>
+<p><em>This study extends the classical matrix distribution theory under
+the Gaussian model by classifying covariance structures into four forms.
+Generalized Wishart and related distributions are presented, and further
+developments are expected for the complex case and the elliptical model.
+Numerical computation for the distributions in the special cases
+obtained remains a topic for future work. -- Koki Shimizu</em></p>
+<p>2025/10/31, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Qian Jin (ECNU) Reviewer: Song Shichang (BJTU)</p>
+<p><strong>Continuous model theory and local geometry of Banach
+space</strong></p>
+<p>In this talk, I will talk about model theoretic properties of finite
+representability and super-weak compactness of bounded convex metric
+spaces, and give a model theoretic proof of a result by Xiaoling Chen
+and Lixin Cheng on Kuratowski measure of noncompactness.</p>
+<p>Preprint.</p>
+<p><em>钱进同学发现了程立新之前在Banach空间几何的工作和连续模型论之间的联系,
+利用连续模型论给出了程立新关于Kuratowski测度的结果, 一个简洁的新证明. --
+宋诗畅</em></p>
+<p>2025/11/14, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.simis.cn/zh_cn/han-liu/">Liu Han</a> (Fudan)
+Reviewer: Liu Weihua (ZJU)</p>
+<p><strong>Asymptotic property C for certain wreath-like products of
+groups</strong></p>
+<p>In this paper, we present generalizations of some results on the
+asymptotic property C for wreath products. Specifically, we prove that
+certain wreath-like products admit asymptotic property C, thus providing
+some new examples for further studies.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2505.01268">Article</a> <em>To appear
+in Journal of Noncommutative Geometry</em>.</p>
+<p><em>本次报告中, 刘晗博士深入阐述了她在粗几何领域的最新研究成果.
+报告从格罗莫夫(Gromov)定义的渐进维数等核心概念入手,
+介绍了其工作在几何群论中的相关背景和问题,
+并展示了如何通过度量几何的基本框架并结合Wreath-like
+Product构造方法构建了一类新型的, 具有渐进性质C的群. -- 刘伟华</em></p>
+<p>2025/11/28, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Zhu Yue (CAS) Reviewer: Yang Fan* (Tsinghua) *male</p>
+<p><strong>The free probability approach to random matrices</strong></p>
+<p>This report offers an introduction to the powerful framework of free
+probability and its profound applications in random matrix theory. We
+will explore how the classical limit theorems, such as Wigner's
+semicircle law, find their natural explanation within this framework.
+The core concept of freeness - a non-commutative analogue of
+independence - will be introduced to explain the asymptotic behavior of
+large-dimensional random matrices. We will demonstrate how key tools
+like the R-transform and S-transform allow for the computation of
+limiting spectral distributions of sums and products of independent
+matrices through the operations of free additive and multiplicative
+convolution. This overview aims to illustrate why free probability has
+become the indispensable language for modern random matrix analysis.</p>
+<p><em>Dr. Zhu Yue introduces basic concepts of random matrices and free
+probability, with emphasis on GOE, GUE, GSE, and semi-circular elements.
+In an additive random matrix model with rank one perturbation, she
+illustrates how to combine novel methods from free probability to handle
+this problem by using the R-transformation and S-transformation. -- Wang
+Haoming</em></p>
+<p>2025/12/05, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/view/tingzhou-yu/home">Yu
+Tingzhou</a> (Alberta) Reviewer: Liu Weihua (ZJU)</p>
+<p><strong>The circular law of random combination matrices</strong></p>
+<p>This presentation will discuss recent findings on the spectral
+characteristics of <span class="math inline">\(n\times n\)</span> random
+combinatorial matrices <span class="math inline">\(M_n\)</span>, where
+each row is chosen independently and uniformly from the set of binary
+vectors containing exactly <span class="math inline">\(d\)</span> ones.
+Our research addresses two fundamental aspects of these matrices: the
+behavior of their smallest singular value and their limiting empirical
+spectral distribution (ESD).</p>
+<p>Firstly, we establish the circular law for <span class="math inline">\(M_n\)</span> under specific sparsity conditions.
+For <span class="math inline">\(\log^2 n\le d\le n/2\)</span>, we show
+that the ESD of an appropriately normalized version of <span class="math inline">\(M_n\)</span> converges in probability to the
+uniform distribution on the unit disk in the complex plane. A crucial
+ingredient in this proof involves deriving quantitative lower tail
+bounds for the smallest singular value of the shifted matrices <span class="math inline">\(M_n-zI_n\)</span>.</p>
+<p>Secondly, we investigate the smallest singular value <span class="math inline">\(s_n(M_n)\)</span> in the dense regime, where <span class="math inline">\(d=pn\)</span> for a fixed constant <span class="math inline">\(p\in (0, 1/2]\)</span>. We establish a
+probabilistic upper bound for <span class="math inline">\(s_n(M_n)\)</span>. This result complements
+existing lower bounds of the order <span class="math inline">\(\Omega(n^{-1/2})\)</span> and confirms that <span class="math inline">\(s_n(M_n)\)</span> is typically of the order <span class="math inline">\(n^{-1/2}\)</span> in this dense setting. These
+results are joint work with Dongbin Li and Alexander Litvak.</p>
+<p><em>该报告思路清晰, 技术路线严谨, 研究了(<span class="math inline">\(n\times n\)</span>)的随机组合矩阵,
+在稠密情形(<span class="math inline">\(d=pn\)</span>)下给出了最小奇异值的概率上界,
+补全了已有的下界; 报告还讨论了关于稀疏情形的定量结果.
+这一结果在编码理论与数值稳定性分析,
+特定的数据分析等领域具有很大的应用潜力. -- 何平安</em></p>
+<p>2025/12/19, 10:00 p.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://yl-zh.github.io/">Zhang Yilong</a> (Bonn) Reviewer:
+Will Johnson (Fudan)</p>
+<p><strong>Hrushovski construction in ordered fields</strong></p>
+<p>The Hrushovski construction is a variant of amalgamation methods. It
+was invented to construct new examples of strongly minimal theories. The
+method was later adapted to expansions of fields, including colored
+fields and powered fields. In this talk, I will present my attempt to
+apply the Hrushovski construction to ordered fields. I will construct an
+expansion of RCF by a dense multiplicative subgroup (green points). The
+construction induces a back-and-forth system, enabling us to study the
+dp-rank and the open core of this structure. I will also introduce my
+recent progress on powered fields, an expansion of RCF by "power
+functions" on the unit circle, and my plan to axiomatize expansions of
+the real field using the Hrushovski construction.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.01176">ArXiv</a>.</p>
+<p><em>Hrushovski constructions were invented by Hrushovski to construct
+counterexamples to the Zilber conjecture; they were later shown to
+axiomatize certain natural structures related to exponentiation and
+power maps. These constructions are usually carried out in the setting
+of stable theories, or even finite Morley rank theories. In his talk,
+Zhang Yilong explained how the machinery of (uncollapsed) Hrushovski
+constructions--including predimension functions and strong embeddings
+and Fraisse limits--can also be made to work in unstable settings like
+real closed fields (RCF). He used a Hrushovski construction in RCF to
+axiomatize an expansion of RCF by "power functions" on the unit circle.
+Zhang Yilong's work gives interesting new examples of strongly NIP
+theories, and introduces new techniques for building NIP
+counterexamples. The results also offer new insights into the model
+theory of exponentiation. -- Will Johnson</em></p>
+<p>2026/01/02, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://futwangalerda.github.io/">Wang Leda</a> (Yale)
+Reviewer: Chen Zaoli (USTC)</p>
+<p><strong>Approximate message passing algorithms for rotaionally
+invariant matrices</strong></p>
+<p>Approximate Message Passing (AMP) algorithms have seen widespread use
+across a variety of applications. However, the precise forms for their
+Onsager corrections and state evolutions depend on properties of the
+underlying random matrix ensemble, limiting the extent to which AMP
+algorithms derived for white noise may be applicable to data matrices
+that arise in practice. In this work, we study more general AMP
+algorithms for random matrices W that satisfy orthogonal rotational
+invariance in law, where W may have a spectral distribution that is
+different from the semicircle and Marcenko-Pastur laws characteristic of
+white noise. The Onsager corrections and state evolutions in these
+algorithms are defined by the free cumulants or rectangular free
+cumulants of the spectral distribution of W. Their forms were derived
+previously by Opper, Cakmak, and Winther using non-rigorous dynamic
+functional theory techniques, and we provide rigorous proofs.</p>
+<p>References:</p>
+<p>[1] Fan Zhou. Approximate Message Passing algorithms for rotationally
+invariant matrices. Ann. Stat. 50. (2022).</p>
+<p><em>Our speaker guided us through the paper -- Approximate Message
+Passing Algorithms for Rotationally Invariant Matrices. The goal is to
+develop an extension of the well-known AMP algorithm from the i.i.d.
+scenario to the correlated scenario whose distribution is invariant
+under orthogonal conjugations. The main result established the joint
+convergence of all iterations to a Gaussian limit, whose covariance
+matrix are obtained from various tools: Stein's lemma, free cumulants,
+Bolthausen's conditioning technique, etc. It is wonderful to begin this
+year's seminar series with such a solid talk! -- Chen Zaoli</em></p>
+<div class="pagination">
+<p><a class="previous" href="/seminar/index">Previous Page</a></p>
+</div>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

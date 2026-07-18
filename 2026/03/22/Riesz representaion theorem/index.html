@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Riesz Representation Theorem | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Riesz Representation Theorem</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 22, 2026&nbsp;&nbsp;0:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Notes/">Notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Let <span class="math inline">\((E,\mathscr{O})\)</span> be a compact
+Hausdorff space and <span class="math inline">\(\mathscr{B}\)</span> its
+Borel <span class="math inline">\(\sigma\)</span>-algebra. The set <span class="math inline">\(C = C(E)\)</span> consists of all continuous
+functions on <span class="math inline">\(E\)</span>, and is equipped
+with a complete norm <span class="math inline">\(\|f\| = \sup_{x\in
+E}|f(x)|\)</span>.</p>
+<p><a id="theorem-rmk"></a></p>
+<h2 id="theorem-1">Theorem 1</h2>
+<p>Every positive continuous linear functional <span class="math inline">\(\ell\)</span> on the Banach space <span class="math inline">\(C\)</span> can be represented as</p>
+<p><span class="math display">\[
+\ell(f) = \int_{E} f(x)\mu(dx), \tag{*}
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is a Borel measure on
+<span class="math inline">\(E\)</span> with finite total variation.</p>
+<p><a id="lemma-pu"></a></p>
+<h2 id="lemma-1">Lemma 1</h2>
+<p>Suppose <span class="math inline">\(\{E_1,E_2,\dots,E_n\}\)</span> is
+an open covering of <span class="math inline">\(E\)</span>. There exist
+continuous functions <span class="math inline">\(h_1,h_2,\dots,h_n\)</span> satisfying</p>
+<ol type="1">
+<li><span class="math inline">\(\forall 1\leq i \leq n,
+\operatorname{supp}(h_i) \subset E_i\)</span>;</li>
+<li><span class="math inline">\(\forall 1\leq i \leq n, x\in E, 0\leq
+h_i(x) \leq 1\)</span>;</li>
+<li><span class="math inline">\(\forall x \in E, \sum_{i=1}^n h_i(x)
+=1\)</span>.</li>
+</ol>
+<h3 id="proof-of-lemma-1">Proof of Lemma 1</h3>
+<p>Define <span class="math inline">\(F_1 = E \backslash \cup_{j=2}^n
+E_j\)</span> which is closed and <span class="math inline">\(F_1 \subset
+E_1\)</span>. Since <span class="math inline">\(E\)</span> is compact
+Hausdorff, it is also Tychonoff, where open sets separate two disjoint
+closed sets. Thus, there exists an open set <span class="math inline">\(V_1\)</span> such that <span class="math inline">\(F_1 \subset V_1 \subset \bar{V_1} \subset
+E_1\)</span>. By construction, <span class="math inline">\(\{V_1, E_2,
+\dots, E_n\}\)</span> is an open cover of <span class="math inline">\(E\)</span>. Inductively, we can prove that there
+exists an open cover <span class="math inline">\(\{V_1,\dots,V_n\}\)</span> that is also a
+refinement of <span class="math inline">\(\{E_1,E_2,\dots,E_n\}\)</span>
+and <span class="math inline">\(\bar{V_i} \subset E_i\)</span> for each
+<span class="math inline">\(1\leq i \leq n\)</span>. For each <span class="math inline">\(i\)</span>, the sets <span class="math inline">\(\bar{V_i}\)</span> and <span class="math inline">\(E_i^c\)</span> are disjoint closed sets. By the
+Urysohn lemma, there exists a continuous function <span class="math inline">\(g_i:E \to [0,1]\)</span> such that <span class="math inline">\(g_i(x)=1\)</span> for <span class="math inline">\(x\in \bar{V_i}\)</span> and <span class="math inline">\(g_i(x)=0\)</span> for <span class="math inline">\(x\in E_i^c\)</span>. Thus, <span class="math inline">\(\operatorname{supp}(g_i) \subset E_i\)</span>.
+Define <span class="math inline">\(G(x) = \sum_{i=1}^n g_i(x)\)</span>.
+Since <span class="math inline">\(\{V_1,\dots,V_n\}\)</span> covers
+<span class="math inline">\(E\)</span>, for any <span class="math inline">\(x\in E\)</span>, there is at least one index <span class="math inline">\(j\)</span> such that <span class="math inline">\(x\in V_j \subset \bar{V_j}\)</span>, meaning <span class="math inline">\(g_j(x)=1\)</span>. Therefore, <span class="math inline">\(G(x) \geq 1\)</span> for all <span class="math inline">\(x\in E\)</span>. Define <span class="math inline">\(h_i(x) = {g_i(x)}/{G(x)}\)</span>, which fulfills
+(1)-(3).</p>
+<h3 id="proof-of-theorem-1">Proof of Theorem 1</h3>
+<h3 id="step-1">Step 1</h3>
+<p>Define for any open set <span class="math inline">\(O \in
+\mathscr{O}\)</span>,</p>
+<p><span class="math display">\[
+\mu(O) = \sup \left\{\ell(f):f\in C, 0 \le f \le 1,
+\operatorname{supp}(f) \subset O\right\}.
+\]</span></p>
+<p>By the Urysohn lemma, this set on the RHS is non-empty. We need to
+show that</p>
+<p><strong>1.1.</strong> <span class="math inline">\(\mu(\cup_n O_n) =
+\lim_n \mu(\sum_{m=1}^nO_m)\)</span> for <span class="math inline">\(O_n
+\in \mathscr{O}\)</span>.</p>
+<p>For any <span class="math inline">\(f \in C\)</span> with <span class="math inline">\(0 \le f \le 1\)</span> and <span class="math inline">\(K = \operatorname{supp}(f) \subset O =
+\cup_{n=1}^\infty O_n\)</span>. Since <span class="math inline">\(\{O_n\}\)</span> is an open cover of <span class="math inline">\(K\)</span>, there exists a finite subcover such
+that <span class="math inline">\(K \subset \cup_{m=1}^{n_0} O_m\)</span>
+for some integer <span class="math inline">\({n_0}\)</span>. Thus, <span class="math inline">\(\ell(f) \le \mu(\cup_{m=1}^{n_0} O_m) \le
+\lim_{n\to\infty} \mu(\cup_{m=1}^n O_m)\)</span>. Taking the supremum
+over all such <span class="math inline">\(f\)</span> yields <span class="math inline">\(\mu(O) \le \lim_{n\to\infty} \mu(\cup_{m=1}^n
+O_m)\)</span>. The reverse inequality holds trivially by the
+monotonicity of the supremum.</p>
+<h3 id="step-2">Step 2</h3>
+<p>Define for any subset <span class="math inline">\(A \in
+2^E\)</span>,</p>
+<p><span class="math display">\[
+\mu^*(A) = \inf \left\{\mu(O): O \in \mathscr{O}, A \subset O \right\}.
+\]</span></p>
+<p>We need to show that</p>
+<h3 id="claim-2.1">Claim 2.1</h3>
+<p><span class="math inline">\(\mu^*(\cup_n A_n) \le \sum_{n}
+\mu^*(A_n)\)</span> for <span class="math inline">\(A_n \in
+2^E\)</span>.</p>
+<p>If <span class="math inline">\(\sum_{n=1}^\infty \mu^*(A_n) =
+\infty\)</span>, the inequality is trivial. Assume the sum is finite.
+For any <span class="math inline">\(\varepsilon &gt; 0\)</span> and each
+<span class="math inline">\(n\)</span>, there exists <span class="math inline">\(O_n \in \mathscr{O}\)</span> with <span class="math inline">\(A_n \subset O_n\)</span> such that <span class="math inline">\(\mu(O_n) &lt; \mu^*(A_n) +
+{\varepsilon}/{2^n}\)</span>. Denote <span class="math inline">\(O =
+\cup_{n=1}^\infty O_n \in \mathscr{O}\)</span>. Then <span class="math inline">\(A = \cup_{n=1}^\infty A_n \subset O\)</span>, and
+by Step 1.1 and finite subadditivity on open sets, <span class="math inline">\(\mu^*(A) \le \mu(O) \le \sum_{n=1}^\infty \mu(O_n)
+&lt; \sum_{n=1}^\infty \mu^*(A_n) + \varepsilon\)</span>. Since <span class="math inline">\(\varepsilon\)</span> is arbitrary, the countable
+subadditivity follows.</p>
+<h3 id="step-3">Step 3</h3>
+<p>A subset <span class="math inline">\(B \in 2^E\)</span> is said to
+satisfy the Carathéodory condition if <span class="math inline">\(\mu^*(A) = \mu^*(A\cap B) + \mu^*(A\cap B^c)
+\text{ for all } A \in 2^E\)</span>. We need to show</p>
+<h3 id="claim-31">Claim 3,1</h3>
+<p>All subsets satisfying Carathéodory condition are indeed a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\bar{\mathscr{B}}\)</span> that contains <span class="math inline">\(\mathscr{O}\)</span>.</p>
+<h3 id="claim-3.2">Claim 3.2</h3>
+<p><span class="math inline">\(\mu^*|_{\bar{\mathscr{B}}}\)</span> is a
+measure.</p>
+<p>To show <span class="math inline">\(\mathscr{O} \subset
+\bar{\mathscr{B}}\)</span>, it suffices to show that any closed set
+<span class="math inline">\(F \subset E\)</span> is <span class="math inline">\(\mu^*\)</span>-measurable. Since subadditivity
+already provides <span class="math inline">\(\mu^*(A) \le \mu^*(A \cap
+F) + \mu^*(A \backslash F)\)</span>, we only need the reverse
+inequality. Fix <span class="math inline">\(A \in 2^E\)</span> and <span class="math inline">\(\varepsilon &gt; 0\)</span>. By the definition of
+<span class="math inline">\(\mu^*\)</span>, there exists an open set
+<span class="math inline">\(O \supset A\)</span> such that <span class="math inline">\(\mu(O) &lt; \mu^*(A) + \varepsilon.\)</span> Since
+<span class="math inline">\(A \cap F \subset O \cap F\)</span> and <span class="math inline">\(A \backslash F \subset O \backslash F\)</span>, it
+is sufficient to show <span class="math inline">\(\mu(O) \ge \mu^*(O
+\cap F) + \mu(O \backslash F)\)</span>. Since <span class="math inline">\(O \backslash F\)</span> is open, there exists
+<span class="math inline">\(g_2 \in C\)</span> with <span class="math inline">\(0 \le g_2 \le 1\)</span>, <span class="math inline">\(\operatorname{supp}(g_2) \subset O \backslash
+F\)</span>, and <span class="math inline">\(\ell(g_2) &gt; \mu(O
+\backslash F) - \varepsilon\)</span>. Let <span class="math inline">\(U
+= O \backslash \operatorname{supp}(g_2)\)</span>. Then <span class="math inline">\(U\)</span> is an open set containing <span class="math inline">\(O \cap F\)</span>. By the definition of <span class="math inline">\(\mu(U)\)</span>, there exists <span class="math inline">\(g_1 \in C\)</span> with <span class="math inline">\(0 \le g_1 \le 1\)</span>, <span class="math inline">\(\operatorname{supp}(g_1) \subset U\)</span>, and
+<span class="math inline">\(\ell(g_1) &gt; \mu(U) - \varepsilon \ge
+\mu^*(O \cap F) - \varepsilon\)</span>. Since <span class="math inline">\(\operatorname{supp}(g_1) \cap
+\operatorname{supp}(g_2) = \emptyset\)</span>, we have <span class="math inline">\(0 \le g_1 + g_2 \le 1\)</span> and <span class="math inline">\(\operatorname{supp}(g_1 + g_2) \subset O\)</span>.
+By the linearity of <span class="math inline">\(\ell\)</span> and the
+definition of <span class="math inline">\(\mu(O)\)</span>,</p>
+<p><span class="math display">\[
+\mu(O) \ge \ell(g_1 + g_2) = \ell(g_1) + \ell(g_2) &gt; \mu^*(O \cap F)
++ \mu(O \backslash F) - 2\varepsilon.
+\]</span></p>
+<p>As <span class="math inline">\(\varepsilon \to 0\)</span>, we obtain
+<span class="math inline">\(\mu^*(A) \ge \mu^*(A \cap F) + \mu^*(A
+\backslash F)\)</span>. Thus <span class="math inline">\(F \in
+\bar{\mathscr{B}}\)</span>, which implies <span class="math inline">\(\mathscr{O} \subset \bar{\mathscr{B}}\)</span>. By
+Carathéodory's Extension Theorem, <span class="math inline">\(\bar{\mathscr{B}}\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra containing <span class="math inline">\(\mathscr{B}\)</span>, and <span class="math inline">\(\mu^*|_{\bar{\mathscr{B}}}\)</span> is a complete
+measure.</p>
+<h3 id="step-4">Step 4</h3>
+<p>By <a href="#lemma-pu">Lemma 1</a>, we will show (*) is valid.</p>
+<p>Assume without loss of generality that <span class="math inline">\(f
+\ge 0\)</span> with its range in <span class="math inline">\([0,
+M]\)</span>. For any <span class="math inline">\(\delta &gt; 0\)</span>,
+partition <span class="math inline">\([0, M]\)</span> with <span class="math inline">\(0 = y_0 &lt; y_1 &lt; \dots &lt; y_m = M\)</span>
+such that <span class="math inline">\(y_i - y_{i-1} &lt;
+\delta\)</span>. Define <span class="math inline">\(E_i = \{x \in E :
+y_{i-1} - \delta &lt; f(x) &lt; y_i + \delta\} \in \mathscr{O}\)</span>.
+By <a href="#lemma-pu">Lemma 1</a>, there exists a partition of unity
+<span class="math inline">\(\{h_1, \dots, h_m\}\)</span> subordinate to
+<span class="math inline">\(\{E_i\}\)</span>. Since <span class="math inline">\(f = \sum_{i=1}^m f h_i\)</span> and <span class="math inline">\((y_{i-1} - \delta )h_i(x) \le f(x) h_i(x) \le (y_i
++ \delta)h_i(x)\)</span>, applying <span class="math inline">\(\ell\)</span> yields</p>
+<p><span class="math display">\[
+\sum_{i=1}^m (y_{i-1} - \delta)\ell(h_i) \le \ell(f) \le \sum_{i=1}^m
+(y_i + \delta)\ell(h_i).
+\]</span></p>
+<p>Integrating with respect to <span class="math inline">\(\mu\)</span>
+yields identical bounds</p>
+<p><span class="math display">\[
+\sum_{i=1}^m (y_{i-1} - \delta)\int_E h_i(x)\mu(dx) \le \int_E
+f(x)\mu(dx) \le \sum_{i=1}^m (y_i + \delta)\int_E h_i(x)\mu(dx).
+\]</span></p>
+<p>By the construction of <span class="math inline">\(\mu\)</span> on
+open sets, <span class="math inline">\(\ell(h_i) = \int_E
+h_i(x)\mu(dx)\)</span>. Because <span class="math inline">\(y_i -
+y_{i-1} &lt; \delta\)</span>, the upper and lower bounds are within
+<span class="math inline">\(2\delta \cdot \mu(E)\)</span> of each other.
+Since <span class="math inline">\(\delta &gt; 0\)</span> is arbitrary,
+we conclude that <span class="math inline">\(\ell(f) = \int_E
+f(x)\mu(dx)\)</span>.</p>
+<p><a href="#theorem-rmk">Theorem 1</a> can be extended to any
+continuous linear functional on <span class="math inline">\(C\)</span>,
+possibly non-positive due to the Banach lattice property of <span class="math inline">\(C\)</span>. Let <span class="math inline">\(C^+ =
+\{f \in C: f\ge 0\}\)</span>, a positive cone satisfying <span class="math inline">\(c_1f_1+c_2f_2 \in C^+\)</span> for all <span class="math inline">\(c_1,c_2 \ge 0\)</span> and <span class="math inline">\(f_1,f_2\in C^+\)</span>. It's easy to observe that
+<span class="math inline">\(C = C^+ - C^+\)</span>.</p>
+<p><a id="theorem-rmk-2"></a></p>
+<h2 id="theorem-2">Theorem 2</h2>
+<p>Every continuous linear functional on <span class="math inline">\(C\)</span> has a representation (*), where <span class="math inline">\(\mu\)</span> is a signed Borel measure on <span class="math inline">\(E\)</span> with finite total variation.</p>
+<h3 id="proof">Proof</h3>
+<h3 id="step-1-1">Step 1</h3>
+<p>For each <span class="math inline">\(f \in C^+\)</span>, define <span class="math inline">\(\ell^+(f)=\sup{\ell(g):0\leq g\leq f}.\)</span>
+Clearly, <span class="math inline">\(\ell^+(f)\geq \ell(0)=0.\)</span>
+Moreover, since <span class="math inline">\(\ell\)</span> is continuous,
+for every <span class="math inline">\(g\)</span> satisfying <span class="math inline">\(0\leq g\leq f\)</span>, we have <span class="math inline">\(|\ell(g)|\leq|\ell|,|g|\leq|\ell|,|f|.\)</span>
+Thus, <span class="math inline">\(\ell^+(f)\)</span> is finite. We will
+prove that</p>
+<h3 id="claim-11">Claim 1,1</h3>
+<p><span class="math inline">\(\ell^+\)</span> is additive and
+positively homogeneous on <span class="math inline">\(C^+\)</span>.</p>
+<h3 id="claim-1.2">Claim 1.2</h3>
+<p><span class="math inline">\(\ell^+\)</span> extends uniquely to a
+positive linear functional on <span class="math inline">\(C\)</span>.</p>
+<p>To prove 1.1, let <span class="math inline">\(f_1,f_2\in
+C^+\)</span>. For any <span class="math inline">\(g_1,g_2\in
+C^+\)</span> satisfying <span class="math inline">\(0\leq g_1\leq
+f_1,0\leq g_2\leq f_2,\)</span> we have <span class="math inline">\(0\leq g_1+g_2\leq f_1+f_2.\)</span> Therefore,
+<span class="math inline">\(\ell(g_1)+\ell(g_2) =
+\ell(g_1+g_2)\leq\ell^+(f_1+f_2).\)</span> Taking the supremum over all
+admissible <span class="math inline">\(g_1\)</span> and <span class="math inline">\(g_2\)</span> gives <span class="math inline">\(\ell^+(f_1)+\ell^+(f_2)\leq\ell^+(f_1+f_2).\)</span></p>
+<p>Conversely, let <span class="math inline">\(g\in C^+\)</span> satisfy
+<span class="math inline">\(0\leq g\leq f_1+f_2.\)</span> Define <span class="math inline">\(g_1=\min(g,f_1),g_2=g-g_1.\)</span> Then <span class="math inline">\(0\leq g_1\leq f_1.\)</span> Moreover, <span class="math inline">\(g_2 = g-\min(g,f_1) = \max(g-f_1,0),\)</span> and
+since <span class="math inline">\(g\leq f_1+f_2\)</span>, it follows
+that <span class="math inline">\(0\leq g_2\leq f_2.\)</span> Hence,
+<span class="math inline">\(\ell(g)=\ell(g_1)+\ell(g_2)\leq\ell^+(f_1)+\ell^+(f_2).\)</span>
+Taking the supremum over all <span class="math inline">\(g\)</span>
+satisfying <span class="math inline">\(0\leq g\leq f_1+f_2\)</span>, we
+obtain <span class="math inline">\(\ell^+(f_1+f_2)\leq\ell^+(f_1)+\ell^+(f_2).\)</span>
+Therefore, <span class="math inline">\(\ell^+(f_1+f_2)=\ell^+(f_1)+\ell^+(f_2).\)</span></p>
+<p>It remains to verify positive homogeneity. Let <span class="math inline">\(c\geq 0\)</span>. If <span class="math inline">\(c=0\)</span>, the assertion is immediate. If <span class="math inline">\(c&gt;0\)</span>, then every <span class="math inline">\(g\)</span> satisfying <span class="math inline">\(0\leq g\leq cf\)</span> can be written as <span class="math inline">\(g=ch\)</span> for some <span class="math inline">\(h\)</span> satisfying <span class="math inline">\(0\leq h\leq f\)</span>. Hence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell^+(cf)
+&amp; =
+\sup\{\ell(g):0\leq g\leq cf\}
+=
+\sup\{\ell(ch):0\leq h\leq f\}\\
+&amp; =
+c\sup\{\ell(h):0\leq h\leq f\}
+=
+c\ell^+(f).
+\end{aligned}
+\]</span></p>
+<p>Thus, <span class="math inline">\(\ell^+\)</span> is additive and
+positively homogeneous on <span class="math inline">\(C^+\)</span>.</p>
+<p>To prove 1.2, let <span class="math inline">\(f\in C\)</span>. Since
+<span class="math inline">\(f=f^+-f^-\)</span> where <span class="math inline">\(f^+=\max(f,0),f^-=\max(-f,0),\)</span> define
+<span class="math inline">\(\ell^+(f) =
+\ell^+(f^+)-\ell^+(f^-).\)</span> More generally, suppose that <span class="math inline">\(f\)</span> has two decompositions <span class="math inline">\(f=f_1-f_2=g_1-g_2,\)</span> where <span class="math inline">\(f_i,g_i\in C^+\)</span> for <span class="math inline">\(i=1,2\)</span>. Then <span class="math inline">\(f_1+g_2=g_1+f_2.\)</span> Since <span class="math inline">\(\ell^+\)</span> is additive on <span class="math inline">\(C^+\)</span>, we have <span class="math inline">\(\ell^+(f_1)+\ell^+(g_2)=\ell^+(g_1)+\ell^+(f_2).\)</span>
+Therefore, <span class="math inline">\(\ell^+(f_1)-\ell^+(f_2)=
+\ell^+(g_1)-\ell^+(g_2).\)</span> Thus, the definition of <span class="math inline">\(\ell^+(f)\)</span> is independent of the chosen
+decomposition. Let <span class="math inline">\(f,g\in C\)</span>. Choose
+decompositions <span class="math inline">\(f=f_1-f_2,
+g=g_1-g_2,\)</span> with <span class="math inline">\(f_i,g_i\in
+C^+\)</span>. Then <span class="math inline">\(f+g=(f_1+g_1)-(f_2+g_2),\)</span> and hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell^+(f+g)
+&amp; =
+\ell^+(f_1+g_1)-\ell^+(f_2+g_2)\\
+&amp;=
+\ell^+(f_1)+\ell^+(g_1)
+-\ell^+(f_2)-\ell^+(g_2)\\
+&amp;=
+\ell^+(f)+\ell^+(g).
+\end{aligned}
+\]</span></p>
+<p>Similarly, if <span class="math inline">\(c\geq 0\)</span>, then
+<span class="math inline">\(cf=cf_1-cf_2,\)</span> so <span class="math inline">\(\ell^+(cf)=c\ell^+(f).\)</span> If <span class="math inline">\(c&lt;0\)</span>, then <span class="math inline">\(cf=(-c)f_2-(-c)f_1,\)</span> and therefore <span class="math inline">\(\ell^+(cf)=c\ell^+(f).\)</span> Thus, <span class="math inline">\(\ell^+\)</span> extends uniquely to a linear
+functional on <span class="math inline">\(C\)</span>. Since <span class="math inline">\(\ell^+(f)\geq 0\)</span> whenever <span class="math inline">\(f\in C^+\)</span>, this extension is positive.</p>
+<h3 id="step-2-1">Step 2</h3>
+<p>Define <span class="math inline">\(\ell^-=\ell^+-\ell.\)</span> For
+every <span class="math inline">\(f\in C^+\)</span>, the function <span class="math inline">\(g=f\)</span> is admissible in the definition of
+<span class="math inline">\(\ell^+(f)\)</span>. Hence, <span class="math inline">\(\ell^+(f)\geq \ell(f).\)</span> Therefore, <span class="math inline">\(\ell^-(f)=\ell^+(f)-\ell(f)\geq 0.\)</span> Thus,
+<span class="math inline">\(\ell^-\)</span> is also a positive linear
+functional, and <span class="math inline">\(\ell=\ell^+-\ell^-.\)</span>
+Moreover, every positive linear functional on <span class="math inline">\(C\)</span> is continuous. Indeed, if <span class="math inline">\(f\in C\)</span>, then <span class="math inline">\(-|f|\mathbf 1\leq f \leq|f|\mathbf 1.\)</span> By
+positivity, <span class="math inline">\(-|f|\ell^+(\mathbf
+1)\leq\ell^+(f)\leq|f|\ell^+(\mathbf 1),\)</span> and consequently,
+<span class="math inline">\(|\ell^+(f)|\leq\ell^+(\mathbf
+1)|f|.\)</span> The same argument applies to <span class="math inline">\(\ell^-\)</span>.</p>
+<h3 id="step-3-1">Step 3</h3>
+<p>By <a href="#theorem-rmk">Theorem 1</a>, there exist finite positive
+Borel measures <span class="math inline">\(\mu^+\)</span> and <span class="math inline">\(\mu^-\)</span> on <span class="math inline">\(E\)</span> such that <span class="math inline">\(\ell^+(f)=\int_E f(x),\mu^+(dx)\)</span> and <span class="math inline">\(\ell^-(f)=\int_E f(x),\mu^-(dx)\)</span> for every
+<span class="math inline">\(f\in C\)</span>. Define <span class="math inline">\(\mu=\mu^+-\mu^-.\)</span> Then <span class="math inline">\(\mu\)</span> is a signed Borel measure, and for
+every <span class="math inline">\(f\in C\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell(f)
+=
+\ell^+(f)-\ell^-(f)
+=
+\int_E f(x)\mu^+(dx)-
+\int_E f(x)\mu^-(dx)=
+\int_E f(x)\mu(dx).
+\end{aligned}
+\]</span></p>
+<p>Furthermore, <span class="math inline">\(|\mu|(E)\leq\mu^+(E)+\mu^-(E)&lt;\infty.\)</span>
+Hence, <span class="math inline">\(\mu\)</span> has finite total
+variation. <span class="math inline">\(\square\)</span></p>
+<p>Also, for a locally compact, second-countable Hausdorff space <span class="math inline">\(E′\)</span>, we know that it is paracompact, which
+means any open covering has a locally finite refinement that is also an
+open covering. In such a space, we have a similar proposition. Let’s
+denote all bounded continuous functions on <span class="math inline">\(E′\)</span> as <span class="math inline">\(C′ =
+C_0(E′)\)</span> where</p>
+<p><span class="math display">\[
+C_0(E&#39;) = \{\forall \varepsilon&gt;0 \exists K \Subset E&#39; \text{
+such that } |f(x)|&lt;\varepsilon \text{ for all }x \notin K.\}
+\]</span></p>
+<p><a id="theorem-rmk-3"></a></p>
+<h2 id="theorem-3">Theorem 3</h2>
+<p>Every continuous linear functional on <span class="math inline">\(C&#39;\)</span> has a representation (*), where
+<span class="math inline">\(\mu\)</span> is a locally finite signed
+Borel measure on <span class="math inline">\(E\)</span> with finite
+total variation.</p>
+<p><a id="lemma-pu-2"></a></p>
+<h2 id="lemma-2">Lemma 2</h2>
+<p>Suppose <span class="math inline">\(\{E_\alpha\}_{\alpha\in
+I}\)</span> is an open covering of some topological space <span class="math inline">\(E\)</span>. <span class="math inline">\(E\)</span>
+is paracompact if and only if there exist continuous functions <span class="math inline">\(\{h_{\alpha}\}_{\alpha\in I}\)</span>
+satisfying</p>
+<ol type="1">
+<li><span class="math inline">\(\forall \alpha \in I,
+\operatorname{supp}(h_\alpha) \subset E_\alpha\)</span>;</li>
+<li><span class="math inline">\(\forall \alpha \in I, x\in E, 0\leq
+h_\alpha (x) \leq 1\)</span>;</li>
+<li><span class="math inline">\(\forall x \in E,\)</span> there exists
+finite index set <span class="math inline">\(I_0(x) = \{\alpha\in I:
+h_{\alpha}(x) \neq 0\}\)</span> such that <span class="math inline">\(\sum_{\alpha \in I_0(x)} h_{\alpha}(x)
+=1\)</span>.</li>
+</ol>
+<p>Based on <a href="#lemma-pu-2">Lemma 2</a>, <a href="#theorem-rmk-3">Theorem 3</a> can be seen as a combination of <a href="#theorem-rmk">Theorem 1</a> and <a href="#theorem-rmk-2">Theorem
+2</a>, whose proof is the same in essence.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2026/03/22/Riesz%20representaion%20theorem/">http://blueairm.github.io/2026/03/22/Riesz%20representaion%20theorem/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Measures-and-Topology/"># Measures and Topology</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/06/17/Zilber%20Trichotomy/">Zilber's Trichotomy</a>
+            
+            
+            <a class="next" rel="next" href="/2026/01/07/Grassmanian/">The Volumn of Grassmanianns</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
