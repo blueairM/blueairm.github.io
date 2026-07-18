@@ -349,80 +349,42 @@ logic</h2>
 \sigma)\)</span> consists of a non-empty domain <span class="math inline">\(M\)</span> and an interpretation <span class="math inline">\(\sigma: f \to \sigma(f)\)</span> that maps each
 constant, relation, or function symbol to an element or a subset <span class="math inline">\(M^{n_f}\)</span> where <span class="math inline">\(n_f\)</span> is the arity for the symbol <span class="math inline">\(f\)</span>. A truth assignment for <span class="math inline">\(\mathfrak A\)</span> is a map <span class="math inline">\(\chi:\{x_1,x_2,\dots\} \to M\)</span>.</p>
 <p>The semantics of first-order logic is the satisfaction relation <span class="math inline">\((\mathfrak A,\chi) \models \varphi\)</span> which
-is defined by</p>
-<table>
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<thead>
-<tr>
-<th>Induction Rules</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models t_1 =
-t_2\)</span></td>
-<td>iff <span class="math inline">\((\mathfrak A,\chi)(t_1)=(\mathfrak
-A,\chi)(t_2)\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models R t_1 \ldots
-t_n\)</span></td>
-<td>iff <span class="math inline">\(R^{\mathfrak{A}} (\mathfrak
-A,\chi)(t_1) \ldots (\mathfrak A,\chi)(t_n)\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \vDash \neg
-\varphi\)</span></td>
-<td>iff not <span class="math inline">\((\mathfrak A,\chi) \models
-\varphi\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models (\varphi
-\wedge \psi)\)</span></td>
-<td>iff <span class="math inline">\((\mathfrak A,\chi) \models
-\varphi\)</span> and <span class="math inline">\((\mathfrak A,\chi)
-\models \psi\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models (\varphi \vee
-\psi)\)</span></td>
-<td>iff <span class="math inline">\((\mathfrak A,\chi) \models
-\varphi\)</span> or <span class="math inline">\((\mathfrak A,\chi)
-\models \psi\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \vDash (\varphi
-\rightarrow \psi)\)</span></td>
-<td>iff if <span class="math inline">\((\mathfrak A,\chi) \models
-\varphi\)</span>, then <span class="math inline">\((\mathfrak A,\chi)
-\models \psi\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models (\varphi
-\leftrightarrow \psi)\)</span></td>
-<td>iff <span class="math inline">\((\mathfrak A,\chi) \models
-\varphi\)</span> iff <span class="math inline">\((\mathfrak A,\chi)
-\models \psi\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models \forall x
-\varphi\)</span></td>
-<td>iff for all <span class="math inline">\(a \in M\)</span>, <span class="math inline">\((\mathfrak A,\chi) [a/x] \models
-\varphi\)</span></td>
-</tr>
-<tr>
-<td><span class="math inline">\((\mathfrak A,\chi) \models \exists x
-\varphi\)</span></td>
-<td>iff there is an <span class="math inline">\(a \in M\)</span> such
-that <span class="math inline">\((\mathfrak A,\chi) [a/x] \models
-\varphi\)</span></td>
-</tr>
-</tbody>
-</table>
+is defined by induction on these rules</p>
+<ul>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models t_1 =
+t_2\)</span> iff <span class="math inline">\((\mathfrak
+A,\chi)(t_1)=(\mathfrak A,\chi)(t_2)\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models R t_1
+\ldots t_n\)</span> iff <span class="math inline">\(R^{\mathfrak{A}}
+(\mathfrak A,\chi)(t_1) \ldots (\mathfrak
+A,\chi)(t_n)\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \vDash \neg
+\varphi\)</span> iff not <span class="math inline">\((\mathfrak A,\chi)
+\models \varphi\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models (\varphi
+\wedge \psi)\)</span> iff <span class="math inline">\((\mathfrak A,\chi)
+\models \varphi\)</span> and <span class="math inline">\((\mathfrak
+A,\chi) \models \psi\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models (\varphi
+\vee \psi)\)</span> iff <span class="math inline">\((\mathfrak A,\chi)
+\models \varphi\)</span> or <span class="math inline">\((\mathfrak
+A,\chi) \models \psi\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \vDash (\varphi
+\rightarrow \psi)\)</span> iff if <span class="math inline">\((\mathfrak
+A,\chi) \models \varphi\)</span>, then <span class="math inline">\((\mathfrak A,\chi) \models \psi\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models (\varphi
+\leftrightarrow \psi)\)</span> iff <span class="math inline">\((\mathfrak A,\chi) \models \varphi\)</span> iff
+<span class="math inline">\((\mathfrak A,\chi) \models
+\psi\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models \forall x
+\varphi\)</span> iff for all <span class="math inline">\(a \in
+M\)</span>, <span class="math inline">\((\mathfrak A,\chi) [a/x] \models
+\varphi\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathfrak A,\chi) \models \exists x
+\varphi\)</span> iff there is an <span class="math inline">\(a \in
+M\)</span> such that <span class="math inline">\((\mathfrak A,\chi)
+[a/x] \models \varphi\)</span>.</p></li>
+</ul>
 <p>Then <span class="math inline">\(\mathfrak A\)</span> is called a
 model of <span class="math inline">\(\varphi\)</span>, written as <span class="math inline">\(\mathfrak A \models \varphi\)</span> if <span class="math inline">\((\mathfrak A,\chi) \models \varphi\)</span> for
 all <span class="math inline">\(\chi\)</span>.</p>
