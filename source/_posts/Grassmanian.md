@@ -2,9 +2,9 @@
 title: The Volumn of Grassmanianns
 date: 2026-01-07 17:50:28
 tag: 
-    - [Differential Geometry, Algebraic Geometry]
+    - [Groups and Fields]
 categories:
-    - [Differential Geometry, Algebraic Geometry]
+    - [Blogs]
 mathjax: true
 ---
 

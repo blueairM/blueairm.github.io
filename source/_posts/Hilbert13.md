@@ -2,11 +2,9 @@
 title: Hilbert's 13th Problem
 date: 2023-03-23 10:35:56
 tags:
-    - [Notes]
-    - [Hilbert's 23 Problems]
+    - [History of Mathematics]
 categories:
     - [Notes]
-    - [History of Mathematics, Hilbert's 23 Problems]
 mathjax: true
 ---
 

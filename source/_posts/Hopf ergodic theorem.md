@@ -2,9 +2,9 @@
 title: Hopf's Ergodic Theorem
 date: 2024-01-17 13:48:02
 tags:
-    - [Sevaral Complex Variables]
+    - [Complex Variables]
 categories:
-    - [Sevaral Complex Variables, Fuchsian Group]
+    - [Notes]
 mathjax: true
 ---
 

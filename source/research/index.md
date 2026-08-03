@@ -10,7 +10,7 @@ mathjax: true
 
 # Research
 
-My research interests are naive set theory, multivariate statistical analysis, probability and stochastic processes, and other scientific problems related to them. More specifically, my interests include not merely
+My research interests are naive set theory, multivariate statistics, probability and stochastic processes, and other scientific problems related to them. More specifically, my interests include not merely
 
 - Time change and transformation of probability measures
 - Special functions and statistical distributions
@@ -35,32 +35,35 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 
 [2] H.-M. Wang. On minimal predictable intensity of point processes[J]. Houston J. Math., 51(3):501-515, 2025.
 
-[3] H.-M. Wang. Martingale problem and quadratic family[J]. 2026. Preprint.
+[3] H.-M. Wang. Real gamma distribution on analytic bundles of flag varieties. 2025. Submitted.
 
-[4] H.-M. Wang. Real gamma distribution on analytic bundles of flag varieties[J]. 2025. Submitted.
+[4] H.-M. Wang. On incomplete Gamma and Beta integrals. 2025. Submitted.
 
-[5] H.-M. Wang. On incomplete Gamma and Beta integrals[J]. 2025. Submitted.
+[5] H.-M. Wang. On the distribution of the matrix ratio. 2025. Submitted.
 
-[6] H.-M. Wang. On the distribution of the matrix ratio. 2025. Submitted.
+[6] K. Shimizu and H.-M. Wang. A determinantal representation of the joint distribution of top k principal eigenvectors. 前k個の主成分向量の結合密度の行列式表現. 2026. Preprint.
 
-[7] K. Shimizu and H.-M. Wang. A determinantal representation of the joint distribution of top $k$ principal eigenvectors with application to simultaneous estimation. 2026. Preprint.
+[7] H.-M. Wang. Saturation and isomorphism of abstract harmonic spaces. Prepirnt
 
-[8]  ..., Counting measure and positivity in reaction-diffusion systems. Preprint.
+[8] H.-M. Wang. Martingale problem and quadratic family. Preprint.
+
+[9] ..., Counting measure and positivity in reaction-diffusion systems. Preprint.
 
 # Courses
 
 |Date|Name|Details|Notes|
 |--------|-------------|---------------|----|
-|2026/03-2026/07|*Markov Processes*|Undergraduate seminar at Nankai University|[MP1]()| 
-|2026/09-2027/01| *Special Function*| Graduate course at Nankai University |[PC1]()| 
-|TBA|*Multivariate Statistical Analaysis*|Undergraduate seminar|[MS1]()| 
-## Notes
+|2026/03-2026/07|*Markov Process*|Undergraduate seminar|[MP1]()| 
+|2026/09-2027/01| *Symmetric Function*|Graduate course|[PC1]()| 
+|TBA|*Multivariate Analysis*|Undergraduate seminar|[MS1]()| 
 
-- [Riesz Markov Kakutani Representation Theorem](https://blueairm.github.io/research/pdf/Riesz_Markov_Kakutani.pdf)
+## Notes
 
 - [Zonal polynomial]()
 
-- [Probabilistic Methods in Combinatoric](https://blueairm.github.io/research/pdf/Probabilistic_Methods_in_Combinatorics.pdf)
+- [Probabilistic Methods in Combinatorics](https://blueairm.github.io/research/pdf/Probabilistic_Methods_in_Combinatorics.pdf)
+
+- [Introduction to Stability Theory](https://blueairm.github.io/research/pdf/Stability_Theory.pdf)
 
 ## Books
 
@@ -80,7 +83,6 @@ W. Sierpinski, A selection of problems in the theory of numbers, 1964, <span sty
 # Activities
 
 - Reviewer for [Zentralblatt für Mathematik](https://zbmath.org/)
-
 
 # Talks
 

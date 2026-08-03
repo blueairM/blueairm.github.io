@@ -4,12 +4,10 @@ date: 2023-03-23 07:51:28
 link: 
 author: Haoming Wang
 tags: 
+   - [Rings and Algebras]
 categories:
-   - [Commutative Algebra, Algebraic Geometry]
+   - [Blogs]
 mathjax: true
-top: true
-sticky: 100
-toc: false
 ---
 
 

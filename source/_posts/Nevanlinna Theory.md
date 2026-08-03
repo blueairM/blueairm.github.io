@@ -2,9 +2,9 @@
 title: Nevanlinna Theory (I)
 date: 2023-03-27 18:40:09
 tags:
-    - [Sevaral Complex Variables]
+    - [Complex Variables]
 categories:
-    - [Sevaral Complex Variables, Nevanlinna Theory]
+    - [Blogs]
 mathjax: true
 ---
 

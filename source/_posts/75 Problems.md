@@ -2,9 +2,10 @@
 title: 75 Problems in the Foundation of Mathematics
 date: 2023-09-22 22:10:39
 tags:
-    - [Set Theory]
+    - [Miscellanies]
+    - [History of Mathematics]
 categories:
-    - [Set Theory]
+    - [Blogs]
 mathjax: true
 ---
 

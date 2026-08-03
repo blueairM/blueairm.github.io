@@ -4,7 +4,7 @@ date: 2024-11-17 03:23:22
 tags:
     - [Miscellanies]
 categories: 
-    - [Miscellanies]
+    - [My Diaries]
 mathjax: true
 ---
 

@@ -2,9 +2,10 @@
 title: Quadratic Reciprocity Law
 date: 2023-03-27 18:42:10
 tags: 
-    - [Algebraic Number Theory]
+    - [Primes]
+    - [Rings and Algebras]
 categories: 
-    - [Algebraic Number Theory]
+    - [Blogs]
 mathjax: true
 ---
 
@@ -72,26 +73,36 @@ $$R = \sum r_i = \sum v_k, \quad R^{\prime} = \sum r_{j}^{\prime} = \sum (p - w_
 (where $\mu$ is the number of $r_j^{\prime}$), we have
 $$R+R^{\prime} = \sum_{\nu=1}^{p^{\prime}} \nu = \frac{1}{2}\frac{p-1}{2}\frac{p+1}{2} = \frac{p^2 -1}{8},$$
 and so 
+
 \begin{equation}
-\label{eq: From}
+\label{eq: from}
 \mu p +\sum v_k - \sum w_k = \frac{1}{8}(p^2-1)
 \end{equation}
+
 On the other hand, summing \eqref{eq: summing} from $k=1$ to $k=p^{\prime}$, we have
+
 \begin{equation}
 \label{eq: and}
 \frac{1}{8} q (p^2-1) = p S(q,p) + \sum u_{k} = p S(q,p) + \sum v_{k} + \sum w_k.
 \end{equation}
-From \eqref{eq: From} and \eqref{eq: and} we deduce
+
+From \eqref{eq: from} and \eqref{eq: and} we deduce
+
 \begin{equation}
 \label{eq: of}
 \frac{1}{8} (p^2-1) (q-1) = pS(q,p) + 2\sum w_k - \mu p.
 \end{equation}
+
 Now $q-1$ is even, and $p^2 -1 \equiv 0 (\bmod 8)$; so that the left-hand side of \eqref{eq: of} is even, and also the second term on the right. Hence (since $p$ is odd)
+
 $$S(q,p) \equiv \mu (\bmod 2),$$
+
 and therefore, by Gauss's lemma,
+
 $$\left(\frac {q}{p}\right) = (-1)^{\mu} = (-1)^{S(q,p)}.$$
 Finally, 
 $$\left(\frac {q}{p}\right)\left(\frac {p}{q}\right) = (-1)^{S(q,p) + S(p,q)} = (-1)^{p^{\prime}q^{\prime}}$$
+
 by preceding lemma.
 
 

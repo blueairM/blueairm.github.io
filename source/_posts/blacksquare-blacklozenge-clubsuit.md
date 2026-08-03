@@ -1,11 +1,9 @@
 ---
 title: $\blacksquare$, $\blacklozenge$, $\clubsuit$
 tags:
-  - - Set Theory
-  - - Mathematical Logic
+    - [Ordinals and Cardinals]
 categories:
-  - - Set Theory
-  - - Mathematical Logic
+    - [Blogs]
 mathjax: true
 date: 2024-02-18 08:50:47
 ---
@@ -112,4 +110,4 @@ $\clubsuit _{\omega _{1}}$ is usually written as just $\clubsuit$.
 It is clear that $\lozenge \to \clubsuit$, and it was shown in 1975 that $\clubsuit$ + CH $\to$ $\lozenge$; however, Saharon Shelah gave a proof in 1980 that there exists a model of $\clubsuit$ in which CH does not hold, so $\clubsuit$ and $\lozenge$ are not equivalent (since $\lozenge$ $\to$ CH).
 
 
-Jensen, R. Bj\"orn (1972), "The fine structure of the constructible hierarchy", Annals of Mathematical Logic, 4 (3): 229–308.
+[1] Jensen, R. Bj\"orn (1972), "The fine structure of the constructible hierarchy", Annals of Mathematical Logic, 4 (3): 229–308.

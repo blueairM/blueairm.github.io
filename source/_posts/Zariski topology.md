@@ -2,9 +2,9 @@
 title: Zariski Topology
 date: 2023-03-23 07:13:04
 tag: 
-    - [Algebraic Geometry]
-categories:
-    - [Commutative Algebra, Algebraic Geometry]
+    - [Measures and Topology]
+ategories:
+    - [Notes]
 mathjax: true
 ---
 

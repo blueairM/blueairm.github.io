@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://blueairm.github.io
+url: https://blueairm.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -108,7 +108,7 @@ theme: Chic
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy: 
   type: git
-  repository: https://github.com/blueairm/blueairm.github.io.git
+  repository: git@github.com:blueairM/blueairm.github.io.git
   branch: master
 
 ## archer 2023/03/22

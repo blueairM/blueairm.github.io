@@ -2,9 +2,9 @@
 title: Cichon's Diagram
 date: 2023-07-31 09:14:51
 tags:
-    - [Set Theory]
+    - [Ordinals and Cardinals]
 categories:
-    - [Set Theory]
+    - [Blogs]
 mathjax: true
 ---
 
@@ -38,7 +38,7 @@ where "$\exists^{\infty} n \in \mathbb{N}$" means: "there are infinitely many na
 
 # Diagram
 
-Let $\mathsf{B}$ be the $\sigma$-ideal of those subsets of the real line that are meager (or "of the first category") in the euclidean topology, and let $\mathsf{L}$ be the $\sigma$-ideal of those subsets of the real line that are of Lebesgue measure zero. Then the following inequalities hold:
+Let $\mathsf{B}$ be the $\sigma$-ideal of those subsets of the real line that are meager (of the first category) in the euclidean topology, and let $\mathsf{L}$ be the $\sigma$-ideal of those subsets of the real line that are of Lebesgue measure zero. Then the following inequalities hold:
 
 $$\require{AMScd} 
 \begin{CD}
@@ -62,9 +62,9 @@ $$\begin{aligned} \operatorname{add}({\mathsf B}) = & \min\{\operatorname{cov}({
 \operatorname{cof}({\mathsf B}) = & \max\{\operatorname{non}({\mathsf B}),{\mathsf d}\}. 
 \end{aligned}$$
 
-It turns out that the inequalities described by the diagram, together with the relations mentioned above, are all the relations between these cardinals that are provable in ZFC, in the following limited sense. Let $A$ be any assignment of the cardinals $\aleph_{1}$ and $\aleph_{2}$ to the $10$ cardinals in Cichoń's diagram. Then if $A$ is consistent with the diagram's relations, and if $A$ also satisfies the two additional relations, then $A$ can be realized in some model of ZFC.
+It turns out that the inequalities described by the diagram, together with the relations mentioned above, are all the relations between these cardinals that are provable in **ZFC**, in the following limited sense. Let $A$ be any assignment of the cardinals $\aleph_{1}$ and $\aleph_{2}$ to the $10$ cardinals in Cichon's diagram. Then if $A$ is consistent with the diagram's relations, and if $A$ also satisfies the two additional relations, then $A$ can be realized in some model of **ZFC**.
 
-For larger continuum sizes, the situation is less clear. It is consistent with ZFC that all of the Cichon's diagram cardinals are simultaneously different apart from $\operatorname{add}(B)$ and $\operatorname{cof}(B)$ (which are equal to other entries), but it remains open whether all combinations of the cardinal orderings consistent with the diagram are consistent.
+For larger continuum sizes, the situation is less clear. It is consistent with **ZFC** that all of the Cichon's diagram cardinals are simultaneously different apart from $\operatorname{add}(B)$ and $\operatorname{cof}(B)$ (which are equal to other entries), but it remains open whether all combinations of the cardinal orderings consistent with the diagram are consistent.
 
 
 

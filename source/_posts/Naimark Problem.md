@@ -2,9 +2,9 @@
 title: Naimark's Problem
 date: 2023-04-10 08:21:52
 tags:
-    - [Notes]
+    - [Rings and Algebras]
 categories:
-    - [Notes]
+    - [Blogs]
 mathjax: true
 ---
 
