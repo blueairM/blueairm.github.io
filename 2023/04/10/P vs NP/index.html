@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>P vs NP | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">P vs NP</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 10, 2023&nbsp;&nbsp;20:38:46</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>We give the formal statement of <span class="math inline">\(\mathbf{P}=\mathbf{NP}(?)\)</span>, which plays an
+important role in computer science and complexity theory.</p>
+<h2 id="languages-and-polynomial-time">Languages and Polynomial
+Time</h2>
+<p>Let <span class="math inline">\(\Sigma\)</span> be a finite alphabet
+with at least two symbols, and let <span class="math inline">\(\Sigma^*\)</span> denote the set of all finite
+strings over <span class="math inline">\(\Sigma\)</span>. A language
+over <span class="math inline">\(\Sigma\)</span> is a subset <span class="math inline">\(L\subseteq\Sigma^*\)</span>.</p>
+<p>A deterministic Turing machine <span class="math inline">\(M\)</span>
+decides <span class="math inline">\(L\)</span> if <span class="math inline">\(M\)</span> halts on every input <span class="math inline">\(x\in\Sigma^*\)</span> and accepts exactly those
+<span class="math inline">\(x\)</span> that belong to <span class="math inline">\(L\)</span>.</p>
+<p>For an input <span class="math inline">\(x\)</span>, write <span class="math inline">\(t_M(x)\)</span> for the number of computation
+steps taken by <span class="math inline">\(M\)</span>. Its worst-case
+running time on inputs of length <span class="math inline">\(n\)</span>
+is</p>
+<p><span class="math display">\[
+T_M(n)=\max\{t_M(x):x\in\Sigma^n\}.
+\]</span></p>
+<p>We say that <span class="math inline">\(M\)</span> runs in polynomial
+time if there is a polynomial <span class="math inline">\(p\)</span>
+such that <span class="math inline">\(T_M(n)\le p(n)\)</span> for every
+<span class="math inline">\(n\)</span>.</p>
+<h2 id="the-halting-problem">The Halting Problem</h2>
+<p>Before imposing time bounds, recall the basic obstruction from
+classical recursion theory. Fix an effective encoding of Turing machines
+and inputs by finite strings, and define</p>
+<p><span class="math display">\[
+{\rm HALT}=\{\langle M,x\rangle:M\text{ eventually halts on input }x\}.
+\]</span></p>
+<h3 id="main-theorem">Main Theorem</h3>
+<p>There is no Turing machine that decides HALT.</p>
+<h3 id="proof">Proof</h3>
+<p>Assume, toward a contradiction, that there exists a Turing machine
+<span class="math inline">\(H\)</span> such that on every pair <span class="math inline">\(\langle M,x\rangle\)</span> it halts and correctly
+decides whether <span class="math inline">\(M\)</span> halts on input
+<span class="math inline">\(x\)</span>.</p>
+<p>Using <span class="math inline">\(H\)</span>, construct a new Turing
+machine <span class="math inline">\(D\)</span> that, on input <span class="math inline">\(\langle M\rangle\)</span>, behaves as follows:</p>
+<ol type="1">
+<li>run <span class="math inline">\(H\)</span> on <span class="math inline">\(\langle M,\langle M\rangle\rangle\)</span>;</li>
+<li>if <span class="math inline">\(H\)</span> says that <span class="math inline">\(M\)</span> halts on input <span class="math inline">\(\langle M\rangle\)</span>, then <span class="math inline">\(D\)</span> enters an infinite loop;</li>
+<li>if <span class="math inline">\(H\)</span> says that <span class="math inline">\(M\)</span> does not halt on input <span class="math inline">\(\langle M\rangle\)</span>, then <span class="math inline">\(D\)</span> halts.</li>
+</ol>
+<p>Now run <span class="math inline">\(D\)</span> on its own code <span class="math inline">\(\langle D\rangle\)</span>.</p>
+<p>If <span class="math inline">\(H\)</span> predicts that <span class="math inline">\(D\)</span> halts on <span class="math inline">\(\langle D\rangle\)</span>, then by construction
+<span class="math inline">\(D\)</span> loops forever. If <span class="math inline">\(H\)</span> predicts that <span class="math inline">\(D\)</span> does not halt on <span class="math inline">\(\langle D\rangle\)</span>, then by construction
+<span class="math inline">\(D\)</span> halts. Either case contradicts
+the correctness of <span class="math inline">\(H\)</span>.</p>
+<p>Therefore HALT is not decidable. <span class="math inline">\(\square\)</span></p>
+<h2 id="the-class-mathbfp">The Class <span class="math inline">\(\mathbf{P}\)</span></h2>
+<h3 id="definition-1">Definition 1</h3>
+<p>A language <span class="math inline">\(L\)</span> belongs to <span class="math inline">\(\mathbf P\)</span> if there exists a deterministic
+Turing machine <span class="math inline">\(M\)</span> and a polynomial
+<span class="math inline">\(p\)</span> such that <span class="math inline">\(M\)</span> decides <span class="math inline">\(L\)</span> and halts on every input <span class="math inline">\(x\)</span> within at most <span class="math inline">\(p(|x|)\)</span> steps. Equivalently,</p>
+<p><span class="math display">\[
+\mathbf P=\{L:L\text{ is decidable in deterministic polynomial time}\}.
+\]</span></p>
+<p>Thus <span class="math inline">\(\mathbf{P}\)</span> consists of
+decision problems for which a solution can be found efficiently.</p>
+<h2 id="the-class-mathbfnp">The Class <span class="math inline">\(\mathbf{NP}\)</span></h2>
+<p>The most convenient definition of <span class="math inline">\(\mathbf
+{NP}\)</span> uses polynomial-time verification.</p>
+<h3 id="definition-2">Definition 2</h3>
+<p>A language <span class="math inline">\(L\subseteq\Sigma^*\)</span>
+belongs to <span class="math inline">\(\mathbf{NP}\)</span> if there
+exist a polynomial <span class="math inline">\(p\)</span> and a
+deterministic polynomial-time Turing machine <span class="math inline">\(V\)</span> such that, for every <span class="math inline">\(x\in\Sigma^*\)</span>,</p>
+<p><span class="math display">\[
+x\in L\iff \exists y\in\Sigma^*\bigl(|y|\le p(|x|)\text{ and
+}V(x,y)=1\bigr).
+\]</span></p>
+<p>The string <span class="math inline">\(y\)</span> is called a
+certificate** or witness, and <span class="math inline">\(V\)</span> is
+called a verifier.</p>
+<p>Thus <span class="math inline">\(\mathbf{NP}\)</span> consists of
+decision problems for which a proposed solution can be verified
+efficiently, provided that the certificate has polynomial length.</p>
+<p>Every language in <span class="math inline">\(\mathbf{P}\)</span> is
+automatically in <span class="math inline">\(\mathbf{NP}\)</span>.
+Indeed, if <span class="math inline">\(M\)</span> decides <span class="math inline">\(L\)</span> in polynomial time, the verifier may
+simply ignore the certificate and run <span class="math inline">\(M\)</span>. Hence</p>
+<p><span class="math display">\[
+\mathbf P\subseteq\mathbf{NP}.
+\]</span></p>
+<p>The difficulty is whether the reverse inclusion also holds.</p>
+<h2 id="polynomial-time-reductions">Polynomial-Time Reductions</h2>
+<p>To formulate <span class="math inline">\(\mathbf{NP}\)</span>-hardness, we need a
+resource-bounded notion of reducibility.</p>
+<h3 id="definition-3">Definition 3</h3>
+<p>Let <span class="math inline">\(A\subseteq\Sigma^*\)</span> and <span class="math inline">\(B\subseteq\Gamma^*\)</span> be languages. We say
+that <span class="math inline">\(A\)</span> is polynomial-time many-one
+reducible to <span class="math inline">\(B\)</span>, written <span class="math inline">\(A\le_m^P B\)</span>, if there exists a
+polynomial-time computable function <span class="math inline">\(f:\Sigma^*\to\Gamma^*\)</span> such that</p>
+<p><span class="math display">\[
+x\in A\iff f(x)\in B
+\]</span></p>
+<p>for every <span class="math inline">\(x\in\Sigma^*\)</span>.</p>
+<p>Intuitively, an efficient algorithm for <span class="math inline">\(B\)</span> would then give an efficient algorithm
+for <span class="math inline">\(A\)</span> after the polynomial-time
+preprocessing <span class="math inline">\(x\mapsto f(x)\)</span>.</p>
+<h2 id="mathbfnp-hard-and-mathbfnp-complete-problems"><span class="math inline">\(\mathbf{NP}\)</span>-Hard and <span class="math inline">\(\mathbf{NP}\)</span>-Complete Problems</h2>
+<h3 id="definition-4">Definition 4</h3>
+<p>A language <span class="math inline">\(H\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-hard if every language in
+<span class="math inline">\(\mathbf{NP}\)</span> reduces to <span class="math inline">\(H\)</span> in polynomial time:</p>
+<p><span class="math display">\[
+\forall L\in\mathbf{NP},\qquad L\le_m^P H.
+\]</span></p>
+<p>Notice that an <span class="math inline">\(\mathbf{NP}\)</span>-hard
+language need not itself belong to <span class="math inline">\(\mathbf{NP}\)</span>. In particular, the
+definition alone does not require <span class="math inline">\(H\)</span>
+to have polynomially verifiable certificates.</p>
+<h3 id="definition-5">Definition 5</h3>
+<p>A language <span class="math inline">\(C\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-complete if</p>
+<p><span class="math display">\[
+C\in\mathbf{NP}
+\]</span></p>
+<p>and <span class="math inline">\(C\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-hard. Equivalently,</p>
+<p><span class="math display">\[
+C\in\mathbf{NP}
+\quad\text{and}\quad
+\forall L\in\mathbf{NP},\ L\le_m^P C.
+\]</span></p>
+<p>Thus an <span class="math inline">\(\mathbf{NP}\)</span>-complete
+language is, in the sense of polynomial-time reductions, at least as
+hard as every problem in <span class="math inline">\(\mathbf{NP}\)</span>, while still lying inside
+<span class="math inline">\(\mathbf{NP}\)</span>.</p>
+<p>By the Cook-Levin theorem, <span class="math inline">\(\mathbf{SAT}\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-complete. Hence the entire
+<span class="math inline">\(\mathbf{P}\)</span> versus <span class="math inline">\(\mathbf{NP}\)</span> problem may be concentrated
+into the question of whether <span class="math inline">\(\mathbf{SAT}\)</span> can be decided in polynomial
+time.</p>
+<h2 id="the-precise-statement-of-mathbfp-mathbfnp">The Precise Statement
+of <span class="math inline">\(\mathbf{P} = \mathbf{NP}\)</span></h2>
+<p>Since <span class="math inline">\(\mathbf
+P\subseteq\mathbf{NP}\)</span> is immediate, the statement <span class="math inline">\({\mathbf P=\mathbf{NP}}\)</span> means precisely
+that every language with polynomially verifiable certificates is itself
+decidable by a deterministic polynomial-time Turing machine.</p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\forall L\subseteq\Sigma^*,\qquad
+L\in\mathbf{NP}\Longrightarrow L\in\mathbf P.
+\]</span></p>
+<p>Written out using the verifier definition, <span class="math inline">\(\mathbf{P}=\mathbf{NP}\)</span> asserts</p>
+<blockquote>
+<p>For every language <span class="math inline">\(L\)</span> for which
+there exist a polynomial <span class="math inline">\(p\)</span> and a
+polynomial-time verifier <span class="math inline">\(V\)</span>
+satisfying <span class="math inline">\(x\in L\)</span> iff there exists
+a certificate <span class="math inline">\(y\)</span> with <span class="math inline">\(|y|\le p(|x|)\)</span> and <span class="math inline">\(V(x,y)=1\)</span>, there also exists a
+deterministic polynomial-time Turing machine deciding whether <span class="math inline">\(x\in L\)</span>.</p>
+</blockquote>
+<p>Using <span class="math inline">\(\mathbf{NP}\)</span>-completeness,
+the following are equivalent</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbf P=\mathbf{NP}\)</span>;</li>
+<li>some <span class="math inline">\(\mathbf{NP}\)</span>-complete
+language belongs to <span class="math inline">\(\mathbf P\)</span>;</li>
+<li>every <span class="math inline">\(\mathbf{NP}\)</span>-complete
+language belongs to <span class="math inline">\(\mathbf P\)</span>;</li>
+<li><span class="math inline">\(\mathbf{SAT}\)</span> belongs to <span class="math inline">\(\mathbf P\)</span>.</li>
+</ol>
+<p>Indeed, if one <span class="math inline">\(\mathbf{NP}\)</span>-complete language <span class="math inline">\(C\)</span> belongs to <span class="math inline">\(\mathbf{P}\)</span>, then every <span class="math inline">\(L\in \mathbf{NP}\)</span> has a polynomial-time
+reduction <span class="math inline">\(L\le_m^P C\)</span>, and composing
+this reduction with a polynomial-time decider for <span class="math inline">\(C\)</span> yields a polynomial-time decider for
+<span class="math inline">\(L\)</span>. Thus <span class="math inline">\(\mathbf{NP}\subseteq \mathbf{P}\)</span>, and
+hence <span class="math inline">\(\mathbf{P}=\mathbf{NP}\)</span>.</p>
+<p>Conversely, if <span class="math inline">\(\mathbf{P}=\mathbf{NP}\)</span>, then every <span class="math inline">\(\mathbf{NP}\)</span>-complete language, being an
+element of <span class="math inline">\(\mathbf{NP}\)</span>,
+automatically belongs to <span class="math inline">\(\mathbf{P}\)</span>.</p>
+<p>Accordingly, the <span class="math inline">\(\mathbf{P}\)</span>
+versus <span class="math inline">\(\mathbf{NP}\)</span> problem asks
+whether</p>
+<p><span class="math display">\[
+\boxed{\mathbf P\stackrel{?}{=}\mathbf{NP}}.
+\]</span></p>
+<p>If <span class="math inline">\(\mathbf{P}\neq\mathbf{NP}\)</span>,
+then there exists at least one language in <span class="math inline">\(\mathbf{NP}\)</span> that admits polynomially
+checkable certificates but no deterministic polynomial-time decision
+algorithm.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>A. M. Turing, "On Computable Numbers, with an Application to the
+Entscheidungsproblem," <em>Proceedings of the London Mathematical
+Society</em>, 42 (1936), 230-265.</li>
+<li>S. A. Cook, "The Complexity of Theorem-Proving Procedures,"
+<em>Proceedings of the Third Annual ACM Symposium on Theory of
+Computing</em>, 1971, 151-158.</li>
+<li>L. A. Levin, "Universal Sequential Search Problems," <em>Problems of
+Information Transmission</em>, 9 (1973), 265-266.</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2023/04/10/P%20vs%20NP/">http://blueairm.github.io/2023/04/10/P%20vs%20NP/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Diophantine-Functions/"># Diophantine Functions</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/11/Nowicki%20Conjecture/">Nowicki Conjecture</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/10/Naimark%20Problem/">Naimark's Problem</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

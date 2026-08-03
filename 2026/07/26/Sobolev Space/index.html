@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Sobolev Space | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Sobolev Space</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 26, 2026&nbsp;&nbsp;22:22:14</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Notes/">Notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Sobolev spaces are among the fundamental tools of modern analysis and
+partial differential equations. This post gives a streamlined
+introduction to locally convex spaces, test functions, distributions,
+Fourier analysis, and embedding theorems.</p>
+<h2 id="test-functions-and-distributions">1 Test Functions and
+Distributions</h2>
+<h3 id="notation">Notation</h3>
+<p>Let <span class="math inline">\(\Omega\)</span> be an open subset of
+<span class="math inline">\(\mathbb R^n\)</span>, and let <span class="math inline">\(K\Subset\Omega\)</span> be a relatively compact
+subset of <span class="math inline">\(\Omega\)</span>.</p>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(C(\Omega)\)</span></td>
+<td>the space of all continuous functions on <span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(C^k(\Omega)\)</span></td>
+<td>the space of all functions on <span class="math inline">\(\Omega\)</span> with continuous derivatives up to
+order <span class="math inline">\(k\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(C^\infty(\Omega)\)</span></td>
+<td>the space of all infinitely differentiable functions on <span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(C_c(\Omega)\)</span>, <span class="math inline">\(C_c^k(\Omega)\)</span>, <span class="math inline">\(C_c^\infty(\Omega)\)</span></td>
+<td>the corresponding spaces of functions with compact support</td>
+</tr>
+<tr>
+<td><span class="math inline">\(L_{\mathrm{loc}}^1(\Omega)\)</span></td>
+<td>the space of all locally integrable functions</td>
+</tr>
+<tr>
+<td><span class="math inline">\(W^{m,p}(\Omega)\)</span></td>
+<td>the space of functions with distributional derivatives up to order
+<span class="math inline">\(m\)</span> in <span class="math inline">\(L^p(\Omega)\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(H^{m,p}(\Omega)\)</span></td>
+<td>the closure of <span class="math inline">\(C^\infty(\Omega)\cap
+W^{m,p}(\Omega)\)</span> in <span class="math inline">\(W^{m,p}(\Omega)\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal D(\Omega)\)</span></td>
+<td>the space <span class="math inline">\(C_c^\infty(\Omega)\)</span>
+endowed with the inductive limit topology</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-1.1-the-space-comega">Example 1.1 (The space <span class="math inline">\(C(\Omega)\)</span>)</h3>
+<p>Choose a sequence of compact sets <span class="math inline">\(K_0\neq\varnothing\)</span>, <span class="math inline">\(K_n\uparrow\Omega\)</span>, and define</p>
+<p><span class="math display">\[p_n(f)=\sup\{|f(x)|:x\in
+K_n\}.\]</span></p>
+<p>This is a seminorm on <span class="math inline">\(C(\Omega)\)</span>.
+A family <span class="math inline">\(\mathcal P\)</span> of seminorms on
+a vector space <span class="math inline">\(X\)</span> is said to be
+separating if, for each <span class="math inline">\(x\neq0\)</span>,
+there is at least one <span class="math inline">\(p\in\mathcal
+P\)</span> such that <span class="math inline">\(p(x)\neq0\)</span>.</p>
+<p>Since <span class="math inline">\(\mathcal P\)</span> is a countable
+separating family of seminorms, the sets</p>
+<p><span class="math display">\[V_n=\left\{f\in
+C(\Omega):p_n(f)&lt;\frac1n\right\}\]</span></p>
+<p>form a convex local base for <span class="math inline">\(C(\Omega)\)</span>. This topology is compatible
+with the metric</p>
+<p><span class="math display">\[d(f,g)=\max_{n\geq1}\frac{2^{-n}p_n(f-g)}{1+p_n(f-g)},\]</span></p>
+<p>which is complete. Hence <span class="math inline">\(C(\Omega)\)</span> is a Fréchet space.</p>
+<h3 id="lemma-1.1">Lemma 1.1</h3>
+<p>If <span class="math inline">\(X\)</span> is a topological vector
+space with a countable local base, then there is a metric <span class="math inline">\(d\)</span> on <span class="math inline">\(X\)</span> such that:</p>
+<ol type="1">
+<li><span class="math inline">\(d\)</span> is compatible with the
+topology of <span class="math inline">\(X\)</span>;</li>
+<li>the open balls centered at <span class="math inline">\(0\)</span>
+are balanced;</li>
+<li><span class="math inline">\(d\)</span> is invariant: <span class="math inline">\(d(x+z,y+z)=d(x,y)\)</span> for <span class="math inline">\(x,y,z\in X\)</span>.</li>
+</ol>
+<p>If, in addition, <span class="math inline">\(X\)</span> is locally
+convex, then <span class="math inline">\(d\)</span> can be chosen so
+that all open balls are convex.</p>
+<h3 id="lemma-1.2">Lemma 1.2</h3>
+<p>Suppose <span class="math inline">\(\mathcal P\)</span> is a
+separating family of seminorms on a vector space <span class="math inline">\(X\)</span>. Associate to each <span class="math inline">\(p\in\mathcal P\)</span> and each positive integer
+<span class="math inline">\(n\)</span> the set</p>
+<p><span class="math display">\[V(p,n)=\left\{x:p(x)&lt;\frac1n\right\}.\]</span></p>
+<p>Then these sets form a convex balanced local subbase for a topology
+<span class="math inline">\(\tau\)</span> on <span class="math inline">\(X\)</span>, which turns <span class="math inline">\(X\)</span> into a locally convex space such
+that:</p>
+<ol type="1">
+<li>every <span class="math inline">\(p\in\mathcal P\)</span> is
+continuous;</li>
+<li>a set <span class="math inline">\(E\subseteq X\)</span> is bounded
+if and only if every <span class="math inline">\(p\in\mathcal P\)</span>
+is bounded on <span class="math inline">\(E\)</span>.</li>
+</ol>
+<h3 id="example-1.2-the-spaces-ckomega-cinftyomega-and-c_kinftyomega">Example
+1.2 (The spaces <span class="math inline">\(C^k(\Omega)\)</span>, <span class="math inline">\(C^\infty(\Omega)\)</span>, and <span class="math inline">\(C_K^\infty(\Omega)\)</span>)</h3>
+<p>Choose compact sets <span class="math inline">\(K_0\neq\varnothing\)</span>, <span class="math inline">\(K_N\uparrow\Omega\)</span>, and define seminorms
+<span class="math inline">\(p_N\)</span> on <span class="math inline">\(C^\infty(\Omega)\)</span>, for <span class="math inline">\(N=1,2,3,\ldots\)</span>, by</p>
+<p><span class="math display">\[p_N(f)=\max\{|D^\alpha f(x)|:x\in K_N,
+|\alpha|&lt;N\}.\]</span></p>
+<p>For <span class="math inline">\(C^k(\Omega)\)</span>, replace the
+derivative bound <span class="math inline">\(N\)</span> by <span class="math inline">\(k\)</span>. These seminorms define a metrizable
+locally convex topology on <span class="math inline">\(C^\infty(\Omega)\)</span>. For each <span class="math inline">\(x\in\Omega\)</span>, the functional <span class="math inline">\(f\mapsto f(x)\)</span> is continuous in this
+topology.</p>
+<p>If <span class="math inline">\(K\)</span> is compact in <span class="math inline">\(\Omega\)</span>, then <span class="math inline">\(C_K^\infty(\Omega)\)</span> denotes the space of
+all <span class="math inline">\(f\in C^\infty(\Omega)\)</span> whose
+support lies in <span class="math inline">\(K\)</span>. Since <span class="math inline">\(C_K^\infty(\Omega)\)</span> is the intersection of
+the null spaces of the evaluation functionals as <span class="math inline">\(x\)</span> ranges over <span class="math inline">\(\Omega\setminus K\)</span>, it follows that <span class="math inline">\(C_K^\infty(\Omega)\)</span> is closed in <span class="math inline">\(C^\infty(\Omega)\)</span>.</p>
+<h3 id="theorem-1.1">Theorem 1.1</h3>
+<p><span class="math inline">\(C^\infty(\Omega)\)</span> is a Fréchet
+space.</p>
+<h4 id="proof">Proof</h4>
+<p>Let <span class="math inline">\(\{f_i\}\)</span> be a Cauchy sequence
+in <span class="math inline">\(C^\infty(\Omega)\)</span>, and fix <span class="math inline">\(N\)</span>. Then <span class="math inline">\(f_i-f_j\in V_N=\{f:p_N(f)&lt;1/N\}\)</span>
+whenever <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are sufficiently large. Thus <span class="math inline">\(|D^\alpha f_i-D^\alpha f_j|&lt;1/N\)</span> on
+<span class="math inline">\(K_N\)</span> whenever <span class="math inline">\(|\alpha|&lt;N\)</span>. It follows that each <span class="math inline">\(D^\alpha f_i\)</span> converges uniformly on
+compact subsets of <span class="math inline">\(\Omega\)</span> to a
+function <span class="math inline">\(g_\alpha\)</span>. In particular,
+<span class="math inline">\(f_i(x)\to g_0(x)\)</span>. It follows that
+<span class="math inline">\(g_0\in C^\infty(\Omega)\)</span>, that <span class="math inline">\(g_\alpha=D^\alpha g_0\)</span>, and that <span class="math inline">\(f_i\to g_0\)</span> in the topology of <span class="math inline">\(C^\infty(\Omega)\)</span>.</p>
+<h3 id="theorem-1.2">Theorem 1.2</h3>
+<p><span class="math inline">\(C^\infty(\Omega)\)</span> is a Montel
+space, that is, a locally convex topological space with the Heine-Borel
+property.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<h4 id="proof-1">Proof</h4>
+<p>Suppose that <span class="math inline">\(E\subseteq
+C^\infty(\Omega)\)</span> is closed and bounded. By Lemma 1.2, the
+boundedness of <span class="math inline">\(E\)</span> is equivalent to
+the existence of numbers <span class="math inline">\(M_N&lt;\infty\)</span> such that <span class="math inline">\(p_N(f)&lt;M_N\)</span> for <span class="math inline">\(N=1,2,3,\ldots\)</span> and all <span class="math inline">\(f\in E\)</span>. The inequalities <span class="math inline">\(|D^\alpha f|&lt;M_N\)</span>, valid on <span class="math inline">\(K_N\)</span> when <span class="math inline">\(|\alpha|&lt;N\)</span>, imply the equicontinuity
+of <span class="math inline">\(\{D^\beta f:f\in E\}\)</span> on <span class="math inline">\(K_{N-1}\)</span> when <span class="math inline">\(|\beta|&lt;N-1\)</span>. By Ascoli's theorem and
+Cantor's diagonal process, every sequence in <span class="math inline">\(E\)</span> contains a subsequence <span class="math inline">\(\{f_i\}\)</span> for which <span class="math inline">\(D^\beta f_i\)</span> converges uniformly on
+compact subsets of <span class="math inline">\(\Omega\)</span> for every
+multi-index <span class="math inline">\(\beta\)</span>. Hence <span class="math inline">\(\{f_i\}\)</span> converges in the topology of
+<span class="math inline">\(C^\infty(\Omega)\)</span>. This proves that
+<span class="math inline">\(E\)</span> is compact.</p>
+<h3 id="corollary-1.1">Corollary 1.1</h3>
+<p><span class="math inline">\(C^\infty(\Omega)\)</span> is not
+normable.</p>
+<p>To make differential calculus more flexible, we enlarge the class of
+differentiable functions. This program was developed by L. Schwartz. He
+used the letter <span class="math inline">\(\mathcal D\)</span> for
+<span class="math inline">\(C_0^\infty(\Omega)\)</span> and defined a
+generalized function to be a linear functional on <span class="math inline">\(\mathcal D\)</span>.</p>
+<h3 id="example-1.3-the-test-function-space-mathcal-domega">Example 1.3
+(The test function space <span class="math inline">\(\mathcal
+D(\Omega)\)</span>)</h3>
+<p>For <span class="math inline">\(\varphi\in\mathcal D(\Omega)\)</span>
+and <span class="math inline">\(N=0,1,2,\ldots\)</span>, introduce the
+norms</p>
+<p><span class="math display">\[\|\varphi\|_N=\max\{|D^\alpha\varphi(x)|:x\in\Omega,\
+|\alpha|&lt;N\}.\]</span></p>
+<p>The restrictions of these norms to any fixed <span class="math inline">\(\mathcal D_K(\mathbb R^d)\subseteq\mathcal
+D(\Omega)\)</span> induce the same topology on <span class="math inline">\(\mathcal D_K(\mathbb R^d)\)</span> as the
+seminorms in Example 1.2. However, this topology is not complete. For
+example, let <span class="math inline">\(d=1\)</span>, choose <span class="math inline">\(\varphi\in\mathcal D(\mathbb R)\)</span> with
+support in <span class="math inline">\([0,1]\)</span> and <span class="math inline">\(\varphi&gt;0\)</span> on <span class="math inline">\((0,1)\)</span>, and define</p>
+<p><span class="math display">\[\psi_m(x)=\varphi(x-1)+\frac12\varphi(x-2)+\cdots+\frac1m\varphi(x-m).\]</span></p>
+<p>Then <span class="math inline">\(\{\psi_m\}\)</span> is a Cauchy
+sequence in the suggested topology of <span class="math inline">\(\mathcal D(\mathbb R)\)</span>, but <span class="math inline">\(\lim\psi_m\)</span> does not have compact support
+and therefore does not belong to <span class="math inline">\(\mathcal
+D(\mathbb R)\)</span>.</p>
+<p>We therefore introduce another topology on <span class="math inline">\(\mathcal D(\Omega)\)</span>. Related results can
+be found in Köthe.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<h3 id="definition-1.1">Definition 1.1</h3>
+<p>Given a set <span class="math inline">\(X\)</span>, a family of
+topological spaces <span class="math inline">\(\{(Y_i,\tau_i)\}_{i\in
+I}\)</span>, and associated functions <span class="math inline">\(f_i:Y_i\rightarrow X, i\in I,\)</span> the
+inductive topology on <span class="math inline">\(X\)</span> induced by
+the family <span class="math inline">\(\{f_i:i\in I\}\)</span> is the
+finest topology <span class="math inline">\(\tau\)</span> on <span class="math inline">\(X\)</span> such that every map <span class="math inline">\(f_i:(Y_i,\tau_i)\rightarrow(X,\tau)\)</span> is
+continuous.</p>
+<h3 id="theorem-1.3-characteristic-property-of-the-final-topology">Theorem
+1.3 (Characteristic property of the final topology)</h3>
+<p>A function <span class="math inline">\(g\)</span> from <span class="math inline">\(X\)</span> to a topological space <span class="math inline">\(Z\)</span> is continuous if and only if <span class="math inline">\(g\circ f_i\)</span> is continuous for every <span class="math inline">\(i\in I\)</span>.</p>
+<p><span class="math display">\[\require{AMScd}
+\begin{CD}
+Y_i @&gt;{f_i}&gt;&gt; X\\
+@V{g\circ f_i}VV @VV{g}V\\
+Z @= Z
+\end{CD}
+\]</span></p>
+<h3 id="theorem-1.4">Theorem 1.4</h3>
+<p>Let <span class="math inline">\(E\)</span> be a vector space and let
+<span class="math inline">\((E_n)_{n\geq0}\)</span> be a sequence of
+linear subspaces such that <span class="math inline">\(E_n\subseteq
+E_{n+1}\)</span> for all <span class="math inline">\(n=0,1,2,\dots\)</span> and <span class="math inline">\(E=\varinjlim E_n=\bigcup_{n=0}^\infty
+E_n.\)</span> Suppose that each <span class="math inline">\(E_n\)</span>
+is equipped with a locally convex topology <span class="math inline">\(\tau_n\)</span> such that</p>
+<ol type="1">
+<li>for each <span class="math inline">\(n\)</span>, the topology
+induced by <span class="math inline">\(\tau_{n+1}\)</span> on <span class="math inline">\(E_n\)</span> is <span class="math inline">\(\tau_n\)</span>;</li>
+<li><span class="math inline">\(E_n\)</span> is closed in <span class="math inline">\(E_{n+1}\)</span> with respect to <span class="math inline">\(\tau_{n+1}\)</span>.</li>
+</ol>
+<p>Let <span class="math inline">\(\tau\)</span> be the finest locally
+convex topology on <span class="math inline">\(E\)</span> for which all
+canonical injections <span class="math inline">\(f_n:E_n\hookrightarrow
+E\)</span> are continuous. Then <span class="math inline">\(E\)</span>
+is complete if and only if all the spaces <span class="math inline">\(E_n\)</span> are complete.</p>
+<h3 id="definition-1.2-the-test-function-space-mathcal-domega">Definition
+1.2 (The test-function space <span class="math inline">\(\mathcal
+D(\Omega)\)</span>)</h3>
+<p>The space <span class="math inline">\(C_c^\infty(\Omega)\)</span> is
+endowed with the final topology of a sequence of Fréchet spaces <span class="math inline">\(\bigl(C_{K_n}^\infty(\Omega),\tau_n\bigr)\)</span>
+with canonical embeddings <span class="math inline">\(i_n:C_{K_n}^\infty(\Omega)\rightarrow
+C_c^\infty(\Omega),\)</span> where <span class="math inline">\(\tau_n\)</span> is defined in Example 1.2. Write
+<span class="math inline">\(C_K^\infty(\Omega)=\mathcal
+D_K(\Omega)\)</span> and define <span class="math inline">\(\mathcal
+D(\Omega)=\varinjlim\mathcal D_{K_n}(\Omega).\)</span> This definition
+is independent of the choice of the sequence <span class="math inline">\(K_n\)</span>.</p>
+<h3 id="definition-1.3">Definition 1.3</h3>
+<p>A continuous linear functional on <span class="math inline">\(\mathcal D(\Omega)\)</span> is called a
+distribution.</p>
+<h3 id="definition-1.4">Definition 1.4</h3>
+<p>A locally integrable function <span class="math inline">\(f\)</span>
+is said to have the <span class="math inline">\(\alpha\)</span>-th
+distributional derivative <span class="math inline">\(g\)</span> if
+<span class="math inline">\(D^\alpha\Lambda_f=\Lambda_g\)</span> for
+some locally integrable function <span class="math inline">\(g\)</span>.
+This derivative is denoted by <span class="math inline">\(D^\alpha
+f\)</span>.</p>
+<h3 id="theorem-1.5">Theorem 1.5</h3>
+<p><span class="math inline">\(D\Lambda_f=\Lambda_{Df}\)</span> if and
+only if <span class="math inline">\(f\)</span> is absolutely
+continuous.</p>
+<h3 id="theorem-1.6">Theorem 1.6</h3>
+<p>Let <span class="math inline">\(\Lambda\)</span> be a linear
+functional on <span class="math inline">\(\mathcal D(\Omega)\)</span>.
+Then <span class="math inline">\(\Lambda\)</span> is a distribution if
+and only if, for every compact set <span class="math inline">\(K\subseteq\Omega\)</span>, there exist a
+nonnegative integer <span class="math inline">\(N\)</span> and a
+constant <span class="math inline">\(C&lt;\infty\)</span> such that
+<span class="math inline">\(|\Lambda\varphi|\leq C\|\varphi\|_N\)</span>
+for every <span class="math inline">\(\varphi\in\mathcal
+D_K(\Omega)\)</span>.</p>
+<h3 id="definition-1.5">Definition 1.5</h3>
+<p>Suppose <span class="math inline">\(\Lambda\in\mathcal
+D&#39;(\Omega)\)</span>. If <span class="math inline">\(\omega\)</span>
+is an open subset of <span class="math inline">\(\Omega\)</span> and
+<span class="math inline">\(\Lambda(\varphi)=0\)</span> for every <span class="math inline">\(\varphi\in\mathcal D(\omega)\)</span>, we say that
+<span class="math inline">\(\Lambda\)</span> vanishes in <span class="math inline">\(\omega\)</span>.</p>
+<p>Let <span class="math inline">\(W\)</span> be the union of all open
+sets <span class="math inline">\(\omega\subseteq\Omega\)</span> in which
+<span class="math inline">\(\Lambda\)</span> vanishes. The complement of
+<span class="math inline">\(W\)</span> is called the support of <span class="math inline">\(\Lambda\)</span>.</p>
+<h3 id="lemma-1.3">Lemma 1.3</h3>
+<p>If <span class="math inline">\(W\)</span> is as above, then <span class="math inline">\(\Lambda\)</span> vanishes in <span class="math inline">\(W\)</span>.</p>
+<h3 id="theorem-1.7-local-property-as-continuous-functions">Theorem 1.7
+(Local property as continuous functions)</h3>
+<p>Suppose <span class="math inline">\(\Lambda\in\mathcal
+D&#39;(\Omega)\)</span> and <span class="math inline">\(K\)</span> is a
+compact subset of <span class="math inline">\(\Omega\)</span>. Then
+there exist a continuous function <span class="math inline">\(f\)</span>
+on <span class="math inline">\(\Omega\)</span> and a multi-index <span class="math inline">\(\alpha\)</span> such that</p>
+<p><span class="math display">\[\Lambda\varphi=(-1)^{|\alpha|}\int_\Omega
+f(x)(D^\alpha\varphi)(x)dx\]</span></p>
+<p>for every <span class="math inline">\(\varphi\in\mathcal
+D_K(\Omega)\)</span>.</p>
+<p>Let <span class="math inline">\(\mathcal E&#39;(\Omega)\)</span>
+denote the topological dual of <span class="math inline">\(C^\infty(\Omega)\)</span> equipped with its
+natural topology.</p>
+<h3 id="theorem-1.8">Theorem 1.8</h3>
+<p>Let <span class="math inline">\(\Omega\)</span> be an open set in
+<span class="math inline">\(\mathbb R^n\)</span>. Then:</p>
+<ol type="1">
+<li><span class="math inline">\(\mathcal E&#39;(\Omega)\subseteq\mathcal
+D&#39;(\Omega)\)</span>, and the identity map is continuous with respect
+to the strong topologies;</li>
+<li>the elements of <span class="math inline">\(\mathcal
+E&#39;(\Omega)\)</span> are distributions with compact support in <span class="math inline">\(\Omega\)</span>.</li>
+</ol>
+<h2 id="fourier-transformations">2 Fourier Transformations</h2>
+<h3 id="definition-2.1">Definition 2.1</h3>
+<p>A function <span class="math inline">\(\varphi\in C^\infty(\mathbb
+R^n)\)</span> is said to be rapidly decreasing at infinity if</p>
+<p><span class="math display">\[\lim_{|x|\to\infty}|x^\alpha\partial^p\varphi(x)|=0\]</span></p>
+<p>for every <span class="math inline">\(\alpha\in\mathbb N\)</span> and
+every <span class="math inline">\(p\in\mathbb N\)</span>.</p>
+<p>The set of all functions in <span class="math inline">\(C^\infty(\mathbb R^n)\)</span> that are rapidly
+decreasing at infinity is a complex vector space denoted by <span class="math inline">\(\mathcal S(\mathbb R^n)\)</span>.</p>
+<p>Define seminorms on <span class="math inline">\(\mathcal S(\mathbb
+R^n)\)</span> by</p>
+<p><span class="math display">\[r_{\alpha,p}(\varphi)=\sup_{x\in\mathbb
+R^n}|x^\alpha\partial^p\varphi(x)|,\quad\alpha,p\in\mathbb
+N.\]</span></p>
+<p>The countable family of seminorms <span class="math inline">\((r_{\alpha,p})\)</span> defines a Hausdorff
+locally convex topology on <span class="math inline">\(\mathcal
+S(\mathbb R^n)\)</span>. This topology is metrizable and complete. Thus
+<span class="math inline">\(\mathcal S(\mathbb R^n)\)</span> is a
+Fréchet space. In fact, <span class="math inline">\(\mathcal S(\mathbb
+R^n)\)</span> is a Montel space.</p>
+<h3 id="theorem-2.1">Theorem 2.1</h3>
+<p><span class="math inline">\(\mathcal S(\mathbb R^n)\)</span> has the
+Heine–Borel property.</p>
+<h3 id="theorem-2.2">Theorem 2.2</h3>
+<p>We have the continuous embeddings</p>
+<p><span class="math display">\[C_c(\mathbb R^n)\subseteq\mathcal
+S(\mathbb R^n)\subseteq C^\infty(\mathbb R^n).\]</span></p>
+<p>Moreover, <span class="math inline">\(C_c(\mathbb R^n)\)</span> is
+dense in <span class="math inline">\(\mathcal S(\mathbb R^n)\)</span>,
+and <span class="math inline">\(\mathcal S(\mathbb R^n)\)</span> is
+dense in <span class="math inline">\(C^\infty(\mathbb R^n)\)</span>.</p>
+<h3 id="definition-2.2">Definition 2.2</h3>
+<p>The elements <span class="math inline">\(\varphi\in\mathcal S(\mathbb
+R^n)\)</span> are called tempered distributions.</p>
+<h3 id="theorem-2.3">Theorem 2.3</h3>
+<p>Every tempered distribution is the derivative of a continuous
+function that increases slowly at infinity.</p>
+<h3 id="lemma-2.1">Lemma 2.1</h3>
+<p>If <span class="math inline">\(\varphi\)</span> is a tempered
+distribution, then there exists <span class="math inline">\(k&gt;0\)</span> such that <span class="math display">\[(1+|x|^2)^{-k/2}\varphi\in L^\infty.\]</span></p>
+<h3 id="theorem-2.4-plancherel">Theorem 2.4 (Plancherel)</h3>
+<p>There is a linear isometry <span class="math inline">\(\Psi\)</span>
+of <span class="math inline">\(L^2(\mathbb R^n)\)</span> onto <span class="math inline">\(L^2(\mathbb R^n)\)</span> uniquely determined by
+the requirement that</p>
+<p><span class="math display">\[\Psi f=\widehat f\]</span></p>
+<p>for every <span class="math inline">\(f\in\mathcal S(\mathbb
+R^n)\)</span>.</p>
+<h2 id="imbedding-theorem">3 Imbedding Theorem</h2>
+<p><strong>Theorem 3.1</strong> (Meyers and Serrin) <span class="math inline">\(H^{m,p}(\Omega)=W^{m,p}(\Omega).\)</span></p>
+<p><strong>Theorem 3.2</strong> (Sobolev) If either <span class="math inline">\(mp&gt;n\)</span> or <span class="math inline">\(m=n\)</span> and <span class="math inline">\(p=1\)</span>, then <span class="math inline">\(W^{j+m,p}(\Omega)\hookrightarrow
+C_B^j(\Omega).\)</span></p>
+<p><strong>Theorem 3.3</strong> (Sobolev) If <span class="math inline">\(mp&lt;n\)</span>, then <span class="math inline">\(W^{m,p}(\Omega)\hookrightarrow
+L^q(\Omega)\)</span> for <span class="math inline">\(p&lt;q&lt;p^*=\frac{np}{n-mp}.\)</span></p>
+<p><strong>Theorem 3.4</strong> (Sobolev) If <span class="math inline">\(mp\geq n\)</span>, then <span class="math inline">\(W^{m,p}(\Omega)\hookrightarrow
+L^q(\Omega)\)</span> for <span class="math inline">\(p\leq
+q\leq\infty.\)</span></p>
+<p><strong>Theorem 3.5</strong> (Morrey) If <span class="math inline">\(mp&gt;n&gt;(m-1)p,\)</span> then <span class="math inline">\(W^{j+m,p}(\Omega)\hookrightarrow
+C_B^{j,\lambda}(\Omega)\)</span> for <span class="math inline">\(0&lt;\lambda&lt;m-\frac np.\)</span></p>
+<p><strong>Theorem 3.6</strong> (Morrey) If <span class="math inline">\(n=(m-1)p,\)</span> then <span class="math inline">\(W^{j+m,p}(\Omega)\hookrightarrow
+C_B^{j,\lambda}(\Omega)\)</span> for <span class="math inline">\(0&lt;\lambda&lt;1\)</span>. If <span class="math inline">\(n=m-1\)</span> and <span class="math inline">\(p=1\)</span>, then the result also holds for <span class="math inline">\(\lambda=1\)</span>.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>R. A. Adams and John J. F. Fournier. <em>Sobolev Spaces</em>.
+Elsevier, 2003.</li>
+<li>J. Barros-Neto. <em>An Introduction to the Theory of
+Distributions</em>. Pure and Applied Mathematics 14. M. Dekker, New
+York, 1973.
+中译本：《广义函数引论》，上海科技出版社，1981，欧阳光中、朱学炎译。</li>
+<li>I. M. Gel'fand and G. E. Shilov. <em>Generalized Functions, Volume
+2: Spaces of Fundamental and Generalized Functions</em>. American
+Mathematical Society, 2016. 中译本：《广义函数
+2》，科学出版社，1984，夏道行译。</li>
+<li>W. Rudin. <em>Functional Analysis</em>. International Series in Pure
+and Applied Mathematics. McGraw-Hill, 1991.</li>
+<li>L. Schwartz. <em>Théorie des distributions</em>. Publications de
+l'Institut de Mathématique de l'Université de Strasbourg. Hermann, 1966.
+中译本：《广义函数论》，高等教育出版社，2010，姚家燕译。</li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>For completeness and Montel spaces, see J. Horváth,
+<em>Topological Vector Spaces and Distributions</em>, Courier
+Corporation, 2012, pp. 162–165 and Section 3.9.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>G. Köthe, <em>Topological Vector Spaces I–II</em>,
+Springer, 1983.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2026/07/26/Sobolev%20Space/">http://blueairm.github.io/2026/07/26/Sobolev%20Space/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Measures-and-Topology/"># Measures and Topology</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/">Three Elegant Theorems in Abstract Algebra</a>
+            
+            
+            <a class="next" rel="next" href="/2026/06/17/Zilber%20Trichotomy/">Zilber's Trichotomy</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

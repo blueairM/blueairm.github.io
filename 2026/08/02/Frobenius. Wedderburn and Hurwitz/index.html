@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Three Elegant Theorems in Abstract Algebra | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Three Elegant Theorems in Abstract Algebra</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Haoming Wang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 2, 2026&nbsp;&nbsp;23:58:21</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>The real algebras <span class="math inline">\(\mathbb R\)</span>,
+<span class="math inline">\(\mathbb C\)</span>, <span class="math inline">\(\mathbb H\)</span>, and <span class="math inline">\(\mathbb O\)</span> have dimensions <span class="math inline">\(1,2,4,8\)</span>. They form the familiar chain</p>
+<p><span class="math display">\[\mathbb R\subset\mathbb C\subset\mathbb
+H\subset\mathbb O,\]</span></p>
+<p>and as we move from left to right, familiar algebraic properties
+gradually disappear.</p>
+<table>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr>
+<th>Algebra</th>
+<th>Commutative</th>
+<th>Associative</th>
+<th>Alternative</th>
+<th>Multiplicative norm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(\mathbb R\)</span></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathbb C\)</span></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathbb H\)</span></td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathbb O\)</span></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Three classical rigidity theorems explain much of this pattern.</p>
+<blockquote>
+<p><strong>Frobenius Theorem.</strong> Every finite-dimensional
+associative division algebra over <span class="math inline">\(\mathbb
+R\)</span> is isomorphic to <span class="math inline">\(\mathbb
+R\)</span>, <span class="math inline">\(\mathbb C\)</span>, or <span class="math inline">\(\mathbb H\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Wedderburn's Little Theorem.</strong> Every finite division
+ring is commutative, hence is a finite field.</p>
+</blockquote>
+<blockquote>
+<p><strong>Hurwitz Theorem.</strong> Every finite-dimensional normed
+division algebra over <span class="math inline">\(\mathbb R\)</span> is
+isomorphic to <span class="math inline">\(\mathbb R\)</span>, <span class="math inline">\(\mathbb C\)</span>, <span class="math inline">\(\mathbb H\)</span>, or <span class="math inline">\(\mathbb O\)</span>.</p>
+</blockquote>
+<p>Thus Frobenius and Wedderburn concern associative division algebras,
+while Hurwitz replaces associativity by the existence of a
+positive-definite multiplicative quadratic form. The generalized form of
+Hurwitz' theorem will later require only nondegeneracy.</p>
+<h2 id="frobenius-theorem">1. Frobenius Theorem</h2>
+<p>Let <span class="math inline">\(D\)</span> be a finite-dimensional
+associative division algebra over <span class="math inline">\(\mathbb
+R\)</span>. We wish to prove that <span class="math inline">\(D\)</span>
+is one of <span class="math inline">\(\mathbb R\)</span>, <span class="math inline">\(\mathbb C\)</span>, or <span class="math inline">\(\mathbb H\)</span>.</p>
+<h3 id="every-element-has-degree-at-most-two">1.1 Every element has
+degree at most two</h3>
+<p>Since <span class="math inline">\(D\)</span> is finite-dimensional
+over <span class="math inline">\(\mathbb R\)</span>, every <span class="math inline">\(x\in D\)</span> is algebraic over <span class="math inline">\(\mathbb R\)</span>. Indeed, the elements <span class="math inline">\(1,x,x^2,\ldots\)</span> must eventually become
+linearly dependent. Let <span class="math inline">\(m_x(t)\in\mathbb
+R[t]\)</span> be the minimum polynomial of <span class="math inline">\(x\)</span>. We claim that <span class="math inline">\(m_x(t)\)</span> is irreducible over <span class="math inline">\(\mathbb R\)</span>. Suppose <span class="math inline">\(m_x(t)=f(t)g(t)\)</span>, where <span class="math inline">\(f,g\in\mathbb R[t]\)</span> both have positive
+degree. Since <span class="math inline">\(\mathbb R\)</span> lies in the
+center of <span class="math inline">\(D\)</span>, evaluation at <span class="math inline">\(x\)</span> gives <span class="math inline">\(0=m_x(x)=f(x)g(x)\)</span>. Since <span class="math inline">\(D\)</span> is a division algebra, it has no zero
+divisors, so either <span class="math inline">\(f(x)=0\)</span> or <span class="math inline">\(g(x)=0\)</span>. This contradicts the minimality
+of <span class="math inline">\(m_x\)</span>. Hence <span class="math inline">\(m_x\)</span> is irreducible.</p>
+<p>The only irreducible polynomials over <span class="math inline">\(\mathbb R\)</span> have degree <span class="math inline">\(1\)</span> or <span class="math inline">\(2\)</span>. Therefore every <span class="math inline">\(x\in D\)</span> has degree at most <span class="math inline">\(2\)</span> over <span class="math inline">\(\mathbb R\)</span>. If <span class="math inline">\(x\notin\mathbb R\)</span>, its minimum polynomial
+is an irreducible quadratic. After completing the square, we may write
+it as <span class="math inline">\((t-a)^2+b^2\)</span> with <span class="math inline">\(b\ne0\)</span>. Thus <span class="math inline">\((x-a)^2=-b^2\)</span>. Setting <span class="math inline">\(i=(x-a)/b\)</span>, we obtain <span class="math inline">\(i^2=-1\)</span>. Hence either <span class="math inline">\(D=\mathbb R\)</span>, or <span class="math inline">\(D\)</span> contains a copy of <span class="math inline">\(\mathbb C=\mathbb R+\mathbb Ri\)</span>.</p>
+<p>From now on assume <span class="math inline">\(D\ne\mathbb R\)</span>
+and fix <span class="math inline">\(i\in D\)</span> with <span class="math inline">\(i^2=-1\)</span>.</p>
+<h3 id="the-centralizer-of-i">1.2 The centralizer of <span class="math inline">\(i\)</span></h3>
+<p>Consider the centralizer <span class="math inline">\(C_D(i)=\{x\in
+D:xi=ix\}\)</span>. It is a division subalgebra of <span class="math inline">\(D\)</span>, and <span class="math inline">\(\mathbb C=\mathbb R+\mathbb Ri\)</span> lies in
+its center. Thus <span class="math inline">\(C_D(i)\)</span> is a
+finite-dimensional division algebra over <span class="math inline">\(\mathbb C\)</span>. But <span class="math inline">\(\mathbb C\)</span> is algebraically closed. If
+<span class="math inline">\(x\in C_D(i)\)</span>, then the minimum
+polynomial of <span class="math inline">\(x\)</span> over <span class="math inline">\(\mathbb C\)</span> is irreducible. Hence it must
+be linear, so <span class="math inline">\(x\in\mathbb C\)</span>.
+Therefore <span class="math inline">\(C_D(i)=\mathbb C\)</span>.</p>
+<h3 id="conjugation-by-i">1.3 Conjugation by <span class="math inline">\(i\)</span></h3>
+<p>Define an <span class="math inline">\(\mathbb R\)</span>-linear
+transformation <span class="math inline">\(\sigma:D\to D\)</span> by
+<span class="math inline">\(\sigma(x)=ixi^{-1}\)</span>. Since <span class="math inline">\(i^{-1}=-i\)</span>, we have <span class="math inline">\(\sigma^2=1\)</span>. Hence <span class="math inline">\(D\)</span> decomposes into the two eigenspaces</p>
+<p><span class="math display">\[D=D_+\oplus D_-,\]</span></p>
+<p>where <span class="math inline">\(D_+=\{x:\sigma(x)=x\}\)</span> and
+<span class="math inline">\(D_-=\{x:\sigma(x)=-x\}\)</span>. Now <span class="math inline">\(\sigma(x)=x\)</span> is equivalent to <span class="math inline">\(ix=xi\)</span>, so <span class="math inline">\(D_+=C_D(i)=\mathbb C\)</span>. Similarly, <span class="math inline">\(\sigma(x)=-x\)</span> is equivalent to <span class="math inline">\(ix=-xi\)</span>. Thus</p>
+<p><span class="math display">\[D=\mathbb C\oplus D_-.\]</span></p>
+<p>If <span class="math inline">\(D_-=0\)</span>, then <span class="math inline">\(D=\mathbb C\)</span>. It remains to consider the
+case <span class="math inline">\(D_-\ne0\)</span>.</p>
+<h3 id="the-quaternionic-direction">1.4 The quaternionic direction</h3>
+<p>Choose <span class="math inline">\(0\ne j\in D_-\)</span>. Then <span class="math inline">\(ij=-ji\)</span>. We claim that <span class="math inline">\(D_-=\mathbb Cj\)</span>. Let <span class="math inline">\(x\in D_-\)</span>. Since both <span class="math inline">\(x\)</span> and <span class="math inline">\(j^{-1}\)</span> anticommute with <span class="math inline">\(i\)</span>, their product <span class="math inline">\(xj^{-1}\)</span> commutes with <span class="math inline">\(i\)</span>. Hence <span class="math inline">\(xj^{-1}\in C_D(i)=\mathbb C\)</span>, so <span class="math inline">\(x\in\mathbb Cj\)</span>. Therefore <span class="math inline">\(D_-=\mathbb Cj\)</span> and <span class="math inline">\(D=\mathbb C\oplus\mathbb Cj\)</span>. In
+particular, <span class="math inline">\(\dim_{\mathbb R}D=4\)</span>. If
+<span class="math inline">\(z=a+bi\in\mathbb C\)</span>, then <span class="math inline">\(jz=j(a+bi)=aj+bji=(a-bi)j=\bar zj\)</span>. Thus
+the action of <span class="math inline">\(j\)</span> on <span class="math inline">\(\mathbb C\)</span> is complex conjugation: <span class="math inline">\(jz=\bar zj\)</span>. This is precisely the
+relation appearing in the quaternion algebra.</p>
+<h3 id="determining-j2">1.5 Determining <span class="math inline">\(j^2\)</span></h3>
+<p>Since <span class="math inline">\(ij=-ji\)</span>, we have <span class="math inline">\(ij^2=j^2i\)</span>, so <span class="math inline">\(j^2\in C_D(i)=\mathbb C\)</span>. On the other
+hand, <span class="math inline">\(j^2\)</span> commutes with <span class="math inline">\(j\)</span>. Write <span class="math inline">\(j^2=z\in\mathbb C\)</span>. Since <span class="math inline">\(jz=\bar zj\)</span> and also <span class="math inline">\(jz=zj\)</span>, we obtain <span class="math inline">\(\bar z=z\)</span>. Hence <span class="math inline">\(z\in\mathbb R\)</span>. Thus <span class="math inline">\(j^2\in\mathbb R\)</span>.</p>
+<p>Certainly <span class="math inline">\(j^2\ne0\)</span>. Moreover,
+<span class="math inline">\(j^2\)</span> cannot be positive. If <span class="math inline">\(j^2=a&gt;0\)</span>, then <span class="math inline">\((j-\sqrt a)(j+\sqrt a)=0\)</span>, contradicting
+the absence of zero divisors.</p>
+<p>Hence <span class="math inline">\(j^2&lt;0\)</span>. After replacing
+<span class="math inline">\(j\)</span> by a nonzero real multiple of
+<span class="math inline">\(j\)</span>, we may assume <span class="math inline">\(j^2=-1\)</span>.</p>
+<p>We now have <span class="math inline">\(i^2=j^2=-1\)</span> and <span class="math inline">\(ij=-ji\)</span>. Setting <span class="math inline">\(k=ij\)</span>, we obtain the usual quaternion
+relations <span class="math inline">\(i^2=j^2=k^2=ijk=-1\)</span>.
+Therefore <span class="math inline">\(D\simeq\mathbb H\)</span>.</p>
+<p>We have proved</p>
+<blockquote>
+<p><strong>Frobenius Theorem.</strong> Every finite-dimensional
+associative division algebra over <span class="math inline">\(\mathbb
+R\)</span> is isomorphic to exactly one of <span class="math inline">\(\mathbb R\)</span>, <span class="math inline">\(\mathbb C\)</span>, and <span class="math inline">\(\mathbb H\)</span>.</p>
+</blockquote>
+<h2 id="wedderburns-little-theorem">2. Wedderburn's Little Theorem</h2>
+<p>Let <span class="math inline">\(D\)</span> be a finite division ring
+and let <span class="math inline">\(F=Z(D)\)</span> be its center. Since
+<span class="math inline">\(F\)</span> is a finite field, write <span class="math inline">\(|F|=q\)</span>. Let <span class="math inline">\(n=\dim_FD\)</span>. Then <span class="math inline">\(|D|=q^n\)</span> and <span class="math inline">\(|D^\times|=q^n-1\)</span>. We wish to show that
+<span class="math inline">\(n=1\)</span>. If <span class="math inline">\(n=1\)</span>, then <span class="math inline">\(D=F\)</span> and there is nothing to prove.
+Suppose therefore that <span class="math inline">\(n&gt;1\)</span>.</p>
+<h3 id="conjugacy-classes">2.1 Conjugacy classes</h3>
+<p>Let <span class="math inline">\(D^\times\)</span> act on itself by
+conjugation. The elements of <span class="math inline">\(F^\times\)</span> are precisely the central
+elements, hence each of them forms a conjugacy class containing one
+element. Choose representatives <span class="math inline">\(a_1,\ldots,a_r\)</span> for the noncentral
+conjugacy classes. For each <span class="math inline">\(a_i\)</span>,
+let <span class="math inline">\(C_i=C_D(a_i)\)</span> be its
+centralizer. Since <span class="math inline">\(a_i\)</span> is not
+central, <span class="math inline">\(C_i\)</span> is a proper division
+subalgebra of <span class="math inline">\(D\)</span> containing <span class="math inline">\(F\)</span>. Write <span class="math inline">\(n_i=\dim_FC_i\)</span>. Then <span class="math inline">\(1\le n_i&lt;n\)</span>. Moreover, <span class="math inline">\(D\)</span> is a vector space over the division
+ring <span class="math inline">\(C_i\)</span>. If <span class="math inline">\(m_i=\dim_{C_i}D\)</span>, then <span class="math inline">\(n=m_in_i\)</span>. Thus <span class="math inline">\(n_i\mid n\)</span>. The centralizer of <span class="math inline">\(a_i\)</span> inside the multiplicative group <span class="math inline">\(D^\times\)</span> is <span class="math inline">\(C_i^\times\)</span>, which has <span class="math inline">\(q^{n_i}-1\)</span> elements. Hence the conjugacy
+class of <span class="math inline">\(a_i\)</span> has size</p>
+<p><span class="math display">\[\frac{|D^\times|}{|C_i^\times|}=\frac{q^n-1}{q^{n_i}-1}.\]</span></p>
+<p>Consequently the class equation of <span class="math inline">\(D^\times\)</span> is</p>
+<p><span class="math display">\[q^n-1=q-1+\sum_{i=1}^r\frac{q^n-1}{q^{n_i}-1}.\]</span></p>
+<p>Everything now reduces to elementary arithmetic.</p>
+<h3 id="cyclotomic-polynomials">2.2 Cyclotomic polynomials</h3>
+<p>Let <span class="math inline">\(\Phi_n(X)\)</span> denote the <span class="math inline">\(n\)</span>-th cyclotomic polynomial. Recall that
+<span class="math inline">\(X^n-1=\prod_{d\mid n}\Phi_d(X).\)</span>
+Since <span class="math inline">\(n_i\)</span> is a proper divisor of
+<span class="math inline">\(n\)</span>, the polynomial <span class="math inline">\(\Phi_n(X)\)</span> occurs as a factor of <span class="math inline">\(X^n-1\)</span>, but not of <span class="math inline">\(X^{n_i}-1\)</span>. Therefore</p>
+<p><span class="math display">\[\Phi_n(q)\mid\frac{q^n-1}{q^{n_i}-1}\]</span></p>
+<p>for every <span class="math inline">\(i\)</span>. Returning to the
+class equation, every summand in the sum is divisible by <span class="math inline">\(\Phi_n(q)\)</span>. Since <span class="math inline">\(\Phi_n(q)\)</span> also divides <span class="math inline">\(q^n-1\)</span>, it follows that</p>
+<p><span class="math display">\[\Phi_n(q)\mid q-1.\]</span></p>
+<p>We shall show that this is impossible when <span class="math inline">\(n&gt;1\)</span>.</p>
+<h3 id="the-contradiction">2.3 The contradiction</h3>
+<p>Over <span class="math inline">\(\mathbb C\)</span>, the cyclotomic
+polynomial factors as <span class="math inline">\(\Phi_n(X)=\prod_\zeta(X-\zeta),\)</span> where
+<span class="math inline">\(\zeta\)</span> runs through the primitive
+<span class="math inline">\(n\)</span>-th roots of unity. Since <span class="math inline">\(n&gt;1\)</span>, no primitive <span class="math inline">\(n\)</span>-th root of unity is equal to <span class="math inline">\(1\)</span>. For every such <span class="math inline">\(\zeta\)</span>, the distance from the real number
+<span class="math inline">\(q\)</span> to <span class="math inline">\(\zeta\)</span> is strictly larger than the
+distance from <span class="math inline">\(q\)</span> to <span class="math inline">\(1\)</span>. Hence <span class="math inline">\(|q-\zeta|&gt;q-1.\)</span> Therefore</p>
+<p><span class="math display">\[|\Phi_n(q)|=\prod_\zeta|q-\zeta|&gt;q-1.\]</span></p>
+<p>But we already proved that <span class="math inline">\(\Phi_n(q)\)</span> divides <span class="math inline">\(q-1\)</span>. A nonzero integer dividing <span class="math inline">\(q-1\)</span> cannot have absolute value greater
+than <span class="math inline">\(q-1\)</span>. This contradiction shows
+that <span class="math inline">\(n&gt;1\)</span> is impossible. Hence
+<span class="math inline">\(n=1\)</span> and therefore <span class="math inline">\(D=F\)</span>. Thus <span class="math inline">\(D\)</span> is commutative and we have</p>
+<blockquote>
+<p><strong>Wedderburn's Little Theorem.</strong> Every finite division
+ring is commutative.</p>
+</blockquote>
+<p>Equivalently, if <span class="math inline">\(D\)</span> is a finite
+associative division algebra, then <span class="math inline">\(D\)</span> is a finite field.</p>
+<h2 id="hurwitz-theorem">3. Hurwitz Theorem</h2>
+<p>We now drop the assumption of associativity and study algebras that
+carry a multiplicative quadratic form.</p>
+<h3 id="composition-algebras">3.1 Composition algebras</h3>
+<p>Let <span class="math inline">\(F\)</span> be a field with <span class="math inline">\(\operatorname{char}F\neq2\)</span>. A
+<em>quadratic form</em> on a finite-dimensional <span class="math inline">\(F\)</span>-vector space <span class="math inline">\(V\)</span> is a map <span class="math inline">\(N:V\to F\)</span> satisfying:</p>
+<ul>
+<li><span class="math inline">\(N(\lambda v)=\lambda^2N(v)\)</span> for
+all <span class="math inline">\(\lambda\in F\)</span> and <span class="math inline">\(v\in V\)</span>;</li>
+<li>the map <span class="math inline">\((v,w)\mapsto
+N(v+w)-N(v)-N(w)\)</span> is <span class="math inline">\(F\)</span>-bilinear.</li>
+</ul>
+<p>Its polar form is</p>
+<p><span class="math display">\[(v,w)=\frac12\bigl(N(v+w)-N(v)-N(w)\bigr).\]</span></p>
+<p>Then <span class="math inline">\(N(v)=(v,v)\)</span>. The quadratic
+form <span class="math inline">\(N\)</span> is <em>nondegenerate</em> if
+<span class="math inline">\((v,w)=0\)</span> for every <span class="math inline">\(w\in V\)</span> implies <span class="math inline">\(v=0\)</span>.</p>
+<p>A <em>composition algebra</em> over <span class="math inline">\(F\)</span> is a finite-dimensional unital <span class="math inline">\(F\)</span>-algebra <span class="math inline">\(A\)</span>, not necessarily associative, together
+with a nondegenerate quadratic form <span class="math inline">\(N:A\to
+F\)</span> such that <span class="math inline">\(N(xy)=N(x)N(y)\)</span>
+for all <span class="math inline">\(x,y\in A\)</span>. The map <span class="math inline">\(N\)</span> is called the <em>norm</em> of <span class="math inline">\(A\)</span>. Setting <span class="math inline">\(x=y=1\)</span> gives <span class="math inline">\(N(1)=N(1)^2\)</span>, and nondegeneracy forces
+<span class="math inline">\(N(1)=1\)</span>.</p>
+<p>Thus a composition algebra is an algebra in which the norm is
+multiplicative.</p>
+<h3 id="polarization">3.2 Polarization</h3>
+<p>Fix a composition algebra <span class="math inline">\(A\)</span> with
+norm <span class="math inline">\(N\)</span> and polar form <span class="math inline">\((\;,\;)\)</span>.</p>
+<p>Replace <span class="math inline">\(y\)</span> by <span class="math inline">\(y+z\)</span> in the composition law <span class="math inline">\(N(xy)=N(x)N(y)\)</span>. Using bilinearity of the
+polar form we obtain</p>
+<p><span class="math display">\[(xy,xz)=N(x)(y,z). \tag{1}\]</span> The
+symmetric version is <span class="math inline">\((yx,zx)=N(x)(y,z)\)</span>.</p>
+<p>Polarizing (1) again gives the four-linear identity</p>
+<p><span class="math display">\[(xy,zw)+(xw,zy)=2(x,z)(y,w).
+\tag{2}\]</span></p>
+<p>These identities are the algebraic engine of the whole theory. They
+allow the norm to control multiplication.</p>
+<h3 id="trace-and-conjugation">3.3 Trace and conjugation</h3>
+<p>Define the trace of <span class="math inline">\(x\)</span> by <span class="math inline">\(t(x)=2(x,1)\)</span> and its conjugate by <span class="math inline">\(\bar x=t(x)1-x\)</span>.</p>
+<p>Specializing the polarized identities gives</p>
+<p><span class="math display">\[x+\bar x=t(x)1,\qquad x\bar x=\bar
+xx=N(x)1. \tag{3}\]</span></p>
+<p>Hence every element satisfies the quadratic equation</p>
+<p><span class="math display">\[x^2-t(x)x+N(x)1=0.\]</span></p>
+<p>Consequently each element of a composition algebra generates a
+subalgebra of dimension at most two. Linearizing the quadratic equation
+gives</p>
+<p><span class="math display">\[xy+yx=t(x)y+t(y)x-2(x,y)1.
+\tag{4}\]</span></p>
+<p>In particular, if <span class="math inline">\(t(x)=t(y)=0\)</span>
+and <span class="math inline">\((x,y)=0\)</span>, then <span class="math inline">\(xy=-yx\)</span>. Using the polarized identities
+one also checks that conjugation reverses multiplication: <span class="math inline">\(\overline{xy}=\bar y\,\bar x\)</span>.</p>
+<p>Finally, specializing (2) yields the adjoint identities</p>
+<p><span class="math display">\[(xy,z)=(y,\bar xz)=(x,z\bar y),
+\tag{5}\]</span></p>
+<p>which will be essential in the doubling argument.</p>
+<h3 id="the-alternative-laws">3.4 The alternative laws</h3>
+<p>A composition algebra need not be associative, but the norm forces a
+weaker property.</p>
+<h4 id="lemma-1">Lemma 1</h4>
+<p>Every composition algebra satisfies the left and right alternative
+laws</p>
+<p><span class="math display">\[x(xy)=x^2y,\qquad(yx)x=yx^2.\]</span></p>
+<p>Equivalently, the associator <span class="math inline">\([x,y,z]=(xy)z-x(yz)\)</span> is an alternating
+function of its three arguments.</p>
+<h4 id="proof">Proof</h4>
+<p>From the quadratic equation, <span class="math inline">\(x^2=t(x)x-N(x)1\)</span>. Using (5),</p>
+<p><span class="math display">\[(x(xy),z)=(xy,\bar
+xz)=t(x)(xy,z)-(xy,xz).\]</span></p>
+<p>By (1), <span class="math inline">\((xy,xz)=N(x)(y,z)\)</span>, and
+therefore</p>
+<p><span class="math display">\[(x(xy),z)=t(x)(xy,z)-N(x)(y,z)=(x^2y,z).\]</span></p>
+<p>Thus <span class="math inline">\((x(xy)-x^2y,z)=0\)</span> for every
+<span class="math inline">\(z\)</span>. Nondegeneracy yields the left
+alternative law. The right alternative law follows similarly.</p>
+<p>Hence <span class="math inline">\([x,x,y]=[y,x,x]=0\)</span>.
+Linearizing these gives <span class="math inline">\([x,z,y]+[z,x,y]=0\)</span> and <span class="math inline">\([y,x,z]+[y,z,x]=0\)</span>, so the associator
+changes sign when any two adjacent arguments are swapped. Because <span class="math inline">\(\operatorname{char}F\neq2\)</span>, this means
+<span class="math inline">\([x,y,z]\)</span> is alternating. <span class="math inline">\(\square\)</span></p>
+<p>An immediate consequence is</p>
+<blockquote>
+<p><strong>Artin theorem.</strong> Any subalgebra generated by two
+elements of an alternative algebra is associative.</p>
+</blockquote>
+<h3 id="orthogonal-doubling">3.5 Orthogonal doubling</h3>
+<p>The heart of the proof is that the classical Cayley–Dickson doubling
+construction appears naturally inside every composition algebra.</p>
+<p>Let <span class="math inline">\(B\)</span> be a proper composition
+subalgebra of <span class="math inline">\(A\)</span> such that the
+restriction of <span class="math inline">\(N\)</span> to <span class="math inline">\(B\)</span> is nondegenerate. Orthogonally
+decompose <span class="math inline">\(A=B\oplus B^\perp\)</span>.
+Because <span class="math inline">\(B\)</span> is proper, <span class="math inline">\(B^\perp\neq0\)</span>. Since <span class="math inline">\(N\)</span> is nondegenerate on <span class="math inline">\(A\)</span>, its restriction to <span class="math inline">\(B^\perp\)</span> cannot vanish identically. Pick
+<span class="math inline">\(u\in B^\perp\)</span> with <span class="math inline">\(N(u)\neq0\)</span>.</p>
+<p>As <span class="math inline">\(1\in B\)</span>, we have <span class="math inline">\((u,1)=0\)</span>, so <span class="math inline">\(t(u)=0\)</span> and <span class="math inline">\(\bar u=-u\)</span>. The quadratic equation gives
+<span class="math inline">\(u^2=-N(u)1=\mu1\)</span>, where <span class="math inline">\(\mu=-N(u)\in F^\times\)</span>.</p>
+<p>For any <span class="math inline">\(a\in B\)</span>, the linearized
+commutation formula (4) yields <span class="math inline">\(ua+au=t(a)u\)</span>. Hence</p>
+<p><span class="math display">\[ua=\bar au,\qquad au=u\bar a.
+\tag{6}\]</span></p>
+<p><strong>The direct sum.</strong> We first show that <span class="math inline">\(Bu\)</span> is orthogonal to <span class="math inline">\(B\)</span>. For <span class="math inline">\(a,b\in
+B\)</span>, the adjoint identity (5) gives</p>
+<p><span class="math display">\[(au,b) = (u,\bar a b) = 0,\]</span>
+because <span class="math inline">\(\bar a b\in B\)</span> and <span class="math inline">\(u\in B^\perp\)</span>. Thus <span class="math inline">\(Bu\subseteq B^\perp\)</span>. Nondegeneracy on
+<span class="math inline">\(B\)</span> forces <span class="math inline">\(B\cap Bu=0\)</span>.</p>
+<p>If <span class="math inline">\(au=0\)</span>, then by Artin’s theorem
+the subalgebra generated by <span class="math inline">\(a\)</span> and
+<span class="math inline">\(u\)</span> is associative, and</p>
+<p><span class="math display">\[0 = (au)\bar u = a(u\bar u) =
+N(u)a,\]</span> so <span class="math inline">\(a=0\)</span>. The map
+<span class="math inline">\(a\mapsto au\)</span> is therefore injective,
+and <span class="math inline">\(\dim_FBu=\dim_FB\)</span>.</p>
+<p>We therefore obtain the direct sum <span class="math inline">\(D=B\oplus Bu\)</span>, with <span class="math inline">\(\dim_FD=2\dim_FB\)</span>.</p>
+<p><strong>The multiplication.</strong> A direct computation using (6),
+alternativity, and (5) gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+a(du)&amp;=(da)u,\\
+(bu)c&amp;=(b\bar c)u,\\
+(bu)(du)&amp;=\mu\,\bar d b,
+\end{aligned}
+\]</span></p>
+<p>for all <span class="math inline">\(a,b,c,d\in B\)</span>.
+Consequently,</p>
+<p><span class="math display">\[(a+bu)(c+du)=(ac+\mu\bar d b)+(da+b\bar
+c)u. \tag{7}\]</span></p>
+<p>Conjugation and norm on <span class="math inline">\(D\)</span> are
+<span class="math inline">\(\overline{a+bu}=\bar a-bu\)</span> and</p>
+<p><span class="math display">\[N(a+bu)=N(a)-\mu N(b).
+\tag{8}\]</span></p>
+<p>These formulas show that <span class="math inline">\(D\)</span> is
+closed under multiplication and that the norm is again multiplicative.
+Hence <span class="math inline">\(D\)</span> is a composition subalgebra
+of <span class="math inline">\(A\)</span>. It is precisely the
+Cayley--Dickson double of <span class="math inline">\(B\)</span> with
+parameter <span class="math inline">\(\mu\)</span>.</p>
+<p>Thus any proper nondegenerate composition subalgebra forces the next
+Cayley–Dickson algebra to appear inside <span class="math inline">\(A\)</span>.</p>
+<h3 id="successive-doubling-and-the-possible-dimensions">3.6 Successive
+doubling and the possible dimensions</h3>
+<p>Start with <span class="math inline">\(B_0=F1\)</span>. Its norm is
+nondegenerate. If <span class="math inline">\(A=B_0\)</span> we have a
+<span class="math inline">\(1\)</span>-dimensional composition
+algebra.</p>
+<p><strong>First doubling.</strong> If <span class="math inline">\(A\neq
+B_0\)</span>, pick <span class="math inline">\(u_1\in B_0^\perp\)</span>
+with <span class="math inline">\(N(u_1)\neq 0\)</span> and form</p>
+<p><span class="math display">\[B_1=B_0\oplus B_0u_1.\]</span> Then
+<span class="math inline">\(\dim_FB_1=2\)</span>. A two-dimensional
+composition algebra is commutative and associative; it is a quadratic
+étale algebra.</p>
+<p><strong>Second doubling.</strong> If <span class="math inline">\(B_1=A\)</span>, we stop. Otherwise pick <span class="math inline">\(u_2\in B_1^\perp\)</span> with <span class="math inline">\(N(u_2)\neq 0\)</span> and form</p>
+<p><span class="math display">\[B_2=B_1\oplus B_1u_2.\]</span> Then
+<span class="math inline">\(\dim_FB_2=4\)</span>. This is a quaternion
+algebra; it is associative but generally not commutative.</p>
+<p><strong>Third doubling.</strong> If <span class="math inline">\(B_2=A\)</span>, we stop. Otherwise pick <span class="math inline">\(u_3\in B_2^\perp\)</span> with <span class="math inline">\(N(u_3)\neq 0\)</span> and form</p>
+<p><span class="math display">\[B_3=B_2\oplus B_2u_3.\]</span> Then
+<span class="math inline">\(\dim_FB_3=8\)</span>. This is an octonion
+(Cayley) algebra. By Lemma 1 it is alternative. It is not associative:
+choose <span class="math inline">\(a,b\in B_2\)</span> with <span class="math inline">\(ab\neq ba\)</span>. By (7), <span class="math inline">\(a(bu_3)=(ba)u_3\)</span>. If <span class="math inline">\(B_3\)</span> were associative, then <span class="math inline">\((ab)u_3=a(bu_3)=(ba)u_3\)</span>. Since right
+multiplication by <span class="math inline">\(u_3\)</span> is injective,
+this would imply <span class="math inline">\(ab=ba\)</span>, a
+contradiction. Hence <span class="math inline">\([a,b,u_3]\neq0\)</span>.</p>
+<p>We have obtained the chain</p>
+<p><span class="math display">\[F=B_0\subset B_1\subset B_2\subset
+B_3\]</span></p>
+<p>of composition algebras of dimensions <span class="math inline">\(1,2,4,8\)</span>.</p>
+<h3 id="why-the-process-stops-at-eight-dimensions">3.7 Why the process
+stops at eight dimensions</h3>
+<p>It remains to prove that <span class="math inline">\(B_3\)</span>
+cannot be proper, i.e., that no composition algebra of dimension <span class="math inline">\(16\)</span> exists.</p>
+<h4 id="lemma-2">Lemma 2</h4>
+<p>If the Cayley--Dickson double <span class="math inline">\(D=B\oplus
+Bu\)</span> of a composition algebra <span class="math inline">\(B\)</span> is alternative, then <span class="math inline">\(B\)</span> is associative.</p>
+<h4 id="proof-1">Proof</h4>
+<p>Write elements of <span class="math inline">\(D\)</span> as pairs
+<span class="math inline">\((a,b)\)</span> with multiplication as in
+(7)</p>
+<p><span class="math display">\[(a,b)(c,d) = (ac + \mu\,\bar d b,\; da +
+b\bar c).\]</span> Assume <span class="math inline">\(D\)</span>
+satisfies the left alternative law <span class="math inline">\(x(xy)=x^2y\)</span> for all <span class="math inline">\(x,y\in D\)</span>.</p>
+<p>Let <span class="math inline">\(x=(a,b)\)</span> and <span class="math inline">\(y=(c,0)\)</span>. Compute <span class="math inline">\(x^2\)</span>:</p>
+<p><span class="math display">\[x^2 = (a^2 + \mu N(b)1,\;
+t(a)b).\]</span> Then the second component of <span class="math inline">\(x^2y\)</span> is <span class="math inline">\(t(a)b\bar c\)</span>.</p>
+<p>On the other hand, <span class="math inline">\(xy=(ac,\;b\bar
+c)\)</span>, and</p>
+<p><span class="math display">\[x(xy) = \bigl(a(ac) + \mu\overline{b\bar
+c}b,\; (b\bar c)a + b(\overline{ac})\bigr).\]</span> The second
+component is <span class="math inline">\((b\bar c)a+b(\bar c\bar
+a)\)</span>. Equating the second components of <span class="math inline">\(x^2y\)</span> and <span class="math inline">\(x(xy)\)</span> gives</p>
+<p><span class="math display">\[t(a)b\bar c = (b\bar c)a + b(\bar c \bar
+a).\]</span> Since <span class="math inline">\(t(a)1=a+\bar a\)</span>
+and <span class="math inline">\(t(a)\)</span> is scalar, the left-hand
+side is <span class="math inline">\((b\bar c)a+(b\bar c)\bar a\)</span>.
+Comparing both sides gives</p>
+<p><span class="math display">\[(b\bar c)\bar a = b(\bar c \bar
+a),\]</span> which is precisely <span class="math inline">\([b,\bar
+c,\bar a]=0\)</span>. Conjugation is a bijection, and <span class="math inline">\(a,b,c\)</span> are arbitrary; hence <span class="math inline">\([x,y,z]=0\)</span> for all <span class="math inline">\(x,y,z\in B\)</span>. Therefore <span class="math inline">\(B\)</span> is associative. <span class="math inline">\(\square\)</span></p>
+<p>Now suppose <span class="math inline">\(B_3\subsetneq A\)</span>.
+Orthogonal doubling would produce a composition subalgebra <span class="math inline">\(B_4=B_3\oplus B_3u_4\)</span> of dimension <span class="math inline">\(16\)</span>. But every composition algebra is
+alternative, so <span class="math inline">\(B_4\)</span> would be
+alternative. Lemma 2 would then imply that <span class="math inline">\(B_3\)</span> is associative — a contradiction,
+because we have already shown that the eight-dimensional octonion
+algebra is not associative.</p>
+<p>Hence <span class="math inline">\(B_3\)</span> cannot be a proper
+subalgebra. The doubling process terminates after at most three steps,
+and we have proved:</p>
+<blockquote>
+<p><strong>Generalized Hurwitz Theorem.</strong> Every
+finite-dimensional composition algebra over a field <span class="math inline">\(F\)</span> with <span class="math inline">\(\operatorname{char}F\neq2\)</span> has dimension
+<span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, or <span class="math inline">\(8\)</span>.</p>
+</blockquote>
+<h3 id="the-real-case">3.8 The real case</h3>
+<p>The original Hurwitz theorem concerns normed division algebras over
+<span class="math inline">\(\mathbb R\)</span>. A normed division
+algebra is a finite-dimensional real algebra with a multiplicative norm
+<span class="math inline">\(N\)</span> that is positive definite. In
+particular, it is a composition algebra over <span class="math inline">\(\mathbb R\)</span> whose quadratic form is
+anisotropic, <span class="math inline">\(N(x)=0\Rightarrow x=0\)</span>.
+The generalized theorem forces its dimension to be <span class="math inline">\(1,2,4\)</span>, or <span class="math inline">\(8\)</span>. At each doubling step <span class="math inline">\(u^2=-N(u)1\)</span> with <span class="math inline">\(N(u)&gt;0\)</span>, so after rescaling we may take
+<span class="math inline">\(u^2=-1\)</span>. The four possibilities are
+therefore exactly</p>
+<p><span class="math display">\[\mathbb R,\quad \mathbb C,\quad \mathbb
+H,\quad \mathbb O.\]</span></p>
+<p>They correspond respectively to the real numbers, the complex
+numbers, the quaternions, and the octonions. Thus:</p>
+<blockquote>
+<p><strong>Hurwitz Theorem.</strong> Every finite-dimensional normed
+division algebra over <span class="math inline">\(\mathbb R\)</span> is
+isomorphic to exactly one of <span class="math inline">\(\mathbb
+R\)</span>, <span class="math inline">\(\mathbb C\)</span>, <span class="math inline">\(\mathbb H\)</span>, and <span class="math inline">\(\mathbb O\)</span>.</p>
+</blockquote>
+<p>This completes the table with which we began the post.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Nathan Jacobson, <em>Basic Algebra I</em>, 2nd ed., W. H. Freeman,
+1985, §§7.6--7.7.</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Haoming Wang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/">http://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>A journey of one thousand miles can be covered only with one step at a time.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Rings-and-Algebras/"># Rings and Algebras</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/08/04/A%20Conversation%20with%20Chat-gpt/">A Conversation with Chat-gpt</a>
+            
+            
+            <a class="next" rel="next" href="/2026/07/26/Sobolev%20Space/">Sobolev Space</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
