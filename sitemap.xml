@@ -295,6 +295,13 @@
   </url>
   
   <url>
+    <loc>http://blueairm.github.io/tags/Ordinals-and-Cardinals/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blueairm.github.io/tags/Rings-and-Algebras/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -316,13 +323,6 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Ordinals-and-Cardinals/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://blueairm.github.io/tags/Complex-Variables/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -337,14 +337,14 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Measures-and-Topology/</loc>
+    <loc>http://blueairm.github.io/tags/Primes/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/tags/Primes/</loc>
+    <loc>http://blueairm.github.io/tags/Measures-and-Topology/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -360,14 +360,14 @@
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Notes/</loc>
+    <loc>http://blueairm.github.io/categories/Blogs/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blueairm.github.io/categories/Blogs/</loc>
+    <loc>http://blueairm.github.io/categories/Notes/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

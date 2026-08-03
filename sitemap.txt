@@ -31,14 +31,14 @@ http://blueairm.github.io/seminar/2025.html
 http://blueairm.github.io/
 http://blueairm.github.io/tags/Miscellanies/
 http://blueairm.github.io/tags/History-of-Mathematics/
+http://blueairm.github.io/tags/Ordinals-and-Cardinals/
 http://blueairm.github.io/tags/Rings-and-Algebras/
 http://blueairm.github.io/tags/Groups-and-Fields/
 http://blueairm.github.io/tags/Types/
-http://blueairm.github.io/tags/Ordinals-and-Cardinals/
 http://blueairm.github.io/tags/Complex-Variables/
 http://blueairm.github.io/tags/Diophantine-Functions/
-http://blueairm.github.io/tags/Measures-and-Topology/
 http://blueairm.github.io/tags/Primes/
+http://blueairm.github.io/tags/Measures-and-Topology/
 http://blueairm.github.io/categories/My-Diaries/
-http://blueairm.github.io/categories/Notes/
 http://blueairm.github.io/categories/Blogs/
+http://blueairm.github.io/categories/Notes/
