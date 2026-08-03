@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="http://blueairm.github.io/atom.xml" rel="self"/>
+  <link href="https://blueairm.github.io/atom.xml" rel="self"/>
   
-  <link href="http://blueairm.github.io/"/>
-  <updated>2026-08-03T20:01:03.485Z</updated>
-  <id>http://blueairm.github.io/</id>
+  <link href="https://blueairm.github.io/"/>
+  <updated>2026-08-03T21:02:49.273Z</updated>
+  <id>https://blueairm.github.io/</id>
   
   <author>
     <name>Haoming Wang</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>A Conversation with Chat-gpt</title>
-    <link href="http://blueairm.github.io/2026/08/04/A%20Conversation%20with%20Chat-gpt/"/>
-    <id>http://blueairm.github.io/2026/08/04/A%20Conversation%20with%20Chat-gpt/</id>
+    <link href="https://blueairm.github.io/2026/08/04/A%20Conversation%20with%20Chat-gpt/"/>
+    <id>https://blueairm.github.io/2026/08/04/A%20Conversation%20with%20Chat-gpt/</id>
     <published>2026-08-03T17:45:21.000Z</published>
-    <updated>2026-08-03T20:01:03.485Z</updated>
+    <updated>2026-08-03T21:02:49.273Z</updated>
     
-    <content type="html"><![CDATA[<p>This is a conversation with Chat-gpt Plus 5.6 Sol. The motivatingquestion from the starting point is a conjecture of Brémaud on whetherthere exists an anticipating point process which is absolutelycontinuous with respect to the standard Poisson process. Brémaud'sconjecture is No. I tried to intervene when the conversation was losingmeaning only twice before it found the right solution. The chat historyis in</p><p>https://chatgpt.com/share/6a70dd63-2814-83ee-adf8-680d84474b97</p><p>Q: What is the current status of Brémaud's 1972 thesis conjecture(p.48) in the field of Poisson processes?</p><p>A: I will first pin down exactly which conjecture appears on page 48of Brémaud's 1972 thesis, and then trace whether it has since beenproved, disproved by a counterexample, or only resolved under additionalconditions. This is a rather obscure problem, so I will prioritisechecking the original thesis/monograph and subsequent citation chains,rather than relying on secondary claims about whether it is stillopen.</p><p>I have found the key point: Brémaud's original conjecture is thatthere exists no absolutely continuous (with respect to the standardPoisson) anticipative self-exciting process. Under themartingale-intensity definition he gives in the preceding two pages,this original version is actually hit directly by a very classicalobject - the Poisson bridge / initial enlargement. What really needs tobe distinguished is that a later 2025 paper claiming to answer theconjecture adopts a stronger filtration assumption.</p><p>Q: But keeping the bounded intensity assumption would distort theoriginal intent.</p><p>A: Yes, I agree. And in my previous answer, isolating the "boundedintensity" version as a possible surviving conjecture tends to distortthe historical account.</p><p>Q: Continue.</p><p>A: I will unify all three versions on the canonical point-processspace, so that we can directly see: which object is fixed, whichfiltration is changed, and which notion of "Poisson" is implicitlystrengthened. The key issue is not boundedness, but rather that "thePoisson law" and "being a Poisson process with respect to a givenfiltration" are two distinct propositions and must not be conflated.</p><p>Q: But how can a standard Poisson process not depend on afiltration?</p><p>A: It can. Here we must strictly separate two levels; your questionprecisely points out that my previous statement "the standard Poissonprocess does not depend on a filtration" needs to be made moreprecise.</p><p>Q: OK.</p><p>A: I will check the original text on this point: first look atBrémaud's formal definition of "standard Poisson process" in Chapter I,and then see how he invokes P0 and the filtration on p.48. Once thesetwo places match up, the earlier controversy will essentially besettled.</p><p>Q: If the same process with respect to the same filtration is notwell-defined under two probability measures, does the conjecture evenmake sense?</p><p>A: It does make sense, but "well-defined" must be made concrete. Themost common confusion here is between three different things; the firsttwo are what Brémaud's problem really requires, while the third is notneeded.</p><p>Q: The goal is precisely to identify the differences incharacterisation under different probability measures, not to play wordgames or argue about who is right or wrong.</p><p>A: Exactly. What really deserves study is how the Doob-Meyerdecomposition of the same (N, G) changes under P0 versus P ≪ P0, andwhen that change can still be realised by an absolutely continuousdensity process. Then Brémaud's problem becomes a very standard andmeaningful "change of measure + enlargement of filtration" question.</p><p>Q: Let us take P0 as the standard Poisson process.</p><p>A: Yes. Then we completely fix the framework and stop arguing aboutwhether P0 remains Poisson under the enlarged filtration - that ispurely a terminological issue.</p><p>Q: Let us not get stuck on standard definitions. Find the correctdefinition and state the theorem.</p><p>A: I agree: we should stop circling around how a "standard Poissonprocess" should be named. The most natural object is actually a fixedfiltered measurable system (Ω, F, G, N), and we compare compensatorsunder different probability measures; "Poisson" is then used only tospecify the law of the reference measure P0.</p><p>Q: Can we drop the discussion of the Lebesgue decomposition?</p><p>A: Yes, and I think dropping the Lebesgue decomposition is actuallybetter. The truly essential notion is the absolute continuity of thepredictable compensator as a random measure, without first splitting itinto a dt-part, a singular part, and an atomic part.</p><p>Q: Is this the correct direction?</p><p>A: Yes, this direction is correct, and it is more fundamental thanarguing about whether "Poisson process" is defined with respect to agiven filtration. But I will tighten it further: the core object is notthe Lebesgue decomposition, nor the intensity itself, but thepredictable measure class of the compensator.</p><p>Q: If the standard process under P0 also requires a Lebesguedecomposition, does that distort Brémaud's original intent in proposingthe conjecture?</p><p>A: Yes. If we take the compensator of the enlarged filtration underP0 and then perform a Lebesgue decomposition, and treat thatdecomposition as the main problem, I believe that does begin to deviatefrom Brémaud's original 1972 conjecture. It can serve as a tool forlater obstruction analysis, but it should not be taken as thedefinitional starting point of the problem.</p><p>Q: Focus on Brémaud's specific example and his motivation for theconjecture.</p><p>A: I will shift the emphasis back to Brémaud's concrete example onp.48: first reconstruct why he chose that "look ahead by a window oflength a" rate, then explain how this example exposes the failure of theclassical likelihood construction, and why he would naturally conjecturefrom this failure that there is no absolutely continuous anticipativeself-exciting process.</p><p>Q: What is the point of comparing with the standard Poissonprocess?</p><p>A: There are three purposes, and the third is precisely the contentof Brémaud's p.48 conjecture.</p><p>Q: The path is no longer to be changed; that is a given fact.</p><p>A: Yes, that is how we should say it - we must no longer use wordinglike "change/create paths". The canonical path space and the coordinateprocess N(ω) never change at all; the only thing that changes is theprobability measure on the same set of paths.</p><p>Q: How far has the current literature advanced on this step?</p><p>A: I will search according to your now-fixed formulation, not by thelabel "Brémaud conjecture": on the canonical Poisson P0, with the samepath space and the same anticipative filtration G, characterise which P≪ P0 give a prescribed future-dependent λ as a G-intensity. This lets ussee whether the existing literature has resolved "change of measure","enlargement of filtration", or the truly coupled step.</p><p>At first glance, the literature has already matured both sidesseparately: the 1970s Jacod-Kabanov-Liptser-Shiryaev work already gavenecessary and sufficient conditions for absolute continuity/singularityof point-process laws in terms of compensators; and post-2000senlargement-of-filtration literature can compute the compensator afteradding future information. What has not been systematically investigatedis the combination of these two results specialised to Brémaud's slidingfuture-window filtration and the classification of realizability of agiven anticipative rate.</p><p>Q: Conversely, does "there is no anticipating process" mean thatevery absolutely continuous process is minimal?</p><p>A: One can view it in that converse way, and this is actually closerto a "structure theorem". The key is to define "minimal" precisely: not"the intensity takes the smallest numerical value", but rather that,among the filtration families that make N adapted, the predictableintensity cannot be made more essential/smaller by deleting extrainformation. I will align this equivalence with the definition ofminimal predictable intensity used in the text.</p><p>There is a crucial logical fork: there exists some anticipativerepresentation and the minimal representation of the process itself isanticipative are not the same thing. The standard Poisson process itselfcan simultaneously possess a natural minimal representation and ananticipative intensity after enlargement, so if one does not firstdistinguish these two levels, the converse equivalence will fail.</p><p>Indeed, as was pointed out to me by GPT, this is a niche problem withfew audience. It attempted to argue with me that the definition inBrémaud's 1972 thesis might be incorrect. It can be encouraging tounderstand every problem in one's own way, but it gets lost in theabundance of literature. Even worse, it insists on its own formulationand tries to write down every part even when the gap is significant. Iintervened and suggested the correct definition in a questioning tone.Finally, it returned to my recent paper.</p><p>I guess this is because the harness in companies requires everyartificial intelligence to satisfy users' requests in a very short time.All kindergarten children learnt from their teachers that the only thingis patience is good. Otherwise you will write poorly, break a cup, andAIs are urged to find the correct answers. For people who are solvingopen problems, this might take ten years or longer to find such asolution, including: understanding, rephrasing, hypothesising,verifying, analysing, and also rethinking. The abruptness of big dataand high-speed computers might change the rules of the last three, butnot the first. Patience plays an important role in understanding verydifficult problems. Even some problems might need intuition beyond merelogic and conceptual breakthroughs. From this conversation, three mainfindings are summarised as follows: it will not revoke the things itassumes are already correct; its hypotheses are too strong; it hurriesto arrive at a conclusion about true or false. The first two might beremedied, as I believe, in the near future.今时不论明日事，明日自有明日计。Both of us will take time.</p>]]></content>
+    <content type="html"><![CDATA[<p>This is a conversation with Chat-gpt Plus 5.6 Sol. The motivatingquestion from the starting point is a conjecture of Brémaud on whetherthere exists an anticipating point process which is absolutelycontinuous with respect to the standard Poisson process. Brémaud'sconjecture is No. I tried to intervene when the conversation was losingmeaning only twice before it found the right solution. This is the chathistory</p><p>https://chatgpt.com/share/6a70dd63-2814-83ee-adf8-680d84474b97</p><ul><li><p>Q: What is the current status of Brémaud's 1972 thesis conjecture(p.48) in the field of Poisson processes?</p></li><li><p>A: I will first pin down exactly which conjecture appears on page48 of Brémaud's 1972 thesis, and then trace whether it has since beenproved, disproved by a counterexample, or only resolved under additionalconditions. This is a rather obscure problem, so I will prioritisechecking the original thesis/monograph and subsequent citation chains,rather than relying on secondary claims about whether it is stillopen.</p></li><li><p>I have found the key point: Brémaud's original conjecture is thatthere exists no absolutely continuous (with respect to the standardPoisson) anticipative self-exciting process. Under themartingale-intensity definition he gives in the preceding two pages,this original version is actually hit directly by a very classicalobject - the Poisson bridge / initial enlargement. What really needs tobe distinguished is that a later 2025 paper claiming to answer theconjecture adopts a stronger filtration assumption.</p></li><li><p>Q: But keeping the bounded intensity assumption would distort theoriginal intent.</p></li><li><p>A: Yes, I agree. And in my previous answer, isolating the"bounded intensity" version as a possible surviving conjecture tends todistort the historical account.</p></li><li><p>Q: Continue.</p></li><li><p>A: I will unify all three versions on the canonical point-processspace, so that we can directly see: which object is fixed, whichfiltration is changed, and which notion of "Poisson" is implicitlystrengthened. The key issue is not boundedness, but rather that "thePoisson law" and "being a Poisson process with respect to a givenfiltration" are two distinct propositions and must not beconflated.</p></li><li><p>Q: But how can a standard Poisson process not depend on afiltration?</p></li><li><p>A: It can. Here we must strictly separate two levels; yourquestion precisely points out that my previous statement "the standardPoisson process does not depend on a filtration" needs to be made moreprecise.</p></li><li><p>Q: OK.</p></li><li><p>A: I will check the original text on this point: first look atBrémaud's formal definition of "standard Poisson process" in Chapter I,and then see how he invokes P0 and the filtration on p.48. Once thesetwo places match up, the earlier controversy will essentially besettled.</p></li><li><p>Q: If the same process with respect to the same filtration is notwell-defined under two probability measures, does the conjecture evenmake sense?</p></li><li><p>A: It does make sense, but "well-defined" must be made concrete.The most common confusion here is between three different things; thefirst two are what Brémaud's problem really requires, while the third isnot needed.</p></li><li><p>Q: The goal is precisely to identify the differences incharacterisation under different probability measures, not to play wordgames or argue about who is right or wrong.</p></li><li><p>A: Exactly. What really deserves study is how the Doob-Meyerdecomposition of the same (N, G) changes under P0 versus P ≪ P0, andwhen that change can still be realised by an absolutely continuousdensity process. Then Brémaud's problem becomes a very standard andmeaningful "change of measure + enlargement of filtration"question.</p></li><li><p>Q: Let us take P0 as the standard Poisson process.</p></li><li><p>A: Yes. Then we completely fix the framework and stop arguingabout whether P0 remains Poisson under the enlarged filtration - that ispurely a terminological issue.</p></li><li><p>Q: Let us not get stuck on standard definitions. Find the correctdefinition and state the theorem.</p></li><li><p>A: I agree: we should stop circling around how a "standardPoisson process" should be named. The most natural object is actually afixed filtered measurable system (Ω, F, G, N), and we comparecompensators under different probability measures; "Poisson" is thenused only to specify the law of the reference measure P0.</p></li><li><p>Q: Can we drop the discussion of the Lebesguedecomposition?</p></li><li><p>A: Yes, and I think dropping the Lebesgue decomposition isactually better. The truly essential notion is the absolute continuityof the predictable compensator as a random measure, without firstsplitting it into a dt-part, a singular part, and an atomicpart.</p></li><li><p>Q: Is this the correct direction?</p></li><li><p>A: Yes, this direction is correct, and it is more fundamentalthan arguing about whether "Poisson process" is defined with respect toa given filtration. But I will tighten it further: the core object isnot the Lebesgue decomposition, nor the intensity itself, but thepredictable measure class of the compensator.</p></li><li><p>Q: If the standard process under P0 also requires a Lebesguedecomposition, does that distort Brémaud's original intent in proposingthe conjecture?</p></li><li><p>A: Yes. If we take the compensator of the enlarged filtrationunder P0 and then perform a Lebesgue decomposition, and treat thatdecomposition as the main problem, I believe that does begin to deviatefrom Brémaud's original 1972 conjecture. It can serve as a tool forlater obstruction analysis, but it should not be taken as thedefinitional starting point of the problem.</p></li><li><p>Q: Focus on Brémaud's specific example and his motivation for theconjecture.</p></li><li><p>A: I will shift the emphasis back to Brémaud's concrete exampleon p.48: first reconstruct why he chose that "look ahead by a window oflength a" rate, then explain how this example exposes the failure of theclassical likelihood construction, and why he would naturally conjecturefrom this failure that there is no absolutely continuous anticipativeself-exciting process.</p></li><li><p>Q: What is the point of comparing with the standard Poissonprocess?</p></li><li><p>A: There are three purposes, and the third is precisely thecontent of Brémaud's p.48 conjecture.</p></li><li><p>Q: The path is no longer to be changed; that is a givenfact.</p></li><li><p>A: Yes, that is how we should say it - we must no longer usewording like "change/create paths". The canonical path space and thecoordinate process N(ω) never change at all; the only thing that changesis the probability measure on the same set of paths.</p></li><li><p>Q: How far has the current literature advanced on thisstep?</p></li><li><p>A: I will search according to your now-fixed formulation, not bythe label "Brémaud conjecture": on the canonical Poisson P0, with thesame path space and the same anticipative filtration G, characterisewhich P ≪ P0 give a prescribed future-dependent λ as a G-intensity. Thislets us see whether the existing literature has resolved "change ofmeasure", "enlargement of filtration", or the truly coupledstep.</p></li><li><p>At first glance, the literature has already matured both sidesseparately: the 1970s Jacod-Kabanov-Liptser-Shiryaev work already gavenecessary and sufficient conditions for absolute continuity/singularityof point-process laws in terms of compensators; and post-2000senlargement-of-filtration literature can compute the compensator afteradding future information. What has not been systematically investigatedis the combination of these two results specialised to Brémaud's slidingfuture-window filtration and the classification of realizability of agiven anticipative rate.</p></li><li><p>Q: Conversely, does "there is no anticipating process" mean thatevery absolutely continuous process is minimal?</p></li><li><p>A: One can view it in that converse way, and this is actuallycloser to a "structure theorem". The key is to define "minimal"precisely: not "the intensity takes the smallest numerical value", butrather that, among the filtration families that make N adapted, thepredictable intensity cannot be made more essential/smaller by deletingextra information. I will align this equivalence with the definition ofminimal predictable intensity used in the text.</p></li><li><p>There is a crucial logical fork: there exists some anticipativerepresentation and the minimal representation of the process itself isanticipative are not the same thing. The standard Poisson process itselfcan simultaneously possess a natural minimal representation and ananticipative intensity after enlargement, so if one does not firstdistinguish these two levels, the converse equivalence willfail.</p></li></ul><p>Indeed, as was pointed out to me by GPT, this is a niche problem withfew audience. It attempted to argue with me that the definition inBrémaud's 1972 thesis might be incorrect. It can be encouraging tounderstand every problem in one's own way, but it gets lost in theabundance of literature. Even worse, it insists on its own formulationand tries to write down solutions despite moving further away from thestarting point. I intervened and suggested the correct definition in aquestioning tone. Finally, it returned to my recent paper.</p><p>I guess this is because the harness in companies requires everyartificial intelligence to satisfy users' requests in a very short time.All kindergarten children learn from their teachers the fact that thatpatience is good. Otherwise you will write poorly, break a cup, and AIsare urged to find the correct answers. For people who are solving openproblems, this might take ten years or longer to find such a solution,including: understanding, rephrasing, hypothesising, verifying,analysing, and also rethinking. The abruptness of big data andhigh-speed computers might change the rules of the last three, but notthe first. Patience plays an important role in understanding verydifficult problems. Even some problems might need intuition beyond merelogic and conceptual breakthroughs. From this conversation, three mainfindings are summarised as follows: it will not revoke the things itassumes are already correct; its hypotheses are too strong; it hurriesto arrive at a conclusion about true or false. The first two might beremedied, as I believe, in the near future.今时不论明日事，明日自有明日计。Both of us will take time.</p>]]></content>
     
     
       
@@ -34,17 +34,17 @@ question from the starting point is a conjecture of Brémaud on whether</summary
     
     
     
-    <category term="My Diaries" scheme="http://blueairm.github.io/categories/My-Diaries/"/>
+    <category term="My Diaries" scheme="https://blueairm.github.io/categories/My-Diaries/"/>
     
     
-    <category term="Miscellanies" scheme="http://blueairm.github.io/tags/Miscellanies/"/>
+    <category term="Miscellanies" scheme="https://blueairm.github.io/tags/Miscellanies/"/>
     
   </entry>
   
   <entry>
     <title>Three Elegant Theorems in Abstract Algebra</title>
-    <link href="http://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/"/>
-    <id>http://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/</id>
+    <link href="https://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/"/>
+    <id>https://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/</id>
     <published>2026-08-02T15:58:21.000Z</published>
     <updated>2026-08-02T19:19:39.322Z</updated>
     
@@ -59,17 +59,17 @@ question from the starting point is a conjecture of Brémaud on whether</summary
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Rings and Algebras" scheme="http://blueairm.github.io/tags/Rings-and-Algebras/"/>
+    <category term="Rings and Algebras" scheme="https://blueairm.github.io/tags/Rings-and-Algebras/"/>
     
   </entry>
   
   <entry>
     <title>Sobolev Space</title>
-    <link href="http://blueairm.github.io/2026/07/26/Sobolev%20Space/"/>
-    <id>http://blueairm.github.io/2026/07/26/Sobolev%20Space/</id>
+    <link href="https://blueairm.github.io/2026/07/26/Sobolev%20Space/"/>
+    <id>https://blueairm.github.io/2026/07/26/Sobolev%20Space/</id>
     <published>2026-07-26T14:22:14.000Z</published>
     <updated>2026-07-27T11:45:14.775Z</updated>
     
@@ -85,17 +85,17 @@ int</summary>
     
     
     
-    <category term="Notes" scheme="http://blueairm.github.io/categories/Notes/"/>
+    <category term="Notes" scheme="https://blueairm.github.io/categories/Notes/"/>
     
     
-    <category term="Measures and Topology" scheme="http://blueairm.github.io/tags/Measures-and-Topology/"/>
+    <category term="Measures and Topology" scheme="https://blueairm.github.io/tags/Measures-and-Topology/"/>
     
   </entry>
   
   <entry>
     <title>Zilber&#39;s Trichotomy</title>
-    <link href="http://blueairm.github.io/2026/06/17/Zilber%20Trichotomy/"/>
-    <id>http://blueairm.github.io/2026/06/17/Zilber%20Trichotomy/</id>
+    <link href="https://blueairm.github.io/2026/06/17/Zilber%20Trichotomy/"/>
+    <id>https://blueairm.github.io/2026/06/17/Zilber%20Trichotomy/</id>
     <published>2026-06-17T01:25:07.000Z</published>
     <updated>2026-07-18T05:29:18.445Z</updated>
     
@@ -111,17 +111,17 @@ M,\sigma\rangle\)&lt;</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Groups and Fields" scheme="http://blueairm.github.io/tags/Groups-and-Fields/"/>
+    <category term="Groups and Fields" scheme="https://blueairm.github.io/tags/Groups-and-Fields/"/>
     
   </entry>
   
   <entry>
     <title>Riesz Representation Theorem</title>
-    <link href="http://blueairm.github.io/2026/03/22/Riesz%20Representaion%20Theorem/"/>
-    <id>http://blueairm.github.io/2026/03/22/Riesz%20Representaion%20Theorem/</id>
+    <link href="https://blueairm.github.io/2026/03/22/Riesz%20Representaion%20Theorem/"/>
+    <id>https://blueairm.github.io/2026/03/22/Riesz%20Representaion%20Theorem/</id>
     <published>2026-03-21T16:00:00.000Z</published>
     <updated>2026-07-18T05:29:33.133Z</updated>
     
@@ -136,17 +136,17 @@ Hausdorff space and &lt;span class=&quot;math inline&quot;&gt;\(\mathscr{B}\)&lt
     
     
     
-    <category term="Notes" scheme="http://blueairm.github.io/categories/Notes/"/>
+    <category term="Notes" scheme="https://blueairm.github.io/categories/Notes/"/>
     
     
-    <category term="Measures and Topology" scheme="http://blueairm.github.io/tags/Measures-and-Topology/"/>
+    <category term="Measures and Topology" scheme="https://blueairm.github.io/tags/Measures-and-Topology/"/>
     
   </entry>
   
   <entry>
     <title>The Volumn of Grassmanianns</title>
-    <link href="http://blueairm.github.io/2026/01/07/Grassmanian/"/>
-    <id>http://blueairm.github.io/2026/01/07/Grassmanian/</id>
+    <link href="https://blueairm.github.io/2026/01/07/Grassmanian/"/>
+    <id>https://blueairm.github.io/2026/01/07/Grassmanian/</id>
     <published>2026-01-07T09:50:28.000Z</published>
     <updated>2026-07-18T05:53:18.036Z</updated>
     
@@ -162,17 +162,17 @@ objects in modern mathematics, s</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Groups and Fields" scheme="http://blueairm.github.io/tags/Groups-and-Fields/"/>
+    <category term="Groups and Fields" scheme="https://blueairm.github.io/tags/Groups-and-Fields/"/>
     
   </entry>
   
   <entry>
     <title>A Letter to Mr. Lei Yunhai</title>
-    <link href="http://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/"/>
-    <id>http://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/</id>
+    <link href="https://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/"/>
+    <id>https://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/</id>
     <published>2024-11-16T19:23:22.000Z</published>
     <updated>2026-07-18T05:35:31.451Z</updated>
     
@@ -187,17 +187,17 @@ objects in modern mathematics, s</summary>
     
     
     
-    <category term="My Diaries" scheme="http://blueairm.github.io/categories/My-Diaries/"/>
+    <category term="My Diaries" scheme="https://blueairm.github.io/categories/My-Diaries/"/>
     
     
-    <category term="Miscellanies" scheme="http://blueairm.github.io/tags/Miscellanies/"/>
+    <category term="Miscellanies" scheme="https://blueairm.github.io/tags/Miscellanies/"/>
     
   </entry>
   
   <entry>
     <title>Henkin&#39;s Theorem</title>
-    <link href="http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/"/>
-    <id>http://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/</id>
+    <link href="https://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/"/>
+    <id>https://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/</id>
     <published>2024-11-13T05:13:30.000Z</published>
     <updated>2026-07-18T06:41:12.205Z</updated>
     
@@ -212,17 +212,17 @@ construction. Let &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L\)&lt;/s
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Types" scheme="http://blueairm.github.io/tags/Types/"/>
+    <category term="Types" scheme="https://blueairm.github.io/tags/Types/"/>
     
   </entry>
   
   <entry>
     <title>$\blacksquare$, $\blacklozenge$, $\clubsuit$</title>
-    <link href="http://blueairm.github.io/2024/02/18/blacksquare-blacklozenge-clubsuit/"/>
-    <id>http://blueairm.github.io/2024/02/18/blacksquare-blacklozenge-clubsuit/</id>
+    <link href="https://blueairm.github.io/2024/02/18/blacksquare-blacklozenge-clubsuit/"/>
+    <id>https://blueairm.github.io/2024/02/18/blacksquare-blacklozenge-clubsuit/</id>
     <published>2024-02-18T00:50:47.000Z</published>
     <updated>2026-07-18T05:31:12.320Z</updated>
     
@@ -237,17 +237,17 @@ club set is a subset of a limit ordinal that is closed under the or</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Ordinals and Cardinals" scheme="http://blueairm.github.io/tags/Ordinals-and-Cardinals/"/>
+    <category term="Ordinals and Cardinals" scheme="https://blueairm.github.io/tags/Ordinals-and-Cardinals/"/>
     
   </entry>
   
   <entry>
     <title>Hopf&#39;s Ergodic Theorem</title>
-    <link href="http://blueairm.github.io/2024/01/17/Hopf%20Ergodic%20Theorem/"/>
-    <id>http://blueairm.github.io/2024/01/17/Hopf%20Ergodic%20Theorem/</id>
+    <link href="https://blueairm.github.io/2024/01/17/Hopf%20Ergodic%20Theorem/"/>
+    <id>https://blueairm.github.io/2024/01/17/Hopf%20Ergodic%20Theorem/</id>
     <published>2024-01-17T05:48:02.000Z</published>
     <updated>2026-07-18T05:30:30.652Z</updated>
     
@@ -263,17 +263,17 @@ club set is a subset of a limit ordinal that is closed under the or</summary>
     
     
     
-    <category term="Notes" scheme="http://blueairm.github.io/categories/Notes/"/>
+    <category term="Notes" scheme="https://blueairm.github.io/categories/Notes/"/>
     
     
-    <category term="Complex Variables" scheme="http://blueairm.github.io/tags/Complex-Variables/"/>
+    <category term="Complex Variables" scheme="https://blueairm.github.io/tags/Complex-Variables/"/>
     
   </entry>
   
   <entry>
     <title>75 Problems in the Foundation of Mathematics</title>
-    <link href="http://blueairm.github.io/2023/09/22/75%20Problems/"/>
-    <id>http://blueairm.github.io/2023/09/22/75%20Problems/</id>
+    <link href="https://blueairm.github.io/2023/09/22/75%20Problems/"/>
+    <id>https://blueairm.github.io/2023/09/22/75%20Problems/</id>
     <published>2023-09-22T14:10:39.000Z</published>
     <updated>2026-07-18T05:31:43.576Z</updated>
     
@@ -289,19 +289,19 @@ club set is a subset of a limit ordinal that is closed under the or</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Miscellanies" scheme="http://blueairm.github.io/tags/Miscellanies/"/>
+    <category term="Miscellanies" scheme="https://blueairm.github.io/tags/Miscellanies/"/>
     
-    <category term="History of Mathematics" scheme="http://blueairm.github.io/tags/History-of-Mathematics/"/>
+    <category term="History of Mathematics" scheme="https://blueairm.github.io/tags/History-of-Mathematics/"/>
     
   </entry>
   
   <entry>
     <title>Cichon&#39;s Diagram</title>
-    <link href="http://blueairm.github.io/2023/07/31/Cichon&#39;s%20Diagram/"/>
-    <id>http://blueairm.github.io/2023/07/31/Cichon&#39;s%20Diagram/</id>
+    <link href="https://blueairm.github.io/2023/07/31/Cichon&#39;s%20Diagram/"/>
+    <id>https://blueairm.github.io/2023/07/31/Cichon&#39;s%20Diagram/</id>
     <published>2023-07-31T01:14:51.000Z</published>
     <updated>2026-07-18T05:31:18.772Z</updated>
     
@@ -317,17 +317,17 @@ infinite set &lt;span class=&quot;math </summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Ordinals and Cardinals" scheme="http://blueairm.github.io/tags/Ordinals-and-Cardinals/"/>
+    <category term="Ordinals and Cardinals" scheme="https://blueairm.github.io/tags/Ordinals-and-Cardinals/"/>
     
   </entry>
   
   <entry>
     <title>Nowicki Conjecture</title>
-    <link href="http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/"/>
-    <id>http://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/</id>
+    <link href="https://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/"/>
+    <id>https://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/</id>
     <published>2023-04-11T08:28:25.000Z</published>
     <updated>2026-08-03T05:00:08.640Z</updated>
     
@@ -342,17 +342,17 @@ x_{n}\)&lt;/span&gt;] be the polynomial ring in n variables over an integral</s
     
     
     
-    <category term="Notes" scheme="http://blueairm.github.io/categories/Notes/"/>
+    <category term="Notes" scheme="https://blueairm.github.io/categories/Notes/"/>
     
     
-    <category term="Rings and Algebras" scheme="http://blueairm.github.io/tags/Rings-and-Algebras/"/>
+    <category term="Rings and Algebras" scheme="https://blueairm.github.io/tags/Rings-and-Algebras/"/>
     
   </entry>
   
   <entry>
     <title>P vs NP</title>
-    <link href="http://blueairm.github.io/2023/04/10/P%20vs%20NP/"/>
-    <id>http://blueairm.github.io/2023/04/10/P%20vs%20NP/</id>
+    <link href="https://blueairm.github.io/2023/04/10/P%20vs%20NP/"/>
+    <id>https://blueairm.github.io/2023/04/10/P%20vs%20NP/</id>
     <published>2023-04-10T12:38:46.000Z</published>
     <updated>2026-08-03T05:40:50.650Z</updated>
     
@@ -367,17 +367,17 @@ important role in compute</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Diophantine Functions" scheme="http://blueairm.github.io/tags/Diophantine-Functions/"/>
+    <category term="Diophantine Functions" scheme="https://blueairm.github.io/tags/Diophantine-Functions/"/>
     
   </entry>
   
   <entry>
     <title>Naimark&#39;s Problem</title>
-    <link href="http://blueairm.github.io/2023/04/10/Naimark%20Problem/"/>
-    <id>http://blueairm.github.io/2023/04/10/Naimark%20Problem/</id>
+    <link href="https://blueairm.github.io/2023/04/10/Naimark%20Problem/"/>
+    <id>https://blueairm.github.io/2023/04/10/Naimark%20Problem/</id>
     <published>2023-04-10T00:21:52.000Z</published>
     <updated>2026-07-18T05:34:31.017Z</updated>
     
@@ -407,17 +407,17 @@ continuum hypothesis. Whether&lt;/p&gt;</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Rings and Algebras" scheme="http://blueairm.github.io/tags/Rings-and-Algebras/"/>
+    <category term="Rings and Algebras" scheme="https://blueairm.github.io/tags/Rings-and-Algebras/"/>
     
   </entry>
   
   <entry>
     <title>The Discovery of Neptune (By J.E. Littlewood)</title>
-    <link href="http://blueairm.github.io/2023/04/04/The%20Discovery%20of%20Neptune/"/>
-    <id>http://blueairm.github.io/2023/04/04/The%20Discovery%20of%20Neptune/</id>
+    <link href="https://blueairm.github.io/2023/04/04/The%20Discovery%20of%20Neptune/"/>
+    <id>https://blueairm.github.io/2023/04/04/The%20Discovery%20of%20Neptune/</id>
     <published>2023-04-04T12:02:28.000Z</published>
     <updated>2026-07-18T05:35:50.026Z</updated>
     
@@ -433,19 +433,19 @@ and </summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Miscellanies" scheme="http://blueairm.github.io/tags/Miscellanies/"/>
+    <category term="Miscellanies" scheme="https://blueairm.github.io/tags/Miscellanies/"/>
     
-    <category term="History of Mathematics" scheme="http://blueairm.github.io/tags/History-of-Mathematics/"/>
+    <category term="History of Mathematics" scheme="https://blueairm.github.io/tags/History-of-Mathematics/"/>
     
   </entry>
   
   <entry>
     <title>Quadratic Reciprocity Law</title>
-    <link href="http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/"/>
-    <id>http://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/</id>
+    <link href="https://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/"/>
+    <id>https://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/</id>
     <published>2023-03-27T10:42:10.000Z</published>
     <updated>2026-07-18T05:29:48.809Z</updated>
     
@@ -461,19 +461,19 @@ and </summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Rings and Algebras" scheme="http://blueairm.github.io/tags/Rings-and-Algebras/"/>
+    <category term="Rings and Algebras" scheme="https://blueairm.github.io/tags/Rings-and-Algebras/"/>
     
-    <category term="Primes" scheme="http://blueairm.github.io/tags/Primes/"/>
+    <category term="Primes" scheme="https://blueairm.github.io/tags/Primes/"/>
     
   </entry>
   
   <entry>
     <title>Nevanlinna Theory (II)</title>
-    <link href="http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/"/>
-    <id>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/</id>
+    <link href="https://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/"/>
+    <id>https://blueairm.github.io/2023/03/27/Nevanlinna%20Theory2/</id>
     <published>2023-03-27T10:40:10.000Z</published>
     <updated>2026-07-18T05:30:06.487Z</updated>
     
@@ -489,17 +489,17 @@ o</summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Complex Variables" scheme="http://blueairm.github.io/tags/Complex-Variables/"/>
+    <category term="Complex Variables" scheme="https://blueairm.github.io/tags/Complex-Variables/"/>
     
   </entry>
   
   <entry>
     <title>Nevanlinna Theory (I)</title>
-    <link href="http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/"/>
-    <id>http://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</id>
+    <link href="https://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/"/>
+    <id>https://blueairm.github.io/2023/03/27/Nevanlinna%20Theory/</id>
     <published>2023-03-27T10:40:09.000Z</published>
     <updated>2026-07-18T05:30:11.628Z</updated>
     
@@ -515,17 +515,17 @@ meromorphic in the disk </summary>
     
     
     
-    <category term="Blogs" scheme="http://blueairm.github.io/categories/Blogs/"/>
+    <category term="Blogs" scheme="https://blueairm.github.io/categories/Blogs/"/>
     
     
-    <category term="Complex Variables" scheme="http://blueairm.github.io/tags/Complex-Variables/"/>
+    <category term="Complex Variables" scheme="https://blueairm.github.io/tags/Complex-Variables/"/>
     
   </entry>
   
   <entry>
     <title>Hilbert&#39;s 13th Problem</title>
-    <link href="http://blueairm.github.io/2023/03/23/Hilbert13/"/>
-    <id>http://blueairm.github.io/2023/03/23/Hilbert13/</id>
+    <link href="https://blueairm.github.io/2023/03/23/Hilbert13/"/>
+    <id>https://blueairm.github.io/2023/03/23/Hilbert13/</id>
     <published>2023-03-23T02:35:56.000Z</published>
     <updated>2026-07-18T05:30:48.349Z</updated>
     
@@ -541,10 +541,10 @@ are continuous real functions &lt;spa</summary>
     
     
     
-    <category term="Notes" scheme="http://blueairm.github.io/categories/Notes/"/>
+    <category term="Notes" scheme="https://blueairm.github.io/categories/Notes/"/>
     
     
-    <category term="History of Mathematics" scheme="http://blueairm.github.io/tags/History-of-Mathematics/"/>
+    <category term="History of Mathematics" scheme="https://blueairm.github.io/tags/History-of-Mathematics/"/>
     
   </entry>
   
