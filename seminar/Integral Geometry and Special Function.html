@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Haoming Wang">
+
+
+
+
+
+<title>Integral Geometry and Special Function | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haoming&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haoming&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/research">Researches</a>
+                
+                    <a class="menu-item" href="/seminar">Seminars</a>
+                
+                    <a class="menu-item" href="/info">Infos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Integral Geometry and Special Function</h2>
+        
+        <section class="post-content">
+            <p>This webpage is about the 2026 seminar on <em>Integral Geometry and
+Special Function</em>. There are <em>EIGHT</em> lecturers from diverse
+universities to give related talks. Titles and abstracts are updated on
+this webpage.</p>
+<h2 id="summary">Summary</h2>
+<p>2026/10/16, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Huang Zhangkai (SYSU)</p>
+<p><strong>RCD</strong></p>
+<p>TBA.</p>
+<p>2026/10/23, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Hu Jie (JZU)</p>
+<p><strong>Laguerre (q-Laguerre) Weight Recurrence and Geometric Theory
+of Painleve equations</strong></p>
+<p>In this presentation, the connection between recurrence coefficients
+of classical and semi-classical orthogonal polynomials and solutions of
+the Painlevé equations is studied. We consider two classes of weight
+functions by geometric theory of Painleve equations. For the Laguerre
+weight, using Sakai's geometric theory of Painlevé equations, we reduce
+certain recurrence satisfied by associated recurrence coefficients to
+one of the canonical discrete Painlevé equation. For the deformed
+q-Laguerre weight, using Sakai's geometric theory of Painlevé equations,
+we present the identification procedure how the q-Laguerre weight
+recurrence is equivalent to the one of the discrete Painlevé
+equation.</p>
+<p><a target="_blank" rel="noopener" href="https://iopscience.iop.org/article/10.1088/1751-8121/ad9cd5?utm_source=researchgate.net&amp;utm_medium=article">Article</a></p>
+<p>2026/11/06, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Huang Yi (NJNU)</p>
+<p><strong>Beyond the solution of the Maxwell conjecture</strong></p>
+<p>The Maxwell conjecture is a 150-year-old idea in electrostatics
+stating that a system of n point charges in space can produce at most
+(n-1)² non-degenerate equilibrium (critical) points where the electric
+field cancels out to zero. The Maxwell Conjecture has been proven false
+in July 2026 by Arathoon, Ball, and Kvalheim. In this talk we shall
+discuss further interesting problems beyond their solution.</p>
+<p>2026/11/20, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://jiyuanzhangmath.github.io/">Zhang Jiyuan</a> (SCUT)
+Reviewer: Chen Zaoli (USTC)</p>
+<p><strong>Biorthogonal ensembles of derivative type</strong></p>
+<p>We prove that biorthogonal ensembles on the real line with a specific
+derivative structure admit an explicit correlation kernel of double
+contour integral form. We will demonstrate that this expression is a
+valuable starting point for asymptotic analysis and that our class of
+biorthogonal ensembles admits a large variety of limit kernels, by
+proving that two new classes of limit kernels can occur. The first type
+is a deformation of the hard edge Bessel kernel which arises in
+polynomial ensembles describing the eigenvalues of the sum of two random
+matrices, while the second type arises for Muttalib-Borodin type
+deformations of polynomial ensembles.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.18427">arXiv</a></p>
+<p>2026/12/04, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p><a href="https://blueairm.github.io/">Wang Haoming</a> (NKU)</p>
+<p><strong>The Pearson family is characterized by Dixon-Anderson links
+on Gelfand-Tsetlin patterns</strong></p>
+<p>In this paper, we characterize the Pearson diffusion family by the
+Dixon--Anderson links on continuous Gelfand--Tsetlin patterns. Consider
+exchangeable diffusion generators</p>
+<p><span class="math display">\[\mathcal L_n=\sum_{i=1}^n
+p(x_i)\partial_i^2+\sum_{i=1}^n\left[b_n(x_i)+r(x_i)\sum_{j\ne
+i}\frac1{x_i-x_j}\right]\partial_i.\]</span></p>
+<p>If the Dixon--Anderson kernels satisfy</p>
+<p><span class="math display">\[\mathcal L_{n+1}\Lambda_n^\theta =
+\Lambda_n^\theta \mathcal L_n\]</span></p>
+<p>across levels, then necessarily</p>
+<p><span class="math display">\[r=2\theta p,\quad
+p&#39;&#39;&#39;=0,\quad b_n&#39;&#39;=0,\quad b_{n+1}=b_n-\theta
+p&#39;.\]</span></p>
+<p>Thus the generators are precisely of Pearson type. Conversely, every
+such Pearson generator satisfies the Dixon--Anderson intertwining
+relation. We also lift the generator identity to the associated Markov
+semigroups, recovering the classical Dyson, Laguerre, and Jacobi
+intertwinings and extending the Hua--Pickrell case to all (&gt;0),
+including the colliding regime.</p>
+<p>2026/12/20, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p>Lyu Zhiyang (USTC)</p>
+<p><strong>The asymptotic behavior of Teichmüller rays</strong></p>
+<p>The asymptotic behavior of Teichmüller rays is a fundamental topic in
+Teichmüller geometry. In this talk, we investigate the asymptotic
+distance between two Teichmüller rays. While the divergent case has been
+understood through the works of Ivanov, Lenzhen and Masur, the bounded
+case remains more subtle. We focus on the bounded case and establish an
+explicit formula for the limiting distance between any two Teichmüller
+rays. Furthermore, we obtain a necessary and sufficient condition for
+two Teichmüller rays to be asymptotic. This is a joint work with Yi
+Qi.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.06314v2">arXiv</a></p>
+<p>2026/12/18, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://math.ahnu.edu.cn/info/3000/51830.htm">Wang
+Huaming</a> (AHNU)</p>
+<p><strong>Biased random walk with traps</strong></p>
+<p>We consider a <span class="math inline">\(\lambda\)</span>-biased
+random walk on the deterministic infinite tree <span class="math inline">\(\mathcal{T}=\{(i,j):i\ge0,\,0\le j\le
+i\}\)</span>, where <span class="math inline">\(\{(i,0):i\ge
+0\}\)</span> is the and, for each <span class="math inline">\(i\ge1\)</span>, <span class="math inline">\(\{(i,j):1\le j\le i\}\)</span> is a attached to
+<span class="math inline">\((i,0)\)</span>. Traps cause long waiting
+times, leading to behavior distinct from simple random walks. The walk
+is recurrent for <span class="math inline">\(\lambda\ge1\)</span> and
+transient for <span class="math inline">\(0&lt;\lambda&lt;1\)</span>. In
+the transient regime it is sub-ballistic: it goes to infinity with zero
+speed, and its distance from the root grows logarithmically, i.e.,<span class="math display">\[\liminf_{n\to\infty}\frac{|X_n|}{\log
+n}=\frac{1}{\log(1/\lambda)},\quad\limsup_{n\to\infty}\frac{|X_n|}{\log
+n}=\frac{2}{\log(1/\lambda)},\quad\text{a.s.}.\]</span> We also reveal a
+sharp contrast between spatial and temporal regeneration. Let <span class="math inline">\(C(n)\)</span> be the number of cutpoints among the
+first <span class="math inline">\(n\)</span> backbone vertices, and
+<span class="math inline">\(M(N)\)</span> the number of cut times up to
+<span class="math inline">\(N\)</span>. Then <span class="math display">\[\lim_{n\to\infty}\frac{C(n)}{n}= 1-\lambda,\quad
+\lim_{N\to\infty}\frac{M(N)}{\log
+N}=(1-\lambda)\log(1/\lambda),\quad\text{a.s.},\]</span> that is,
+cutpoints occur with positive linear density while cut times grow only
+logarithmically.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.05830">arXiv</a></p>
+<p>2027/01/08, 10:00 a.m., <a href>Tencent Meeting</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kangmingyang.com/">Kang Mingyang</a> (NKU)
+Reviewer:</p>
+<p><strong>A solution to Butler's positivity conjecture</strong></p>
+<p>Let <span class="math inline">\(\lambda, \mu, \nu\)</span> be
+distinct partitions such that <span class="math inline">\(\lambda, \mu
+\subset \nu\)</span> and <span class="math inline">\(|\nu/\lambda| =
+|\nu/\mu| = 1\)</span>. We prove Butler's positivity conjecture posed in
+1994: the expansion of the Macdonald intersection polynomial <span class="math display">\[\frac{T_{\lambda} \tilde{H}_{\mu}(X; q, t) -
+T_{\mu} \tilde{H}_{\lambda}(X; q, t)}{T_{\lambda} - T_{\mu}}\]</span> in
+terms of the Schur function basis has coefficients in <span class="math inline">\(\mathbb{Z}_{\geq 0}[q, t]\)</span>.</p>
+<div class="pagination">
+<p><a class="previous" href="/seminar/index">Previous Page</a></p>
+</div>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Haoming Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
