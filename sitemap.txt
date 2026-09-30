@@ -33,13 +33,13 @@ https://blueairm.github.io/
 https://blueairm.github.io/tags/Groups-and-Fields/
 https://blueairm.github.io/tags/Miscellanies/
 https://blueairm.github.io/tags/History-of-Mathematics/
-https://blueairm.github.io/tags/Ordinals-and-Cardinals/
 https://blueairm.github.io/tags/Rings-and-Algebras/
+https://blueairm.github.io/tags/Ordinals-and-Cardinals/
 https://blueairm.github.io/tags/Types/
 https://blueairm.github.io/tags/Complex-Variables/
 https://blueairm.github.io/tags/Diophantine-Functions/
-https://blueairm.github.io/tags/Measures-and-Topology/
 https://blueairm.github.io/tags/Primes/
+https://blueairm.github.io/tags/Measures-and-Topology/
 https://blueairm.github.io/categories/Blogs/
-https://blueairm.github.io/categories/My-Diaries/
 https://blueairm.github.io/categories/Notes/
+https://blueairm.github.io/categories/My-Diaries/
