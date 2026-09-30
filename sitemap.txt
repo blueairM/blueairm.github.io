@@ -1,3 +1,4 @@
+https://blueairm.github.io/research/index.html
 https://blueairm.github.io/seminar/Integral%20Geometry%20and%20Special%20Function.html
 https://blueairm.github.io/seminar/index.html
 https://blueairm.github.io/2026/08/04/A%20Conversation%20with%20Chat-gpt/
@@ -5,7 +6,6 @@ https://blueairm.github.io/seminar/Continuous%20Logic%20and%20Free%20Probability
 https://blueairm.github.io/2023/04/10/P%20vs%20NP/
 https://blueairm.github.io/2023/04/11/Nowicki%20Conjecture/
 https://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/
-https://blueairm.github.io/research/index.html
 https://blueairm.github.io/2026/07/26/Sobolev%20Space/
 https://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/
 https://blueairm.github.io/2026/01/07/Grassmanian/
@@ -27,19 +27,19 @@ https://blueairm.github.io/2023/03/27/Quadratic%20Reciprocity%20Law/
 https://blueairm.github.io/2026/03/22/Riesz%20Representaion%20Theorem/
 https://blueairm.github.io/2026/06/17/Zilber%20Trichotomy/
 https://blueairm.github.io/tag/index.html
-https://blueairm.github.io/seminar/2025.html
 https://blueairm.github.io/seminar/2024.html
+https://blueairm.github.io/seminar/2025.html
 https://blueairm.github.io/
 https://blueairm.github.io/tags/Groups-and-Fields/
 https://blueairm.github.io/tags/Miscellanies/
 https://blueairm.github.io/tags/History-of-Mathematics/
-https://blueairm.github.io/tags/Rings-and-Algebras/
 https://blueairm.github.io/tags/Ordinals-and-Cardinals/
+https://blueairm.github.io/tags/Rings-and-Algebras/
 https://blueairm.github.io/tags/Types/
 https://blueairm.github.io/tags/Complex-Variables/
 https://blueairm.github.io/tags/Diophantine-Functions/
-https://blueairm.github.io/tags/Primes/
 https://blueairm.github.io/tags/Measures-and-Topology/
+https://blueairm.github.io/tags/Primes/
 https://blueairm.github.io/categories/Blogs/
-https://blueairm.github.io/categories/Notes/
 https://blueairm.github.io/categories/My-Diaries/
+https://blueairm.github.io/categories/Notes/
