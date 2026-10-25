@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://blueairm.github.io/seminar/2024.html</loc>
+    <loc>https://blueairm.github.io/seminar/2025.html</loc>
     
     <lastmod>2026-05-30</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://blueairm.github.io/seminar/2025.html</loc>
+    <loc>https://blueairm.github.io/seminar/2024.html</loc>
     
     <lastmod>2026-05-30</lastmod>
     
@@ -290,21 +290,14 @@
 
   
   <url>
+    <loc>https://blueairm.github.io/tags/Groups-and-Fields/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blueairm.github.io/tags/Miscellanies/</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blueairm.github.io/tags/Rings-and-Algebras/</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blueairm.github.io/tags/Ordinals-and-Cardinals/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -318,6 +311,13 @@
   </url>
   
   <url>
+    <loc>https://blueairm.github.io/tags/Ordinals-and-Cardinals/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blueairm.github.io/tags/Types/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -325,21 +325,14 @@
   </url>
   
   <url>
+    <loc>https://blueairm.github.io/tags/Rings-and-Algebras/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blueairm.github.io/tags/Complex-Variables/</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blueairm.github.io/tags/Groups-and-Fields/</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blueairm.github.io/tags/Diophantine-Functions/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -359,14 +352,14 @@
     <priority>0.2</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://blueairm.github.io/categories/My-Diaries/</loc>
+    <loc>https://blueairm.github.io/tags/Diophantine-Functions/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
+  
+
   
   <url>
     <loc>https://blueairm.github.io/categories/Blogs/</loc>
@@ -377,6 +370,13 @@
   
   <url>
     <loc>https://blueairm.github.io/categories/Notes/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blueairm.github.io/categories/My-Diaries/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
