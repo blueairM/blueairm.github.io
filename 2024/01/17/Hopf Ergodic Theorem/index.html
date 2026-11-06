@@ -294,32 +294,28 @@ there exists no measurable set <span class="math inline">\(E\)</span> on
 &gt; 0\)</span>. We shall prove that <span class="math inline">\(\mu(E)
 = 4\pi^{2}\)</span>.</p>
 <p>Let <span class="math inline">\(f(\theta_1, \theta_2)\)</span> be the
-characteristic function of $ E $ and put <span class="math display">\[
-u(z, w) = \frac{1}{4\pi^2} \iint_{\Theta} f(\theta_1, \theta_2)\frac{1-
-|z|^{2}}{|z - e^{i\theta_1}|^2} \frac{1- |w|^{2}}{|w -
-e^{i\theta_2}|^2}d\theta_1 d\theta_2,
-\]</span> where <span class="math inline">\(\Theta: |z| &lt; 1, |w| &lt;
-1\)</span>.</p>
+characteristic function of $ E $ and put <span class="math display">\[u(z, w) = \frac{1}{4\pi^2} \iint_{\Theta}
+f(\theta_1, \theta_2)\frac{1- |z|^{2}}{|z - e^{i\theta_1}|^2} \frac{1-
+|w|^{2}}{|w - e^{i\theta_2}|^2}d\theta_1 d\theta_2,\]</span> where <span class="math inline">\(\Theta: |z| &lt; 1, |w| &lt; 1\)</span>.</p>
 <p>Then <span class="math inline">\(u(z, w)\)</span> is invariant by
-<span class="math inline">\(S\)</span> such that <span class="math display">\[
-u(S(z), S(w)) = u(z, w), \quad \text{for } S \in G. \quad (2)
-\]</span></p>
+<span class="math inline">\(S\)</span> such that <span class="math display">\[u(S(z), S(w)) = u(z, w), \quad \text{for } S \in
+G. \quad (2)\]</span></p>
 <p>We denote the Stolz domain: $|(1 - ze^{-i})| &lt; $ by $ (e^{i})$ and
 <span class="math inline">\(\mathcal{E}_+(\theta)\)</span> be its part
 contained in <span class="math inline">\(|z - e^{i\theta}| &lt;
 \delta\)</span>. Then by (Tsuji, Masatsugu. Potential theory in modern
 function theory. Maruzen, 1959. Theorem IV. 12)[3], for almost all $(_1,
-_2) $ on $ <span class="math inline">\(,\)</span>$ u(z, w) = f(_1, _2) z
-e^{i_1}, w e<sup>{i<em>2} </em>+(e</sup>{i<em>1}), </em>+(_2) . (3)
-$$</p>
+_2) $ on $ $, <span class="math display">\[\lim u(z, w) = f(\theta_1,
+\theta_2) \text{ uniformly, if } z \to e^{i\theta_1}, w \to
+e^{i\theta_2} \text{ from the inside of } \mathcal{E}_+(e^{i\theta_1}),
+\mathcal{E}_+(\theta_2) \text{ respectively}. \quad (3)\]</span></p>
 <p>Let <span class="math inline">\(E_{\theta_1}\)</span> be the section
 of <span class="math inline">\(E\)</span> by the line <span class="math inline">\(\theta = \text{const.} = \theta_1\)</span> and
 <span class="math inline">\(E_{\theta_2}\)</span> be that by the line
 <span class="math inline">\(\theta = \text{const.} = \theta_2\)</span>,
-then <span class="math display">\[
-\mu(E_{\theta_1})\mu(E_{\theta_2}) &gt; 0, \quad (4)
-\]</span> where <span class="math inline">\(\mu(\cdot)\)</span> denotes
-the linear measure.</p>
+then <span class="math display">\[\mu(E_{\theta_1})\mu(E_{\theta_2})
+&gt; 0, \quad (4)\]</span> where <span class="math inline">\(\mu(\cdot)\)</span> denotes the linear
+measure.</p>
 <p>Since <span class="math inline">\(\mu(\Theta) &lt; \infty\)</span>,
 <span class="math inline">\(G\)</span> is of divergence type (Tsuji,
 Masatsugu. Potential theory in modern function theory. Maruzen, 1959.
@@ -335,10 +331,8 @@ on <span class="math inline">\(E\)</span>, such a set <span class="math inline">
 &gt; 0\)</span> almost everywhere in <span class="math inline">\([0,
 2\pi)\)</span>, hence <span class="math inline">\(\mu(E) =
 4\pi^2\)</span>, which is absurd.</p>
-<p>Hence, <span class="math display">\[
-\mu(E_{\theta_2}) &gt; 0 \text{ for almost all } \theta_2 \in [0, 2\pi).
-\quad (5)
-\]</span></p>
+<p>Hence, <span class="math display">\[\mu(E_{\theta_2}) &gt; 0 \text{
+for almost all } \theta_2 \in [0, 2\pi). \quad (5)\]</span></p>
 <p>Hence by Egoroff's theorem, there exists a closed subset <span class="math inline">\(E_0\)</span> of <span class="math inline">\(E\)</span> which satisfies the following
 conditions (i), (ii), (iii), where <span class="math inline">\(\delta
 &gt; 0\)</span> and <span class="math inline">\(\eta &gt; 0\)</span> are
@@ -348,44 +342,34 @@ sufficiently small constants.</p>
 strip: <span class="math inline">\(|\theta_1 - \theta_2| &lt; \eta \mod
 2\pi\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(E_0^{\prime}\)</span> be the
-projection of <span class="math inline">\(E_0\)</span> on the <span class="math inline">\(\theta_1\)</span>-axis, then <span class="math display">\[
-\mu(E_0) &gt; 2\pi - \delta \quad \text{and} \quad \mu(\theta_1 \notin
-[0, \eta] \cap E_0) &gt; 0 \text{ for any } \theta_1 \in [0, 2\pi).
-\]</span></p></li>
+projection of <span class="math inline">\(E_0\)</span> on the <span class="math inline">\(\theta_1\)</span>-axis, then <span class="math display">\[\mu(E_0) &gt; 2\pi - \delta \quad \text{and}
+\quad \mu(\theta_1 \notin [0, \eta] \cap E_0) &gt; 0 \text{ for any }
+\theta_1 \in [0, 2\pi).\]</span></p></li>
 <li><p><span class="math inline">\(\lim u(z, w) = 1\)</span> uniformly
 on $ E_0 $, when <span class="math inline">\(z \to e^{i\theta_1}, w \to
 e^{i\theta_2}\)</span> from the inside of <span class="math inline">\(\mathcal{E}_+(\theta_1),
 \mathcal{E}_+(\theta_2)\)</span> respectively.</p></li>
 <li><p>When <span class="math inline">\(z \in E_0\)</span> and <span class="math inline">\(w \in S_2\mathcal{E}_+(\theta_2)\)</span>, then
-<span class="math display">\[
-1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for sufficiently small }
-\varepsilon &gt; 0.
-\]</span></p></li>
-<li><p>For any <span class="math inline">\(y &gt; 0\)</span>, let <span class="math display">\[
-M_y = \lim_{\delta \to 0} \mu(E_0 \cap \{ \theta_1 : \mu(\theta_1 \notin
-[0, \delta] \cap E_0) &gt; y \}).
-\]</span></p></li>
+<span class="math display">\[1 - \varepsilon &lt; u(z, w) &lt; 1 \quad
+\text{for sufficiently small } \varepsilon &gt; 0.\]</span></p></li>
+<li><p>For any <span class="math inline">\(y &gt; 0\)</span>, let <span class="math display">\[M_y = \lim_{\delta \to 0} \mu(E_0 \cap \{
+\theta_1 : \mu(\theta_1 \notin [0, \delta] \cap E_0) &gt; y
+\}).\]</span></p></li>
 </ol>
-<p>We shall prove that <span class="math display">\[
-M_y = \infty \quad (y = 1, 2, \ldots). \quad (13)
-\]</span></p>
+<p>We shall prove that <span class="math display">\[M_y = \infty \quad
+(y = 1, 2, \ldots). \quad (13)\]</span></p>
 <p>Let <span class="math inline">\(K_j = S_j(K_0)\)</span>, then <span class="math inline">\(K_j\)</span> is obtained from <span class="math inline">\(K_0\)</span> by a rotation about <span class="math inline">\(\theta = 0\)</span>, so that the circle <span class="math inline">\(|z| = \rho_j\)</span> intersects <span class="math inline">\(K_j\)</span> in an arc <span class="math inline">\(J_j\)</span> whose projection on <span class="math inline">\(|z| = 1\)</span> from <span class="math inline">\(\theta = 0\)</span> is denoted by <span class="math inline">\(\mathcal{J}_j\)</span> then <span class="math inline">\(|\mathcal{J}_j| = |\mathcal{J}_0|\)</span>, so
-that <span class="math display">\[
-\text{const.}(1 - \rho_j)^{|\mathcal{J}_j|} \leq |\mathcal{J}_j| \leq
-\text{const.}(1 - \rho_j), \quad \text{(14)}
-\]</span> where <span class="math inline">\(\text{const.} &gt;
-0\)</span>.</p>
+that <span class="math display">\[\text{const.}(1 -
+\rho_j)^{|\mathcal{J}_j|} \leq |\mathcal{J}_j| \leq \text{const.}(1 -
+\rho_j), \quad \text{(14)}\]</span> where <span class="math inline">\(\text{const.} &gt; 0\)</span>.</p>
 <p>Since <span class="math inline">\(w \in E_0\)</span>, <span class="math inline">\(\mu(E_0 \cap \mathcal{J}_j) &gt; 0\)</span> by
 (ii) and by the condition (i), if <span class="math inline">\(\delta
-&gt; 0\)</span> is sufficiently small, then <span class="math display">\[
-|\theta_1 - \theta_2| &gt; \eta \mod 2\pi, \quad \text{for } \theta_1
-\in \mathcal{J}_j, \theta_2 \in \mathcal{J}_j \cap [0, \delta].
-\]</span></p>
+&gt; 0\)</span> is sufficiently small, then <span class="math display">\[|\theta_1 - \theta_2| &gt; \eta \mod 2\pi, \quad
+\text{for } \theta_1 \in \mathcal{J}_j, \theta_2 \in \mathcal{J}_j \cap
+[0, \delta].\]</span></p>
 <p>Hence, by (iv), for any <span class="math inline">\(\theta_2 \in
-\mathcal{J}_j \cap [0, \delta]\)</span>, we have <span class="math display">\[
-1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for } z \in E_0, w \in
-S_2\mathcal{E}_+(\theta_2).
-\]</span></p>
+\mathcal{J}_j \cap [0, \delta]\)</span>, we have <span class="math display">\[1 - \varepsilon &lt; u(z, w) &lt; 1 \quad
+\text{for } z \in E_0, w \in S_2\mathcal{E}_+(\theta_2).\]</span></p>
 <p>Now, let <span class="math inline">\(K_j = \bigcup_{i=1}^{N_j}
 K_{j,i}\)</span>, where <span class="math inline">\(K_{j,i} =
 S_{j,i}(K_0)\)</span> and <span class="math inline">\(S_{j,i}\)</span>
@@ -394,23 +378,20 @@ are distinct elements of <span class="math inline">\(G\)</span> for
 there exist <span class="math inline">\(0 &lt; \varphi_1 &lt; \varphi_2
 &lt; \ldots &lt; \varphi_{N_j} &lt; 2\pi\)</span> such that the circle
 <span class="math inline">\(|z| = \rho_j\)</span> intersects <span class="math inline">\(K_j\)</span> in a set of arcs <span class="math inline">\(J_{j,i}\)</span> (for $ i = 1, 2, , N_j $).</p>
-<p>By (14), we have <span class="math display">\[
-\text{const.}(1 - \rho_j)^{|\mathcal{J}_{j,i}|} \leq |\mathcal{J}_{j,i}|
-\leq \text{const.}(1 - \rho_j),
-\]</span> where <span class="math inline">\(|\mathcal{J}_{j,i}|\)</span>
-is the length of <span class="math inline">\(J_{j,i}\)</span>.</p>
+<p>By (14), we have <span class="math display">\[\text{const.}(1 -
+\rho_j)^{|\mathcal{J}_{j,i}|} \leq |\mathcal{J}_{j,i}| \leq
+\text{const.}(1 - \rho_j),\]</span> where <span class="math inline">\(|\mathcal{J}_{j,i}|\)</span> is the length of
+<span class="math inline">\(J_{j,i}\)</span>.</p>
 <p>Since <span class="math inline">\(E_0\)</span> is invariant by <span class="math inline">\(S\)</span>, <span class="math inline">\(\mu(E_0
 \cap \mathcal{J}_{j,i}) &gt; 0\)</span> for each <span class="math inline">\(i = 1, 2, \ldots, N_j\)</span>.</p>
 <p>Let <span class="math inline">\(\delta &gt; 0\)</span> be
 sufficiently small, then by the conditions (i) and (ii), for <span class="math inline">\(\theta_1 \in \mathcal{J}_{j,i}\)</span> and <span class="math inline">\(\theta_2 \in \mathcal{J}_{j,i} \cap [0,
-\delta]\)</span>, we have <span class="math display">\[
-|\theta_1 - \theta_2| &gt; \eta \mod 2\pi.
-\]</span></p>
+\delta]\)</span>, we have <span class="math display">\[|\theta_1 -
+\theta_2| &gt; \eta \mod 2\pi.\]</span></p>
 <p>Hence, by (iv), for any <span class="math inline">\(\theta_2 \in
-\mathcal{J}_{j,i} \cap [0, \delta]\)</span>, we have <span class="math display">\[
-1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for } z \in E_0, w \in
-S_{j,i}(\mathcal{E}_+(\theta_2)).
-\]</span></p>
+\mathcal{J}_{j,i} \cap [0, \delta]\)</span>, we have <span class="math display">\[1 - \varepsilon &lt; u(z, w) &lt; 1 \quad
+\text{for } z \in E_0, w \in
+S_{j,i}(\mathcal{E}_+(\theta_2)).\]</span></p>
 <p>Now, let <span class="math inline">\(\delta &gt; 0\)</span> be
 sufficiently small, so that <span class="math inline">\(S_{j,i}(\mathcal{E}_+(\theta_2))\)</span> is
 contained in a small neighborhood of <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span> for each <span class="math inline">\(i = 1, 2, \ldots, N_j\)</span>.</p>
@@ -419,39 +400,31 @@ these neighborhoods, i.e., <span class="math inline">\(V_{j,i} =
 \bigcup_{k=1}^{N_{j,i}} S_{j,i,k}(\mathcal{E}_+(\theta_2))\)</span>,
 where <span class="math inline">\(S_{j,i,k}\)</span> are distinct
 elements of <span class="math inline">\(G\)</span> for <span class="math inline">\(k = 1, 2, \ldots, N_{j,i}\)</span>.</p>
-<p>By the conditions (iv) and (v), we have <span class="math display">\[
-1 - \varepsilon &lt; u(z, w) &lt; 1 \quad \text{for } z \in E_0, w \in
-V_{j,i}.
-\]</span></p>
+<p>By the conditions (iv) and (v), we have <span class="math display">\[1 - \varepsilon &lt; u(z, w) &lt; 1 \quad
+\text{for } z \in E_0, w \in V_{j,i}.\]</span></p>
 <p>Now, for any <span class="math inline">\(y &gt; 0\)</span>, let <span class="math inline">\(M_{j,i,y}\)</span> be the measure of the set <span class="math inline">\(E_0 \cap \{ \theta_1 : \mu(\theta_1 \notin [0,
-\delta] \cap E_0) &gt; y \}\)</span>, then <span class="math display">\[
-M_{j,y} = \sum_{i=1}^{N_j} M_{j,i,y} = \lim_{\delta \to 0} \mu(E_0 \cap
-\{ \theta_1 : \mu(\theta_1 \notin [0, \delta] \cap E_0) &gt; y \}).
-\]</span></p>
+\delta] \cap E_0) &gt; y \}\)</span>, then <span class="math display">\[M_{j,y} = \sum_{i=1}^{N_j} M_{j,i,y} =
+\lim_{\delta \to 0} \mu(E_0 \cap \{ \theta_1 : \mu(\theta_1 \notin [0,
+\delta] \cap E_0) &gt; y \}).\]</span></p>
 <p>Since <span class="math inline">\(\delta &gt; 0\)</span> is
-arbitrary, we can conclude that <span class="math display">\[
-M_{j,y} = \infty \quad \text{for any } y &gt; 0. \quad (16)
-\]</span></p>
+arbitrary, we can conclude that <span class="math display">\[M_{j,y} =
+\infty \quad \text{for any } y &gt; 0. \quad (16)\]</span></p>
 <p>Now, let <span class="math inline">\(M_y = \lim_{j \to \infty}
-M_{j,y}\)</span>, then by (16), we have <span class="math display">\[
-M_y = \infty \quad \text{for any } y &gt; 0. \quad (17)
-\]</span></p>
-<p>Next, we consider the set <span class="math display">\[
-A_y = \bigcup_{j=1}^{\infty} \left( E_0 \cap \{ \theta_1 : \mu(\theta_1
-\notin [0, \delta] \cap E_0) &gt; y \} \right).
-\]</span></p>
-<p>By (17), we have <span class="math display">\[
-\mu(A_y) = \infty \quad \text{for any } y &gt; 0. \quad (18)
-\]</span></p>
+M_{j,y}\)</span>, then by (16), we have <span class="math display">\[M_y
+= \infty \quad \text{for any } y &gt; 0. \quad (17)\]</span></p>
+<p>Next, we consider the set <span class="math display">\[A_y =
+\bigcup_{j=1}^{\infty} \left( E_0 \cap \{ \theta_1 : \mu(\theta_1 \notin
+[0, \delta] \cap E_0) &gt; y \} \right).\]</span></p>
+<p>By (17), we have <span class="math display">\[\mu(A_y) = \infty \quad
+\text{for any } y &gt; 0. \quad (18)\]</span></p>
 <p>Now, let <span class="math inline">\(B_y = \bigcap_{n=1}^{\infty}
 A_{1/n}\)</span>, then <span class="math inline">\(B_y\)</span> is a
 subset of $ E_0 $ where <span class="math inline">\(\mu(\theta_1 \notin
 [0, \delta] \cap E_0) = 0\)</span> for any <span class="math inline">\(\delta &gt; 0\)</span>.</p>
-<p>By (iii), we have <span class="math display">\[
-\lim u(z, w) = 1 \quad \text{uniformly on } E_0, \text{ when } z \to
-e^{i\theta_1}, w \to e^{i\theta_2} \text{ from the inside of }
-\mathcal{E}_+(\theta_1), \mathcal{E}_+(\theta_2) \text{ respectively}.
-\]</span></p>
+<p>By (iii), we have <span class="math display">\[\lim u(z, w) = 1 \quad
+\text{uniformly on } E_0, \text{ when } z \to e^{i\theta_1}, w \to
+e^{i\theta_2} \text{ from the inside of } \mathcal{E}_+(\theta_1),
+\mathcal{E}_+(\theta_2) \text{ respectively}.\]</span></p>
 <p>This implies that for any <span class="math inline">\(\epsilon &gt;
 0\)</span>, there exists a <span class="math inline">\(\delta &gt;
 0\)</span> such that if <span class="math inline">\(z \in E_0\)</span>
@@ -469,25 +442,19 @@ that if <span class="math inline">\(z \in E_0\)</span> and <span class="math inl
 <p>Therefore, <span class="math inline">\(B_y\)</span> is a subset of
 <span class="math inline">\(E_0\)</span> where <span class="math inline">\(u(z, w) \neq 0\)</span> for all <span class="math inline">\(z \in B_y\)</span> and <span class="math inline">\(w \in \mathcal{E}_+(\theta_2)\)</span> with <span class="math inline">\(|\theta_1 - \theta_2| &lt; \delta\)</span>.</p>
 <p>Since <span class="math inline">\(B_y\)</span> is a subset of <span class="math inline">\(E_0\)</span> and <span class="math inline">\(E_0\)</span> satisfies (iii), we can conclude that
-<span class="math display">\[
-\lim u(z, w) = 1 \quad \text{uniformly on } B_y,
-\]</span> when <span class="math inline">\(z \to e^{i\theta_1}\)</span>
-and <span class="math inline">\(w \to e^{i\theta_2}\)</span> from the
-inside of <span class="math inline">\(\mathcal{E}_+(\theta_1)\)</span>
-and <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span>
-respectively.</p>
+<span class="math display">\[\lim u(z, w) = 1 \quad \text{uniformly on }
+B_y,\]</span> when <span class="math inline">\(z \to
+e^{i\theta_1}\)</span> and <span class="math inline">\(w \to
+e^{i\theta_2}\)</span> from the inside of <span class="math inline">\(\mathcal{E}_+(\theta_1)\)</span> and <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span> respectively.</p>
 <p>Now, consider <span class="math inline">\(\epsilon = 1/2\)</span>,
 there exists <span class="math inline">\(N\)</span> such that for all
 <span class="math inline">\(n &gt; N\)</span>, we have <span class="math inline">\(1/n &lt; \epsilon\)</span>.</p>
 <p>This implies that <span class="math inline">\(B_y\)</span> is a
-subset of <span class="math inline">\(E_0\)</span> where <span class="math display">\[
-\lim u(z, w) = 1 \quad \text{uniformly on } B_y,
-\]</span> when <span class="math inline">\(z \to e^{i\theta_1}\)</span>
-and <span class="math inline">\(w \to e^{i\theta_2}\)</span> from the
-inside of <span class="math inline">\(\mathcal{E}_+(\theta_1)\)</span>
-and <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span>
-respectively, for all <span class="math inline">\(\theta_1,
-\theta_2\)</span>.</p>
+subset of <span class="math inline">\(E_0\)</span> where <span class="math display">\[\lim u(z, w) = 1 \quad \text{uniformly on }
+B_y,\]</span> when <span class="math inline">\(z \to
+e^{i\theta_1}\)</span> and <span class="math inline">\(w \to
+e^{i\theta_2}\)</span> from the inside of <span class="math inline">\(\mathcal{E}_+(\theta_1)\)</span> and <span class="math inline">\(\mathcal{E}_+(\theta_2)\)</span> respectively, for
+all <span class="math inline">\(\theta_1, \theta_2\)</span>.</p>
 <p>Hence, <span class="math inline">\(u(z, w) = 1\)</span> on <span class="math inline">\(B_y\)</span> for all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span>.</p>
 <p>Now, let <span class="math inline">\(A\)</span> be the complement of
 <span class="math inline">\(B_y\)</span> in <span class="math inline">\(E_0\)</span>, then <span class="math inline">\(\mu(A) = 0\)</span>.</p>
@@ -495,9 +462,8 @@ respectively, for all <span class="math inline">\(\theta_1,
 for almost all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in <span class="math inline">\(E_0\)</span>.</p>
 <p>Since <span class="math inline">\(E_0\)</span> is invariant by <span class="math inline">\(S\)</span> and <span class="math inline">\(u(z,
 w)\)</span> is invariant by <span class="math inline">\(S\)</span> (as
-shown in (2)), we have <span class="math display">\[
-u(S(z), S(w)) = u(z, w), \quad \text{for } S \in G.
-\]</span></p>
+shown in (2)), we have <span class="math display">\[u(S(z), S(w)) = u(z,
+w), \quad \text{for } S \in G.\]</span></p>
 <p>This means that <span class="math inline">\(u(z, w) = 1\)</span> for
 almost all <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in <span class="math inline">\(S_1
 E_0\)</span>, where <span class="math inline">\(S_1\)</span> is an

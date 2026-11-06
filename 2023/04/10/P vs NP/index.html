@@ -284,9 +284,7 @@ decides <span class="math inline">\(L\)</span> if <span class="math inline">\(M\
 steps taken by <span class="math inline">\(M\)</span>. Its worst-case
 running time on inputs of length <span class="math inline">\(n\)</span>
 is</p>
-<p><span class="math display">\[
-T_M(n)=\max\{t_M(x):x\in\Sigma^n\}.
-\]</span></p>
+<p><span class="math display">\[T_M(n)=\max\{t_M(x):x\in\Sigma^n\}.\]</span></p>
 <p>We say that <span class="math inline">\(M\)</span> runs in polynomial
 time if there is a polynomial <span class="math inline">\(p\)</span>
 such that <span class="math inline">\(T_M(n)\le p(n)\)</span> for every
@@ -295,9 +293,8 @@ such that <span class="math inline">\(T_M(n)\le p(n)\)</span> for every
 <p>Before imposing time bounds, recall the basic obstruction from
 classical recursion theory. Fix an effective encoding of Turing machines
 and inputs by finite strings, and define</p>
-<p><span class="math display">\[
-{\rm HALT}=\{\langle M,x\rangle:M\text{ eventually halts on input }x\}.
-\]</span></p>
+<p><span class="math display">\[{\rm HALT}=\{\langle M,x\rangle:M\text{
+eventually halts on input }x\}.\]</span></p>
 <h3 id="main-theorem">Main Theorem</h3>
 <p>There is no Turing machine that decides HALT.</p>
 <h3 id="proof">Proof</h3>
@@ -323,9 +320,8 @@ the correctness of <span class="math inline">\(H\)</span>.</p>
 <p>A language <span class="math inline">\(L\)</span> belongs to <span class="math inline">\(\mathbf P\)</span> if there exists a deterministic
 Turing machine <span class="math inline">\(M\)</span> and a polynomial
 <span class="math inline">\(p\)</span> such that <span class="math inline">\(M\)</span> decides <span class="math inline">\(L\)</span> and halts on every input <span class="math inline">\(x\)</span> within at most <span class="math inline">\(p(|x|)\)</span> steps. Equivalently,</p>
-<p><span class="math display">\[
-\mathbf P=\{L:L\text{ is decidable in deterministic polynomial time}\}.
-\]</span></p>
+<p><span class="math display">\[\mathbf P=\{L:L\text{ is decidable in
+deterministic polynomial time}\}.\]</span></p>
 <p>Thus <span class="math inline">\(\mathbf{P}\)</span> consists of
 decision problems for which a solution can be found efficiently.</p>
 <h2 id="the-class-mathbfnp">The Class <span class="math inline">\(\mathbf{NP}\)</span></h2>
@@ -336,10 +332,8 @@ decision problems for which a solution can be found efficiently.</p>
 belongs to <span class="math inline">\(\mathbf{NP}\)</span> if there
 exist a polynomial <span class="math inline">\(p\)</span> and a
 deterministic polynomial-time Turing machine <span class="math inline">\(V\)</span> such that, for every <span class="math inline">\(x\in\Sigma^*\)</span>,</p>
-<p><span class="math display">\[
-x\in L\iff \exists y\in\Sigma^*\bigl(|y|\le p(|x|)\text{ and
-}V(x,y)=1\bigr).
-\]</span></p>
+<p><span class="math display">\[x\in L\iff \exists
+y\in\Sigma^*\bigl(|y|\le p(|x|)\text{ and }V(x,y)=1\bigr).\]</span></p>
 <p>The string <span class="math inline">\(y\)</span> is called a
 certificate** or witness, and <span class="math inline">\(V\)</span> is
 called a verifier.</p>
@@ -350,9 +344,8 @@ efficiently, provided that the certificate has polynomial length.</p>
 automatically in <span class="math inline">\(\mathbf{NP}\)</span>.
 Indeed, if <span class="math inline">\(M\)</span> decides <span class="math inline">\(L\)</span> in polynomial time, the verifier may
 simply ignore the certificate and run <span class="math inline">\(M\)</span>. Hence</p>
-<p><span class="math display">\[
-\mathbf P\subseteq\mathbf{NP}.
-\]</span></p>
+<p><span class="math display">\[\mathbf
+P\subseteq\mathbf{NP}.\]</span></p>
 <p>The difficulty is whether the reverse inclusion also holds.</p>
 <h2 id="polynomial-time-reductions">Polynomial-Time Reductions</h2>
 <p>To formulate <span class="math inline">\(\mathbf{NP}\)</span>-hardness, we need a
@@ -362,9 +355,7 @@ resource-bounded notion of reducibility.</p>
 that <span class="math inline">\(A\)</span> is polynomial-time many-one
 reducible to <span class="math inline">\(B\)</span>, written <span class="math inline">\(A\le_m^P B\)</span>, if there exists a
 polynomial-time computable function <span class="math inline">\(f:\Sigma^*\to\Gamma^*\)</span> such that</p>
-<p><span class="math display">\[
-x\in A\iff f(x)\in B
-\]</span></p>
+<p><span class="math display">\[x\in A\iff f(x)\in B\]</span></p>
 <p>for every <span class="math inline">\(x\in\Sigma^*\)</span>.</p>
 <p>Intuitively, an efficient algorithm for <span class="math inline">\(B\)</span> would then give an efficient algorithm
 for <span class="math inline">\(A\)</span> after the polynomial-time
@@ -373,24 +364,19 @@ preprocessing <span class="math inline">\(x\mapsto f(x)\)</span>.</p>
 <h3 id="definition-4">Definition 4</h3>
 <p>A language <span class="math inline">\(H\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-hard if every language in
 <span class="math inline">\(\mathbf{NP}\)</span> reduces to <span class="math inline">\(H\)</span> in polynomial time:</p>
-<p><span class="math display">\[
-\forall L\in\mathbf{NP},\qquad L\le_m^P H.
-\]</span></p>
+<p><span class="math display">\[\forall L\in\mathbf{NP},\qquad L\le_m^P
+H.\]</span></p>
 <p>Notice that an <span class="math inline">\(\mathbf{NP}\)</span>-hard
 language need not itself belong to <span class="math inline">\(\mathbf{NP}\)</span>. In particular, the
 definition alone does not require <span class="math inline">\(H\)</span>
 to have polynomially verifiable certificates.</p>
 <h3 id="definition-5">Definition 5</h3>
 <p>A language <span class="math inline">\(C\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-complete if</p>
-<p><span class="math display">\[
-C\in\mathbf{NP}
-\]</span></p>
+<p><span class="math display">\[C\in\mathbf{NP}\]</span></p>
 <p>and <span class="math inline">\(C\)</span> is <span class="math inline">\(\mathbf{NP}\)</span>-hard. Equivalently,</p>
-<p><span class="math display">\[
-C\in\mathbf{NP}
+<p><span class="math display">\[C\in\mathbf{NP}
 \quad\text{and}\quad
-\forall L\in\mathbf{NP},\ L\le_m^P C.
-\]</span></p>
+\forall L\in\mathbf{NP},\ L\le_m^P C.\]</span></p>
 <p>Thus an <span class="math inline">\(\mathbf{NP}\)</span>-complete
 language is, in the sense of polynomial-time reductions, at least as
 hard as every problem in <span class="math inline">\(\mathbf{NP}\)</span>, while still lying inside
@@ -406,10 +392,8 @@ P\subseteq\mathbf{NP}\)</span> is immediate, the statement <span class="math inl
 that every language with polynomially verifiable certificates is itself
 decidable by a deterministic polynomial-time Turing machine.</p>
 <p>Equivalently,</p>
-<p><span class="math display">\[
-\forall L\subseteq\Sigma^*,\qquad
-L\in\mathbf{NP}\Longrightarrow L\in\mathbf P.
-\]</span></p>
+<p><span class="math display">\[\forall L\subseteq\Sigma^*,\qquad
+L\in\mathbf{NP}\Longrightarrow L\in\mathbf P.\]</span></p>
 <p>Written out using the verifier definition, <span class="math inline">\(\mathbf{P}=\mathbf{NP}\)</span> asserts</p>
 <blockquote>
 <p>For every language <span class="math inline">\(L\)</span> for which
@@ -440,9 +424,8 @@ automatically belongs to <span class="math inline">\(\mathbf{P}\)</span>.</p>
 <p>Accordingly, the <span class="math inline">\(\mathbf{P}\)</span>
 versus <span class="math inline">\(\mathbf{NP}\)</span> problem asks
 whether</p>
-<p><span class="math display">\[
-\boxed{\mathbf P\stackrel{?}{=}\mathbf{NP}}.
-\]</span></p>
+<p><span class="math display">\[\boxed{\mathbf
+P\stackrel{?}{=}\mathbf{NP}}.\]</span></p>
 <p>If <span class="math inline">\(\mathbf{P}\neq\mathbf{NP}\)</span>,
 then there exists at least one language in <span class="math inline">\(\mathbf{NP}\)</span> that admits polynomially
 checkable certificates but no deterministic polynomial-time decision

@@ -278,9 +278,8 @@ E}|f(x)|\)</span>.</p>
 <p><a id="theorem-rmk"></a></p>
 <h2 id="theorem-1">Theorem 1</h2>
 <p>Every positive continuous linear functional <span class="math inline">\(\ell\)</span> on the Banach space <span class="math inline">\(C\)</span> can be represented as</p>
-<p><span class="math display">\[
-\ell(f) = \int_{E} f(x)\mu(dx), \tag{*}
-\]</span></p>
+<p><span class="math display">\[\ell(f) = \int_{E} f(x)\mu(dx),
+\tag{*}\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span> is a Borel measure on
 <span class="math inline">\(E\)</span> with finite total variation.</p>
 <p><a id="lemma-pu"></a></p>
@@ -317,10 +316,8 @@ Since <span class="math inline">\(\{V_1,\dots,V_n\}\)</span> covers
 <h3 id="step-1">Step 1</h3>
 <p>Define for any open set <span class="math inline">\(O \in
 \mathscr{O}\)</span>,</p>
-<p><span class="math display">\[
-\mu(O) = \sup \left\{\ell(f):f\in C, 0 \le f \le 1,
-\operatorname{supp}(f) \subset O\right\}.
-\]</span></p>
+<p><span class="math display">\[\mu(O) = \sup \left\{\ell(f):f\in C, 0
+\le f \le 1, \operatorname{supp}(f) \subset O\right\}.\]</span></p>
 <p>By the Urysohn lemma, this set on the RHS is non-empty. We need to
 show that</p>
 <p><strong>1.1.</strong> <span class="math inline">\(\mu(\cup_n O_n) =
@@ -337,9 +334,8 @@ monotonicity of the supremum.</p>
 <h3 id="step-2">Step 2</h3>
 <p>Define for any subset <span class="math inline">\(A \in
 2^E\)</span>,</p>
-<p><span class="math display">\[
-\mu^*(A) = \inf \left\{\mu(O): O \in \mathscr{O}, A \subset O \right\}.
-\]</span></p>
+<p><span class="math display">\[\mu^*(A) = \inf \left\{\mu(O): O \in
+\mathscr{O}, A \subset O \right\}.\]</span></p>
 <p>We need to show that</p>
 <h3 id="claim-2.1">Claim 2.1</h3>
 <p><span class="math inline">\(\mu^*(\cup_n A_n) \le \sum_{n}
@@ -383,10 +379,9 @@ F\)</span>, and <span class="math inline">\(\ell(g_2) &gt; \mu(O
 \operatorname{supp}(g_2) = \emptyset\)</span>, we have <span class="math inline">\(0 \le g_1 + g_2 \le 1\)</span> and <span class="math inline">\(\operatorname{supp}(g_1 + g_2) \subset O\)</span>.
 By the linearity of <span class="math inline">\(\ell\)</span> and the
 definition of <span class="math inline">\(\mu(O)\)</span>,</p>
-<p><span class="math display">\[
-\mu(O) \ge \ell(g_1 + g_2) = \ell(g_1) + \ell(g_2) &gt; \mu^*(O \cap F)
-+ \mu(O \backslash F) - 2\varepsilon.
-\]</span></p>
+<p><span class="math display">\[\mu(O) \ge \ell(g_1 + g_2) = \ell(g_1) +
+\ell(g_2) &gt; \mu^*(O \cap F) + \mu(O \backslash F) -
+2\varepsilon.\]</span></p>
 <p>As <span class="math inline">\(\varepsilon \to 0\)</span>, we obtain
 <span class="math inline">\(\mu^*(A) \ge \mu^*(A \cap F) + \mu^*(A
 \backslash F)\)</span>. Thus <span class="math inline">\(F \in
@@ -406,16 +401,13 @@ By <a href="#lemma-pu">Lemma 1</a>, there exists a partition of unity
 <span class="math inline">\(\{h_1, \dots, h_m\}\)</span> subordinate to
 <span class="math inline">\(\{E_i\}\)</span>. Since <span class="math inline">\(f = \sum_{i=1}^m f h_i\)</span> and <span class="math inline">\((y_{i-1} - \delta )h_i(x) \le f(x) h_i(x) \le (y_i
 + \delta)h_i(x)\)</span>, applying <span class="math inline">\(\ell\)</span> yields</p>
-<p><span class="math display">\[
-\sum_{i=1}^m (y_{i-1} - \delta)\ell(h_i) \le \ell(f) \le \sum_{i=1}^m
-(y_i + \delta)\ell(h_i).
-\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^m (y_{i-1} - \delta)\ell(h_i)
+\le \ell(f) \le \sum_{i=1}^m (y_i + \delta)\ell(h_i).\]</span></p>
 <p>Integrating with respect to <span class="math inline">\(\mu\)</span>
 yields identical bounds</p>
-<p><span class="math display">\[
-\sum_{i=1}^m (y_{i-1} - \delta)\int_E h_i(x)\mu(dx) \le \int_E
-f(x)\mu(dx) \le \sum_{i=1}^m (y_i + \delta)\int_E h_i(x)\mu(dx).
-\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^m (y_{i-1} - \delta)\int_E
+h_i(x)\mu(dx) \le \int_E f(x)\mu(dx) \le \sum_{i=1}^m (y_i +
+\delta)\int_E h_i(x)\mu(dx).\]</span></p>
 <p>By the construction of <span class="math inline">\(\mu\)</span> on
 open sets, <span class="math inline">\(\ell(h_i) = \int_E
 h_i(x)\mu(dx)\)</span>. Because <span class="math inline">\(y_i -
@@ -463,8 +455,7 @@ satisfying <span class="math inline">\(0\leq g\leq f_1+f_2\)</span>, we
 obtain <span class="math inline">\(\ell^+(f_1+f_2)\leq\ell^+(f_1)+\ell^+(f_2).\)</span>
 Therefore, <span class="math inline">\(\ell^+(f_1+f_2)=\ell^+(f_1)+\ell^+(f_2).\)</span></p>
 <p>It remains to verify positive homogeneity. Let <span class="math inline">\(c\geq 0\)</span>. If <span class="math inline">\(c=0\)</span>, the assertion is immediate. If <span class="math inline">\(c&gt;0\)</span>, then every <span class="math inline">\(g\)</span> satisfying <span class="math inline">\(0\leq g\leq cf\)</span> can be written as <span class="math inline">\(g=ch\)</span> for some <span class="math inline">\(h\)</span> satisfying <span class="math inline">\(0\leq h\leq f\)</span>. Hence,</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{aligned}
 \ell^+(cf)
 &amp; =
 \sup\{\ell(g):0\leq g\leq cf\}
@@ -474,8 +465,7 @@ Therefore, <span class="math inline">\(\ell^+(f_1+f_2)=\ell^+(f_1)+\ell^+(f_2).\
 c\sup\{\ell(h):0\leq h\leq f\}
 =
 c\ell^+(f).
-\end{aligned}
-\]</span></p>
+\end{aligned}\]</span></p>
 <p>Thus, <span class="math inline">\(\ell^+\)</span> is additive and
 positively homogeneous on <span class="math inline">\(C^+\)</span>.</p>
 <p>To prove 1.2, let <span class="math inline">\(f\in C\)</span>. Since
@@ -488,8 +478,7 @@ decomposition. Let <span class="math inline">\(f,g\in C\)</span>. Choose
 decompositions <span class="math inline">\(f=f_1-f_2,
 g=g_1-g_2,\)</span> with <span class="math inline">\(f_i,g_i\in
 C^+\)</span>. Then <span class="math inline">\(f+g=(f_1+g_1)-(f_2+g_2),\)</span> and hence</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{aligned}
 \ell^+(f+g)
 &amp; =
 \ell^+(f_1+g_1)-\ell^+(f_2+g_2)\\
@@ -498,8 +487,7 @@ C^+\)</span>. Then <span class="math inline">\(f+g=(f_1+g_1)-(f_2+g_2),\)</span>
 -\ell^+(f_2)-\ell^+(g_2)\\
 &amp;=
 \ell^+(f)+\ell^+(g).
-\end{aligned}
-\]</span></p>
+\end{aligned}\]</span></p>
 <p>Similarly, if <span class="math inline">\(c\geq 0\)</span>, then
 <span class="math inline">\(cf=cf_1-cf_2,\)</span> so <span class="math inline">\(\ell^+(cf)=c\ell^+(f).\)</span> If <span class="math inline">\(c&lt;0\)</span>, then <span class="math inline">\(cf=(-c)f_2-(-c)f_1,\)</span> and therefore <span class="math inline">\(\ell^+(cf)=c\ell^+(f).\)</span> Thus, <span class="math inline">\(\ell^+\)</span> extends uniquely to a linear
 functional on <span class="math inline">\(C\)</span>. Since <span class="math inline">\(\ell^+(f)\geq 0\)</span> whenever <span class="math inline">\(f\in C^+\)</span>, this extension is positive.</p>
@@ -519,8 +507,7 @@ positivity, <span class="math inline">\(-|f|\ell^+(\mathbf
 Borel measures <span class="math inline">\(\mu^+\)</span> and <span class="math inline">\(\mu^-\)</span> on <span class="math inline">\(E\)</span> such that <span class="math inline">\(\ell^+(f)=\int_E f(x),\mu^+(dx)\)</span> and <span class="math inline">\(\ell^-(f)=\int_E f(x),\mu^-(dx)\)</span> for every
 <span class="math inline">\(f\in C\)</span>. Define <span class="math inline">\(\mu=\mu^+-\mu^-.\)</span> Then <span class="math inline">\(\mu\)</span> is a signed Borel measure, and for
 every <span class="math inline">\(f\in C\)</span>,</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{aligned}
 \ell(f)
 =
 \ell^+(f)-\ell^-(f)
@@ -528,8 +515,7 @@ every <span class="math inline">\(f\in C\)</span>,</p>
 \int_E f(x)\mu^+(dx)-
 \int_E f(x)\mu^-(dx)=
 \int_E f(x)\mu(dx).
-\end{aligned}
-\]</span></p>
+\end{aligned}\]</span></p>
 <p>Furthermore, <span class="math inline">\(|\mu|(E)\leq\mu^+(E)+\mu^-(E)&lt;\infty.\)</span>
 Hence, <span class="math inline">\(\mu\)</span> has finite total
 variation. <span class="math inline">\(\square\)</span></p>
@@ -538,10 +524,9 @@ means any open covering has a locally finite refinement that is also an
 open covering. In such a space, we have a similar proposition. Let’s
 denote all bounded continuous functions on <span class="math inline">\(E′\)</span> as <span class="math inline">\(C′ =
 C_0(E′)\)</span> where</p>
-<p><span class="math display">\[
-C_0(E&#39;) = \{\forall \varepsilon&gt;0 \exists K \Subset E&#39; \text{
-such that } |f(x)|&lt;\varepsilon \text{ for all }x \notin K.\}
-\]</span></p>
+<p><span class="math display">\[C_0(E&#39;) = \{\forall \varepsilon&gt;0
+\exists K \Subset E&#39; \text{ such that } |f(x)|&lt;\varepsilon \text{
+for all }x \notin K.\}\]</span></p>
 <p><a id="theorem-rmk-3"></a></p>
 <h2 id="theorem-3">Theorem 3</h2>
 <p>Every continuous linear functional on <span class="math inline">\(C&#39;\)</span> has a representation (*), where
