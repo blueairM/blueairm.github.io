@@ -76,7 +76,7 @@ Email: [nakeryang@gmail.com](nakeryang@gmail.com)
 
 ## News
 
-We plan to organize an online seminar in *Integral Geometry and Special Function*, sceduled in August, 31, 2026. Invited speakers will present their related works around this field. For more information, see our previous 2025 [senimar](/seminar/Continuous Logic and Free Probability).
+We plan to organize an online seminar in *Integral Geometry and Special Function*, sceduled in August, 31, 2026. Invited speakers will present their related works around this field. For more information, click [here](/seminar/Integral Geometry and Special Function).
 
 
 

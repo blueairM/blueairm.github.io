@@ -3,3 +3,4 @@ public/
 .deploy_git/
 *.swp
 .DS_Store
+db.json

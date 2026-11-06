@@ -108,7 +108,7 @@ theme: Chic
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy: 
   type: git
-  repository: git@github.com:blueairM/blueairm.github.io.git
+  repository: https://github.com/blueairM/blueairm.github.io.git
   branch: master
 
 ## archer 2023/03/22

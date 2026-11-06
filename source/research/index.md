@@ -41,7 +41,7 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 
 [5] H.-M. Wang. On the distribution of the matrix ratio. 2025. Submitted.
 
-[6] K. Shimizu and H.-M. Wang. A determinantal representation of the joint distribution of top k principal eigenvectors. 前k個の主成分向量の結合密度の行列式表現. 2026. Preprint.
+[6] K. Shimizu and H.-M. Wang. A determinantal representation of the joint distribution of top k principal eigenvectors. 前k個の主成分向量の結合密度の行列式表現. 2026. Submitted.
 
 [7] H.-M. Wang. Saturation and isomorphism of abstract harmonic spaces. Prepirnt
 
@@ -54,16 +54,20 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 |Date|Name|Details|Notes|
 |--------|-------------|---------------|----|
 |2026/03-2026/07|*Markov Process*|Undergraduate seminar|[MP1]()| 
-|2026/09-2027/01| *Symmetric Function*|Graduate course|[PC1]()| 
+|2026/09-2027/01| *Symmetric Function*|Graduate course|[PC1](https://blueairm.github.io/research/pdf/Special_Function.pdf)| 
 |TBA|*Multivariate Analysis*|Undergraduate seminar|[MS1]()| 
 
 ## Notes
 
-- [Zonal polynomial]()
+- [Zonal polynomial](https://blueairm.github.io/research/pdf/Special_Function.pdf)
+
+- [Matrix Jacobians](https://blueairm.github.io/research/pdf/A_note_on_matrix_Jacobians.pdf)
 
 - [Probabilistic Methods in Combinatorics](https://blueairm.github.io/research/pdf/Probabilistic_Methods_in_Combinatorics.pdf)
 
 - [Introduction to Stability Theory](https://blueairm.github.io/research/pdf/Stability_Theory.pdf)
+
+- [福克表象](https://blueairm.github.io/research/pdf/qm1120.pdf)
 
 ## Books
 

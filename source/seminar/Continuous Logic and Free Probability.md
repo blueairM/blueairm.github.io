@@ -1,7 +1,7 @@
 ---
 title: Continuous Logic and Free Probability
 layout: semiar
-date: 2024-01-30 20:52:41
+date: 2025-09-01 00:00:07
 sticky: 100
 top: true
 mathjax: true
@@ -62,7 +62,7 @@ This work connects to universality in random matrix theory and free probability,
 
 
 
-*The report mainly focused on the indepth discussion of random matrix theory on free sums. It explored the universality in the bulk and special behaviors at the edge. For the edge, analyzing its unique properties precisely, studying the relationship with other regions and how it behaves under Tracy-Widom limits are potential research directions.. -- Xu Yuanyuan*
+*The report mainly focused on the indepth discussion of random matrix theory on free sums. It explored the universality in the bulk and special behaviors at the edge. For the edge, analyzing its unique properties precisely, studying the relationship with other regions and how it behaves under Tracy-Widom limits are potential research directions. -- Xu Yuanyuan*
 
 
 
