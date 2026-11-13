@@ -35,7 +35,7 @@ In this presentation, the connection between recurrence coefficients of classica
 
 *胡洁的报告围绕 Laguerre 型及变形 $q$-Laguerre 权函数，介绍了正交多项式递推系数与离散 Painlevé 方程之间的联系。对于 Laguerre 情形，报告利用 Sakai 几何理论，将相关非线性递推关系化为标准离散 Painlevé 方程。对于变形 $q$-Laguerre 情形，其特色在于揭示次数演化对应于 $A_5^{(1)}$ 型曲面上两个标准离散 Painlevé 动力学的复合。这些工作展示了几何方法在识别递推关系的可积结构、建立不同方程之间显式联系方面的作用。报告最后还介绍了关于八次 (octic) Freud 权的在研工作及阶段性结果。 -- 黄益*
 
-2026/11/07, 10:00 a.m., [Tencent Meeting]()
+2026/11/07, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/N80Q0L0wf7) Password: 2SGD
 
 [Wang Haoming](https://blueairm.github.io/) (NKU) Reviewer: [Xu Chao](https://chao-lyon.github.io/) (NKU)
 
@@ -44,6 +44,8 @@ In this presentation, the connection between recurrence coefficients of classica
 In this paper, the exact joint density of the top $k$ sample eigenvectors is derived for any $p\times p$ population covariance matrix $\varSigma$, sample size $n > p -1$, and $1 \le k \le p$. Using symmetric functions such as zonal polynomials and a dual summation identity by I. G. Macdonald, the result is expressed as a series in terms of determinants of differential operators. A matrix Kummer transformation converts the resulting local alternating expansion into a globally absolutely convergent series over the entire positive definite matrix space. For $k=2$, the ordered eigenvalue integrals reduce to the Gauss hypergeometric function ${}_2F_1$ with a simple closed form when $n=p+1$. Previously, explicit formulas were only available for a scalar matrix $\varSigma = \sigma^2 I_p$ or a general matrix $\varSigma$ with $p=2$ or $k=1$, obtained by T. W. Anderson and T. Sugiyama, respectively. The frame law thereby induces an exact probability density on Grassmannians. This is the joint work with Koki Shimizu.
 
 [arXiv](https://arxiv.org/abs/2609.07028)
+
+*This talk studies the joint distribution of the top k eigenvectors of a Wishart sample covariance matrix in PCA, formulated as an exact density on the Grassmannian of principal subspaces.  Using a Kummer transformation, Selberg integration, and the Pieri rule for Jack polynomials, the density is expressed as a nonnegative series. The series degree has a Poisson interpretation that yields sharp truncation-error bounds and a practical stopping rule. As an application, the exact law calibrates a principal-subspace test at finite sample size, outperforming the Gaussian weighted boostrap benchmark in small samples. -- Xu Chao*
 
 2026/11/20, 10:00 a.m., [Tencent Meeting]()
 
