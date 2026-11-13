@@ -1,4 +1,5 @@
 https://blueairm.github.io/seminar/Integral%20Geometry%20and%20Special%20Function.html
+https://blueairm.github.io/info/index.html
 https://blueairm.github.io/seminar/Continuous%20Logic%20and%20Free%20Probability.html
 https://blueairm.github.io/research/index.html
 https://blueairm.github.io/seminar/index.html
@@ -9,7 +10,6 @@ https://blueairm.github.io/2026/08/02/Frobenius.%20Wedderburn%20and%20Hurwitz/
 https://blueairm.github.io/2026/07/26/Sobolev%20Space/
 https://blueairm.github.io/2024/11/13/Henkin%E2%80%98s%20Theorem/
 https://blueairm.github.io/2026/01/07/Grassmanian/
-https://blueairm.github.io/info/index.html
 https://blueairm.github.io/category/index.html
 https://blueairm.github.io/2023/04/04/The%20Discovery%20of%20Neptune/
 https://blueairm.github.io/2024/11/17/A%20Letter%20to%20Mr.%20Lei%20Yunhai/
