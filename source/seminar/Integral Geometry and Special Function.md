@@ -47,15 +47,18 @@ In this paper, the exact joint density of the top $k$ sample eigenvectors is der
 
 *This talk studies the joint distribution of the top k eigenvectors of a Wishart sample covariance matrix in PCA, formulated as an exact density on the Grassmannian of principal subspaces.  Using a Kummer transformation, Selberg integration, and the Pieri rule for Jack polynomials, the density is expressed as a nonnegative series. The series degree has a Poisson interpretation that yields sharp truncation-error bounds and a practical stopping rule. As an application, the exact law calibrates a principal-subspace test at finite sample size, outperforming the Gaussian weighted boostrap benchmark in small samples. -- Xu Chao*
 
-2026/11/20, 10:00 a.m., [Tencent Meeting]()
+2026/11/20, 10:00 a.m., [Tencent Meeting](https://meeting.tencent.com/crm/l5QrWXDe8b)   Password: GGOO
 
-[Zhang Jiyuan](https://jiyuanzhangmath.github.io/) (SCUT) Reviewer: Haoming Wang (NKU)
+[Zhang Jiyuan](https://jiyuanzhangmath.github.io/) (SCUT) Reviewer: [Wang Dong](https://www.wangd-math.xyz/) (CAS)
 
 **Biorthogonal ensembles of derivative type** 
 
 We prove that biorthogonal ensembles on the real line with a specific derivative structure admit an explicit correlation kernel of double contour integral form. We will demonstrate that this expression is a valuable starting point for asymptotic analysis and that our class of biorthogonal ensembles admits a large variety of limit kernels, by proving that two new classes of limit kernels can occur. The first type is a deformation of the hard edge Bessel kernel which arises in polynomial ensembles describing the eigenvalues of the sum of two random matrices, while the second type arises for Muttalib-Borodin type deformations of polynomial ensembles.
 
-[arXiv](https://arxiv.org/abs/2601.18427)
+[Article](https://academic.oup.com/imrn/article-abstract/2026/22/rnag271/9045729) 
+
+
+*This talk introduces a novel class of biorthogonal ensembles of derivative type that unifies additive and multiplicative derivatives, including GUE, LUE, JUE with possible external sources. Two new classes of limiting kernels, arising from deformations of the hard-edge Bessel kernel and Muttalib--Borodin type ensembles, are obtained via double contour integrals of the correlation kernels. A promising direction for further research is to establish a sharp Schwartz estimate that accommodates more general kernels. -- Wang Haoming*
 
 2026/12/04, 10:00 a.m., [Tencent Meeting]()
 

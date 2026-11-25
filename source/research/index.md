@@ -20,7 +20,7 @@ My research interests are naive set theory, multivariate statistics, probability
 
 # Publications
 
-Thesis: Matrix Distribution under Classical Group Actions, 2025 [en](https://arxiv.org/abs/2505.00470) <span style="font-family: 楷体_GB2312;">典型群作用下的矩阵分布</span>, 2025 [ch](https://blueairm.github.io/research/pdf/21110588_王浩铭.pdf)
+Thesis: Matrix Distribution under Classical Group Actions, 2025 [en](https://arxiv.org/abs/2505.00470v1) <span style="font-family: 楷体_GB2312;">典型群作用下的矩阵分布</span>, 2025 [ch](https://blueairm.github.io/research/pdf/21110588_王浩铭.pdf)
 
 
 ## Preprints
@@ -41,9 +41,9 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 
 [5] H.-M. Wang. On the distribution of the matrix ratio. 2025. Submitted.
 
-[6] K. Shimizu and H.-M. Wang. A determinantal representation of the joint distribution of top k principal eigenvectors. 前k個の主成分向量の結合密度の行列式表現. 2026. Submitted.
+[6] K. Shimizu and H.-M. Wang. The joint distribution of top k eigenvectors in principal component analysis. 前k個の主成分向量の結合密度. 2026. Submitted.
 
-[7] H.-M. Wang. Saturation and isomorphism of abstract harmonic spaces. Prepirnt
+[7] H.-M. Wang. Continuous first-order logic of abstract harmonic spaces. Prepirnt
 
 [8] H.-M. Wang. Martingale problem and quadratic family. Preprint.
 
@@ -53,9 +53,9 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 
 |Date|Name|Details|Notes|
 |--------|-------------|---------------|----|
-|2026/03-2026/07|*Markov Process*|Undergraduate seminar|[MP1]()| 
+|2026/03-2026/07|*Semimartingale and Markov Process*|Undergraduate seminar|[MP1]()| 
 |2026/09-2027/01| *Symmetric Function*|Graduate course|[PC1](https://blueairm.github.io/research/pdf/Special_Function.pdf)| 
-|TBA|*Multivariate Analysis*|Undergraduate seminar|[MS1]()| 
+|TBA|*Multivariate Statistical Analysis*|Undergraduate seminar|[MS1]()| 
 
 ## Notes
 
