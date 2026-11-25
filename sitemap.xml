@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blueairm.github.io/seminar/Integral%20Geometry%20and%20Special%20Function.html</loc>
+    <loc>https://blueairm.github.io/research/index.html</loc>
     
     <lastmod>2026-11-25</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://blueairm.github.io/research/index.html</loc>
+    <loc>https://blueairm.github.io/seminar/Integral%20Geometry%20and%20Special%20Function.html</loc>
     
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -339,14 +339,14 @@
   </url>
   
   <url>
-    <loc>https://blueairm.github.io/tags/Primes/</loc>
+    <loc>https://blueairm.github.io/tags/Diophantine-Functions/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blueairm.github.io/tags/Diophantine-Functions/</loc>
+    <loc>https://blueairm.github.io/tags/Primes/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
