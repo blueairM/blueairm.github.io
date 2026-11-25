@@ -52,7 +52,7 @@ All publications are available on [arXiv](http://arxiv.org/a/wang_h_18).
 # Courses
 
 |Date|Name|Details|Notes|
-|--------|-------------|---------------|----|
+|--------|-----------------|----------|----|
 |2026/03-2026/07|*Semimartingale and Markov Process*|Undergraduate seminar|[MP1]()| 
 |2026/09-2027/01| *Symmetric Function*|Graduate course|[PC1](https://blueairm.github.io/research/pdf/Special_Function.pdf)| 
 |TBA|*Multivariate Statistical Analysis*|Undergraduate seminar|[MS1]()| 
